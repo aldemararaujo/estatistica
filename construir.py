@@ -502,6 +502,15 @@ def construir():
             sequencia.append((cid, cap["titulo"]))
             relatorio.append((str(cap["n"]), cap["titulo"], palavras, existe))
 
+    # rodape de uma linha, repetido em todos os capitulos; a capa tem a ficha
+    rodape_cap = (
+        '<footer class="rodape-cap">'
+        f'Copyright © {html.escape(livro["autor"])}'
+        '<span aria-hidden="true">|</span>'
+        f'Versão {html.escape(livro.get("versao", "1.0"))} · '
+        f'{date.today().strftime("%d/%m/%Y")}'
+        "</footer>")
+
     # navegacao anterior/proximo, injetada no fim de cada capitulo
     for i, (cid, _) in enumerate(sequencia):
         nav = ['<nav class="navega-cap">']
@@ -512,6 +521,8 @@ def construir():
             nav.append(f'<a class="prox" href="#{sequencia[i+1][0]}"><span>Próximo</span>'
                        f'<b>{html.escape(sequencia[i+1][1])}</b></a>')
         nav.append("</nav>")
+        if cid != "capa":
+            nav.append(rodape_cap)
         alvo = f'<article class="capitulo" id="{cid}"'
         for j, painel in enumerate(paineis):
             if painel.startswith(alvo):

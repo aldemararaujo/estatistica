@@ -200,7 +200,9 @@ html[data-tema="escuro"] mark { background: #6b5a1f; color: #fff; }
 }
 .ficha .versao { font-weight: 600; color: var(--tinta); }
 .ficha .autor-ficha { font-size: .95rem; color: var(--tinta); font-weight: 600; margin-bottom: .2rem; }
-.ficha .perfis { display: flex; flex-wrap: wrap; gap: .55rem; align-items: baseline; margin-bottom: .6rem; }
+.ficha .perfis { display: flex; flex-wrap: wrap; gap: .55rem; align-items: baseline;
+  justify-content: center; margin-bottom: .6rem; }
+.ficha .acoes-ficha { margin-top: .6rem; }
 .ficha .perfis a { text-decoration: none; border-bottom: 1px solid var(--linha); }
 .ficha .perfis a:hover { border-bottom-color: var(--realce); }
 .ficha .perfis span { color: var(--linha); }
@@ -669,8 +671,20 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 #capa .cabecalho-cap { border-bottom: 0; }
 #capa h1 { font-size: 2.6rem; }
 .ficha { font-family: var(--sans); font-size: .84rem; color: var(--tinta-fraca);
-  border-top: 1px solid var(--linha); margin-top: 2.5rem; padding-top: 1.2rem; }
+  border-top: 1px solid var(--linha); margin-top: 2.5rem; padding-top: 1.2rem;
+  text-align: center; }
 .ficha p { margin-bottom: .35rem; }
+
+/* ------------------------------------------- rodapé de cada capítulo */
+
+.rodape-cap {
+  max-width: var(--largura); margin: 2.4rem auto 0; padding-top: 1rem;
+  border-top: 1px solid var(--linha);
+  display: flex; justify-content: center; align-items: baseline;
+  flex-wrap: wrap; gap: .6rem;
+  font-family: var(--sans); font-size: .74rem; color: var(--tinta-fraca);
+}
+.rodape-cap span { color: var(--linha); }
 
 /* --------------------------------------------------------- responsivo */
 
@@ -1021,7 +1035,7 @@ tempo. Na esmagadora maioria dos casos, faltam pelo menos dois desses elementos,
   relato, úteis desde o planejamento.</li>
 <li><a href="https://plataformabrasil.saude.gov.br/">Plataforma Brasil</a> — submissão de
   projetos ao sistema CEP/CONEP.</li>
-</ul><nav class="navega-cap"><a href="#capa"><span>Anterior</span><b>Capa</b></a><a class="prox" href="#cap-2"><span>Próximo</span><b>Da dúvida clínica à pergunta respondível</b></a></nav></article><article class="capitulo" id="cap-2" data-titulo="Da dúvida clínica à pergunta respondível" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte I — A pergunta · Capítulo 2</div><h1>Da dúvida clínica à pergunta respondível</h1><p class="guia">O que exatamente eu quero saber?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Tudo começa em um ambulatório. Um cirurgião vascular acompanha há anos pacientes
+</ul><nav class="navega-cap"><a href="#capa"><span>Anterior</span><b>Capa</b></a><a class="prox" href="#cap-2"><span>Próximo</span><b>Da dúvida clínica à pergunta respondível</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-2" data-titulo="Da dúvida clínica à pergunta respondível" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte I — A pergunta · Capítulo 2</div><h1>Da dúvida clínica à pergunta respondível</h1><p class="guia">O que exatamente eu quero saber?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Tudo começa em um ambulatório. Um cirurgião vascular acompanha há anos pacientes
 com úlcera venosa que não fecham, mesmo com compressão bem feita. Ele lê sobre
 terapia celular, vê relatos animadores em séries de dez ou quinze casos, e pensa:
 "será que funciona?". Essa frase não é uma pergunta de pesquisa. Este capítulo
@@ -1355,7 +1369,7 @@ teste, e dois avaliadores mediriam coisas diferentes.</p></details>
 <li><a href="https://clinicaltrials.gov/">ClinicalTrials.gov</a> — registro internacional.</li>
 <li><a href="https://www.spirit-statement.org/">SPIRIT</a> — o que um protocolo de ensaio
   clínico precisa conter.</li>
-</ul><nav class="navega-cap"><a href="#cap-1"><span>Anterior</span><b>A pergunta antes do número</b></a><a class="prox" href="#cap-3"><span>Próximo</span><b>O delineamento decide tudo</b></a></nav></article><article class="capitulo" id="cap-3" data-titulo="O delineamento decide tudo" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte I — A pergunta · Capítulo 3</div><h1>O delineamento decide tudo</h1><p class="guia">Que estudo responde à minha pergunta?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>A pergunta está pronta: qual a diferença de proporção de úlceras cicatrizadas
+</ul><nav class="navega-cap"><a href="#cap-1"><span>Anterior</span><b>A pergunta antes do número</b></a><a class="prox" href="#cap-3"><span>Próximo</span><b>O delineamento decide tudo</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-3" data-titulo="O delineamento decide tudo" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte I — A pergunta · Capítulo 3</div><h1>O delineamento decide tudo</h1><p class="guia">Que estudo responde à minha pergunta?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>A pergunta está pronta: qual a diferença de proporção de úlceras cicatrizadas
 entre quem recebeu o aspirado de medula óssea e quem recebeu apenas terapia
 compressiva? Restam duas maneiras de respondê-la. A primeira
 é observar o que já acontece: identificar quem recebeu o tratamento, quem não
@@ -1625,7 +1639,7 @@ Ignorar isso produz intervalos de confiança falsamente estreitos.</p></details>
   estudos observacionais.</li>
 <li><a href="https://www.equator-network.org/">EQUATOR Network</a> — reúne as recomendações de
   relato de todos os delineamentos.</li>
-</ul><nav class="navega-cap"><a href="#cap-2"><span>Anterior</span><b>Da dúvida clínica à pergunta respondível</b></a><a class="prox" href="#cap-4"><span>Próximo</span><b>Variáveis e desfechos</b></a></nav></article><article class="capitulo" id="cap-4" data-titulo="Variáveis e desfechos" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte II — Antes de coletar · Capítulo 4</div><h1>Variáveis e desfechos</h1><p class="guia">O que eu vou medir?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O protocolo do estudo está escrito, o delineamento decidido, e chega a hora de
+</ul><nav class="navega-cap"><a href="#cap-2"><span>Anterior</span><b>Da dúvida clínica à pergunta respondível</b></a><a class="prox" href="#cap-4"><span>Próximo</span><b>Variáveis e desfechos</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-4" data-titulo="Variáveis e desfechos" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte II — Antes de coletar · Capítulo 4</div><h1>Variáveis e desfechos</h1><p class="guia">O que eu vou medir?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O protocolo do estudo está escrito, o delineamento decidido, e chega a hora de
 preencher a ficha de coleta. O que exatamente vai ser anotado sobre cada
 paciente? A resposta parece administrativa e é a decisão mais determinante que
 resta: variável mal definida não se conserta depois, e desfecho mal escolhido
@@ -1910,7 +1924,7 @@ estatístico é organização, não cálculo.</p></details>
   protocolos de ensaios clínicos, que detalha a definição de desfechos.</li>
 <li><a href="https://www.jamovi.org/">jamovi</a> — os tipos de variável ficam na aba Data,
   botão Setup.</li>
-</ul><nav class="navega-cap"><a href="#cap-3"><span>Anterior</span><b>O delineamento decide tudo</b></a><a class="prox" href="#cap-5"><span>Próximo</span><b>Técnicas de amostragem</b></a></nav></article><article class="capitulo" id="cap-5" data-titulo="Técnicas de amostragem" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte II — Antes de coletar · Capítulo 5</div><h1>Técnicas de amostragem</h1><p class="guia">Minha amostra representa quem?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Os duzentos participantes do estudo vieram de três ambulatórios de cirurgia
+</ul><nav class="navega-cap"><a href="#cap-3"><span>Anterior</span><b>O delineamento decide tudo</b></a><a class="prox" href="#cap-5"><span>Próximo</span><b>Técnicas de amostragem</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-5" data-titulo="Técnicas de amostragem" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte II — Antes de coletar · Capítulo 5</div><h1>Técnicas de amostragem</h1><p class="guia">Minha amostra representa quem?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Os duzentos participantes do estudo vieram de três ambulatórios de cirurgia
 vascular, entre pacientes que procuraram atendimento e aceitaram participar. A
 conclusão do estudo, no entanto, não é sobre eles: é sobre pacientes com úlcera
 venosa em geral. Este capítulo trata da distância entre uma coisa e outra, e do
@@ -2265,7 +2279,7 @@ tamanho da amostra antes de começar, assunto do próximo capítulo.</p></detail
   selection of patients</em></a>. <em>JAMA</em>.
   1998;279(3):222-5. Como os critérios de seleção iniciais "limpam" a amostra e
   produzem resultados que não se reproduzem no paciente real.</li>
-</ul><nav class="navega-cap"><a href="#cap-4"><span>Anterior</span><b>Variáveis e desfechos</b></a><a class="prox" href="#cap-6"><span>Próximo</span><b>Cálculo do tamanho da amostra</b></a></nav></article><article class="capitulo" id="cap-6" data-titulo="Cálculo do tamanho da amostra" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte II — Antes de coletar · Capítulo 6</div><h1>Cálculo do tamanho da amostra</h1><p class="guia">Quantos indivíduos vou precisar estudar?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O protocolo precisa responder a uma pergunta que o Comitê de Ética vai cobrar e
+</ul><nav class="navega-cap"><a href="#cap-4"><span>Anterior</span><b>Variáveis e desfechos</b></a><a class="prox" href="#cap-6"><span>Próximo</span><b>Cálculo do tamanho da amostra</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-6" data-titulo="Cálculo do tamanho da amostra" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte II — Antes de coletar · Capítulo 6</div><h1>Cálculo do tamanho da amostra</h1><p class="guia">Quantos indivíduos vou precisar estudar?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O protocolo precisa responder a uma pergunta que o Comitê de Ética vai cobrar e
 que o revisor vai conferir: por que duzentos pacientes? Não cento e cinquenta,
 não trezentos. A resposta é uma conta de quatro ingredientes, e este capítulo a
 refaz do início ao fim, com os números do estudo.</p></div>
@@ -2524,7 +2538,7 @@ muito, e de 150 para 200 muda pouco. É essa curva que ajuda a decidir onde para
   o tamanho da amostra foi determinado.</li>
 <li><a href="https://www.spirit-statement.org/">SPIRIT</a> — o que o protocolo precisa conter
   sobre dimensionamento.</li>
-</ul><nav class="navega-cap"><a href="#cap-5"><span>Anterior</span><b>Técnicas de amostragem</b></a><a class="prox" href="#cap-7"><span>Próximo</span><b>Coleta, banco de dados e reprodutibilidade</b></a></nav></article><article class="capitulo" id="cap-7" data-titulo="Coleta, banco de dados e reprodutibilidade" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte II — Antes de coletar · Capítulo 7</div><h1>Coleta, banco de dados e reprodutibilidade</h1><p class="guia">Como organizo meus dados?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O estudo vai gerar 200 fichas, cada uma com dezenas de campos, preenchidas em
+</ul><nav class="navega-cap"><a href="#cap-5"><span>Anterior</span><b>Técnicas de amostragem</b></a><a class="prox" href="#cap-7"><span>Próximo</span><b>Coleta, banco de dados e reprodutibilidade</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-7" data-titulo="Coleta, banco de dados e reprodutibilidade" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte II — Antes de coletar · Capítulo 7</div><h1>Coleta, banco de dados e reprodutibilidade</h1><p class="guia">Como organizo meus dados?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O estudo vai gerar 200 fichas, cada uma com dezenas de campos, preenchidas em
 três centros ao longo de dois anos, por pessoas diferentes. Entre a última
 consulta e a análise estatística existe uma etapa que nenhum manual de
 bioestatística ensina e que determina se o estudo será analisável: transformar
@@ -2805,7 +2819,7 @@ autor correspondente."</p></details>
   faltantes e análise por intenção de tratar.</li>
 <li><a href="https://www.jamovi.org/">jamovi</a> — o arquivo <code>.omv</code> guarda dados e análises
   juntos.</li>
-</ul><nav class="navega-cap"><a href="#cap-6"><span>Anterior</span><b>Cálculo do tamanho da amostra</b></a><a class="prox" href="#cap-8"><span>Próximo</span><b>Estatística descritiva</b></a></nav></article><article class="capitulo" id="cap-8" data-titulo="Estatística descritiva" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 8</div><h1>Estatística descritiva</h1><p class="guia">Como resumo meus resultados?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Os duzentos participantes foram randomizados, tratados e seguidos por doze
+</ul><nav class="navega-cap"><a href="#cap-6"><span>Anterior</span><b>Cálculo do tamanho da amostra</b></a><a class="prox" href="#cap-8"><span>Próximo</span><b>Estatística descritiva</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-8" data-titulo="Estatística descritiva" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 8</div><h1>Estatística descritiva</h1><p class="guia">Como resumo meus resultados?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Os duzentos participantes foram randomizados, tratados e seguidos por doze
 semanas. O banco está fechado. Antes de comparar coisa alguma, é preciso
 responder a uma pergunta que parece banal e não é: quem são essas pessoas? A
 primeira tabela de todo artigo clínico existe para isso, e é ela que vamos
@@ -3201,7 +3215,7 @@ de maneira diferente da usada aqui.</p></details>
 <li><a href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00513.2004">Guidelines for reporting statistics</a>
   — as diretrizes da American Physiological Society, ainda úteis, com uma seção
   específica sobre a confusão entre desvio padrão e erro padrão.</li>
-</ul><nav class="navega-cap"><a href="#cap-7"><span>Anterior</span><b>Coleta, banco de dados e reprodutibilidade</b></a><a class="prox" href="#cap-9"><span>Próximo</span><b>Estimativa e incerteza</b></a></nav></article><article class="capitulo" id="cap-9" data-titulo="Estimativa e incerteza" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 9</div><h1>Estimativa e incerteza</h1><p class="guia">Qual o grau de certeza do meu resultado?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Cicatrizaram 65 das 92 úlceras do grupo do aspirado, ou 70,7%, contra 49 das 92
+</ul><nav class="navega-cap"><a href="#cap-7"><span>Anterior</span><b>Coleta, banco de dados e reprodutibilidade</b></a><a class="prox" href="#cap-9"><span>Próximo</span><b>Estimativa e incerteza</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-9" data-titulo="Estimativa e incerteza" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 9</div><h1>Estimativa e incerteza</h1><p class="guia">Qual o grau de certeza do meu resultado?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Cicatrizaram 65 das 92 úlceras do grupo do aspirado, ou 70,7%, contra 49 das 92
 do grupo controle, ou 53,3%. A diferença é de 17,4 pontos percentuais. A
 pergunta que este capítulo responde não é se essa diferença existe, porque ela
 está ali. É outra: se o estudo fosse repetido com outros duzentos pacientes,
@@ -3502,7 +3516,7 @@ saberia com mais precisão qual é o efeito.</p></details>
 <li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108">Statement on p-values, American Statistical Association</a>
   — a declaração de 2016, cujo princípio final recomenda relatar estimativa e
   incerteza no lugar de decisões dicotômicas.</li>
-</ul><nav class="navega-cap"><a href="#cap-8"><span>Anterior</span><b>Estatística descritiva</b></a><a class="prox" href="#cap-10"><span>Próximo</span><b>Teste de hipótese e valor de p</b></a></nav></article><article class="capitulo" id="cap-10" data-titulo="Teste de hipótese e valor de p" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 10</div><h1>Teste de hipótese e valor de p</h1><p class="guia">O acaso é o responsável pelos meus resultados?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O desfecho primário do estudo deu 70,7% contra 53,3%, com diferença de 17,4
+</ul><nav class="navega-cap"><a href="#cap-8"><span>Anterior</span><b>Estatística descritiva</b></a><a class="prox" href="#cap-10"><span>Próximo</span><b>Teste de hipótese e valor de p</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-10" data-titulo="Teste de hipótese e valor de p" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 10</div><h1>Teste de hipótese e valor de p</h1><p class="guia">O acaso é o responsável pelos meus resultados?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O desfecho primário do estudo deu 70,7% contra 53,3%, com diferença de 17,4
 pontos percentuais e intervalo de confiança de 3,6 a 31,2. Falta responder à
 pergunta que dá nome a este capítulo, e que é a única que muitos pesquisadores
 fazem: o acaso é o responsável por esse resultado? O teste qui-quadrado devolve
@@ -3778,7 +3792,7 @@ existir.</p></details>
   — a editorial de 2019 que abre a edição especial do <em>The American Statistician</em>.</li>
 <li><a href="https://www.nature.com/articles/d41586-019-00857-9">Scientists rise up against statistical significance</a>
   — o manifesto na <em>Nature</em>, assinado por mais de oitocentos pesquisadores.</li>
-</ul><nav class="navega-cap"><a href="#cap-9"><span>Anterior</span><b>Estimativa e incerteza</b></a><a class="prox" href="#cap-11"><span>Próximo</span><b>Escolhendo o teste</b></a></nav></article><article class="capitulo" id="cap-11" data-titulo="Escolhendo o teste" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 11</div><h1>Escolhendo o teste</h1><p class="guia">Qual teste eu uso?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O estudo tem, além do desfecho primário, quatro desfechos secundários e uma
+</ul><nav class="navega-cap"><a href="#cap-9"><span>Anterior</span><b>Estimativa e incerteza</b></a><a class="prox" href="#cap-11"><span>Próximo</span><b>Escolhendo o teste</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-11" data-titulo="Escolhendo o teste" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 11</div><h1>Escolhendo o teste</h1><p class="guia">Qual teste eu uso?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O estudo tem, além do desfecho primário, quatro desfechos secundários e uma
 dúzia de variáveis basais. Cada comparação pede um teste, e nenhum deles é o
 mesmo. Este capítulo é o mapa que leva de uma pergunta a um teste, e ele cabe em
 três perguntas.</p></div>
@@ -4074,7 +4088,7 @@ os dois coeficientes.</p></details>
 <li><a href="https://www.equator-network.org/">EQUATOR Network</a> — reúne as recomendações de
   relato para cada tipo de estudo, e cada uma delas tem um item sobre métodos
   estatísticos.</li>
-</ul><nav class="navega-cap"><a href="#cap-10"><span>Anterior</span><b>Teste de hipótese e valor de p</b></a><a class="prox" href="#cap-12"><span>Próximo</span><b>Além do bivariado: regressão e confundimento</b></a></nav></article><article class="capitulo" id="cap-12" data-titulo="Além do bivariado: regressão e confundimento" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 12</div><h1>Além do bivariado: regressão e confundimento</h1><p class="guia">E as outras variáveis?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Suponha que o estudo nunca tivesse sido randomizado. Suponha que os cirurgiões
+</ul><nav class="navega-cap"><a href="#cap-10"><span>Anterior</span><b>Teste de hipótese e valor de p</b></a><a class="prox" href="#cap-12"><span>Próximo</span><b>Além do bivariado: regressão e confundimento</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-12" data-titulo="Além do bivariado: regressão e confundimento" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 12</div><h1>Além do bivariado: regressão e confundimento</h1><p class="guia">E as outras variáveis?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Suponha que o estudo nunca tivesse sido randomizado. Suponha que os cirurgiões
 simplesmente indicassem o aspirado de medula óssea a quem julgassem precisar
 mais, e que depois se comparasse quem recebeu com quem não recebeu. É o que a
 maioria dos estudos publicados faz, e é o que este capítulo vai fazer, com um
@@ -4445,7 +4459,7 @@ comorbidades.</p></details>
   Regression.</li>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — item 12a, sobre
   declarar previamente os métodos de análise, incluindo o ajuste.</li>
-</ul><nav class="navega-cap"><a href="#cap-11"><span>Anterior</span><b>Escolhendo o teste</b></a><a class="prox" href="#cap-13"><span>Próximo</span><b>Testes diagnósticos</b></a></nav></article><article class="capitulo" id="cap-13" data-titulo="Testes diagnósticos" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 13</div><h1>Testes diagnósticos</h1><p class="guia">Este exame serve?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Uma úlcera venosa que não cicatriza em doze semanas custa curativos, consultas e
+</ul><nav class="navega-cap"><a href="#cap-11"><span>Anterior</span><b>Escolhendo o teste</b></a><a class="prox" href="#cap-13"><span>Próximo</span><b>Testes diagnósticos</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-13" data-titulo="Testes diagnósticos" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 13</div><h1>Testes diagnósticos</h1><p class="guia">Este exame serve?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Uma úlcera venosa que não cicatriza em doze semanas custa curativos, consultas e
 sofrimento. Se fosse possível, na quarta semana, saber quem não vai cicatrizar,
 esses pacientes poderiam ser encaminhados mais cedo para outra conduta. O estudo
 mediu duas coisas que poderiam servir a isso: a pressão transcutânea de oxigênio
@@ -4803,7 +4817,7 @@ e é isso que se espera de um teste útil.</p></details>
   módulos adicionais, incluindo o de curva ROC.</li>
 <li><a href="https://www.equator-network.org/">EQUATOR Network</a> — reúne o STARD e as
   demais recomendações de relato.</li>
-</ul><nav class="navega-cap"><a href="#cap-12"><span>Anterior</span><b>Além do bivariado: regressão e confundimento</b></a><a class="prox" href="#cap-14"><span>Próximo</span><b>Análise de sobrevida</b></a></nav></article><article class="capitulo" id="cap-14" data-titulo="Análise de sobrevida" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 14</div><h1>Análise de sobrevida</h1><p class="guia">Quanto tempo até o desfecho?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Até aqui o desfecho primário foi tratado como uma pergunta de sim ou não:
+</ul><nav class="navega-cap"><a href="#cap-12"><span>Anterior</span><b>Além do bivariado: regressão e confundimento</b></a><a class="prox" href="#cap-14"><span>Próximo</span><b>Análise de sobrevida</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-14" data-titulo="Análise de sobrevida" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte III — Diante dos dados · Capítulo 14</div><h1>Análise de sobrevida</h1><p class="guia">Quanto tempo até o desfecho?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Até aqui o desfecho primário foi tratado como uma pergunta de sim ou não:
 cicatrizou em doze semanas ou não cicatrizou. Isso desperdiça informação. Uma
 úlcera que fechou aos vinte dias e outra que fechou aos oitenta e três entraram
 na mesma casinha da tabela, e não deveriam. Este capítulo recupera o tempo.</p></div>
@@ -5105,7 +5119,7 @@ que admitam efeito dependente do tempo.</p></details>
   módulo de análise de sobrevida.</li>
 <li><a href="https://www.equator-network.org/">EQUATOR Network</a> — recomendações de relato
   por tipo de estudo.</li>
-</ul><nav class="navega-cap"><a href="#cap-13"><span>Anterior</span><b>Testes diagnósticos</b></a><a class="prox" href="#cap-15"><span>Próximo</span><b>Relatar</b></a></nav></article><article class="capitulo" id="cap-15" data-titulo="Relatar" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte IV — Depois da análise · Capítulo 15</div><h1>Relatar</h1><p class="guia">Como apresento isso sem levar rejeição?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>As análises estão feitas. O aspirado de medula óssea aumentou a cicatrização de
+</ul><nav class="navega-cap"><a href="#cap-13"><span>Anterior</span><b>Testes diagnósticos</b></a><a class="prox" href="#cap-15"><span>Próximo</span><b>Relatar</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-15" data-titulo="Relatar" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte IV — Depois da análise · Capítulo 15</div><h1>Relatar</h1><p class="guia">Como apresento isso sem levar rejeição?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>As análises estão feitas. O aspirado de medula óssea aumentou a cicatrização de
 53,3% para 70,7%, com diferença de 17,4 pontos percentuais, intervalo de
 confiança de 3,6 a 31,2 e p de 0,015. Falta a etapa em que a maioria dos estudos
 brasileiros se perde: transformar isso em um artigo que sobreviva à revisão por
@@ -5441,7 +5455,7 @@ de um único script, como o <code>analises-do-livro.py</code> faz nesta obra.</p
 <li><a href="https://www.strobe-statement.org/">STROBE</a>, <a href="https://www.equator-network.org/reporting-guidelines/stard/">STARD</a>,
   <a href="https://www.prisma-statement.org/">PRISMA</a> — para observacionais, acurácia
   diagnóstica e revisões sistemáticas.</li>
-</ul><nav class="navega-cap"><a href="#cap-14"><span>Anterior</span><b>Análise de sobrevida</b></a><a class="prox" href="#cap-16"><span>Próximo</span><b>Considerações finais</b></a></nav></article><article class="capitulo" id="cap-16" data-titulo="Considerações finais" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte IV — Depois da análise · Capítulo 16</div><h1>Considerações finais</h1><p class="guia">E agora?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O estudo terminou, o artigo foi submetido, o revisor pediu duas análises
+</ul><nav class="navega-cap"><a href="#cap-14"><span>Anterior</span><b>Análise de sobrevida</b></a><a class="prox" href="#cap-16"><span>Próximo</span><b>Considerações finais</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-16" data-titulo="Considerações finais" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte IV — Depois da análise · Capítulo 16</div><h1>Considerações finais</h1><p class="guia">E agora?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>O estudo terminou, o artigo foi submetido, o revisor pediu duas análises
 adicionais e elas foram feitas em vinte minutos, porque o banco estava
 organizado e as análises, em um script. É um final feliz que depende inteiramente
 de decisões tomadas lá no começo. Este capítulo olha para trás, para os lados e
@@ -5624,7 +5638,7 @@ de p da Tabela 1 por uma coluna de diferença com intervalo de confiança.</p></
   metanálises.</li>
 <li><a href="https://www.cos.io/">Center for Open Science</a> — registro de protocolos e
   relatórios registrados.</li>
-</ul><nav class="navega-cap"><a href="#cap-15"><span>Anterior</span><b>Relatar</b></a><a class="prox" href="#cap-A"><span>Próximo</span><b>Primeiros passos no jamovi</b></a></nav></article><article class="capitulo" id="cap-A" data-titulo="Primeiros passos no jamovi" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo A</div><h1>Primeiros passos no jamovi</h1><p class="guia">Por onde começo no programa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Todas as análises deste livro foram feitas no jamovi. Este apêndice existe para
+</ul><nav class="navega-cap"><a href="#cap-15"><span>Anterior</span><b>Relatar</b></a><a class="prox" href="#cap-A"><span>Próximo</span><b>Primeiros passos no jamovi</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-A" data-titulo="Primeiros passos no jamovi" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo A</div><h1>Primeiros passos no jamovi</h1><p class="guia">Por onde começo no programa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Todas as análises deste livro foram feitas no jamovi. Este apêndice existe para
 que quem nunca o abriu consiga chegar ao fim do Capítulo 8 sem travar na terceira
 tela.</p></div>
 <h2 id="cap-A-por-que-jamovi">Por que jamovi<a class="ancora" href="#cap-A-por-que-jamovi" aria-label="Link para esta seção">#</a></h2>
@@ -5814,7 +5828,7 @@ uma boa prática antes de qualquer análise filtrada.</p></details>
 <li><a href="https://www.jamovi.org/">jamovi.org</a> — o programa e a documentação.</li>
 <li><a href="https://library.jamovi.org/">jamovi library</a> — módulos adicionais.</li>
 <li><a href="https://www.jamovi.org/user-manual.html">jamovi user guide</a> — manual oficial.</li>
-</ul><nav class="navega-cap"><a href="#cap-16"><span>Anterior</span><b>Considerações finais</b></a><a class="prox" href="#cap-B"><span>Próximo</span><b>Fluxogramas e listas de verificação</b></a></nav></article><article class="capitulo" id="cap-B" data-titulo="Fluxogramas e listas de verificação" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo B</div><h1>Fluxogramas e listas de verificação</h1><p class="guia">Esqueci alguma coisa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Este apêndice reúne, em uma página, o que o livro espalhou por dezesseis
+</ul><nav class="navega-cap"><a href="#cap-16"><span>Anterior</span><b>Considerações finais</b></a><a class="prox" href="#cap-B"><span>Próximo</span><b>Fluxogramas e listas de verificação</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-B" data-titulo="Fluxogramas e listas de verificação" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo B</div><h1>Fluxogramas e listas de verificação</h1><p class="guia">Esqueci alguma coisa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Este apêndice reúne, em uma página, o que o livro espalhou por dezesseis
 capítulos. É a parte que se consulta com o projeto aberto ao lado, não a que se
 lê na poltrona.</p></div>
 <h2 id="cap-B-fluxograma-qual-teste-eu-uso">Fluxograma: qual teste eu uso?<a class="ancora" href="#cap-B-fluxograma-qual-teste-eu-uso" aria-label="Link para esta seção">#</a></h2>
@@ -6077,7 +6091,7 @@ lê na poltrona.</p></div>
 <li>Desfecho primário trocado após ver os resultados.</li>
 <li>Denominadores omitidos quando há dados faltantes.</li>
 <li>Conclusão do resumo mais forte que os dados.</li>
-</ol><nav class="navega-cap"><a href="#cap-A"><span>Anterior</span><b>Primeiros passos no jamovi</b></a><a class="prox" href="#cap-C"><span>Próximo</span><b>Glossário</b></a></nav></article><article class="capitulo" id="cap-C" data-titulo="Glossário" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo C</div><h1>Glossário</h1><p class="guia">O que quer dizer essa palavra?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Os termos abaixo aparecem no livro e nos artigos que você vai ler. As definições
+</ol><nav class="navega-cap"><a href="#cap-A"><span>Anterior</span><b>Primeiros passos no jamovi</b></a><a class="prox" href="#cap-C"><span>Próximo</span><b>Glossário</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-C" data-titulo="Glossário" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo C</div><h1>Glossário</h1><p class="guia">O que quer dizer essa palavra?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Os termos abaixo aparecem no livro e nos artigos que você vai ler. As definições
 são curtas de propósito, e cada uma indica o capítulo em que o assunto é tratado
 por inteiro.</p></div>
 <h2 id="cap-C-os-acronimos-e-de-onde-vem-cada-letra">Os acrônimos, e de onde vem cada letra<a class="ancora" href="#cap-C-os-acronimos-e-de-onde-vem-cada-letra" aria-label="Link para esta seção">#</a></h2>
@@ -6405,7 +6419,7 @@ os negativos. <em>Capítulos 2 e 16.</em></p>
 grupo. <em>Capítulos 3 e 5.</em></p>
 <h2 id="cap-C-w">W<a class="ancora" href="#cap-C-w" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Wilson, intervalo de.</strong> Método de calcular intervalo de confiança de proporção
-que não produz limites impossíveis. Preferível ao de Wald. <em>Capítulo 9.</em></p><nav class="navega-cap"><a href="#cap-B"><span>Anterior</span><b>Fluxogramas e listas de verificação</b></a><a class="prox" href="#cap-D"><span>Próximo</span><b>O banco do caso condutor</b></a></nav></article><article class="capitulo" id="cap-D" data-titulo="O banco do caso condutor" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo D</div><h1>O banco do caso condutor</h1><p class="guia">Que dados são esses?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Todos os números impressos neste livro vêm de dois bancos de dados. Este apêndice
+que não produz limites impossíveis. Preferível ao de Wald. <em>Capítulo 9.</em></p><nav class="navega-cap"><a href="#cap-B"><span>Anterior</span><b>Fluxogramas e listas de verificação</b></a><a class="prox" href="#cap-D"><span>Próximo</span><b>O banco do caso condutor</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article><article class="capitulo" id="cap-D" data-titulo="O banco do caso condutor" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo D</div><h1>O banco do caso condutor</h1><p class="guia">Que dados são esses?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Todos os números impressos neste livro vêm de dois bancos de dados. Este apêndice
 descreve os dois, diz como obtê-los e explica como conferir qualquer resultado da
 obra.</p></div>
 <h2 id="cap-D-uma-advertencia-antes-de-tudo">Uma advertência antes de tudo<a class="ancora" href="#cap-D-uma-advertencia-antes-de-tudo" aria-label="Link para esta seção">#</a></h2>
@@ -6698,7 +6712,7 @@ conferir custa um comando. Se algum número não bater, a explicação será uma
 duas, e ambas são instrutivas: ou o banco foi regerado com parâmetros diferentes,
 ou o texto ficou de uma versão anterior da análise, que é exatamente o erro mais
 comum descrito no Capítulo 15.</p></details>
-</div><nav class="navega-cap"><a href="#cap-C"><span>Anterior</span><b>Glossário</b></a></nav></article>
+</div><nav class="navega-cap"><a href="#cap-C"><span>Anterior</span><b>Glossário</b></a></nav><footer class="rodape-cap">Copyright © Aldemar Araujo Castro<span aria-hidden="true">|</span>Versão 1.2 · 03/08/2026</footer></article>
 </main>
 </div>
 <button id="ao-topo" type="button" hidden aria-label="Voltar ao topo">&uarr;</button>

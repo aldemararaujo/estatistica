@@ -174,7 +174,9 @@ html[data-tema="escuro"] mark { background: #6b5a1f; color: #fff; }
 }
 .ficha .versao { font-weight: 600; color: var(--tinta); }
 .ficha .autor-ficha { font-size: .95rem; color: var(--tinta); font-weight: 600; margin-bottom: .2rem; }
-.ficha .perfis { display: flex; flex-wrap: wrap; gap: .55rem; align-items: baseline; margin-bottom: .6rem; }
+.ficha .perfis { display: flex; flex-wrap: wrap; gap: .55rem; align-items: baseline;
+  justify-content: center; margin-bottom: .6rem; }
+.ficha .acoes-ficha { margin-top: .6rem; }
 .ficha .perfis a { text-decoration: none; border-bottom: 1px solid var(--linha); }
 .ficha .perfis a:hover { border-bottom-color: var(--realce); }
 .ficha .perfis span { color: var(--linha); }
@@ -643,8 +645,20 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 #capa .cabecalho-cap { border-bottom: 0; }
 #capa h1 { font-size: 2.6rem; }
 .ficha { font-family: var(--sans); font-size: .84rem; color: var(--tinta-fraca);
-  border-top: 1px solid var(--linha); margin-top: 2.5rem; padding-top: 1.2rem; }
+  border-top: 1px solid var(--linha); margin-top: 2.5rem; padding-top: 1.2rem;
+  text-align: center; }
 .ficha p { margin-bottom: .35rem; }
+
+/* ------------------------------------------- rodapé de cada capítulo */
+
+.rodape-cap {
+  max-width: var(--largura); margin: 2.4rem auto 0; padding-top: 1rem;
+  border-top: 1px solid var(--linha);
+  display: flex; justify-content: center; align-items: baseline;
+  flex-wrap: wrap; gap: .6rem;
+  font-family: var(--sans); font-size: .74rem; color: var(--tinta-fraca);
+}
+.rodape-cap span { color: var(--linha); }
 
 /* --------------------------------------------------------- responsivo */
 
