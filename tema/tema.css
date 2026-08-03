@@ -232,6 +232,130 @@ h2 .ancora:hover, h3 .ancora:hover { color: var(--realce); }
 }
 html[data-tema="escuro"] .marcar-lido.feito { color: #15181c; }
 
+.acoes-cap { margin: 1rem 0 0; font-family: var(--sans); font-size: .8rem; }
+.acoes-cap button, .acoes-cap a {
+  background: none; border: 0; cursor: pointer; color: var(--tinta-fraca);
+  font: inherit; text-decoration: underline; text-underline-offset: 3px;
+  margin: 0 .6rem; padding: 0;
+}
+.acoes-cap button:hover, .acoes-cap a:hover { color: var(--realce); }
+
+/* ------------------------------------------- exercícios resolvidos */
+
+.contador-exercicios {
+  font-family: var(--sans); font-size: .78rem; color: var(--tinta-fraca);
+  margin: 0 0 1rem; padding: .4rem .7rem; border-radius: 6px;
+  background: var(--papel-caixa); display: inline-block;
+}
+.contador-exercicios.completo { color: var(--lido); font-weight: 600; }
+
+.exercicio > .titulo { display: flex; align-items: center; gap: .8rem; }
+.exercicio .resolvido {
+  margin-left: auto; font-family: var(--sans); font-size: .68rem;
+  letter-spacing: .04em; text-transform: none; font-weight: 600;
+  cursor: pointer; padding: .2rem .6rem; border-radius: 99px;
+  border: 1px solid var(--linha); background: var(--papel);
+  color: var(--tinta-fraca);
+}
+.exercicio .resolvido:hover { border-color: var(--realce); color: var(--realce); }
+.exercicio.feito { border-color: var(--lido); }
+.exercicio.feito .resolvido { background: var(--lido); border-color: var(--lido); color: #fff; }
+html[data-tema="escuro"] .exercicio.feito .resolvido { color: #15181c; }
+
+/* ------------------------------------------------------ calculadoras */
+
+.calc {
+  margin: 1.8rem 0; border: 1px solid var(--realce); border-radius: 10px;
+  background: var(--papel-caixa); overflow: hidden;
+}
+.calc-titulo {
+  background: var(--realce-fraco); color: var(--realce);
+  font-family: var(--sans); font-size: .74rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .7rem 1.1rem; border-bottom: 1px solid var(--linha);
+}
+.calc-campos {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: .8rem 1.1rem; padding: 1.1rem;
+}
+.calc-campos label {
+  display: flex; flex-direction: column; gap: .3rem;
+  font-family: var(--sans); font-size: .78rem; color: var(--tinta-fraca);
+}
+.calc-campos input, .calc-campos select {
+  font: inherit; font-size: .92rem; padding: .45rem .6rem;
+  border: 1px solid var(--linha); border-radius: 6px;
+  background: var(--papel); color: var(--tinta);
+}
+.calc-campos input:focus, .calc-campos select:focus {
+  outline: 2px solid var(--realce); outline-offset: 1px;
+}
+.calc-saida {
+  padding: 1rem 1.1rem; border-top: 1px solid var(--linha);
+  font-family: var(--sans); font-size: .88rem;
+}
+.calc-saida p { margin: 0 0 .5rem; }
+.calc-saida p:last-child { margin-bottom: 0; }
+.calc-saida table { font-size: .86rem; }
+.calc-saida td { padding: .35rem .5rem; }
+.calc-saida td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.calc-saida b { color: var(--realce); }
+.calc-saida .erro { color: var(--realce); }
+.nota-calc { font-size: .76rem; color: var(--tinta-fraca); }
+
+/* --------------------------------------------------- termo e sua dica */
+
+.termo {
+  border-bottom: 1px dotted var(--tinta-fraca); cursor: help;
+}
+.termo:hover, .termo:focus { border-bottom-color: var(--realce); color: var(--realce); outline: none; }
+
+#dica-glossario {
+  position: absolute; z-index: 70; max-width: 20rem;
+  padding: .8rem .95rem; border-radius: 8px;
+  border: 1px solid var(--linha); background: var(--papel-caixa);
+  box-shadow: 0 6px 24px rgba(0,0,0,.18);
+  font-family: var(--sans); font-size: .82rem; line-height: 1.5; color: var(--tinta);
+}
+#dica-glossario b { display: block; color: var(--realce); margin-bottom: .25rem; }
+#dica-glossario a { font-size: .76rem; }
+
+/* ------------------------------------------------------- como citar */
+
+#painel-citar {
+  border: 1px solid var(--linha); border-radius: 10px; padding: 1.4rem 1.6rem;
+  background: var(--papel-caixa); color: var(--tinta);
+  max-width: 40rem; width: calc(100% - 2rem);
+}
+#painel-citar::backdrop { background: rgba(0,0,0,.45); }
+#painel-citar h2 { margin: 0 0 1rem; font-size: 1.2rem; color: var(--realce); }
+#painel-citar #fecha-citar {
+  font-family: var(--sans); cursor: pointer; margin-top: .5rem;
+  padding: .5rem 1.2rem; border-radius: 6px;
+  border: 1px solid var(--linha); background: var(--papel); color: var(--tinta);
+}
+.citacao { margin-bottom: 1.1rem; }
+.rotulo-citacao {
+  font-family: var(--sans); font-size: .7rem; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--tinta-fraca); margin: 0 0 .3rem;
+}
+.texto-citacao {
+  margin: 0 0 .4rem; font-size: .88rem; line-height: 1.5;
+  padding: .6rem .8rem; border-radius: 6px; background: var(--papel);
+  border: 1px solid var(--linha); word-break: break-word;
+}
+.citacao button {
+  font-family: var(--sans); font-size: .76rem; cursor: pointer;
+  padding: .25rem .8rem; border-radius: 99px;
+  border: 1px solid var(--linha); background: var(--papel); color: var(--tinta-fraca);
+}
+.citacao button:hover { border-color: var(--realce); color: var(--realce); }
+.acoes-ficha button {
+  font-family: var(--sans); font-size: .82rem; cursor: pointer;
+  padding: .45rem 1rem; border-radius: 6px; margin-top: .4rem;
+  border: 1px solid var(--realce); background: var(--papel); color: var(--realce);
+}
+
 /* ------------------------------------------------- voltar ao topo */
 
 #ao-topo {
@@ -368,8 +492,12 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
 @media print {
   #sumario, #abre-sumario, #barra-progresso, .navega-cap, #rodape-sumario,
-  #ao-topo, #retomar, .caixa-marcar, .indice-cap, .pular, h2 .ancora, h3 .ancora
+  #ao-topo, #retomar, .caixa-marcar, .indice-cap, .pular, h2 .ancora, h3 .ancora,
+  #dica-glossario, #painel-citar, .exercicio .resolvido, .contador-exercicios,
+  .acoes-ficha, .calc-saida .erro
     { display: none !important; }
+  .termo { border-bottom: 0; }
+  .calc { border-color: #999; }
   body { background: #fff; color: #000; font-size: 11pt; }
   #leitura { padding: 0; }
   .capitulo { max-width: none; }

@@ -81,6 +81,13 @@ O estudo terminou com 8% de perdas, um pouco abaixo do previsto, e com 92
 participantes analisados por grupo, acima dos 89 necessários. O planejamento se
 sustentou.
 
+::: calculadora amostra
+:::
+
+Os valores que a calculadora abre são os deste estudo. Troque-os pelos do seu
+projeto e observe, sobretudo, o que acontece quando a diferença a detectar
+diminui.
+
 ## Quanto custa cada ponto percentual
 
 A relação entre a diferença a detectar e o tamanho da amostra é o argumento mais

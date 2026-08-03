@@ -241,6 +241,130 @@ h2 .ancora:hover, h3 .ancora:hover { color: var(--realce); }
 }
 html[data-tema="escuro"] .marcar-lido.feito { color: #15181c; }
 
+.acoes-cap { margin: 1rem 0 0; font-family: var(--sans); font-size: .8rem; }
+.acoes-cap button, .acoes-cap a {
+  background: none; border: 0; cursor: pointer; color: var(--tinta-fraca);
+  font: inherit; text-decoration: underline; text-underline-offset: 3px;
+  margin: 0 .6rem; padding: 0;
+}
+.acoes-cap button:hover, .acoes-cap a:hover { color: var(--realce); }
+
+/* ------------------------------------------- exercícios resolvidos */
+
+.contador-exercicios {
+  font-family: var(--sans); font-size: .78rem; color: var(--tinta-fraca);
+  margin: 0 0 1rem; padding: .4rem .7rem; border-radius: 6px;
+  background: var(--papel-caixa); display: inline-block;
+}
+.contador-exercicios.completo { color: var(--lido); font-weight: 600; }
+
+.exercicio > .titulo { display: flex; align-items: center; gap: .8rem; }
+.exercicio .resolvido {
+  margin-left: auto; font-family: var(--sans); font-size: .68rem;
+  letter-spacing: .04em; text-transform: none; font-weight: 600;
+  cursor: pointer; padding: .2rem .6rem; border-radius: 99px;
+  border: 1px solid var(--linha); background: var(--papel);
+  color: var(--tinta-fraca);
+}
+.exercicio .resolvido:hover { border-color: var(--realce); color: var(--realce); }
+.exercicio.feito { border-color: var(--lido); }
+.exercicio.feito .resolvido { background: var(--lido); border-color: var(--lido); color: #fff; }
+html[data-tema="escuro"] .exercicio.feito .resolvido { color: #15181c; }
+
+/* ------------------------------------------------------ calculadoras */
+
+.calc {
+  margin: 1.8rem 0; border: 1px solid var(--realce); border-radius: 10px;
+  background: var(--papel-caixa); overflow: hidden;
+}
+.calc-titulo {
+  background: var(--realce-fraco); color: var(--realce);
+  font-family: var(--sans); font-size: .74rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .7rem 1.1rem; border-bottom: 1px solid var(--linha);
+}
+.calc-campos {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: .8rem 1.1rem; padding: 1.1rem;
+}
+.calc-campos label {
+  display: flex; flex-direction: column; gap: .3rem;
+  font-family: var(--sans); font-size: .78rem; color: var(--tinta-fraca);
+}
+.calc-campos input, .calc-campos select {
+  font: inherit; font-size: .92rem; padding: .45rem .6rem;
+  border: 1px solid var(--linha); border-radius: 6px;
+  background: var(--papel); color: var(--tinta);
+}
+.calc-campos input:focus, .calc-campos select:focus {
+  outline: 2px solid var(--realce); outline-offset: 1px;
+}
+.calc-saida {
+  padding: 1rem 1.1rem; border-top: 1px solid var(--linha);
+  font-family: var(--sans); font-size: .88rem;
+}
+.calc-saida p { margin: 0 0 .5rem; }
+.calc-saida p:last-child { margin-bottom: 0; }
+.calc-saida table { font-size: .86rem; }
+.calc-saida td { padding: .35rem .5rem; }
+.calc-saida td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.calc-saida b { color: var(--realce); }
+.calc-saida .erro { color: var(--realce); }
+.nota-calc { font-size: .76rem; color: var(--tinta-fraca); }
+
+/* --------------------------------------------------- termo e sua dica */
+
+.termo {
+  border-bottom: 1px dotted var(--tinta-fraca); cursor: help;
+}
+.termo:hover, .termo:focus { border-bottom-color: var(--realce); color: var(--realce); outline: none; }
+
+#dica-glossario {
+  position: absolute; z-index: 70; max-width: 20rem;
+  padding: .8rem .95rem; border-radius: 8px;
+  border: 1px solid var(--linha); background: var(--papel-caixa);
+  box-shadow: 0 6px 24px rgba(0,0,0,.18);
+  font-family: var(--sans); font-size: .82rem; line-height: 1.5; color: var(--tinta);
+}
+#dica-glossario b { display: block; color: var(--realce); margin-bottom: .25rem; }
+#dica-glossario a { font-size: .76rem; }
+
+/* ------------------------------------------------------- como citar */
+
+#painel-citar {
+  border: 1px solid var(--linha); border-radius: 10px; padding: 1.4rem 1.6rem;
+  background: var(--papel-caixa); color: var(--tinta);
+  max-width: 40rem; width: calc(100% - 2rem);
+}
+#painel-citar::backdrop { background: rgba(0,0,0,.45); }
+#painel-citar h2 { margin: 0 0 1rem; font-size: 1.2rem; color: var(--realce); }
+#painel-citar #fecha-citar {
+  font-family: var(--sans); cursor: pointer; margin-top: .5rem;
+  padding: .5rem 1.2rem; border-radius: 6px;
+  border: 1px solid var(--linha); background: var(--papel); color: var(--tinta);
+}
+.citacao { margin-bottom: 1.1rem; }
+.rotulo-citacao {
+  font-family: var(--sans); font-size: .7rem; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--tinta-fraca); margin: 0 0 .3rem;
+}
+.texto-citacao {
+  margin: 0 0 .4rem; font-size: .88rem; line-height: 1.5;
+  padding: .6rem .8rem; border-radius: 6px; background: var(--papel);
+  border: 1px solid var(--linha); word-break: break-word;
+}
+.citacao button {
+  font-family: var(--sans); font-size: .76rem; cursor: pointer;
+  padding: .25rem .8rem; border-radius: 99px;
+  border: 1px solid var(--linha); background: var(--papel); color: var(--tinta-fraca);
+}
+.citacao button:hover { border-color: var(--realce); color: var(--realce); }
+.acoes-ficha button {
+  font-family: var(--sans); font-size: .82rem; cursor: pointer;
+  padding: .45rem 1rem; border-radius: 6px; margin-top: .4rem;
+  border: 1px solid var(--realce); background: var(--papel); color: var(--realce);
+}
+
 /* ------------------------------------------------- voltar ao topo */
 
 #ao-topo {
@@ -377,8 +501,12 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
 @media print {
   #sumario, #abre-sumario, #barra-progresso, .navega-cap, #rodape-sumario,
-  #ao-topo, #retomar, .caixa-marcar, .indice-cap, .pular, h2 .ancora, h3 .ancora
+  #ao-topo, #retomar, .caixa-marcar, .indice-cap, .pular, h2 .ancora, h3 .ancora,
+  #dica-glossario, #painel-citar, .exercicio .resolvido, .contador-exercicios,
+  .acoes-ficha, .calc-saida .erro
     { display: none !important; }
+  .termo { border-bottom: 0; }
+  .calc { border-color: #999; }
   body { background: #fff; color: #000; font-size: 11pt; }
   #leitura { padding: 0; }
   .capitulo { max-width: none; }
@@ -416,7 +544,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   <div id="resultados-busca" hidden></div>
 
   <div id="lista-capitulos">
-  <a href="#capa" data-id="capa" data-busca="capa rosto ficha"><span class="num">•</span><span>Capa e apresentação</span></a><div class="parte">Parte I — A pergunta</div><a href="#cap-1" data-id="cap-1" data-palavras="1942" data-busca="Por que utilizar a matemática aplicada em pesquisa?"><span class="num">1</span><span class="rotulo">A pergunta antes do número</span></a><a href="#cap-2" data-id="cap-2" data-palavras="2008" data-busca="O que exatamente eu quero saber?"><span class="num">2</span><span class="rotulo">Da dúvida clínica à pergunta respondível</span></a><a href="#cap-3" data-id="cap-3" data-palavras="2092" data-busca="Que estudo responde à minha pergunta?"><span class="num">3</span><span class="rotulo">O delineamento decide tudo</span></a><div class="parte">Parte II — Antes de coletar</div><a href="#cap-4" data-id="cap-4" data-palavras="1876" data-busca="O que eu vou medir?"><span class="num">4</span><span class="rotulo">Variáveis e desfechos</span></a><a href="#cap-5" data-id="cap-5" data-palavras="2449" data-busca="Minha amostra representa quem?"><span class="num">5</span><span class="rotulo">Técnicas de amostragem</span></a><a href="#cap-6" data-id="cap-6" data-palavras="1953" data-busca="Quantos indivíduos vou precisar estudar?"><span class="num">6</span><span class="rotulo">Cálculo do tamanho da amostra</span></a><a href="#cap-7" data-id="cap-7" data-palavras="2182" data-busca="Como organizo meus dados?"><span class="num">7</span><span class="rotulo">Coleta, banco de dados e reprodutibilidade</span></a><div class="parte">Parte III — Diante dos dados</div><a href="#cap-8" data-id="cap-8" data-palavras="2888" data-busca="Como resumo meus resultados?"><span class="num">8</span><span class="rotulo">Estatística descritiva</span></a><a href="#cap-9" data-id="cap-9" data-palavras="2264" data-busca="Qual o grau de certeza do meu resultado?"><span class="num">9</span><span class="rotulo">Estimativa e incerteza</span></a><a href="#cap-10" data-id="cap-10" data-palavras="2211" data-busca="O acaso é o responsável pelos meus resultados?"><span class="num">10</span><span class="rotulo">Teste de hipótese e valor de p</span></a><a href="#cap-11" data-id="cap-11" data-palavras="2240" data-busca="Qual teste eu uso?"><span class="num">11</span><span class="rotulo">Escolhendo o teste</span></a><a href="#cap-12" data-id="cap-12" data-palavras="2279" data-busca="E as outras variáveis?"><span class="num">12</span><span class="rotulo">Além do bivariado: regressão e confundimento</span></a><a href="#cap-13" data-id="cap-13" data-palavras="2046" data-busca="Este exame serve?"><span class="num">13</span><span class="rotulo">Testes diagnósticos</span></a><a href="#cap-14" data-id="cap-14" data-palavras="2247" data-busca="Quanto tempo até o desfecho?"><span class="num">14</span><span class="rotulo">Análise de sobrevida</span></a><div class="parte">Parte IV — Depois da análise</div><a href="#cap-15" data-id="cap-15" data-palavras="1943" data-busca="Como apresento isso sem levar rejeição?"><span class="num">15</span><span class="rotulo">Relatar</span></a><a href="#cap-16" data-id="cap-16" data-palavras="1815" data-busca="E agora?"><span class="num">16</span><span class="rotulo">Considerações finais</span></a><div class="parte">Apêndices</div><a href="#cap-A" data-id="cap-A" data-palavras="1028" data-busca="Por onde começo no programa?"><span class="num">A</span><span class="rotulo">Primeiros passos no jamovi</span></a><a href="#cap-B" data-id="cap-B" data-palavras="998" data-busca="Esqueci alguma coisa?"><span class="num">B</span><span class="rotulo">Fluxogramas e checklists</span></a><a href="#cap-C" data-id="cap-C" data-palavras="1163" data-busca="O que quer dizer essa palavra?"><span class="num">C</span><span class="rotulo">Glossário</span></a><a href="#cap-D" data-id="cap-D" data-palavras="1162" data-busca="Que dados são esses?"><span class="num">D</span><span class="rotulo">O banco do caso condutor</span></a>
+  <a href="#capa" data-id="capa" data-busca="capa rosto ficha"><span class="num">•</span><span>Capa e apresentação</span></a><div class="parte">Parte I — A pergunta</div><a href="#cap-1" data-id="cap-1" data-palavras="1942" data-busca="Por que utilizar a matemática aplicada em pesquisa?"><span class="num">1</span><span class="rotulo">A pergunta antes do número</span></a><a href="#cap-2" data-id="cap-2" data-palavras="2008" data-busca="O que exatamente eu quero saber?"><span class="num">2</span><span class="rotulo">Da dúvida clínica à pergunta respondível</span></a><a href="#cap-3" data-id="cap-3" data-palavras="2092" data-busca="Que estudo responde à minha pergunta?"><span class="num">3</span><span class="rotulo">O delineamento decide tudo</span></a><div class="parte">Parte II — Antes de coletar</div><a href="#cap-4" data-id="cap-4" data-palavras="1876" data-busca="O que eu vou medir?"><span class="num">4</span><span class="rotulo">Variáveis e desfechos</span></a><a href="#cap-5" data-id="cap-5" data-palavras="2449" data-busca="Minha amostra representa quem?"><span class="num">5</span><span class="rotulo">Técnicas de amostragem</span></a><a href="#cap-6" data-id="cap-6" data-palavras="1984" data-busca="Quantos indivíduos vou precisar estudar?"><span class="num">6</span><span class="rotulo">Cálculo do tamanho da amostra</span></a><a href="#cap-7" data-id="cap-7" data-palavras="2182" data-busca="Como organizo meus dados?"><span class="num">7</span><span class="rotulo">Coleta, banco de dados e reprodutibilidade</span></a><div class="parte">Parte III — Diante dos dados</div><a href="#cap-8" data-id="cap-8" data-palavras="2888" data-busca="Como resumo meus resultados?"><span class="num">8</span><span class="rotulo">Estatística descritiva</span></a><a href="#cap-9" data-id="cap-9" data-palavras="2301" data-busca="Qual o grau de certeza do meu resultado?"><span class="num">9</span><span class="rotulo">Estimativa e incerteza</span></a><a href="#cap-10" data-id="cap-10" data-palavras="2211" data-busca="O acaso é o responsável pelos meus resultados?"><span class="num">10</span><span class="rotulo">Teste de hipótese e valor de p</span></a><a href="#cap-11" data-id="cap-11" data-palavras="2240" data-busca="Qual teste eu uso?"><span class="num">11</span><span class="rotulo">Escolhendo o teste</span></a><a href="#cap-12" data-id="cap-12" data-palavras="2279" data-busca="E as outras variáveis?"><span class="num">12</span><span class="rotulo">Além do bivariado: regressão e confundimento</span></a><a href="#cap-13" data-id="cap-13" data-palavras="2208" data-busca="Este exame serve?"><span class="num">13</span><span class="rotulo">Testes diagnósticos</span></a><a href="#cap-14" data-id="cap-14" data-palavras="2247" data-busca="Quanto tempo até o desfecho?"><span class="num">14</span><span class="rotulo">Análise de sobrevida</span></a><div class="parte">Parte IV — Depois da análise</div><a href="#cap-15" data-id="cap-15" data-palavras="1943" data-busca="Como apresento isso sem levar rejeição?"><span class="num">15</span><span class="rotulo">Relatar</span></a><a href="#cap-16" data-id="cap-16" data-palavras="1815" data-busca="E agora?"><span class="num">16</span><span class="rotulo">Considerações finais</span></a><div class="parte">Apêndices</div><a href="#cap-A" data-id="cap-A" data-palavras="1028" data-busca="Por onde começo no programa?"><span class="num">A</span><span class="rotulo">Primeiros passos no jamovi</span></a><a href="#cap-B" data-id="cap-B" data-palavras="998" data-busca="Esqueci alguma coisa?"><span class="num">B</span><span class="rotulo">Fluxogramas e checklists</span></a><a href="#cap-C" data-id="cap-C" data-palavras="1163" data-busca="O que quer dizer essa palavra?"><span class="num">C</span><span class="rotulo">Glossário</span></a><a href="#cap-D" data-id="cap-D" data-palavras="1162" data-busca="Que dados são esses?"><span class="num">D</span><span class="rotulo">O banco do caso condutor</span></a>
   </div>
 
   <div id="rodape-sumario">
@@ -428,7 +556,13 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
       <span class="rotulo-ferramenta">Texto</span>
       <button id="fonte-menor" type="button" aria-label="Diminuir o texto">A&minus;</button>
       <button id="fonte-maior" type="button" aria-label="Aumentar o texto">A+</button>
-      <button id="zera-progresso" type="button">Zerar leitura</button>
+    </div>
+    <div class="ferramentas">
+      <span class="rotulo-ferramenta">Progresso</span>
+      <button id="exporta-progresso" type="button">Exportar</button>
+      <button id="importa-progresso" type="button">Importar</button>
+      <button id="zera-progresso" type="button">Zerar</button>
+      <input type="file" id="arquivo-progresso" accept="application/json,.json" hidden>
     </div>
     <p>Setas ou J e K mudam de capítulo. Tecla / busca. Tecla M marca como lido.</p>
   </div>
@@ -472,7 +606,7 @@ deixa de ser recomendável e passa a ser obrigatória.</p>
 um texto revisto: é um livro novo. Da versão anterior permaneceram apenas duas
 coisas, que eram o que ela tinha de melhor: a pergunta no subtítulo de cada
 capítulo e a convicção de que estatística se ensina a partir de um problema
-clínico, nunca a partir de uma fórmula.</p></div><div class="ficha"><p>Aldemar Araujo Castro — <a href="http://lattes.cnpq.br/2259022333178681">currículo Lattes</a></p><p>Maceió, AL, 2027</p><p>ISBN: em solicitação · Licença CC BY-NC-SA 4.0</p><p>Comentários, sugestões e críticas: <a href="mailto:aldemararaujocastro@gmail.com">aldemararaujocastro@gmail.com</a></p><p>Versão de 03/08/2026</p></div></article><article class="capitulo" id="cap-1" data-titulo="A pergunta antes do número" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte I — A pergunta · Capítulo 1</div><h1>A pergunta antes do número</h1><p class="guia">Por que utilizar a matemática aplicada em pesquisa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Um cirurgião vascular acompanha uma paciente de 64 anos com úlcera venosa há
+clínico, nunca a partir de uma fórmula.</p></div><div class="ficha"><p>Aldemar Araujo Castro — <a href="http://lattes.cnpq.br/2259022333178681">currículo Lattes</a></p><p>Maceió, AL, 2026</p><p>ISBN: em solicitação · Licença CC BY-NC-SA 4.0</p><p>Comentários, sugestões e críticas: <a href="mailto:aldemararaujocastro@gmail.com">aldemararaujocastro@gmail.com</a></p><p>Versão de 03/08/2026</p><p class="acoes-ficha"><button type="button" id="abre-citar">Como citar este livro</button></p></div></article><article class="capitulo" id="cap-1" data-titulo="A pergunta antes do número" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte I — A pergunta · Capítulo 1</div><h1>A pergunta antes do número</h1><p class="guia">Por que utilizar a matemática aplicada em pesquisa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Um cirurgião vascular acompanha uma paciente de 64 anos com úlcera venosa há
 catorze meses. Ele já tentou tudo o que sabe. Leu sobre uma terapia nova, viu
 relatos favoráveis, e precisa decidir se oferece aquilo a ela. A pergunta que ele
 tem diante de si não é estatística: é clínica. A estatística entra porque é a
@@ -629,7 +763,7 @@ que ninguém fez.</p>
 <p><strong>"O projeto não tem pergunta, tem tema."</strong> "Úlcera venosa" é um tema. Perguntas
 têm ponto de interrogação, e o Capítulo 2 mostra como chegar a uma.</p></div>
 <h2 id="cap-1-exercicios">Exercícios<a class="ancora" href="#cap-1-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-1-ex-1" data-exercicio="cap-1-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Explique, em três linhas, por que a maior parte do trabalho estatístico de um
 estudo acontece antes da coleta de dados.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque as decisões que determinam se o estudo poderá responder à pergunta são
@@ -638,7 +772,7 @@ o plano de análise. Depois da coleta, nenhuma técnica recupera informação qu
 foi coletada, corrige um desfecho mal definido ou compensa uma amostra
 insuficiente. A análise executa um plano; ela não o inventa.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-1-ex-2" data-exercicio="cap-1-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um colega diz: "vou coletar os dados primeiro e depois procuro um estatístico
 para ver o que dá para fazer". Responda a ele.</p>
 <details><summary>Ver o gabarito comentado</summary><p>O estatístico só poderá analisar o que foi coletado, do jeito que foi coletado.
@@ -648,7 +782,7 @@ o delineamento não permitir comparação, não haverá conserto. É o exame pos
 mortem de que falava Fisher: dirá do que o estudo morreu. A consulta útil é no
 planejamento, e custa menos.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-1-ex-3" data-exercicio="cap-1-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Dos três riscos apresentados na seção sobre importância, qual você considera o
 mais difícil de perceber no próprio trabalho, e por quê?</p>
 <details><summary>Ver o gabarito comentado</summary><p>O terceiro, o de enganar a si mesmo, porque ele não se manifesta como erro. Cada
@@ -658,7 +792,7 @@ as decisões pendem, que é a direção do resultado desejado. É por isso que o
 antídoto não é atenção redobrada, e sim compromisso registrado antes de ver os
 dados.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-1-ex-4" data-exercicio="cap-1-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Estime o custo, em tempo e dinheiro, do estudo do caso condutor: 200 pacientes,
 três centros, doze semanas de seguimento. Onde a estatística entra nesse custo?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Não há resposta única, e o exercício vale pelo raciocínio. O custo dominante é o
@@ -668,7 +802,7 @@ de consultoria no planejamento e algumas semanas de trabalho do pesquisador. E
 entra sobretudo como seguro: ela é a fração mínima do orçamento que decide se o
 restante terá servido para alguma coisa.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-1-ex-5" data-exercicio="cap-1-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Escreva a sua pergunta de pesquisa como ela está hoje, sem consultar o Capítulo
 2. Guarde para comparar depois.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Não há gabarito. Ao fim do Capítulo 2, releia o que escreveu e verifique se a
@@ -833,7 +967,7 @@ dados invalida a conclusão.</p>
 <p><strong>"Não há registro prévio do ensaio."</strong> Muitas revistas recusam sem sequer enviar
 para revisão. O registro é anterior à inclusão do primeiro paciente.</p></div>
 <h2 id="cap-2-exercicios">Exercícios<a class="ancora" href="#cap-2-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-2-ex-1" data-exercicio="cap-2-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Transforme em pergunta PICO: "queria saber se bota de Unna é melhor que faixa
 elástica".</p>
 <details><summary>Ver o gabarito comentado</summary><p>P: adultos com úlcera venosa ativa de membro inferior, com índice
@@ -845,7 +979,7 @@ elástica, aumenta a proporção de cicatrização completa em doze semanas? Not
 foi preciso decidir a frequência de troca nos dois braços: sem isso, uma
 diferença poderia vir do cuidado, e não do dispositivo.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-2-ex-2" data-exercicio="cap-2-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Aplique o filtro FINER à pergunta do exercício anterior. Onde ela é mais frágil?</p>
 <details><summary>Ver o gabarito comentado</summary><p>A fragilidade principal está no N, de novidade: existem revisões sistemáticas
 comparando modalidades de compressão, e o pesquisador precisa demonstrar o que
@@ -854,7 +988,7 @@ público brasileiro. A exequibilidade também merece atenção, pelo número de
 pacientes necessário. O E é tranquilo, porque as duas opções são padrão de
 cuidado, e o R é bom, já que a escolha entre elas tem impacto direto de custo.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-2-ex-3" data-exercicio="cap-2-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um pesquisador propõe: "avaliar o perfil epidemiológico dos pacientes com úlcera
 venosa atendidos no serviço". Isso é uma pergunta de pesquisa? O que se pode
 fazer com ela?</p>
@@ -865,7 +999,7 @@ serviços e para dimensionar estudos futuros. Se o pesquisador quiser testar
 alguma coisa, precisa acrescentar comparação e desfecho, transformando o
 levantamento em pergunta com P, I ou E, C e O.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-2-ex-4" data-exercicio="cap-2-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que o registro prévio de um ensaio clínico é exigido, e qual problema ele
 resolve?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Resolve dois. O primeiro é o viés de publicação: estudos negativos deixavam de
@@ -875,7 +1009,7 @@ desfecho: com o desfecho primário registrado antes da coleta, torna-se
 verificável se o artigo publicou aquilo que prometeu ou trocou pelo que deu
 significativo.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-2-ex-5" data-exercicio="cap-2-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Escreva o objetivo geral, a hipótese nula e o título de um estudo que compare
 duas doses de aspirado de medula óssea em úlcera venosa.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Objetivo geral: comparar a proporção de cicatrização completa em doze semanas
@@ -888,7 +1022,7 @@ cicatrização de úlceras venosas: ensaio clínico randomizado. Repare que, sem
 braço de compressão isolada, o estudo compara doses entre si e não permite
 concluir se qualquer uma delas supera o tratamento padrão.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-2-ex-6" data-exercicio="cap-2-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um colega quer estudar se o aspirado de medula óssea "melhora a qualidade de
 vida". Aponte o que falta para isso virar um O do PICO.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Falta o instrumento e o prazo. Qualidade de vida não é medida direta: precisa de
@@ -1102,7 +1236,7 @@ causalidade. Reescreva como associação.</p>
 válida, sem discutir confundimento por indicação."</strong> É a falha mais comum na
 literatura cirúrgica.</p></div>
 <h2 id="cap-3-exercicios">Exercícios<a class="ancora" href="#cap-3-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-3-ex-1" data-exercicio="cap-3-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Qual delineamento você usaria para cada pergunta? (a) Qual a prevalência de
 úlcera venosa em maiores de 60 anos no município? (b) O uso prolongado de
 corticoide aumenta o risco de úlcera de perna? (c) A bota de Unna cicatriza mais
@@ -1113,7 +1247,7 @@ corticoide para observar dano seria antiético.
 (c) Ensaio clínico randomizado, porque é pergunta de eficácia entre duas opções
 disponíveis, ambas padrão de cuidado, o que garante equipoise.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-3-ex-2" data-exercicio="cap-3-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que o delineamento cruzado não serviria para o caso condutor?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque o desfecho é irreversível dentro do horizonte do estudo. No delineamento
 cruzado, cada participante recebe os dois tratamentos em sequência, o que exige
@@ -1122,7 +1256,7 @@ cicatrizou não reabre para receber o segundo tratamento, e o efeito de arrasto
 seria total. O cruzado serve a condições crônicas e estáveis, como dor
 neuropática ou asma.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-3-ex-3" data-exercicio="cap-3-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Explique a diferença entre sigilo de alocação e cegamento, e diga qual dos dois
 teria sido possível manter integralmente no caso condutor.</p>
 <details><summary>Ver o gabarito comentado</summary><p>O sigilo de alocação protege o momento da inclusão: impede que quem recruta
@@ -1133,7 +1267,7 @@ No caso condutor, o sigilo de alocação foi mantido integralmente, por central
 telefônica independente, enquanto o cegamento só foi possível para o avaliador do
 desfecho.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-3-ex-4" data-exercicio="cap-3-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um estudo observacional conclui que pacientes que receberam terapia celular
 tiveram pior cicatrização, e recomenda abandonar a técnica. Que pergunta você
 faria aos autores?</p>
@@ -1144,7 +1278,7 @@ ajustados, e como os autores avaliam o confundimento residual daquilo que não f
 medido. A recomendação de abandonar uma técnica não se sustenta em análise bruta
 de estudo observacional.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-3-ex-5" data-exercicio="cap-3-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O caso condutor tem cegamento apenas do avaliador. Que desfechos deste estudo são
 mais vulneráveis à ausência de cegamento do paciente, e por quê?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Os desfechos relatados pelo próprio paciente, com destaque para a dor na escala
@@ -1155,7 +1289,7 @@ Essa diferença de vulnerabilidade deve ser discutida no artigo, e é um bom
 argumento para não construir a conclusão principal sobre desfechos subjetivos em
 estudo sem cegamento do paciente.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-3-ex-6" data-exercicio="cap-3-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Você quer avaliar se um novo protocolo de curativo, aplicado por toda a equipe de
 enfermagem de uma unidade, reduz o tempo de cicatrização. Qual delineamento, e
 qual cuidado especial a análise exige?</p>
@@ -1385,7 +1519,7 @@ separadamente.</p>
 <p><strong>"Não há desfecho de segurança."</strong> Estudo de intervenção que só mede benefício
 está incompleto.</p></div>
 <h2 id="cap-4-exercicios">Exercícios<a class="ancora" href="#cap-4-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-4-ex-1" data-exercicio="cap-4-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Classifique quanto ao tipo: <code>centro</code>, <code>idade</code>, <code>dor_eva_basal</code>, <code>itb</code> e
 <code>ulcera_recidivante</code>.</p>
 <details><summary>Ver o gabarito comentado</summary><p><code>centro</code> é nominal, três categorias sem ordem. <code>idade</code> é discreta, contada em
@@ -1393,7 +1527,7 @@ anos completos, e na prática tratada como contínua. <code>dor_eva_basal</code>
 embora frequentemente analisada como contínua, decisão que deve constar do
 protocolo. <code>itb</code> é contínua. <code>ulcera_recidivante</code> é nominal dicotômica.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-4-ex-2" data-exercicio="cap-4-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Escreva a definição operacional do desfecho "infecção da ferida", com detalhe
 suficiente para que dois avaliadores diferentes cheguem à mesma conclusão.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Uma definição aceitável: presença de pelo menos dois dos seguintes sinais, na
@@ -1404,7 +1538,7 @@ sem sinais clínicos não constituem infecção, por representarem colonização
 importante é que a definição liste os critérios, exija um número mínimo deles e
 diga quem avalia e quando.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-4-ex-3" data-exercicio="cap-4-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um pesquisador propõe usar como desfecho primário "a redução percentual da área
 em 12 semanas". Aponte o problema, com base no que o Capítulo 8 mostrou.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Essa variável tem efeito teto: mais da metade dos participantes atinge 100% de
@@ -1414,7 +1548,7 @@ ao paciente. Como desfecho primário, a cicatrização completa é superior; a
 redução de área tem seu lugar como desfecho secundário, e de preferência aferida
 em quatro semanas.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-4-ex-4" data-exercicio="cap-4-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que a adesão à terapia compressiva não deve entrar no modelo de ajuste do
 desfecho primário?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque foi medida depois da alocação e pode ser consequência do tratamento. Se o
@@ -1423,7 +1557,7 @@ benefício passa por ela, e ajustar removeria esse caminho. Variáveis
 pós-randomização são potenciais mediadoras, não confundidoras, e o Capítulo 12
 detalha a distinção.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-4-ex-5" data-exercicio="cap-4-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Você tem uma variável "grau de dor" com as categorias ausente, leve, moderada e
 intensa. Quais análises são legítimas e quais não são?</p>
 <details><summary>Ver o gabarito comentado</summary><p>É ordinal. São legítimas: descrever com número e percentual por categoria,
@@ -1432,7 +1566,7 @@ usar regressão logística ordinal. Não é legítimo calcular média sem justif
 porque as distâncias entre categorias não são conhecidas, nem afirmar que
 "intensa é o dobro de leve".</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-4-ex-6" data-exercicio="cap-4-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Abra o banco no jamovi e corrija os tipos de todas as variáveis. Depois produza
 uma tabela de frequência de <code>tabagismo</code> antes e depois de ordenar os níveis.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Antes da ordenação, as categorias aparecem em ordem alfabética: Ex-fumante,
@@ -1627,7 +1761,7 @@ constrangedora.</p>
 <p><strong>"Amostragem por conveniência apresentada como se fosse consecutiva."</strong> Se
 houve seleção do pesquisador, isso muda a interpretação e precisa estar escrito.</p></div>
 <h2 id="cap-5-exercicios">Exercícios<a class="ancora" href="#cap-5-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-5-ex-1" data-exercicio="cap-5-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Explique, em duas frases, a diferença entre a randomização e a amostragem
 aleatória neste estudo.</p>
 <details><summary>Ver o gabarito comentado</summary><p>A randomização sorteou, entre os 200 participantes já incluídos, quem receberia o
@@ -1636,7 +1770,7 @@ comparáveis. A amostragem aleatória teria sorteado quais pacientes com úlcera
 venosa do país entrariam no estudo, o que não aconteceu: os participantes foram
 os que procuraram três ambulatórios específicos e aceitaram participar.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-5-ex-2" data-exercicio="cap-5-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O estudo excluiu pacientes com índice tornozelo-braquial abaixo de 0,80. Qual o
 ganho e qual o custo dessa decisão?</p>
 <details><summary>Ver o gabarito comentado</summary><p>O ganho é de validade interna: úlceras com componente arterial têm fisiopatologia
@@ -1646,7 +1780,7 @@ arterial coexistem com frequência na população idosa, e o resultado não se a
 a esses pacientes, que são numerosos na prática. A decisão é defensável desde que
 a limitação seja declarada.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-5-ex-3" data-exercicio="cap-5-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um pesquisador convida para o estudo apenas pacientes que ele considera "bons
 aderentes", para reduzir perdas. Que tipo de viés ele introduz e o que acontece
 com o resultado?</p>
@@ -1657,7 +1791,7 @@ O estudo passaria a responder "qual o efeito em pacientes selecionados como
 ideais", que não é a pergunta clínica relevante. Além disso, a seleção depende do
 julgamento subjetivo do pesquisador, que não é reprodutível por ninguém.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-5-ex-4" data-exercicio="cap-5-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Descreva como você faria uma amostragem estratificada para garantir que
 diabéticos fossem 30% da amostra, e diga por que alguém faria isso.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Dividiria a população acessível em dois estratos, com e sem diabetes, e
@@ -1667,7 +1801,7 @@ diabéticos com poder suficiente, já que a proporção natural, de cerca de 22%
 resultaria em poucos casos. O preço é que a amostra deixa de refletir a
 proporção real da população, e qualquer estimativa global precisa ser ponderada.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-5-ex-5" data-exercicio="cap-5-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que o diagrama CONSORT exige informar quantos pacientes foram avaliados para
 elegibilidade, e não apenas quantos foram randomizados?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque a razão entre avaliados e incluídos revela quão selecionada é a amostra.
@@ -1676,7 +1810,7 @@ sua amostra se parece com a população atendida. Outro que avaliou 2.000 para
 incluir 200 aplicou um filtro pesado, e o leitor precisa saber qual foi, para
 julgar a quem o resultado se aplica.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-5-ex-6" data-exercicio="cap-5-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Uma pesquisadora quer que sua amostra tenha 30% de diabéticos e recruta, na sala
 de espera, os primeiros pacientes que encontra até completar 60 diabéticos e 140
 não diabéticos. Que técnica ela usou? É a mesma coisa que amostragem
@@ -1689,7 +1823,7 @@ por cotas, a vaga é preenchida por quem estava à mão, o que reintroduz o vié
 conveniência dentro de cada subgrupo. Quem chega cedo à sala de espera difere de
 quem chega tarde, e a cota não protege contra isso.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 7</div>
+<div class="exercicio" id="cap-5-ex-7" data-exercicio="cap-5-ex-7"><div class="titulo">Exercício 7<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Faça o exercício do jamovi descrito neste capítulo, tomando três subamostras de
 30 participantes. Anote a proporção de cicatrização de cada uma e compare com a
 do estudo completo.</p>
@@ -1787,6 +1921,34 @@ protocolo arredondou para <strong>100 por grupo, 200 randomizados</strong>.</p>
 <p>O estudo terminou com 8% de perdas, um pouco abaixo do previsto, e com 92
 participantes analisados por grupo, acima dos 89 necessários. O planejamento se
 sustentou.</p>
+
+<div class="calc" data-calc="amostra">
+  <div class="calc-titulo">Calculadora: tamanho da amostra para duas proporções</div>
+  <div class="calc-campos">
+    <label>Proporção esperada no grupo controle (%)
+      <input type="number" data-campo="p2" value="55" min="1" max="99" step="0.1"></label>
+    <label>Proporção esperada no grupo intervenção (%)
+      <input type="number" data-campo="p1" value="75" min="1" max="99" step="0.1"></label>
+    <label>Nível de significância
+      <select data-campo="alfa">
+        <option value="1.959964" selected>5% bilateral</option>
+        <option value="2.575829">1% bilateral</option>
+        <option value="1.644854">5% unilateral</option>
+      </select></label>
+    <label>Poder
+      <select data-campo="poder">
+        <option value="0.841621" selected>80%</option>
+        <option value="1.281552">90%</option>
+        <option value="1.644854">95%</option>
+      </select></label>
+    <label>Perdas previstas (%)
+      <input type="number" data-campo="perdas" value="10" min="0" max="50" step="1"></label>
+  </div>
+  <div class="calc-saida" data-saida></div>
+</div>
+<p>Os valores que a calculadora abre são os deste estudo. Troque-os pelos do seu
+projeto e observe, sobretudo, o que acontece quando a diferença a detectar
+diminui.</p>
 <h2 id="cap-6-quanto-custa-cada-ponto-percentual">Quanto custa cada ponto percentual<a class="ancora" href="#cap-6-quanto-custa-cada-ponto-percentual" aria-label="Link para esta seção">#</a></h2>
 <p>A relação entre a diferença a detectar e o tamanho da amostra é o argumento mais
 convincente deste capítulo, e ela não é linear:</p>
@@ -1881,7 +2043,7 @@ declarado."</strong> Precisa ser o primário, sempre.</p>
 <p><strong>"Teste unilateral usado sem justificativa."</strong> Reduz artificialmente a amostra.
 Justifique ou refaça bilateral.</p></div>
 <h2 id="cap-6-exercicios">Exercícios<a class="ancora" href="#cap-6-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-6-ex-1" data-exercicio="cap-6-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Refaça a conta do estudo supondo poder de 90% em vez de 80%. O que acontece com o
 tamanho da amostra?</p>
 <details><summary>Ver o gabarito comentado</summary><p>O único termo que muda é z(1-β), que passa de 0,842 para 1,282. O numerador vira
@@ -1890,7 +2052,7 @@ tamanho da amostra?</p>
 para 90% custou cerca de um terço a mais de pacientes, o que ilustra por que 80%
 continua sendo a escolha comum apesar de generosa.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-6-ex-2" data-exercicio="cap-6-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um pesquisador quer detectar uma diferença de 10 pontos percentuais no mesmo
 desfecho. Ele consegue recrutar 120 pacientes por ano e o estudo pode durar dois
 anos. É viável?</p>
@@ -1900,7 +2062,7 @@ ele recrutaria 240. As saídas são estender o recrutamento para mais centros,
 aumentar a duração do estudo, aceitar detectar uma diferença maior, ou trocar
 para um desfecho contínuo, que costuma exigir menos participantes.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-6-ex-3" data-exercicio="cap-6-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que o cálculo do tamanho da amostra deve usar o desfecho primário, e não o
 que der o menor n?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque o desfecho primário é aquele sobre o qual a conclusão do estudo será
@@ -1910,7 +2072,7 @@ que não interessa e mal à que interessa. Além disso, escolher o desfecho pelo
 que ele gera é uma forma de manipulação do protocolo, que o registro prévio
 existe para coibir.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-6-ex-4" data-exercicio="cap-6-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Com 40 participantes por grupo, qual a menor diferença detectável com 80% de
 poder, partindo de 55% no controle? Use a tabela deste capítulo para estimar por
 interpolação.</p>
@@ -1921,7 +2083,7 @@ percentuais. Isso significaria esperar que o tratamento levasse a cicatrização
 venosa. A conclusão prática é que 40 por grupo não é um tamanho adequado para
 esta pergunta.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-6-ex-5" data-exercicio="cap-6-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O estudo previu 10% de perdas e teve 8%. Se as perdas tivessem sido de 25%, o
 estudo ainda teria o tamanho planejado? O que se deveria escrever no artigo?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Com 25% de perdas, restariam 75 participantes por grupo, abaixo dos 89
@@ -1931,7 +2093,7 @@ apresentar análise de sensibilidade com diferentes suposições sobre os dados
 faltantes, e evitar concluir ausência de efeito caso o resultado fosse não
 significativo.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-6-ex-6" data-exercicio="cap-6-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>No jamovi, com o jpower instalado, reproduza o cálculo de 89 por grupo e depois
 desenhe a curva de poder para tamanhos entre 40 e 200 por grupo.</p>
 <details><summary>Ver o gabarito comentado</summary><p>A curva deve mostrar poder em torno de 50% com 40 por grupo, cruzar os 80% em
@@ -2145,7 +2307,7 @@ razoável" é aceito, e cobrado.</p>
 <p><strong>"O número de participantes difere entre tabelas sem explicação."</strong> Cada tabela
 deve dizer sobre quantos casos foi calculada.</p></div>
 <h2 id="cap-7-exercicios">Exercícios<a class="ancora" href="#cap-7-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-7-ex-1" data-exercicio="cap-7-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Uma planilha traz a coluna "PA" com valores como "140/90", "150 x 100" e
 "hipertenso". Descreva como reorganizá-la.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Criar duas colunas numéricas, <code>pa_sistolica</code> e <code>pa_diastolica</code>, ambas em mmHg, e
@@ -2155,7 +2317,7 @@ informação, se relevante, vai para uma terceira coluna nominal, <code>hiperten
 com Sim e Não. Convém ainda registrar quantos casos precisaram desse tratamento,
 para constar do relato de limpeza.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-7-ex-2" data-exercicio="cap-7-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que registrar ausente como 999 é perigoso, e o que fazer no lugar?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque 999 é um número, e todo programa o tratará como tal se ninguém o
 recodificar. Ele entra em médias, desvios padrão e regressões, distorcendo tudo,
@@ -2164,7 +2326,7 @@ deixar a célula vazia. Se for indispensável distinguir motivos de ausência, c
 uma coluna adicional com o motivo, em texto ou código, mantendo a coluna do valor
 vazia.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-7-ex-3" data-exercicio="cap-7-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O estudo teve 16 perdas de seguimento, 8 em cada grupo. Por que o equilíbrio
 entre os grupos é tranquilizador, mas não suficiente?</p>
 <details><summary>Ver o gabarito comentado</summary><p>É tranquilizador porque perdas desiguais sugeririam que o próprio tratamento
@@ -2175,7 +2337,7 @@ melhoravam e no controle abandonaram os que melhoraram cedo, o viés existe apes
 do equilíbrio numérico. Por isso se comparam as características basais dos
 perdidos e se fazem análises de sensibilidade.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-7-ex-4" data-exercicio="cap-7-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Explique por que este livro insiste que o banco bruto nunca seja editado à mão.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque a edição manual não deixa rastro. Seis meses depois, ninguém sabe se
 aquele valor era assim na ficha ou se foi corrigido, nem por quem, nem por quê. O
@@ -2183,7 +2345,7 @@ banco bruto preservado mais um script de limpeza permitem reconstruir o banco
 analítico a qualquer momento e mostram a cadeia inteira de decisões. É a mesma
 lógica do prontuário: não se apaga, acrescenta-se.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-7-ex-5" data-exercicio="cap-7-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Abra o banco no jamovi e rode Descriptives com mínimo e máximo para todas as
 variáveis numéricas. Alguma delas tem valores implausíveis?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Não deve haver, porque o banco foi gerado com limites fisiológicos. O que se
@@ -2193,7 +2355,7 @@ valor errado é clínica, não estatística: 66,4 cm² é uma úlcera enorme e p
 uma área de 6.640 cm² seria erro de digitação. É por isso que a conferência
 precisa ser feita por quem conhece a doença.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-7-ex-6" data-exercicio="cap-7-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Escreva o parágrafo de métodos que descreve a coleta e o gerenciamento dos dados
 deste estudo, com o que você aprendeu no capítulo.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Um exemplo aceitável: "Os dados foram coletados em formulário eletrônico
@@ -2515,7 +2677,7 @@ pode deixar o leitor supondo que foram duzentas.</p>
 existe. Uma casa decimal basta para idade, peso e escores; percentuais em estudo
 com duzentos participantes não precisam de decimal algum.</p></div>
 <h2 id="cap-8-exercicios">Exercícios<a class="ancora" href="#cap-8-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-8-ex-1" data-exercicio="cap-8-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>A duração da úlcera no grupo controle tem média de 16,0 meses, desvio padrão de
 11,8, mediana de 12,5 meses e quartis de 7,8 e 21,0. Qual par de medidas deve
 entrar na Tabela 1, e como você chegou a essa conclusão sem ver o histograma?</p>
@@ -2527,7 +2689,7 @@ implicaria uma proporção considerável de valores negativos, impossíveis para
 duração de doença. O histograma confirmaria, mas neste caso os dois indícios já
 bastam.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-8-ex-2" data-exercicio="cap-8-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um colega defende que a Tabela 1 deve trazer o valor de p do teste qui-quadrado
 comparando a frequência de diabetes entre os grupos, porque 17% contra 27% "pode
 ser uma diferença real". Responda a ele em no máximo cinco linhas.</p>
@@ -2540,7 +2702,7 @@ diabetes atrasa a cicatrização, portanto o desequilíbrio favorece o grupo do
 aspirado e precisa ser tratado com ajuste na análise, qualquer que seja o valor
 de p que ele produzisse.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-8-ex-3" data-exercicio="cap-8-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Abra o banco no jamovi e produza o histograma da variável <code>tcpo2_basal</code>. Ela é
 simétrica ou assimétrica? Qual resumo você usaria? Compare sua resposta com a
 média (35,8) e a mediana (36,0) da variável.</p>
@@ -2553,7 +2715,7 @@ Repare que a variável tem doze valores ausentes, por falha do equipamento, e
 que portanto o resumo se refere a 188 participantes, não a 200. Isso precisa
 estar escrito na tabela.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-8-ex-4" data-exercicio="cap-8-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um artigo descreve a área inicial das úlceras como "10,5 ± 9,4 cm²". Aponte os
 dois problemas dessa apresentação.</p>
 <details><summary>Ver o gabarito comentado</summary><p>O primeiro problema é a escolha do resumo: a distribuição é assimétrica à
@@ -2565,7 +2727,7 @@ intervalo de confiança. Além disso, a notação sugere um intervalo simétrico
 1,1 a 19,9 cm², e o limite inferior desse intervalo é implausível para uma
 amostra cujo menor valor é 0,8 cm² e cuja distribuição é assimétrica.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-8-ex-5" data-exercicio="cap-8-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que a mediana da redução de área em doze semanas é 100% nos dois grupos,
 sendo que a proporção de cicatrização foi de 70,7% no grupo do aspirado e 53,3%
 no controle? As duas informações se contradizem?</p>
@@ -2579,7 +2741,7 @@ região da escala onde ainda há variação. Se o controle tivesse cicatrizado 4
 das úlceras, a mediana dos dois grupos seria diferente, e a mesma medida que aqui
 não informou nada teria informado bastante.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-8-ex-6" data-exercicio="cap-8-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Monte, no jamovi, a Tabela 1 completa deste capítulo, e depois confira linha por
 linha contra a tabela impressa aqui. Anote quanto tempo levou. Esse tempo é o
 custo de conferir um resultado, e é o argumento mais convincente a favor de
@@ -2704,6 +2866,24 @@ hipótese de que o tratamento não faz diferença alguma, ainda que os intervalo
 individuais se sobreponham. Sobreposição de intervalos individuais não é
 critério para nada: o intervalo da diferença é uma quantidade diferente, com
 erro padrão próprio.</p>
+
+<div class="calc" data-calc="intervalo">
+  <div class="calc-titulo">Calculadora: proporções, diferença e número necessário para tratar</div>
+  <div class="calc-campos">
+    <label>Eventos no grupo intervenção
+      <input type="number" data-campo="a" value="65" min="0" step="1"></label>
+    <label>Total no grupo intervenção
+      <input type="number" data-campo="n1" value="92" min="1" step="1"></label>
+    <label>Eventos no grupo controle
+      <input type="number" data-campo="c" value="49" min="0" step="1"></label>
+    <label>Total no grupo controle
+      <input type="number" data-campo="n2" value="92" min="1" step="1"></label>
+  </div>
+  <div class="calc-saida" data-saida></div>
+</div>
+<p>A calculadora abre com os números do desfecho primário deste estudo. Ponha os
+seus e confira contra a saída do jamovi: os intervalos usam o método de Wilson,
+explicado nas abas mais adiante.</p>
 <h3 id="cap-9-ler-cada-medida-pelo-que-ela-diz">Ler cada medida pelo que ela diz<a class="ancora" href="#cap-9-ler-cada-medida-pelo-que-ela-diz" aria-label="Link para esta seção">#</a></h3>
 <p>A <strong>diferença absoluta</strong> é a mais útil na clínica: tratar cem pacientes produz
 cerca de dezessete cicatrizações a mais. É a única medida que fala em pacientes,
@@ -2796,7 +2976,7 @@ diferença exclui o zero, como acontece neste estudo.</p>
 Barras de erro sem legenda são inúteis. Escreva na legenda o que a barra
 representa.</p></div>
 <h2 id="cap-9-exercicios">Exercícios<a class="ancora" href="#cap-9-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-9-ex-1" data-exercicio="cap-9-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O intervalo de confiança de 95% da diferença absoluta vai de 3,6 a 31,2 pontos
 percentuais. Escreva, em uma frase que um clínico entenda, o que isso significa
 para a decisão de usar o tratamento.</p>
@@ -2806,7 +2986,7 @@ uma. Como até o limite inferior é um benefício, o estudo aponta para um efeit
 real, mas não permite dizer se ele é modesto ou expressivo. É essa indefinição,
 e não a existência do efeito, que justificaria um estudo maior.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-9-ex-2" data-exercicio="cap-9-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O intervalo do número necessário para tratar vai de 3,2 a 27,9. Por que ele é
 tão assimétrico em torno da estimativa de 5,8?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque o NNT é o inverso da diferença absoluta, e inverter uma escala a distorce.
@@ -2815,7 +2995,7 @@ O limite superior da diferença, 31,2 pontos percentuais, vira 1 dividido por
 0,036, ou 27,9. Uma diferença absoluta pequena no denominador produz um NNT
 enorme, e é por isso que a incerteza se concentra toda no extremo superior.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-9-ex-3" data-exercicio="cap-9-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um colega afirma: "o intervalo de confiança de 95% da cicatrização no grupo
 tratado é de 60,7% a 79,0%, logo há 95% de probabilidade de a taxa verdadeira
 estar nesse intervalo". Essa frase está correta?</p>
@@ -2830,7 +3010,7 @@ prática os dois costumam coincidir numericamente quando não há informação p
 forte. Isso explica por que o erro é tão comum e tão pouco danoso na prática,
 mas ele continua sendo um erro quando escrito em um artigo.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-9-ex-4" data-exercicio="cap-9-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>No jamovi, calcule o intervalo de confiança de 95% da proporção de infecção da
 ferida no grupo controle, que foi de 10 em 100. Compare com o método de Wald.</p>
 <details><summary>Ver o gabarito comentado</summary><p>A proporção é 10%. Por Wilson, o intervalo vai de 5,5% a 17,4%.
@@ -2839,7 +3019,7 @@ porque a proporção está longe de 50%, e cresceria se o evento fosse mais raro
 Com dois eventos em cem, por exemplo, Wald produziria um limite inferior
 negativo, que é impossível.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-9-ex-5" data-exercicio="cap-9-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>A diferença de médias na redução de área em quatro semanas foi de 14,8 pontos
 percentuais, com intervalo de 2,4 a 27,2, e d de Cohen de 0,34. Um revisor
 escreve que "o efeito é pequeno e provavelmente sem importância clínica".
@@ -2854,7 +3034,7 @@ prognóstico reconhecido, como mostra o Capítulo 13. Relevância clínica se
 argumenta com conhecimento da doença, nunca com uma tabela de pontos de corte de
 d.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-9-ex-6" data-exercicio="cap-9-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Se o estudo tivesse incluído 400 participantes por grupo em vez de 92, e as
 proporções observadas fossem exatamente as mesmas, o que aconteceria com a
 estimativa e com o intervalo?</p>
@@ -3074,7 +3254,7 @@ observado é redundante com o valor de p e não explica resultado nenhum.</p>
 na discussão como confirmatórios."</strong> Declare qual era o primário e classifique o
 resto como exploratório.</p></div>
 <h2 id="cap-10-exercicios">Exercícios<a class="ancora" href="#cap-10-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-10-ex-1" data-exercicio="cap-10-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Traduza o p de 0,015 deste estudo em uma frase completa, sem usar as palavras
 "significativo" ou "chance de o tratamento funcionar".</p>
 <details><summary>Ver o gabarito comentado</summary><p>Se o aspirado de medula óssea não tivesse efeito algum sobre a cicatrização, uma
@@ -3082,7 +3262,7 @@ diferença de 17,4 pontos percentuais ou maior entre os grupos apareceria em
 cerca de 1,5% dos estudos com este mesmo tamanho. Como isso é pouco, os dados
 são pouco compatíveis com a hipótese de que o tratamento é inerte.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-10-ex-2" data-exercicio="cap-10-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O mesmo estudo, com a mesma diferença de 17,4 pontos percentuais, teria sido
 conduzido com 30 participantes por grupo. O valor de p seria maior ou menor? E o
 intervalo de confiança?</p>
@@ -3092,7 +3272,7 @@ continuaria 17,4 pontos percentuais. É a demonstração de que o valor de p mis
 tamanho de efeito com tamanho de amostra, e de que só o intervalo separa as duas
 coisas.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-10-ex-3" data-exercicio="cap-10-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um artigo relata: "não houve diferença entre os grupos (p = 0,31)". Quais duas
 informações você exigiria antes de aceitar essa conclusão?</p>
 <details><summary>Ver o gabarito comentado</summary><p>A estimativa do efeito e seu intervalo de confiança. Se o intervalo for estreito
@@ -3100,7 +3280,7 @@ e próximo do nulo, a conclusão de ausência de efeito relevante se sustenta. S
 for largo, o estudo apenas não teve tamanho para decidir, e a frase correta seria
 que o estudo foi inconclusivo, não que não há diferença.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-10-ex-4" data-exercicio="cap-10-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>No jamovi, refaça o teste do desfecho primário e compare os três valores de p da
 tabela deste capítulo. Em seguida, refaça o teste incluindo os dezesseis
 participantes perdidos como se não tivessem cicatrizado. O p muda? A conclusão
@@ -3111,7 +3291,7 @@ cada grupo, o p se altera pouco e a conclusão permanece. O exercício ensina qu
 robustez de um resultado se demonstra mostrando que ele sobrevive a suposições
 diferentes sobre os dados faltantes, assunto retomado nos Capítulos 12 e 15.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-10-ex-5" data-exercicio="cap-10-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Explique por que a frase "o resultado foi altamente significativo (p &lt; 0,001)"
 não autoriza dizer que o efeito é grande.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque o valor de p diminui tanto pelo aumento do efeito quanto pelo aumento da
@@ -3120,7 +3300,7 @@ um ponto percentual, clinicamente desprezível. O adjetivo "altamente" descreve 
 raridade do resultado sob a hipótese nula, não a magnitude do benefício, que se
 lê na estimativa e no intervalo.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-10-ex-6" data-exercicio="cap-10-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O estudo tem um desfecho primário e quatro secundários. Suponha que o primário
 tivesse dado p = 0,08 e que um dos secundários tivesse dado p = 0,01. Como o
 artigo deve ser escrito?</p>
@@ -3350,7 +3530,7 @@ de corte tiver significado clínico próprio, como o corte de 40% de redução e
 quatro semanas usado no Capítulo 13, e nunca escolhendo o corte que produz o
 menor valor de p.</p></div>
 <h2 id="cap-11-exercicios">Exercícios<a class="ancora" href="#cap-11-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-11-ex-1" data-exercicio="cap-11-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Você quer comparar a proporção de infecção da ferida entre os dois grupos. Foram
 6 casos em 100 no grupo do aspirado e 10 em 100 no controle. Qual teste?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Desfecho categórico, dois grupos independentes: qui-quadrado. Mas confira os
@@ -3359,7 +3539,7 @@ infectados é 8 por grupo, portanto acima de 5, e o qui-quadrado é aceitável.
 Se os eventos fossem 2 e 4, o esperado cairia abaixo de 5 e o teste exato de
 Fisher passaria a ser obrigatório.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-11-ex-2" data-exercicio="cap-11-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O escore de dor foi medido na inclusão e em 12 semanas. Você quer saber se a dor
 diminuiu. Qual teste, e por quê ele é diferente do que se usaria para comparar a
 dor entre os dois grupos de tratamento?</p>
@@ -3370,7 +3550,7 @@ variação da dor, e aí cada participante contribui com um único valor, que é
 diferença entre suas duas medidas. São perguntas diferentes: a primeira é "a dor
 melhorou?" e a segunda é "o tratamento fez a dor melhorar mais?".</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-11-ex-3" data-exercicio="cap-11-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>No teste de McNemar deste capítulo, 84 participantes saíram de dor alta para dor
 baixa, 1 fez o caminho contrário, e todos os demais permaneceram na mesma
 categoria. Por que o teste ignora os que permaneceram?</p>
@@ -3380,7 +3560,7 @@ a hipótese de melhora quanto com a de nada ter acontecido. O que discrimina sã
 os discordantes: 84 para um lado contra 1 para o outro é um desequilíbrio
 enorme, e é dele que sai o valor de p.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-11-ex-4" data-exercicio="cap-11-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>A correlação entre área inicial e tempo até cicatrizar deu r de Pearson de 0,19 e
 rô de Spearman de 0,28. Explique a diferença e diga qual você relataria.</p>
 <details><summary>Ver o gabarito comentado</summary><p>A área inicial é fortemente assimétrica, com poucas úlceras muito grandes.
@@ -3390,7 +3570,7 @@ os valores por postos, elimina o efeito da escala e capta qualquer relação
 monótona. Com uma variável assimétrica como essa, relate Spearman, e diga no
 texto por que o escolheu.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-11-ex-5" data-exercicio="cap-11-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um colega quer comparar os três centros quanto à proporção de cicatrização.
 Qual teste? E se um dos centros tivesse recrutado apenas oito pacientes?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Desfecho categórico com três grupos independentes: qui-quadrado de três por dois.
@@ -3400,7 +3580,7 @@ disponível em programas estatísticos. Vale lembrar que comparar centros não e
 um desfecho declarado: é uma análise exploratória, e deve ser apresentada como
 tal.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-11-ex-6" data-exercicio="cap-11-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Percorra o banco no jamovi e escolha o teste adequado para estas três perguntas:
 (a) a idade difere entre os grupos? (b) a proporção de fumantes difere entre os
 três centros? (c) o índice tornozelo-braquial se associa à redução de área em
@@ -3711,7 +3891,7 @@ chances pode ser interpretada.</p>
 ajustado."</strong> Relate os dois. A diferença entre bruto e ajustado é informação
 sobre o confundimento, e escondê-la impede o leitor de julgar.</p></div>
 <h2 id="cap-12-exercicios">Exercícios<a class="ancora" href="#cap-12-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-12-ex-1" data-exercicio="cap-12-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Na coorte observacional, a razão de chances bruta foi 0,72 e a ajustada, 1,87.
 Explique, em termos clínicos, o que aconteceu entre um número e outro.</p>
 <details><summary>Ver o gabarito comentado</summary><p>O tratamento foi dado preferencialmente a pacientes com pior prognóstico: úlceras
@@ -3722,7 +3902,7 @@ pacientes com área, duração, diabetes e adesão semelhantes, e nessa compara�
 benefício reaparece. O que mudou não foi o tratamento: foi com quem ele estava
 sendo comparado.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-12-ex-2" data-exercicio="cap-12-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que a razão de chances ajustada da coorte, 1,87, ainda subestima o efeito
 verdadeiro, que o ensaio estimou em 2,11?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque o ajuste só corrige o que foi medido. Ficaram de fora da coorte variáveis
@@ -3732,7 +3912,7 @@ oxigênio, o estado nutricional, a experiência do cirurgião. Esse resíduo se 
 confundimento residual, e é impossível saber seu tamanho a partir dos próprios
 dados, o que é justamente o problema.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-12-ex-3" data-exercicio="cap-12-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>No modelo do ensaio randomizado, a razão de chances bruta do tratamento foi 2,11
 e a ajustada, 2,25. Por que a diferença é tão pequena aqui e tão grande na
 coorte?</p>
@@ -3742,7 +3922,7 @@ verificação valiosa: em um ensaio, uma diferença grande entre bruto e ajustad
 levantaria suspeita sobre a alocação. Na coorte, os grupos eram desiguais desde a
 origem, e o ajuste tinha muito o que corrigir.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-12-ex-4" data-exercicio="cap-12-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>A adesão à terapia compressiva teve razão de chances de 2,90, a maior do modelo.
 Por que este livro recomenda, ainda assim, deixá-la fora do modelo principal de
 um ensaio clínico?</p>
@@ -3753,7 +3933,7 @@ caminho e subestima o efeito total. Variáveis pós-randomização podem ser
 analisadas em separado, como mediadores, mas não entram no ajuste do desfecho
 primário.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-12-ex-5" data-exercicio="cap-12-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Rode no jamovi a regressão logística do ensaio sem a variável adesão. O
 coeficiente do tratamento sobe ou desce? O que isso diz?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Ele muda pouco, porque a adesão está aproximadamente equilibrada entre os grupos,
@@ -3763,7 +3943,7 @@ desfecho, ela não distorce a comparação quando está igualmente distribuída.
 por isso que, em ensaios, o ajuste serve mais para ganhar precisão do que para
 corrigir viés.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-12-ex-6" data-exercicio="cap-12-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um pesquisador quer estudar, em uma coorte, se o uso de bota de Unna melhora a
 cicatrização, e pretende ajustar por "tempo até a cicatrização". Comente.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Não faz sentido, e por dois motivos. O tempo até a cicatrização é uma forma do
@@ -3887,6 +4067,29 @@ assim que deve ser. Uma regra grosseira ajuda a julgar utilidade: razões
 positivas acima de 10 e negativas abaixo de 0,1 mudam conduta com frequência;
 entre 5 e 10, ou entre 0,1 e 0,2, ajudam; e valores próximos de 1 não informam
 quase nada.</p>
+
+<div class="calc" data-calc="fagan">
+  <div class="calc-titulo">Calculadora: probabilidade pós-teste</div>
+  <div class="calc-campos">
+    <label>Probabilidade pré-teste (%)
+      <input type="number" data-campo="pre" value="62" min="0.1" max="99.9" step="0.1"></label>
+    <label>Sensibilidade (%)
+      <input type="number" data-campo="sens" value="71.1" min="0.1" max="100" step="0.1"></label>
+    <label>Especificidade (%)
+      <input type="number" data-campo="esp" value="80" min="0.1" max="99.9" step="0.1"></label>
+  </div>
+  <div class="calc-saida" data-saida></div>
+</div>
+<p>A calculadora abre com os valores deste estudo: prevalência de 62%,
+sensibilidade de 71,1% e especificidade de 80,0%. Baixe a probabilidade
+pré-teste para 30%, que é a de um serviço terciário, e observe o valor preditivo
+positivo desabar sem que o teste tenha mudado.</p>
+<p>Ela pode divergir do texto na última casa decimal, e a razão é instrutiva: o
+livro calcula a partir dos 184 participantes, enquanto a calculadora parte da
+sensibilidade e da especificidade já arredondadas que você digitou. É o mesmo
+motivo pelo qual dois artigos podem publicar 3,55 e 3,56 para a mesma razão de
+verossimilhança, e é uma boa razão para não relatar mais casas do que os dados
+sustentam.</p>
 <h2 id="cap-13-escolher-o-corte-e-escolher-o-erro-que-se-prefere-cometer">Escolher o corte é escolher o erro que se prefere cometer<a class="ancora" href="#cap-13-escolher-o-corte-e-escolher-o-erro-que-se-prefere-cometer" aria-label="Link para esta seção">#</a></h2>
 <p>Nenhum ponto de corte é o certo. Cada um troca sensibilidade por especificidade:</p>
 <div class="rolagem"><table>
@@ -4030,17 +4233,21 @@ diferente."</strong> Recalcule com as razões de verossimilhança.</p>
 <p><strong>"Os intervalos de confiança das medidas de acurácia não foram apresentados."</strong>
 Sensibilidade de 71,1% baseada em 114 pacientes tem incerteza considerável.</p></div>
 <h2 id="cap-13-exercicios">Exercícios<a class="ancora" href="#cap-13-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-13-ex-1" data-exercicio="cap-13-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Com o corte de 40%, o valor preditivo positivo foi 85,3%. Calcule qual seria esse
 valor em um serviço onde apenas 30% das úlceras cicatrizam em doze semanas,
 usando a mesma sensibilidade e especificidade.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Em mil pacientes com prevalência de 30%, haveria 300 que cicatrizam e 700 que
 não. Com sensibilidade de 71,1%, o teste apontaria 213 dos 300. Com
 especificidade de 80,0%, apontaria erradamente 140 dos 700. O valor preditivo
-positivo seria 213 dividido por 353, ou 60,3%, bem abaixo dos 85,3% do estudo. O
-teste não piorou: a população mudou.</p></details>
+positivo seria 213 dividido por 353, ou cerca de 60%, bem abaixo dos 85,3% do
+estudo. O teste não piorou: a população mudou.</p>
+<p>A calculadora deste capítulo devolve 60,4%, e a conta à mão acima devolve 60,3%,
+porque ela arredondou os 213,3 verdadeiros positivos para 213. A diferença não
+tem importância clínica alguma, e serve de lembrete sobre quantas casas decimais
+um resultado desses comporta.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-13-ex-2" data-exercicio="cap-13-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que a sensibilidade cai quando se aumenta o ponto de corte de 30% para 50%?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque um corte mais exigente classifica menos pacientes como positivos. Alguns
 dos que perdem o rótulo de positivo eram verdadeiros positivos, que passam a ser
@@ -4048,7 +4255,7 @@ falsos negativos, e a sensibilidade cai. Em compensação, também saem de posit
 alguns falsos positivos, e a especificidade sobe. É uma troca inevitável, e é
 exatamente ela que a curva ROC desenha.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-13-ex-3" data-exercicio="cap-13-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>A área sob a curva do TcPO₂ foi 0,656, com intervalo de 0,574 a 0,737. Esse teste
 é melhor que o acaso? Ele serve para uso clínico?</p>
 <details><summary>Ver o gabarito comentado</summary><p>É melhor que o acaso, porque o intervalo de confiança não inclui 0,5. Mas as duas
@@ -4059,7 +4266,7 @@ Um teste pode ser estatisticamente melhor que o acaso e clinicamente inútil, e
 essa distinção é o motivo de este capítulo insistir em razões de verossimilhança
 e não em área sob a curva.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-13-ex-4" data-exercicio="cap-13-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um artigo relata que "a acurácia global do teste foi de 74,5%". Por que essa
 medida isolada é insuficiente?</p>
 <details><summary>Ver o gabarito comentado</summary><p>A acurácia global é a proporção de acertos, e mistura em um único número os dois
@@ -4068,7 +4275,7 @@ da prevalência: em uma condição rara, um teste que diga sempre "negativo" tem
 acurácia altíssima e utilidade nenhuma. Relate sensibilidade e especificidade
 separadamente.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-13-ex-5" data-exercicio="cap-13-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>No jamovi, construa a tabela de quatro casas para o corte de 50% e calcule as
 seis medidas do capítulo. Confira com a tabela de cortes apresentada aqui.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Com o corte de 50%, os números são 72 verdadeiros positivos, 5 falsos positivos,
@@ -4078,7 +4285,7 @@ negativo de 60,7%, razão de verossimilhança positiva de 8,84 e negativa de 0,4
 Repare que a razão positiva quase triplicou em relação ao corte de 40%, ao custo
 de oito pontos de sensibilidade: é o tipo de troca que se decide na clínica.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-13-ex-6" data-exercicio="cap-13-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um paciente seu tem, na sua avaliação, 40% de probabilidade de cicatrizar sem
 intervenção adicional. Ele volta na quarta semana com redução de área de 55%.
 Qual a sua estimativa agora?</p>
@@ -4319,7 +4526,7 @@ relativo compara proporções acumuladas em um momento.</p>
 determina a precisão é o número de eventos, não o de participantes. Um estudo
 com quinhentos pacientes e doze eventos é um estudo pequeno.</p></div>
 <h2 id="cap-14-exercicios">Exercícios<a class="ancora" href="#cap-14-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-14-ex-1" data-exercicio="cap-14-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>No banco, o participante P003 tem tempo de 84 dias e evento igual a 0, e o P005
 tem tempo de 77 dias e evento igual a 1. Descreva o que aconteceu com cada um.</p>
 <details><summary>Ver o gabarito comentado</summary><p>P003 foi seguido pelas doze semanas completas e chegou ao fim do estudo com a
@@ -4328,7 +4535,7 @@ cicatrizou no septuagésimo sétimo dia, dentro do período de observação: é 
 evento. Os dois contribuem para a curva de maneiras diferentes, e nenhum dos dois
 pode ser descartado.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-14-ex-2" data-exercicio="cap-14-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O valor de p do log-rank foi 0,002, e o do qui-quadrado sobre o desfecho binário
 foi 0,015. Por que a mesma comparação, nos mesmos pacientes, produz evidência
 mais forte na análise de sobrevida?</p>
@@ -4338,7 +4545,7 @@ aos vinte dias e outra que fechou aos oitenta e três. Mais informação aprovei
 produz estimativa mais precisa e, portanto, teste mais poderoso. É o mesmo
 princípio que desaconselha dicotomizar variáveis contínuas, visto no Capítulo 11.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-14-ex-3" data-exercicio="cap-14-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>A razão de riscos ajustada foi 2,10. Um colega escreve na discussão que "o
 tratamento dobra a chance de cicatrização". Corrija a frase.</p>
 <details><summary>Ver o gabarito comentado</summary><p>A frase confunde razão de riscos com risco relativo. O correto é dizer que, entre
@@ -4347,7 +4554,7 @@ foi 2,1 vezes maior no grupo tratado. Se o colega quiser falar em proporção de
 pacientes, o número é outro: 69,3% contra 51,3% em doze semanas, com risco
 relativo de 1,33.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-14-ex-4" data-exercicio="cap-14-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que o tempo mediano até a cicatrização no grupo controle, 82 dias, está tão
 perto do fim do seguimento? O que aconteceria se o estudo tivesse durado apenas
 oito semanas?</p>
@@ -4359,7 +4566,7 @@ de cicatrização e a mediana <strong>não seria atingida</strong>: o relato cor
 lembrete de que o tempo de seguimento se decide junto com o desfecho, no
 planejamento.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-14-ex-5" data-exercicio="cap-14-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>No jamovi, com o módulo de sobrevida instalado, produza a curva de Kaplan-Meier
 por grupo e localize nela os três números da tabela deste capítulo: 23,4%, 53,9%
 e 69,3%.</p>
@@ -4369,7 +4576,7 @@ que na curva de sobrevida aparecem como o complemento, isto é, 76,6%, 46,1% e
 úlceras abertas, e não a ascendente, de cicatrizações acumuladas. Verifique
 sempre qual das duas está no eixo antes de ler qualquer número.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-14-ex-6" data-exercicio="cap-14-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Suponha que as curvas dos dois grupos se cruzassem na oitava semana. O que isso
 significaria clinicamente e o que você faria com o modelo de Cox?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Significaria que o efeito do tratamento muda de direção ao longo do tempo, por
@@ -4584,7 +4791,7 @@ Obrigatório.</p>
 <p><strong>"Não há número de aprovação ética nem de registro do ensaio."</strong> Sem eles, o
 manuscrito não segue.</p></div>
 <h2 id="cap-15-exercicios">Exercícios<a class="ancora" href="#cap-15-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-15-ex-1" data-exercicio="cap-15-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Escreva a conclusão do resumo deste estudo, em no máximo três linhas, sem usar as
 palavras "significativo" e "eficaz".</p>
 <details><summary>Ver o gabarito comentado</summary><p>"O aspirado de medula óssea autólogo associado à terapia compressiva aumentou a
@@ -4592,7 +4799,7 @@ proporção de cicatrização de úlceras venosas em doze semanas, com diferenç
 absoluta de 17,4 pontos percentuais (IC 95% 3,6 a 31,2). A amplitude do intervalo
 indica que o tamanho do benefício permanece incerto."</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-15-ex-2" data-exercicio="cap-15-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que o diagrama de fluxo exige informar os 46 pacientes excluídos e seus
 motivos?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque a proporção entre avaliados e incluídos, e os motivos de exclusão,
@@ -4601,7 +4808,7 @@ Saber que 19 foram excluídos por índice tornozelo-braquial abaixo de 0,80 info
 ao leitor que pacientes com componente arterial ficaram de fora, o que é
 justamente a limitação de validade externa discutida no Capítulo 5.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-15-ex-3" data-exercicio="cap-15-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O estudo teve 34 casos de dor no sítio de punção entre os 100 que receberam o
 aspirado. Onde e como isso deve aparecer no artigo?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Na seção de resultados, em tabela de segurança, com o denominador correto, que é
@@ -4611,7 +4818,7 @@ no sítio de punção, o que é parte do custo do tratamento e pesa na decisão
 clínica. Omitir eventos adversos frequentes porque não são graves é uma das
 formas mais comuns de viés de relato.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-15-ex-4" data-exercicio="cap-15-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Um coautor sugere acrescentar ao resumo o resultado do desfecho secundário que
 deu p = 0,002, e retirar o primário, que deu p = 0,015, "porque o segundo é mais
 forte". Responda.</p>
@@ -4622,7 +4829,7 @@ citados não são comparáveis dessa forma, porque um vem de um desfecho binári
 outro de uma análise de tempo até evento, que aproveita mais informação. O resumo
 apresenta o primário e pode mencionar o secundário como achado consistente.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-15-ex-5" data-exercicio="cap-15-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Escreva três limitações honestas deste estudo.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Primeira: o cegamento foi parcial, restrito ao avaliador do desfecho, de modo que
 desfechos relatados pelo paciente, como a dor, podem ter sido influenciados pela
@@ -4633,7 +4840,7 @@ da diferença, de 3,6 a 31,2 pontos percentuais, deixa em aberto se o benefício
 modesto ou expressivo, e o estudo não tem tamanho para distinguir as duas
 hipóteses.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-15-ex-6" data-exercicio="cap-15-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Monte, para o caso condutor, a Tabela 2 completa a partir dos resultados dos
 Capítulos 9, 10 e 14, e confira cada número contra os capítulos de origem.</p>
 <details><summary>Ver o gabarito comentado</summary><p>A tabela deste capítulo já traz as três linhas principais. Um exercício completo
@@ -4766,7 +4973,7 @@ mudam; a disposição, não.</p>
 começado, pare a coleta. É desconfortável e é mais barato do que descobrir o
 problema na banca.</p></div>
 <h2 id="cap-16-exercicios">Exercícios<a class="ancora" href="#cap-16-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-16-ex-1" data-exercicio="cap-16-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>O ensaio da estreptomicina, de 1948, é considerado o marco inicial da pesquisa
 clínica moderna. O que ele fez que estudos anteriores não faziam?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Usou alocação verdadeiramente aleatória, com sigilo, tratando o sorteio como
@@ -4775,7 +4982,7 @@ garantiu comparabilidade entre os grupos e, principalmente, impediu que o
 pesquisador influenciasse, mesmo sem intenção, quem receberia o novo tratamento.
 É a mesma propriedade que o Capítulo 12 demonstra ser insubstituível.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-16-ex-2" data-exercicio="cap-16-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Explique, com o que aprendeu no livro, por que a crise de reprodutibilidade tem
 relação com amostras pequenas.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Estudos pequenos têm pouco poder e intervalos largos. Entre eles, os que atingem
@@ -4785,7 +4992,7 @@ publicados menos. A literatura passa então a conter estimativas
 sistematicamente infladas, que não se replicam quando alguém tenta repetir o
 estudo com tamanho adequado.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 3</div>
+<div class="exercicio" id="cap-16-ex-3" data-exercicio="cap-16-ex-3"><div class="titulo">Exercício 3<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Que tarefas da sua pesquisa você delegaria a uma ferramenta de inteligência
 artificial, e quais não delegaria?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Delegáveis: escrever o código de uma análise já decidida, converter tabelas de
@@ -4797,7 +5004,7 @@ julgar relevância clínica e assinar a conclusão. A regra prática é que a
 ferramenta executa e o pesquisador julga, e a responsabilidade é sempre de quem
 assina.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 4</div>
+<div class="exercicio" id="cap-16-ex-4" data-exercicio="cap-16-ex-4"><div class="titulo">Exercício 4<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Por que o formato dos relatórios registrados, em que a revista aceita o artigo
 antes de conhecer os resultados, elimina o viés de publicação?</p>
 <details><summary>Ver o gabarito comentado</summary><p>Porque a decisão editorial passa a se basear na relevância da pergunta e na
@@ -4806,7 +5013,7 @@ resultado, que é conhecida depois. Um estudo bem desenhado é publicado dando
 positivo ou negativo, e a literatura deixa de ser um catálogo enviesado de
 achados favoráveis.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 5</div>
+<div class="exercicio" id="cap-16-ex-5" data-exercicio="cap-16-ex-5"><div class="titulo">Exercício 5<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Releia a lista de dez itens e identifique em qual capítulo cada um foi tratado.</p>
 <details><summary>Ver o gabarito comentado</summary><p>1 no Capítulo 2; 2 no Capítulo 3; 3 no Capítulo 4; 4 no Capítulo 6; 5 no Capítulo
 2, com reforço no 15; 6 no Capítulo 7; 7 no Capítulo 8, com o mito da normalidade
@@ -4814,7 +5021,7 @@ no 11; 8 nos Capítulos 9 e 10; 9 no Capítulo 12; 10 no Capítulo 15. Repare qu
 sete dos dez itens são anteriores à análise: é a tese central do livro,
 enunciada em forma de lista.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 6</div>
+<div class="exercicio" id="cap-16-ex-6" data-exercicio="cap-16-ex-6"><div class="titulo">Exercício 6<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Escreva, em um parágrafo, o que você faria diferente no seu próximo estudo depois
 de ler este livro.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Não há resposta única, e a pergunta é séria. O parágrafo mais valioso costuma
@@ -4999,7 +5206,7 @@ isso. O banco deste livro já vem com ponto.</p>
 <p><strong>Análise que some.</strong> Se você apagar a análise do painel de resultados, ela se
 vai. Prefira desmarcar opções a excluir a análise inteira.</p>
 <h2 id="cap-A-exercicios">Exercícios<a class="ancora" href="#cap-A-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-A-ex-1" data-exercicio="cap-A-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Instale o jamovi, importe <code>coorte-condutor.csv</code> e corrija o tipo de
 <code>evento_cicatrizacao</code>. Quantas variáveis o programa classificou errado?</p>
 <details><summary>Ver o gabarito comentado</summary><p>A mais evidente é <code>evento_cicatrizacao</code>, importada como contínua por estar
@@ -5009,7 +5216,7 @@ ou contínuas deve ser tomada e justificada, conforme o Capítulo 4. O exercíci
 importa menos pelo número exato e mais pelo hábito: conferir tipos antes de
 qualquer análise.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-A-ex-2" data-exercicio="cap-A-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Crie a variável <code>log_area</code> e um filtro que selecione apenas participantes com
 área inicial acima de 10 cm². Quantos restam?</p>
 <details><summary>Ver o gabarito comentado</summary><p>A fórmula é <code>LN(area_inicial_cm2)</code> em Compute, e o filtro é
@@ -5611,7 +5818,7 @@ dados reais, em que ninguém sabe a resposta. Terceiro, honestidade: um exemplo
 inventado apresentado como real seria pior do que um exemplo inventado
 apresentado como tal.</p></div>
 <h2 id="cap-D-exercicios">Exercícios<a class="ancora" href="#cap-D-exercicios" aria-label="Link para esta seção">#</a></h2>
-<div class="exercicio"><div class="titulo">Exercício 1</div>
+<div class="exercicio" id="cap-D-ex-1" data-exercicio="cap-D-ex-1"><div class="titulo">Exercício 1<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Abra os dois bancos no jamovi e compare a área inicial mediana entre quem recebeu
 e quem não recebeu o tratamento, em cada um. O que a comparação revela?</p>
 <details><summary>Ver o gabarito comentado</summary><p>No ensaio randomizado, as medianas são próximas, 8,2 cm² no grupo do aspirado e
@@ -5621,7 +5828,7 @@ comparação já explica por que a análise bruta da coorte conclui o contrário
 verdade, e é a maneira mais rápida de diagnosticar confundimento por indicação em
 qualquer estudo observacional que você venha a ler.</p></details>
 </div>
-<div class="exercicio"><div class="titulo">Exercício 2</div>
+<div class="exercicio" id="cap-D-ex-2" data-exercicio="cap-D-ex-2"><div class="titulo">Exercício 2<button type="button" class="resolvido" aria-pressed="false">marcar como resolvido</button></div>
 <p>Rode <code>analises/analises-do-livro.py</code> e escolha três números deste livro para
 conferir contra <code>resultados.md</code>.</p>
 <details><summary>Ver o gabarito comentado</summary><p>Qualquer três servem, e a experiência é o ponto: em um livro reprodutível,
@@ -5633,9 +5840,20 @@ comum descrito no Capítulo 15.</p></details>
 </main>
 </div>
 <button id="ao-topo" type="button" hidden aria-label="Voltar ao topo">&uarr;</button>
+
+<div id="dica-glossario" hidden role="tooltip"></div>
+
+<dialog id="painel-citar">
+  <h2>Como citar</h2>
+  <div id="citacoes"></div>
+  <button type="button" id="fecha-citar">Fechar</button>
+</dialog>
+
 <script>
 var LIVRO_TITULO = "A Estat\u00edstica na Pesquisa Cl\u00ednica";
-var LIVRO_CAPS = [{"id": "cap-1", "n": "1", "titulo": "A pergunta antes do número", "palavras": 1942, "parte": "Parte I — A pergunta"}, {"id": "cap-2", "n": "2", "titulo": "Da dúvida clínica à pergunta respondível", "palavras": 2008, "parte": "Parte I — A pergunta"}, {"id": "cap-3", "n": "3", "titulo": "O delineamento decide tudo", "palavras": 2092, "parte": "Parte I — A pergunta"}, {"id": "cap-4", "n": "4", "titulo": "Variáveis e desfechos", "palavras": 1876, "parte": "Parte II — Antes de coletar"}, {"id": "cap-5", "n": "5", "titulo": "Técnicas de amostragem", "palavras": 2449, "parte": "Parte II — Antes de coletar"}, {"id": "cap-6", "n": "6", "titulo": "Cálculo do tamanho da amostra", "palavras": 1953, "parte": "Parte II — Antes de coletar"}, {"id": "cap-7", "n": "7", "titulo": "Coleta, banco de dados e reprodutibilidade", "palavras": 2182, "parte": "Parte II — Antes de coletar"}, {"id": "cap-8", "n": "8", "titulo": "Estatística descritiva", "palavras": 2888, "parte": "Parte III — Diante dos dados"}, {"id": "cap-9", "n": "9", "titulo": "Estimativa e incerteza", "palavras": 2264, "parte": "Parte III — Diante dos dados"}, {"id": "cap-10", "n": "10", "titulo": "Teste de hipótese e valor de p", "palavras": 2211, "parte": "Parte III — Diante dos dados"}, {"id": "cap-11", "n": "11", "titulo": "Escolhendo o teste", "palavras": 2240, "parte": "Parte III — Diante dos dados"}, {"id": "cap-12", "n": "12", "titulo": "Além do bivariado: regressão e confundimento", "palavras": 2279, "parte": "Parte III — Diante dos dados"}, {"id": "cap-13", "n": "13", "titulo": "Testes diagnósticos", "palavras": 2046, "parte": "Parte III — Diante dos dados"}, {"id": "cap-14", "n": "14", "titulo": "Análise de sobrevida", "palavras": 2247, "parte": "Parte III — Diante dos dados"}, {"id": "cap-15", "n": "15", "titulo": "Relatar", "palavras": 1943, "parte": "Parte IV — Depois da análise"}, {"id": "cap-16", "n": "16", "titulo": "Considerações finais", "palavras": 1815, "parte": "Parte IV — Depois da análise"}, {"id": "cap-A", "n": "A", "titulo": "Primeiros passos no jamovi", "palavras": 1028, "parte": "Apêndices"}, {"id": "cap-B", "n": "B", "titulo": "Fluxogramas e checklists", "palavras": 998, "parte": "Apêndices"}, {"id": "cap-C", "n": "C", "titulo": "Glossário", "palavras": 1163, "parte": "Apêndices"}, {"id": "cap-D", "n": "D", "titulo": "O banco do caso condutor", "palavras": 1162, "parte": "Apêndices"}];
+var LIVRO = {"titulo": "A Estatística na Pesquisa Clínica", "subtitulo": "do problema clínico à decisão estatística", "autor": "Aldemar Araujo Castro", "local": "Maceió, AL", "ano": "2026", "url": "https://aldemararaujo.github.io/estatistica/", "repositorio": "https://github.com/aldemararaujo/estatistica", "licenca": "CC BY-NC-SA 4.0", "isbn": "em solicitação"};
+var LIVRO_CAPS = [{"id": "cap-1", "n": "1", "titulo": "A pergunta antes do número", "palavras": 1942, "parte": "Parte I — A pergunta", "exercicios": 5}, {"id": "cap-2", "n": "2", "titulo": "Da dúvida clínica à pergunta respondível", "palavras": 2008, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-3", "n": "3", "titulo": "O delineamento decide tudo", "palavras": 2092, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-4", "n": "4", "titulo": "Variáveis e desfechos", "palavras": 1876, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-5", "n": "5", "titulo": "Técnicas de amostragem", "palavras": 2449, "parte": "Parte II — Antes de coletar", "exercicios": 7}, {"id": "cap-6", "n": "6", "titulo": "Cálculo do tamanho da amostra", "palavras": 1984, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-7", "n": "7", "titulo": "Coleta, banco de dados e reprodutibilidade", "palavras": 2182, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-8", "n": "8", "titulo": "Estatística descritiva", "palavras": 2888, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-9", "n": "9", "titulo": "Estimativa e incerteza", "palavras": 2301, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-10", "n": "10", "titulo": "Teste de hipótese e valor de p", "palavras": 2211, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-11", "n": "11", "titulo": "Escolhendo o teste", "palavras": 2240, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-12", "n": "12", "titulo": "Além do bivariado: regressão e confundimento", "palavras": 2279, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-13", "n": "13", "titulo": "Testes diagnósticos", "palavras": 2208, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-14", "n": "14", "titulo": "Análise de sobrevida", "palavras": 2247, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-15", "n": "15", "titulo": "Relatar", "palavras": 1943, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-16", "n": "16", "titulo": "Considerações finais", "palavras": 1815, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-A", "n": "A", "titulo": "Primeiros passos no jamovi", "palavras": 1028, "parte": "Apêndices", "exercicios": 2}, {"id": "cap-B", "n": "B", "titulo": "Fluxogramas e checklists", "palavras": 998, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-C", "n": "C", "titulo": "Glossário", "palavras": 1163, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-D", "n": "D", "titulo": "O banco do caso condutor", "palavras": 1162, "parte": "Apêndices", "exercicios": 2}];
+var GLOSSARIO = {"Amostragem consecutiva": "Incluir todos os elegíveis, na ordem em que aparecem, até completar o tamanho previsto. É a melhor das técnicas não probabilísticas. Capítulo 5.", "Análise por intenção de tratar": "Analisar cada participante no grupo em que foi alocado, independentemente do que recebeu. Capítulos 7 e 15.", "Área sob a curva ROC": "Resumo da capacidade de discriminação de um teste, entre 0,5, que é o acaso, e 1,0, que é a separação perfeita. Capítulo 13.", "Bloco permutado": "Técnica de randomização que mantém os grupos com tamanhos parecidos ao longo do recrutamento. Capítulo 3.", "Censura": "Situação em que se sabe apenas que o evento não ocorreu até certo momento. Capítulo 14.", "Cegamento": "Manter desconhecida a alocação, para paciente, profissional, avaliador ou analista. Não é tudo ou nada: pergunte sempre quem foi cegado. Capítulo 3.", "Confundimento": "Distorção causada por uma variável associada tanto à exposição quanto ao desfecho, e que não está no caminho causal entre elas. Capítulo 12.", "Confundimento por indicação": "Confundimento típico dos estudos observacionais de tratamento: quem recebe a intervenção é quem tem pior prognóstico. Capítulos 3 e 12.", "Confundimento residual": "O que sobra depois do ajuste, por conta do que não foi medido. Capítulo 12.", "CONSORT": "Recomendação internacional para relato de ensaios clínicos randomizados. Capítulo 15.", "Cotas": "Técnica não probabilística em que se define quantos participantes de cada subgrupo entram, preenchendo cada vaga por conveniência. Parece estratificada e não é: falta o sorteio. Capítulo 5.", "d de Cohen": "Diferença entre duas médias expressa em desvios padrão. Capítulo 9.", "Desfecho composto": "Reunião de vários eventos em um único desfecho. Capítulo 4.", "Desfecho primário": "O desfecho que define a conclusão do estudo e o cálculo do tamanho da amostra. É um só. Capítulo 4.", "Desfecho substituto": "Desfecho medido no lugar do que interessa, por ser mais rápido ou fácil. Capítulo 4.", "Desvio padrão": "Medida de dispersão dos dados em torno da média. Descreve os participantes. Capítulo 8.", "Dicotomizar": "Transformar variável contínua em duas categorias. Perde informação e poder. Capítulo 4.", "Efeito teto": "Situação em que boa parte da amostra atinge o limite superior da escala, que deixa de discriminar. Capítulos 8 e 4.", "Equipoise": "Incerteza genuína sobre qual braço é superior, condição ética para randomizar. Capítulo 2.", "Erro padrão": "Medida da precisão com que um parâmetro foi estimado. Encolhe com o tamanho da amostra. Não confundir com desvio padrão. Capítulos 8 e 9.", "Especificidade": "Proporção dos que não têm a condição e que o teste classifica como negativos. Capítulo 13.", "FINER": "Filtro de cinco critérios para julgar uma pergunta de pesquisa: exequível, interessante, nova, ética e relevante. Capítulo 2.", "Hipótese nula": "A hipótese de ausência de efeito, que o teste estatístico supõe verdadeira para calcular o valor de p. Capítulo 10.", "Intervalo de confiança": "Faixa de valores compatíveis com os dados observados. Sua largura mede a incerteza que restou. Capítulo 9.", "Intervalo interquartil": "Distância entre o primeiro e o terceiro quartil. Acompanha a mediana. Capítulo 8.", "Kaplan-Meier": "Método de estimar a curva de tempo até o evento na presença de censura. Capítulo 14.", "Log-rank": "Teste que compara duas ou mais curvas de sobrevida. Capítulo 14.", "McNemar": "Teste para proporções pareadas, que usa apenas os discordantes. Capítulo 11.", "Mediador": "Variável que está no caminho causal entre exposição e desfecho. Não deve entrar no ajuste. Capítulo 12.", "Marco amostral": "A lista completa da população a partir da qual se sorteia. Sem ele não há amostragem probabilística, e em pesquisa clínica ele quase nunca existe. Capítulo 5.", "Mediana": "Valor que divide a amostra ordenada ao meio. Capítulo 8.", "Número necessário para tratar": "Inverso da diferença absoluta de risco: quantos pacientes é preciso tratar para produzir um desfecho favorável adicional. Capítulo 9.", "Poder": "Probabilidade de detectar um efeito, se ele existir. Calcula-se antes. Capítulo 6.", "Poder observado": "Poder recalculado a partir do efeito observado. Não informa nada além do valor de p. Capítulo 10.", "Qui-quadrado": "Teste que compara frequências observadas com as esperadas sob a hipótese de ausência de associação. Capítulo 10.", "Randomização": "Sorteio que define quem vai para qual grupo, entre os já incluídos. Protege a validade interna. Não confundir com amostragem aleatória. Capítulos 3 e 5.", "Razão de chances": "Razão entre as chances de desfecho nos dois grupos. É o que a regressão logística estima. Capítulos 9 e 12.", "Razão de riscos": "Razão entre taxas instantâneas de ocorrência do evento. É o que o modelo de Cox estima. Não é risco relativo. Capítulo 14.", "Razão de verossimilhança": "Quanto um resultado de teste é mais provável em quem tem a condição do que em quem não tem. Permite levar o teste para populações de prevalência diferente. Capítulo 13.", "Risco relativo": "Razão entre as proporções de desfecho nos dois grupos. Capítulo 9.", "Saturação teórica": "Critério de parada da amostragem qualitativa: o ponto a partir do qual novas entrevistas deixam de trazer conteúdo novo. Faz, na pesquisa qualitativa, o papel que o cálculo do tamanho da amostra faz na quantitativa. Capítulo 5.", "Sensibilidade": "Proporção dos que têm a condição e que o teste classifica como positivos. Capítulo 13.", "Sigilo de alocação": "Impedir que quem recruta conheça a próxima alocação. Diferente de cegamento, e ainda mais importante. Capítulo 3.", "STROBE": "Recomendação para relato de estudos observacionais. Capítulo 15.", "Validade externa": "Possibilidade de generalizar o resultado para outras populações. Capítulo 5.", "Validade interna": "Confiança de que a diferença observada se deve à intervenção e não a viés. Capítulos 3 e 5.", "Valor de p": "Probabilidade de observar um resultado tão extremo quanto o observado, supondo verdadeira a hipótese nula. Não é a probabilidade de a hipótese ser verdadeira. Capítulo 10.", "Valor preditivo": "Proporção de acertos entre os que o teste classificou como positivos, ou como negativos. Depende da prevalência. Capítulo 13.", "Viés de aferição": "Distorção na medida do desfecho. Capítulo 3.", "Viés de atrito": "Distorção causada por perdas de seguimento. Capítulos 3 e 7.", "Viés de publicação": "Tendência de estudos positivos serem publicados mais que os negativos. Capítulos 2 e 16.", "Viés de seleção": "Distorção na definição de quem entra no estudo ou em cada grupo. Capítulos 3 e 5.", "Wilson": "Método de calcular intervalo de confiança de proporção que não produz limites impossíveis. Preferível ao de Wald. Capítulo 9."};
 var PALAVRAS_POR_MINUTO = 200;
 /* ------------------------------------------------------------------
    A Estatística na Pesquisa Clínica — comportamento da página do livro
@@ -5663,6 +5881,7 @@ var PALAVRAS_POR_MINUTO = 200;
   var CHAVE_ULTIMO = "epc-ultimo";
   var CHAVE_TEMA = "epc-tema";
   var CHAVE_FONTE = "epc-fonte";
+  var CHAVE_EXERCICIOS = "epc-exercicios";
 
   /* ------------------------------------------------------- utilidades */
 
@@ -5687,8 +5906,10 @@ var PALAVRAS_POR_MINUTO = 200;
   /* --------------------------------------------------- marcador de leitura */
 
   var lidos = {};
+  var resolvidos = {};
   (function carregaLidos() {
     try { lidos = JSON.parse(busca_guardado(CHAVE_LIDOS) || "{}") || {}; } catch (e) { lidos = {}; }
+    try { resolvidos = JSON.parse(busca_guardado(CHAVE_EXERCICIOS) || "{}") || {}; } catch (e) { resolvidos = {}; }
   })();
 
   var totalPalavras = LIVRO_CAPS.reduce(function (s, c) { return s + c.palavras; }, 0);
@@ -5723,8 +5944,12 @@ var PALAVRAS_POR_MINUTO = 200;
     var rest = document.getElementById("progresso-restante");
     if (rest) {
       var faltam = totalPalavras - lidasP;
-      rest.textContent = faltam > 0 ? "Faltam cerca de " + duracao(faltam) + " de leitura"
-                                    : "Você leu o livro inteiro.";
+      var totalEx = LIVRO_CAPS.reduce(function (s, c) { return s + (c.exercicios || 0); }, 0);
+      var feitos = Object.keys(resolvidos).length;
+      var linha = faltam > 0 ? "Faltam cerca de " + duracao(faltam) + " de leitura"
+                             : "Você leu o livro inteiro.";
+      if (feitos) { linha += " · " + feitos + " de " + totalEx + " exercícios resolvidos"; }
+      rest.textContent = linha;
     }
 
     elos.forEach(function (a) {
@@ -5791,6 +6016,29 @@ var PALAVRAS_POR_MINUTO = 200;
       botao.type = "button";
       botao.className = "marcar-lido";
       caixa.appendChild(botao);
+
+      var extras = document.createElement("p");
+      extras.className = "acoes-cap";
+      var citar = document.createElement("button");
+      citar.type = "button";
+      citar.className = "citar-cap";
+      citar.textContent = "Como citar este capítulo";
+      var erro = document.createElement("a");
+      erro.className = "reportar";
+      erro.target = "_blank";
+      erro.rel = "noopener";
+      erro.textContent = "Encontrei um erro aqui";
+      erro.href = LIVRO.repositorio + "/issues/new?title=" +
+        encodeURIComponent("Correção no capítulo " + dados.n + ": " + dados.titulo) +
+        "&body=" + encodeURIComponent(
+          "Capítulo " + dados.n + " — " + dados.titulo + "\n" +
+          "Endereço: " + LIVRO.url + "#" + cap.id + "\n\n" +
+          "Trecho com problema:\n\n\n" +
+          "O que parece estar errado:\n\n");
+      extras.appendChild(citar);
+      extras.appendChild(erro);
+      caixa.appendChild(extras);
+
       if (nav) { cap.insertBefore(caixa, nav); } else { cap.appendChild(caixa); }
     }
     religa(cap);
@@ -5800,15 +6048,258 @@ var PALAVRAS_POR_MINUTO = 200;
      evento sem apagar os elementos. Esta função os devolve, e é por isso que
      ela não pode criar nada: quem cria é preparaCapitulo, uma única vez. */
   function religa(cap) {
-    cap.querySelectorAll(".abas").forEach(function (g) { g.dataset.ligado = ""; });
+    /* Trocar o innerHTML preserva o atributo data-ligado no HTML restaurado, mas
+       não os ouvintes. Zerar a marca de todos é o que impede componentes mudos
+       depois de uma busca: abas, calculadoras e botões de exercício. */
+    cap.querySelectorAll("[data-ligado]").forEach(function (e) { e.dataset.ligado = ""; });
     ligaAbas(cap);
     var botao = cap.querySelector(".marcar-lido");
     if (botao && botao.dataset.ligado !== "1") {
       botao.dataset.ligado = "1";
       botao.addEventListener("click", function () { marca(cap.id, !estaLido(cap.id)); });
     }
+    ligaExercicios(cap);
+    ligaCalculadoras(cap);
+    ligaTermos(cap);
     pintaBotaoLido();
   }
+
+  /* ---------------------------------------------- exercícios resolvidos */
+
+  function pintaExercicio(caixa) {
+    var id = caixa.getAttribute("data-exercicio");
+    var botao = caixa.querySelector(".resolvido");
+    if (!botao) { return; }
+    var feito = !!resolvidos[id];
+    caixa.classList.toggle("feito", feito);
+    botao.setAttribute("aria-pressed", String(feito));
+    botao.textContent = feito ? "✓ resolvido" : "marcar como resolvido";
+  }
+
+  function ligaExercicios(cap) {
+    cap.querySelectorAll(".exercicio[data-exercicio]").forEach(function (caixa) {
+      var botao = caixa.querySelector(".resolvido");
+      if (botao && botao.dataset.ligado !== "1") {
+        botao.dataset.ligado = "1";
+        botao.addEventListener("click", function () {
+          var id = caixa.getAttribute("data-exercicio");
+          if (resolvidos[id]) { delete resolvidos[id]; } else { resolvidos[id] = 1; }
+          guarda(CHAVE_EXERCICIOS, JSON.stringify(resolvidos));
+          pintaExercicio(caixa);
+          pintaContadorExercicios(cap);
+          pintaProgresso();
+        });
+      }
+      pintaExercicio(caixa);
+    });
+    pintaContadorExercicios(cap);
+  }
+
+  function pintaContadorExercicios(cap) {
+    var caixas = cap.querySelectorAll(".exercicio[data-exercicio]");
+    if (!caixas.length) { return; }
+    var feitos = 0;
+    caixas.forEach(function (c) { if (resolvidos[c.getAttribute("data-exercicio")]) { feitos++; } });
+    var alvo = cap.querySelector(".contador-exercicios");
+    if (!alvo) {
+      var primeira = caixas[0];
+      alvo = document.createElement("p");
+      alvo.className = "contador-exercicios";
+      primeira.parentNode.insertBefore(alvo, primeira);
+    }
+    alvo.textContent = feitos + " de " + caixas.length + " exercícios resolvidos neste capítulo";
+    alvo.classList.toggle("completo", feitos === caixas.length);
+  }
+
+  /* ------------------------------------------------------ calculadoras */
+
+  function fmt(v, casas) {
+    if (!isFinite(v)) { return "—"; }
+    return v.toFixed(casas === undefined ? 1 : casas).replace(".", ",");
+  }
+
+  function wilson(k, n) {
+    if (!n) { return [0, 0]; }
+    var z = 1.959964, p = k / n, d = 1 + z * z / n;
+    var c = (p + z * z / (2 * n)) / d;
+    var m = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d;
+    return [Math.max(0, c - m), Math.min(1, c + m)];
+  }
+
+  function calculaAmostra(campos) {
+    var p1 = campos.p1 / 100, p2 = campos.p2 / 100;
+    var za = campos.alfa, zb = campos.poder, perdas = campos.perdas / 100;
+    var delta = Math.abs(p1 - p2);
+    if (!delta || p1 <= 0 || p1 >= 1 || p2 <= 0 || p2 >= 1) {
+      return "<p class=\"erro\">Informe duas proporções diferentes, entre 1% e 99%.</p>";
+    }
+    var pb = (p1 + p2) / 2;
+    var n = Math.pow(za * Math.sqrt(2 * pb * (1 - pb)) +
+                     zb * Math.sqrt(p1 * (1 - p1) + p2 * (1 - p2)), 2) / (delta * delta);
+    var porGrupo = Math.ceil(n);
+    var comPerdas = perdas < 1 ? Math.ceil(porGrupo / (1 - perdas)) : porGrupo;
+    return "<p><b>" + porGrupo + "</b> participantes por grupo, <b>" + (porGrupo * 2) +
+      "</b> no total.</p><p>Prevendo " + fmt(campos.perdas, 0) + "% de perdas: <b>" + comPerdas +
+      "</b> por grupo, <b>" + (comPerdas * 2) + "</b> no total.</p>" +
+      "<p class=\"nota-calc\">Diferença a detectar: " + fmt(delta * 100) + " pontos percentuais.</p>";
+  }
+
+  function calculaIntervalo(campos) {
+    var a = campos.a, n1 = campos.n1, c = campos.c, n2 = campos.n2;
+    if (a > n1 || c > n2 || !n1 || !n2) {
+      return "<p class=\"erro\">Os eventos não podem superar o total do grupo.</p>";
+    }
+    var p1 = a / n1, p2 = c / n2, i1 = wilson(a, n1), i2 = wilson(c, n2);
+    var dif = p1 - p2;
+    var ep = Math.sqrt(p1 * (1 - p1) / n1 + p2 * (1 - p2) / n2);
+    var li = dif - 1.959964 * ep, ls = dif + 1.959964 * ep;
+    var linhas = "<table><tr><td>Intervenção</td><td>" + fmt(p1 * 100) + "% (IC95% " +
+      fmt(i1[0] * 100) + " a " + fmt(i1[1] * 100) + ")</td></tr>" +
+      "<tr><td>Controle</td><td>" + fmt(p2 * 100) + "% (IC95% " +
+      fmt(i2[0] * 100) + " a " + fmt(i2[1] * 100) + ")</td></tr>" +
+      "<tr><td>Diferença absoluta</td><td>" + fmt(dif * 100) + " pp (IC95% " +
+      fmt(li * 100) + " a " + fmt(ls * 100) + ")</td></tr>";
+    if (p2 > 0) {
+      var rr = p1 / p2;
+      var eplog = Math.sqrt((1 - p1) / (p1 * n1) + (1 - p2) / (p2 * n2));
+      linhas += "<tr><td>Risco relativo</td><td>" + fmt(rr, 2) + " (IC95% " +
+        fmt(Math.exp(Math.log(rr) - 1.959964 * eplog), 2) + " a " +
+        fmt(Math.exp(Math.log(rr) + 1.959964 * eplog), 2) + ")</td></tr>";
+    }
+    if (Math.abs(dif) > 0.0001) {
+      var nnt = 1 / Math.abs(dif);
+      var aviso = (li < 0 && ls > 0) ? " <span class=\"nota-calc\">(o intervalo da diferença " +
+        "inclui o zero: o NNT perde sentido)</span>" : "";
+      linhas += "<tr><td>Número necessário para tratar</td><td>" + fmt(nnt) + aviso + "</td></tr>";
+    }
+    return linhas + "</table>";
+  }
+
+  function calculaFagan(campos) {
+    var pre = campos.pre / 100, sens = campos.sens / 100, esp = campos.esp / 100;
+    if (esp >= 1 || pre <= 0 || pre >= 1) {
+      return "<p class=\"erro\">Use valores entre 0,1% e 99,9%.</p>";
+    }
+    var rvp = sens / (1 - esp), rvn = (1 - sens) / esp;
+    var odds = pre / (1 - pre);
+    var pos = (odds * rvp) / (1 + odds * rvp), neg = (odds * rvn) / (1 + odds * rvn);
+    return "<table><tr><td>Razão de verossimilhança positiva</td><td>" + fmt(rvp, 2) + "</td></tr>" +
+      "<tr><td>Razão de verossimilhança negativa</td><td>" + fmt(rvn, 2) + "</td></tr>" +
+      "<tr><td>Se o teste der <b>positivo</b></td><td><b>" + fmt(pos * 100) + "%</b> de probabilidade</td></tr>" +
+      "<tr><td>Se o teste der <b>negativo</b></td><td><b>" + fmt(neg * 100) + "%</b> de probabilidade</td></tr>" +
+      "</table><p class=\"nota-calc\">Probabilidade pré-teste de " + fmt(campos.pre) + "%.</p>";
+  }
+
+  var CALCULOS = { amostra: calculaAmostra, intervalo: calculaIntervalo, fagan: calculaFagan };
+
+  function ligaCalculadoras(escopo) {
+    escopo.querySelectorAll(".calc").forEach(function (calc) {
+      var tipo = calc.getAttribute("data-calc");
+      var saida = calc.querySelector("[data-saida]");
+      var entradas = Array.prototype.slice.call(calc.querySelectorAll("[data-campo]"));
+      function roda() {
+        var campos = {};
+        entradas.forEach(function (e) { campos[e.getAttribute("data-campo")] = parseFloat(e.value); });
+        var ok = entradas.every(function (e) { return e.value !== "" && !isNaN(parseFloat(e.value)); });
+        saida.innerHTML = ok ? CALCULOS[tipo](campos)
+                             : "<p class=\"erro\">Preencha todos os campos.</p>";
+      }
+      if (calc.dataset.ligado !== "1") {
+        calc.dataset.ligado = "1";
+        entradas.forEach(function (e) {
+          e.addEventListener("input", roda);
+          e.addEventListener("change", roda);
+        });
+      }
+      roda();
+    });
+  }
+
+  /* ------------------------------------------- glossário sob o cursor */
+
+  var termosOrdenados = Object.keys(GLOSSARIO).sort(function (a, b) { return b.length - a.length; });
+  var dica = document.getElementById("dica-glossario");
+
+  function ligaTermos(cap) {
+    if (cap.id === "cap-C" || cap.dataset.termos === "1") { return; }
+    cap.dataset.termos = "1";
+    var restantes = {};
+    termosOrdenados.forEach(function (t) { restantes[t] = true; });
+
+    var caminhante = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (no) {
+        var pai = no.parentNode;
+        if (!no.nodeValue.trim()) { return NodeFilter.FILTER_REJECT; }
+        while (pai && pai !== cap) {
+          var nome = pai.nodeName;
+          if (nome === "H1" || nome === "H2" || nome === "H3" || nome === "CODE" ||
+              nome === "PRE" || nome === "BUTTON" || nome === "SUMMARY" ||
+              nome === "MARK" || pai.classList.contains("termo") ||
+              pai.classList.contains("indice-cap") || pai.classList.contains("calc")) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          pai = pai.parentNode;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    var nos = [], no;
+    while ((no = caminhante.nextNode())) { nos.push(no); }
+
+    nos.forEach(function (texto) {
+      var valor = texto.nodeValue;
+      for (var i = 0; i < termosOrdenados.length; i++) {
+        var termo = termosOrdenados[i];
+        if (!restantes[termo]) { continue; }
+        var pos = semAcento(valor).indexOf(semAcento(termo));
+        if (pos === -1) { continue; }
+        var antes = valor.charAt(pos - 1), depois = valor.charAt(pos + termo.length);
+        if (/[\wÀ-ÿ]/.test(antes) || /[\wÀ-ÿ]/.test(depois)) { continue; }
+
+        var frag = document.createDocumentFragment();
+        frag.appendChild(document.createTextNode(valor.slice(0, pos)));
+        var marca_termo = document.createElement("span");
+        marca_termo.className = "termo";
+        marca_termo.setAttribute("tabindex", "0");
+        marca_termo.setAttribute("data-termo", termo);
+        marca_termo.textContent = valor.slice(pos, pos + termo.length);
+        frag.appendChild(marca_termo);
+        frag.appendChild(document.createTextNode(valor.slice(pos + termo.length)));
+        texto.parentNode.replaceChild(frag, texto);
+        restantes[termo] = false;
+        return;
+      }
+    });
+  }
+
+  function mostraDica(alvo) {
+    if (!dica) { return; }
+    var termo = alvo.getAttribute("data-termo");
+    dica.innerHTML = "<b>" + termo + "</b>" + GLOSSARIO[termo] +
+      ' <a href="#cap-C">ver no glossário</a>';
+    dica.hidden = false;
+    var r = alvo.getBoundingClientRect();
+    var largura = Math.min(320, window.innerWidth - 24);
+    dica.style.width = largura + "px";
+    var esquerda = Math.min(Math.max(8, r.left), window.innerWidth - largura - 8);
+    dica.style.left = esquerda + "px";
+    var acima = r.top > dica.offsetHeight + 16;
+    dica.style.top = (acima ? r.top - dica.offsetHeight - 8 : r.bottom + 8) + window.scrollY + "px";
+  }
+
+  document.addEventListener("mouseover", function (ev) {
+    var alvo = ev.target.closest && ev.target.closest(".termo");
+    if (alvo) { mostraDica(alvo); }
+  });
+  document.addEventListener("mouseout", function (ev) {
+    if (ev.target.closest && ev.target.closest(".termo") && dica) { dica.hidden = true; }
+  });
+  document.addEventListener("focusin", function (ev) {
+    var alvo = ev.target.closest && ev.target.closest(".termo");
+    if (alvo) { mostraDica(alvo); }
+  });
+  document.addEventListener("focusout", function () { if (dica) { dica.hidden = true; } });
 
   /* ------------------------------------------------ navegação por hash */
 
@@ -6072,16 +6563,183 @@ var PALAVRAS_POR_MINUTO = 200;
   if (menor) { menor.addEventListener("click", function () { aplicaFonte(escala - 0.08); }); }
   if (maior) { maior.addEventListener("click", function () { aplicaFonte(escala + 0.08); }); }
 
-  /* ------------------------------------------------- zerar o progresso */
+  /* -------------------------------- zerar, exportar e importar progresso */
 
   var zerar = document.getElementById("zera-progresso");
   if (zerar) {
     zerar.addEventListener("click", function () {
-      if (!window.confirm("Apagar as marcas de leitura de todos os capítulos?")) { return; }
-      lidos = {};
+      if (!window.confirm("Apagar as marcas de leitura e os exercícios resolvidos?")) { return; }
+      lidos = {}; resolvidos = {};
       guarda(CHAVE_LIDOS, "{}");
+      guarda(CHAVE_EXERCICIOS, "{}");
+      capitulos.forEach(function (c) {
+        c.querySelectorAll(".exercicio[data-exercicio]").forEach(pintaExercicio);
+        pintaContadorExercicios(c);
+      });
       pintaProgresso();
       pintaBotaoLido();
+    });
+  }
+
+  var exporta = document.getElementById("exporta-progresso");
+  if (exporta) {
+    exporta.addEventListener("click", function () {
+      var pacote = {
+        formato: "epc-progresso",
+        versao: 1,
+        livro: LIVRO.titulo,
+        data: new Date().toISOString(),
+        lidos: lidos,
+        exercicios: resolvidos
+      };
+      var url = URL.createObjectURL(new Blob([JSON.stringify(pacote, null, 1)],
+        { type: "application/json" }));
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "progresso-estatistica-" + new Date().toISOString().slice(0, 10) + ".json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    });
+  }
+
+  var importa = document.getElementById("importa-progresso");
+  var arquivo = document.getElementById("arquivo-progresso");
+  if (importa && arquivo) {
+    importa.addEventListener("click", function () { arquivo.click(); });
+    arquivo.addEventListener("change", function () {
+      var f = arquivo.files && arquivo.files[0];
+      if (!f) { return; }
+      var leitor = new FileReader();
+      leitor.onload = function () {
+        try {
+          var dados = JSON.parse(leitor.result);
+          if (dados.formato !== "epc-progresso") { throw new Error("formato"); }
+          lidos = dados.lidos || {};
+          resolvidos = dados.exercicios || {};
+          guarda(CHAVE_LIDOS, JSON.stringify(lidos));
+          guarda(CHAVE_EXERCICIOS, JSON.stringify(resolvidos));
+          capitulos.forEach(function (c) {
+            c.querySelectorAll(".exercicio[data-exercicio]").forEach(pintaExercicio);
+            pintaContadorExercicios(c);
+          });
+          pintaProgresso();
+          pintaBotaoLido();
+          window.alert("Progresso importado: " + Object.keys(lidos).length +
+                       " capítulos lidos e " + Object.keys(resolvidos).length +
+                       " exercícios resolvidos.");
+        } catch (e) {
+          window.alert("Arquivo inválido. Use um arquivo exportado por este livro.");
+        }
+        arquivo.value = "";
+      };
+      leitor.readAsText(f);
+    });
+  }
+
+  /* ------------------------------------------------------- como citar */
+
+  function hoje() {
+    var d = new Date();
+    var meses = ["jan.", "fev.", "mar.", "abr.", "maio", "jun.",
+                 "jul.", "ago.", "set.", "out.", "nov.", "dez."];
+    return { abnt: d.getDate() + " " + meses[d.getMonth()] + " " + d.getFullYear(),
+             vancouver: d.getFullYear() + " " + meses[d.getMonth()].replace(".", "") + " " + d.getDate() };
+  }
+
+  function sobrenomePrimeiro() {
+    var partes = LIVRO.autor.trim().split(/\s+/);
+    var sobrenome = partes.pop();
+    return { abnt: sobrenome.toUpperCase() + ", " + partes.join(" "),
+             vancouver: sobrenome + " " + partes.map(function (p) { return p.charAt(0); }).join("") };
+  }
+
+  function montaCitacoes(cap) {
+    var a = sobrenomePrimeiro(), d = hoje();
+    var obra = LIVRO.titulo + ": " + LIVRO.subtitulo;
+    var cidade = LIVRO.local.split(",")[0].trim();
+    var lista = [];
+
+    lista.push({
+      rotulo: "O livro, ABNT",
+      texto: a.abnt + ". " + obra + ". " + cidade + ", " + LIVRO.ano +
+             ". Disponível em: " + LIVRO.url + ". Acesso em: " + d.abnt + "."
+    });
+    lista.push({
+      rotulo: "O livro, Vancouver",
+      texto: a.vancouver + ". " + obra + " [Internet]. " + cidade + "; " + LIVRO.ano +
+             " [citado " + d.vancouver + "]. Disponível em: " + LIVRO.url
+    });
+
+    if (cap && cap.id !== "capa") {
+      var dados = LIVRO_CAPS.filter(function (c) { return c.id === cap.id; })[0];
+      if (dados) {
+        var endereco = LIVRO.url + "#" + cap.id;
+        lista.push({
+          rotulo: "Este capítulo, ABNT",
+          texto: a.abnt + ". " + dados.titulo + ". In: ______. " + obra + ". " + cidade + ", " +
+                 LIVRO.ano + ". cap. " + dados.n + ". Disponível em: " + endereco +
+                 ". Acesso em: " + d.abnt + "."
+        });
+        lista.push({
+          rotulo: "Este capítulo, Vancouver",
+          texto: a.vancouver + ". " + dados.titulo + ". Em: " + a.vancouver + ". " + obra +
+                 " [Internet]. " + cidade + "; " + LIVRO.ano + " [citado " + d.vancouver +
+                 "]. cap. " + dados.n + ". Disponível em: " + endereco
+        });
+      }
+    }
+    return lista;
+  }
+
+  var painelCitar = document.getElementById("painel-citar");
+  function abreCitar() {
+    if (!painelCitar) { return; }
+    var alvo = document.getElementById("citacoes");
+    alvo.innerHTML = "";
+    montaCitacoes(capitulos.find(function (c) { return !c.hidden; })).forEach(function (item) {
+      var bloco = document.createElement("div");
+      bloco.className = "citacao";
+      var titulo = document.createElement("p");
+      titulo.className = "rotulo-citacao";
+      titulo.textContent = item.rotulo;
+      var texto = document.createElement("p");
+      texto.className = "texto-citacao";
+      texto.textContent = item.texto;
+      var copiar = document.createElement("button");
+      copiar.type = "button";
+      copiar.textContent = "Copiar";
+      copiar.addEventListener("click", function () {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(item.texto).then(function () {
+            copiar.textContent = "Copiado";
+            setTimeout(function () { copiar.textContent = "Copiar"; }, 1800);
+          });
+        }
+      });
+      bloco.appendChild(titulo);
+      bloco.appendChild(texto);
+      bloco.appendChild(copiar);
+      alvo.appendChild(bloco);
+    });
+    var aviso = document.createElement("p");
+    aviso.className = "nota-calc";
+    aviso.textContent = "ISBN " + LIVRO.isbn + ". Licença " + LIVRO.licenca + ".";
+    alvo.appendChild(aviso);
+    if (painelCitar.showModal) { painelCitar.showModal(); } else { painelCitar.setAttribute("open", ""); }
+  }
+
+  document.addEventListener("click", function (ev) {
+    if (ev.target.id === "abre-citar" || (ev.target.closest && ev.target.closest(".citar-cap"))) {
+      ev.preventDefault();
+      abreCitar();
+    }
+  });
+  var fechaCitar = document.getElementById("fecha-citar");
+  if (fechaCitar && painelCitar) {
+    fechaCitar.addEventListener("click", function () {
+      if (painelCitar.close) { painelCitar.close(); } else { painelCitar.removeAttribute("open"); }
     });
   }
 

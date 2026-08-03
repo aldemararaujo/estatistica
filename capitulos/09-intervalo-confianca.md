@@ -81,6 +81,13 @@ individuais se sobreponham. Sobreposição de intervalos individuais não é
 critério para nada: o intervalo da diferença é uma quantidade diferente, com
 erro padrão próprio.
 
+::: calculadora intervalo
+:::
+
+A calculadora abre com os números do desfecho primário deste estudo. Ponha os
+seus e confira contra a saída do jamovi: os intervalos usam o método de Wilson,
+explicado nas abas mais adiante.
+
 ### Ler cada medida pelo que ela diz
 
 A **diferença absoluta** é a mais útil na clínica: tratar cem pacientes produz

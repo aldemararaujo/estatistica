@@ -5,9 +5,11 @@
   "lattes": "http://lattes.cnpq.br/2259022333178681",
   "contato": "aldemararaujocastro@gmail.com",
   "local": "Maceió, AL",
-  "ano": "2027",
+  "ano": "2026",
   "isbn": "em solicitação",
   "licenca": "CC BY-NC-SA 4.0",
+  "url": "https://aldemararaujo.github.io/estatistica/",
+  "repositorio": "https://github.com/aldemararaujo/estatistica",
   "partes": [
     {
       "titulo": "Parte I — A pergunta",

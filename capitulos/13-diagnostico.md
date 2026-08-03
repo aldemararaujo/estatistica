@@ -84,6 +84,21 @@ positivas acima de 10 e negativas abaixo de 0,1 mudam conduta com frequência;
 entre 5 e 10, ou entre 0,1 e 0,2, ajudam; e valores próximos de 1 não informam
 quase nada.
 
+::: calculadora fagan
+:::
+
+A calculadora abre com os valores deste estudo: prevalência de 62%,
+sensibilidade de 71,1% e especificidade de 80,0%. Baixe a probabilidade
+pré-teste para 30%, que é a de um serviço terciário, e observe o valor preditivo
+positivo desabar sem que o teste tenha mudado.
+
+Ela pode divergir do texto na última casa decimal, e a razão é instrutiva: o
+livro calcula a partir dos 184 participantes, enquanto a calculadora parte da
+sensibilidade e da especificidade já arredondadas que você digitou. É o mesmo
+motivo pelo qual dois artigos podem publicar 3,55 e 3,56 para a mesma razão de
+verossimilhança, e é uma boa razão para não relatar mais casas do que os dados
+sustentam.
+
 ## Escolher o corte é escolher o erro que se prefere cometer
 
 Nenhum ponto de corte é o certo. Cada um troca sensibilidade por especificidade:
@@ -186,8 +201,13 @@ usando a mesma sensibilidade e especificidade.
 Em mil pacientes com prevalência de 30%, haveria 300 que cicatrizam e 700 que
 não. Com sensibilidade de 71,1%, o teste apontaria 213 dos 300. Com
 especificidade de 80,0%, apontaria erradamente 140 dos 700. O valor preditivo
-positivo seria 213 dividido por 353, ou 60,3%, bem abaixo dos 85,3% do estudo. O
-teste não piorou: a população mudou.
+positivo seria 213 dividido por 353, ou cerca de 60%, bem abaixo dos 85,3% do
+estudo. O teste não piorou: a população mudou.
+
+A calculadora deste capítulo devolve 60,4%, e a conta à mão acima devolve 60,3%,
+porque ela arredondou os 213,3 verdadeiros positivos para 213. A diferença não
+tem importância clínica alguma, e serve de lembrete sobre quantas casas decimais
+um resultado desses comporta.
 :::
 
 ::: exercicio 2

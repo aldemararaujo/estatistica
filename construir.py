@@ -108,17 +108,82 @@ def fatia(texto):
     return partes
 
 
-def render_exercicio(bloco):
+def render_exercicio(bloco, prefixo, seq):
     corpo = "\n".join(bloco["linhas"])
     partes = re.split(r"^---[ \t]*gabarito[ \t]*$", corpo, maxsplit=1, flags=re.M)
     enunciado = envolve_tabelas(para_html(partes[0]))
     rotulo = f"Exercício {bloco['arg']}" if bloco["arg"] else "Exercício"
-    saida = [f'<div class="exercicio"><div class="titulo">{html.escape(rotulo)}</div>', enunciado]
+    ident = f"{prefixo}-ex-{bloco['arg'] or seq}"
+    saida = [f'<div class="exercicio" id="{ident}" data-exercicio="{ident}">'
+             f'<div class="titulo">{html.escape(rotulo)}'
+             f'<button type="button" class="resolvido" aria-pressed="false">'
+             f'marcar como resolvido</button></div>', enunciado]
     if len(partes) == 2:
         saida.append("<details><summary>Ver o gabarito comentado</summary>"
                      + envolve_tabelas(para_html(partes[1])) + "</details>")
     saida.append("</div>")
     return "\n".join(saida)
+
+
+CALCULADORAS = {
+    "amostra": """
+<div class="calc" data-calc="amostra">
+  <div class="calc-titulo">Calculadora: tamanho da amostra para duas proporções</div>
+  <div class="calc-campos">
+    <label>Proporção esperada no grupo controle (%)
+      <input type="number" data-campo="p2" value="55" min="1" max="99" step="0.1"></label>
+    <label>Proporção esperada no grupo intervenção (%)
+      <input type="number" data-campo="p1" value="75" min="1" max="99" step="0.1"></label>
+    <label>Nível de significância
+      <select data-campo="alfa">
+        <option value="1.959964" selected>5% bilateral</option>
+        <option value="2.575829">1% bilateral</option>
+        <option value="1.644854">5% unilateral</option>
+      </select></label>
+    <label>Poder
+      <select data-campo="poder">
+        <option value="0.841621" selected>80%</option>
+        <option value="1.281552">90%</option>
+        <option value="1.644854">95%</option>
+      </select></label>
+    <label>Perdas previstas (%)
+      <input type="number" data-campo="perdas" value="10" min="0" max="50" step="1"></label>
+  </div>
+  <div class="calc-saida" data-saida></div>
+</div>""",
+    "intervalo": """
+<div class="calc" data-calc="intervalo">
+  <div class="calc-titulo">Calculadora: proporções, diferença e número necessário para tratar</div>
+  <div class="calc-campos">
+    <label>Eventos no grupo intervenção
+      <input type="number" data-campo="a" value="65" min="0" step="1"></label>
+    <label>Total no grupo intervenção
+      <input type="number" data-campo="n1" value="92" min="1" step="1"></label>
+    <label>Eventos no grupo controle
+      <input type="number" data-campo="c" value="49" min="0" step="1"></label>
+    <label>Total no grupo controle
+      <input type="number" data-campo="n2" value="92" min="1" step="1"></label>
+  </div>
+  <div class="calc-saida" data-saida></div>
+</div>""",
+    "fagan": """
+<div class="calc" data-calc="fagan">
+  <div class="calc-titulo">Calculadora: probabilidade pós-teste</div>
+  <div class="calc-campos">
+    <label>Probabilidade pré-teste (%)
+      <input type="number" data-campo="pre" value="62" min="0.1" max="99.9" step="0.1"></label>
+    <label>Sensibilidade (%)
+      <input type="number" data-campo="sens" value="71.1" min="0.1" max="100" step="0.1"></label>
+    <label>Especificidade (%)
+      <input type="number" data-campo="esp" value="80" min="0.1" max="99.9" step="0.1"></label>
+  </div>
+  <div class="calc-saida" data-saida></div>
+</div>""",
+}
+
+
+def render_calculadora(bloco):
+    return CALCULADORAS.get(bloco["arg"].strip(), "")
 
 
 def render_abas(bloco, seq):
@@ -148,20 +213,42 @@ def render_caixa(bloco):
             + envolve_tabelas(para_html("\n".join(bloco["linhas"]))) + "</div>")
 
 
-def render(texto):
-    saida, seq = [], 0
+def render(texto, prefixo="doc"):
+    saida, seq, nex = [], 0, 0
     for especie, dado in fatia(texto):
         if especie == "md":
             if dado.strip():
                 saida.append(envolve_tabelas(para_html(dado)))
         elif dado["tipo"] == "exercicio":
-            saida.append(render_exercicio(dado))
+            nex += 1
+            saida.append(render_exercicio(dado, prefixo, nex))
         elif dado["tipo"] == "abas":
             seq += 1
             saida.append(render_abas(dado, seq))
+        elif dado["tipo"] == "calculadora":
+            saida.append(render_calculadora(dado))
         else:
             saida.append(render_caixa(dado))
     return "\n".join(saida)
+
+
+def extrai_glossario(caminho):
+    """Le o apendice C e devolve {termo: definicao} para as dicas de leitura."""
+    if not caminho.exists():
+        return {}
+    verbetes = {}
+    for m in re.finditer(r"^\*\*(.+?)\.\*\*\s+(.+?)(?=\n\n|\n\*\*|\Z)",
+                         caminho.read_text(encoding="utf-8"), re.M | re.S):
+        termo = m.group(1).strip()
+        texto = re.sub(r"\s+", " ", m.group(2)).strip()
+        texto = re.sub(r"\*\*(.+?)\*\*", r"\1", texto)
+        texto = re.sub(r"\*(.+?)\*", r"\1", texto)
+        # "Alfa (α)" vira "Alfa"; "Wilson, intervalo de" vira "Wilson"
+        principal = re.sub(r"\s*\(.*?\)", "", termo)
+        principal = re.split(r",\s*", principal)[0].strip()
+        if len(principal) >= 5 and principal not in verbetes:
+            verbetes[principal] = texto
+    return verbetes
 
 
 # ---------------------------------------------------------------- livro
@@ -194,13 +281,14 @@ def construir():
                 + f'<span class="num">{cap["n"]}</span>'
                 + f'<span class="rotulo">{html.escape(cap["titulo"])}</span></a>')
 
-            miolo = ancora_titulos(render(fonte), cid) if existe else (
+            miolo = ancora_titulos(render(fonte, cid), cid) if existe else (
                 '<div class="aviso-vazio"><p>Capítulo em preparação.</p>'
                 f'<p>Ele responderá: <em>{html.escape(cap["guia"])}</em></p></div>')
 
             if existe:
                 meta.append({"id": cid, "n": str(cap["n"]), "titulo": cap["titulo"],
-                             "palavras": palavras, "parte": parte["titulo"]})
+                             "palavras": palavras, "parte": parte["titulo"],
+                             "exercicios": miolo.count('class="exercicio"')})
 
             paineis.append(
                 f'<article class="capitulo" id="{cid}" data-titulo="{html.escape(cap["titulo"])}" hidden>'
@@ -229,7 +317,8 @@ def construir():
                 paineis[j] = painel[: -len("</article>")] + "".join(nav) + "</article>"
 
     apresentacao = CAPITULOS / "00-apresentacao.md"
-    texto_capa = render(apresentacao.read_text(encoding="utf-8")) if apresentacao.exists() else ""
+    texto_capa = render(apresentacao.read_text(encoding="utf-8"), "capa") if apresentacao.exists() else ""
+    glossario = extrai_glossario(CAPITULOS / "C-glossario.md")
 
     capa = (
         '<article class="capitulo" id="capa" data-titulo="Capa">'
@@ -245,6 +334,9 @@ def construir():
         f'<p>ISBN: {html.escape(livro["isbn"])} · Licença {html.escape(livro["licenca"])}</p>'
         f'<p>Comentários, sugestões e críticas: <a href="mailto:{livro["contato"]}">{livro["contato"]}</a></p>'
         f'<p>Versão de {date.today().strftime("%d/%m/%Y")}</p>'
+        '<p class="acoes-ficha">'
+        '<button type="button" id="abre-citar">Como citar este livro</button>'
+        '</p>'
         "</div></article>")
     paineis.insert(0, capa)
 
@@ -295,7 +387,13 @@ def construir():
       <span class="rotulo-ferramenta">Texto</span>
       <button id="fonte-menor" type="button" aria-label="Diminuir o texto">A&minus;</button>
       <button id="fonte-maior" type="button" aria-label="Aumentar o texto">A+</button>
-      <button id="zera-progresso" type="button">Zerar leitura</button>
+    </div>
+    <div class="ferramentas">
+      <span class="rotulo-ferramenta">Progresso</span>
+      <button id="exporta-progresso" type="button">Exportar</button>
+      <button id="importa-progresso" type="button">Importar</button>
+      <button id="zera-progresso" type="button">Zerar</button>
+      <input type="file" id="arquivo-progresso" accept="application/json,.json" hidden>
     </div>
     <p>Setas ou J e K mudam de capítulo. Tecla / busca. Tecla M marca como lido.</p>
   </div>
@@ -305,9 +403,22 @@ def construir():
 </main>
 </div>
 <button id="ao-topo" type="button" hidden aria-label="Voltar ao topo">&uarr;</button>
+
+<div id="dica-glossario" hidden role="tooltip"></div>
+
+<dialog id="painel-citar">
+  <h2>Como citar</h2>
+  <div id="citacoes"></div>
+  <button type="button" id="fecha-citar">Fechar</button>
+</dialog>
+
 <script>
 var LIVRO_TITULO = {json.dumps(livro["titulo"])};
+var LIVRO = {json.dumps({k: livro[k] for k in
+    ["titulo", "subtitulo", "autor", "local", "ano", "url", "repositorio", "licenca", "isbn"]},
+    ensure_ascii=False)};
 var LIVRO_CAPS = {json.dumps(meta, ensure_ascii=False)};
+var GLOSSARIO = {json.dumps(glossario, ensure_ascii=False)};
 var PALAVRAS_POR_MINUTO = 200;
 {js}
 </script>

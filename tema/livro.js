@@ -24,6 +24,7 @@
   var CHAVE_ULTIMO = "epc-ultimo";
   var CHAVE_TEMA = "epc-tema";
   var CHAVE_FONTE = "epc-fonte";
+  var CHAVE_EXERCICIOS = "epc-exercicios";
 
   /* ------------------------------------------------------- utilidades */
 
@@ -48,8 +49,10 @@
   /* --------------------------------------------------- marcador de leitura */
 
   var lidos = {};
+  var resolvidos = {};
   (function carregaLidos() {
     try { lidos = JSON.parse(busca_guardado(CHAVE_LIDOS) || "{}") || {}; } catch (e) { lidos = {}; }
+    try { resolvidos = JSON.parse(busca_guardado(CHAVE_EXERCICIOS) || "{}") || {}; } catch (e) { resolvidos = {}; }
   })();
 
   var totalPalavras = LIVRO_CAPS.reduce(function (s, c) { return s + c.palavras; }, 0);
@@ -84,8 +87,12 @@
     var rest = document.getElementById("progresso-restante");
     if (rest) {
       var faltam = totalPalavras - lidasP;
-      rest.textContent = faltam > 0 ? "Faltam cerca de " + duracao(faltam) + " de leitura"
-                                    : "Você leu o livro inteiro.";
+      var totalEx = LIVRO_CAPS.reduce(function (s, c) { return s + (c.exercicios || 0); }, 0);
+      var feitos = Object.keys(resolvidos).length;
+      var linha = faltam > 0 ? "Faltam cerca de " + duracao(faltam) + " de leitura"
+                             : "Você leu o livro inteiro.";
+      if (feitos) { linha += " · " + feitos + " de " + totalEx + " exercícios resolvidos"; }
+      rest.textContent = linha;
     }
 
     elos.forEach(function (a) {
@@ -152,6 +159,29 @@
       botao.type = "button";
       botao.className = "marcar-lido";
       caixa.appendChild(botao);
+
+      var extras = document.createElement("p");
+      extras.className = "acoes-cap";
+      var citar = document.createElement("button");
+      citar.type = "button";
+      citar.className = "citar-cap";
+      citar.textContent = "Como citar este capítulo";
+      var erro = document.createElement("a");
+      erro.className = "reportar";
+      erro.target = "_blank";
+      erro.rel = "noopener";
+      erro.textContent = "Encontrei um erro aqui";
+      erro.href = LIVRO.repositorio + "/issues/new?title=" +
+        encodeURIComponent("Correção no capítulo " + dados.n + ": " + dados.titulo) +
+        "&body=" + encodeURIComponent(
+          "Capítulo " + dados.n + " — " + dados.titulo + "\n" +
+          "Endereço: " + LIVRO.url + "#" + cap.id + "\n\n" +
+          "Trecho com problema:\n\n\n" +
+          "O que parece estar errado:\n\n");
+      extras.appendChild(citar);
+      extras.appendChild(erro);
+      caixa.appendChild(extras);
+
       if (nav) { cap.insertBefore(caixa, nav); } else { cap.appendChild(caixa); }
     }
     religa(cap);
@@ -161,15 +191,258 @@
      evento sem apagar os elementos. Esta função os devolve, e é por isso que
      ela não pode criar nada: quem cria é preparaCapitulo, uma única vez. */
   function religa(cap) {
-    cap.querySelectorAll(".abas").forEach(function (g) { g.dataset.ligado = ""; });
+    /* Trocar o innerHTML preserva o atributo data-ligado no HTML restaurado, mas
+       não os ouvintes. Zerar a marca de todos é o que impede componentes mudos
+       depois de uma busca: abas, calculadoras e botões de exercício. */
+    cap.querySelectorAll("[data-ligado]").forEach(function (e) { e.dataset.ligado = ""; });
     ligaAbas(cap);
     var botao = cap.querySelector(".marcar-lido");
     if (botao && botao.dataset.ligado !== "1") {
       botao.dataset.ligado = "1";
       botao.addEventListener("click", function () { marca(cap.id, !estaLido(cap.id)); });
     }
+    ligaExercicios(cap);
+    ligaCalculadoras(cap);
+    ligaTermos(cap);
     pintaBotaoLido();
   }
+
+  /* ---------------------------------------------- exercícios resolvidos */
+
+  function pintaExercicio(caixa) {
+    var id = caixa.getAttribute("data-exercicio");
+    var botao = caixa.querySelector(".resolvido");
+    if (!botao) { return; }
+    var feito = !!resolvidos[id];
+    caixa.classList.toggle("feito", feito);
+    botao.setAttribute("aria-pressed", String(feito));
+    botao.textContent = feito ? "✓ resolvido" : "marcar como resolvido";
+  }
+
+  function ligaExercicios(cap) {
+    cap.querySelectorAll(".exercicio[data-exercicio]").forEach(function (caixa) {
+      var botao = caixa.querySelector(".resolvido");
+      if (botao && botao.dataset.ligado !== "1") {
+        botao.dataset.ligado = "1";
+        botao.addEventListener("click", function () {
+          var id = caixa.getAttribute("data-exercicio");
+          if (resolvidos[id]) { delete resolvidos[id]; } else { resolvidos[id] = 1; }
+          guarda(CHAVE_EXERCICIOS, JSON.stringify(resolvidos));
+          pintaExercicio(caixa);
+          pintaContadorExercicios(cap);
+          pintaProgresso();
+        });
+      }
+      pintaExercicio(caixa);
+    });
+    pintaContadorExercicios(cap);
+  }
+
+  function pintaContadorExercicios(cap) {
+    var caixas = cap.querySelectorAll(".exercicio[data-exercicio]");
+    if (!caixas.length) { return; }
+    var feitos = 0;
+    caixas.forEach(function (c) { if (resolvidos[c.getAttribute("data-exercicio")]) { feitos++; } });
+    var alvo = cap.querySelector(".contador-exercicios");
+    if (!alvo) {
+      var primeira = caixas[0];
+      alvo = document.createElement("p");
+      alvo.className = "contador-exercicios";
+      primeira.parentNode.insertBefore(alvo, primeira);
+    }
+    alvo.textContent = feitos + " de " + caixas.length + " exercícios resolvidos neste capítulo";
+    alvo.classList.toggle("completo", feitos === caixas.length);
+  }
+
+  /* ------------------------------------------------------ calculadoras */
+
+  function fmt(v, casas) {
+    if (!isFinite(v)) { return "—"; }
+    return v.toFixed(casas === undefined ? 1 : casas).replace(".", ",");
+  }
+
+  function wilson(k, n) {
+    if (!n) { return [0, 0]; }
+    var z = 1.959964, p = k / n, d = 1 + z * z / n;
+    var c = (p + z * z / (2 * n)) / d;
+    var m = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d;
+    return [Math.max(0, c - m), Math.min(1, c + m)];
+  }
+
+  function calculaAmostra(campos) {
+    var p1 = campos.p1 / 100, p2 = campos.p2 / 100;
+    var za = campos.alfa, zb = campos.poder, perdas = campos.perdas / 100;
+    var delta = Math.abs(p1 - p2);
+    if (!delta || p1 <= 0 || p1 >= 1 || p2 <= 0 || p2 >= 1) {
+      return "<p class=\"erro\">Informe duas proporções diferentes, entre 1% e 99%.</p>";
+    }
+    var pb = (p1 + p2) / 2;
+    var n = Math.pow(za * Math.sqrt(2 * pb * (1 - pb)) +
+                     zb * Math.sqrt(p1 * (1 - p1) + p2 * (1 - p2)), 2) / (delta * delta);
+    var porGrupo = Math.ceil(n);
+    var comPerdas = perdas < 1 ? Math.ceil(porGrupo / (1 - perdas)) : porGrupo;
+    return "<p><b>" + porGrupo + "</b> participantes por grupo, <b>" + (porGrupo * 2) +
+      "</b> no total.</p><p>Prevendo " + fmt(campos.perdas, 0) + "% de perdas: <b>" + comPerdas +
+      "</b> por grupo, <b>" + (comPerdas * 2) + "</b> no total.</p>" +
+      "<p class=\"nota-calc\">Diferença a detectar: " + fmt(delta * 100) + " pontos percentuais.</p>";
+  }
+
+  function calculaIntervalo(campos) {
+    var a = campos.a, n1 = campos.n1, c = campos.c, n2 = campos.n2;
+    if (a > n1 || c > n2 || !n1 || !n2) {
+      return "<p class=\"erro\">Os eventos não podem superar o total do grupo.</p>";
+    }
+    var p1 = a / n1, p2 = c / n2, i1 = wilson(a, n1), i2 = wilson(c, n2);
+    var dif = p1 - p2;
+    var ep = Math.sqrt(p1 * (1 - p1) / n1 + p2 * (1 - p2) / n2);
+    var li = dif - 1.959964 * ep, ls = dif + 1.959964 * ep;
+    var linhas = "<table><tr><td>Intervenção</td><td>" + fmt(p1 * 100) + "% (IC95% " +
+      fmt(i1[0] * 100) + " a " + fmt(i1[1] * 100) + ")</td></tr>" +
+      "<tr><td>Controle</td><td>" + fmt(p2 * 100) + "% (IC95% " +
+      fmt(i2[0] * 100) + " a " + fmt(i2[1] * 100) + ")</td></tr>" +
+      "<tr><td>Diferença absoluta</td><td>" + fmt(dif * 100) + " pp (IC95% " +
+      fmt(li * 100) + " a " + fmt(ls * 100) + ")</td></tr>";
+    if (p2 > 0) {
+      var rr = p1 / p2;
+      var eplog = Math.sqrt((1 - p1) / (p1 * n1) + (1 - p2) / (p2 * n2));
+      linhas += "<tr><td>Risco relativo</td><td>" + fmt(rr, 2) + " (IC95% " +
+        fmt(Math.exp(Math.log(rr) - 1.959964 * eplog), 2) + " a " +
+        fmt(Math.exp(Math.log(rr) + 1.959964 * eplog), 2) + ")</td></tr>";
+    }
+    if (Math.abs(dif) > 0.0001) {
+      var nnt = 1 / Math.abs(dif);
+      var aviso = (li < 0 && ls > 0) ? " <span class=\"nota-calc\">(o intervalo da diferença " +
+        "inclui o zero: o NNT perde sentido)</span>" : "";
+      linhas += "<tr><td>Número necessário para tratar</td><td>" + fmt(nnt) + aviso + "</td></tr>";
+    }
+    return linhas + "</table>";
+  }
+
+  function calculaFagan(campos) {
+    var pre = campos.pre / 100, sens = campos.sens / 100, esp = campos.esp / 100;
+    if (esp >= 1 || pre <= 0 || pre >= 1) {
+      return "<p class=\"erro\">Use valores entre 0,1% e 99,9%.</p>";
+    }
+    var rvp = sens / (1 - esp), rvn = (1 - sens) / esp;
+    var odds = pre / (1 - pre);
+    var pos = (odds * rvp) / (1 + odds * rvp), neg = (odds * rvn) / (1 + odds * rvn);
+    return "<table><tr><td>Razão de verossimilhança positiva</td><td>" + fmt(rvp, 2) + "</td></tr>" +
+      "<tr><td>Razão de verossimilhança negativa</td><td>" + fmt(rvn, 2) + "</td></tr>" +
+      "<tr><td>Se o teste der <b>positivo</b></td><td><b>" + fmt(pos * 100) + "%</b> de probabilidade</td></tr>" +
+      "<tr><td>Se o teste der <b>negativo</b></td><td><b>" + fmt(neg * 100) + "%</b> de probabilidade</td></tr>" +
+      "</table><p class=\"nota-calc\">Probabilidade pré-teste de " + fmt(campos.pre) + "%.</p>";
+  }
+
+  var CALCULOS = { amostra: calculaAmostra, intervalo: calculaIntervalo, fagan: calculaFagan };
+
+  function ligaCalculadoras(escopo) {
+    escopo.querySelectorAll(".calc").forEach(function (calc) {
+      var tipo = calc.getAttribute("data-calc");
+      var saida = calc.querySelector("[data-saida]");
+      var entradas = Array.prototype.slice.call(calc.querySelectorAll("[data-campo]"));
+      function roda() {
+        var campos = {};
+        entradas.forEach(function (e) { campos[e.getAttribute("data-campo")] = parseFloat(e.value); });
+        var ok = entradas.every(function (e) { return e.value !== "" && !isNaN(parseFloat(e.value)); });
+        saida.innerHTML = ok ? CALCULOS[tipo](campos)
+                             : "<p class=\"erro\">Preencha todos os campos.</p>";
+      }
+      if (calc.dataset.ligado !== "1") {
+        calc.dataset.ligado = "1";
+        entradas.forEach(function (e) {
+          e.addEventListener("input", roda);
+          e.addEventListener("change", roda);
+        });
+      }
+      roda();
+    });
+  }
+
+  /* ------------------------------------------- glossário sob o cursor */
+
+  var termosOrdenados = Object.keys(GLOSSARIO).sort(function (a, b) { return b.length - a.length; });
+  var dica = document.getElementById("dica-glossario");
+
+  function ligaTermos(cap) {
+    if (cap.id === "cap-C" || cap.dataset.termos === "1") { return; }
+    cap.dataset.termos = "1";
+    var restantes = {};
+    termosOrdenados.forEach(function (t) { restantes[t] = true; });
+
+    var caminhante = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (no) {
+        var pai = no.parentNode;
+        if (!no.nodeValue.trim()) { return NodeFilter.FILTER_REJECT; }
+        while (pai && pai !== cap) {
+          var nome = pai.nodeName;
+          if (nome === "H1" || nome === "H2" || nome === "H3" || nome === "CODE" ||
+              nome === "PRE" || nome === "BUTTON" || nome === "SUMMARY" ||
+              nome === "MARK" || pai.classList.contains("termo") ||
+              pai.classList.contains("indice-cap") || pai.classList.contains("calc")) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          pai = pai.parentNode;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    var nos = [], no;
+    while ((no = caminhante.nextNode())) { nos.push(no); }
+
+    nos.forEach(function (texto) {
+      var valor = texto.nodeValue;
+      for (var i = 0; i < termosOrdenados.length; i++) {
+        var termo = termosOrdenados[i];
+        if (!restantes[termo]) { continue; }
+        var pos = semAcento(valor).indexOf(semAcento(termo));
+        if (pos === -1) { continue; }
+        var antes = valor.charAt(pos - 1), depois = valor.charAt(pos + termo.length);
+        if (/[\wÀ-ÿ]/.test(antes) || /[\wÀ-ÿ]/.test(depois)) { continue; }
+
+        var frag = document.createDocumentFragment();
+        frag.appendChild(document.createTextNode(valor.slice(0, pos)));
+        var marca_termo = document.createElement("span");
+        marca_termo.className = "termo";
+        marca_termo.setAttribute("tabindex", "0");
+        marca_termo.setAttribute("data-termo", termo);
+        marca_termo.textContent = valor.slice(pos, pos + termo.length);
+        frag.appendChild(marca_termo);
+        frag.appendChild(document.createTextNode(valor.slice(pos + termo.length)));
+        texto.parentNode.replaceChild(frag, texto);
+        restantes[termo] = false;
+        return;
+      }
+    });
+  }
+
+  function mostraDica(alvo) {
+    if (!dica) { return; }
+    var termo = alvo.getAttribute("data-termo");
+    dica.innerHTML = "<b>" + termo + "</b>" + GLOSSARIO[termo] +
+      ' <a href="#cap-C">ver no glossário</a>';
+    dica.hidden = false;
+    var r = alvo.getBoundingClientRect();
+    var largura = Math.min(320, window.innerWidth - 24);
+    dica.style.width = largura + "px";
+    var esquerda = Math.min(Math.max(8, r.left), window.innerWidth - largura - 8);
+    dica.style.left = esquerda + "px";
+    var acima = r.top > dica.offsetHeight + 16;
+    dica.style.top = (acima ? r.top - dica.offsetHeight - 8 : r.bottom + 8) + window.scrollY + "px";
+  }
+
+  document.addEventListener("mouseover", function (ev) {
+    var alvo = ev.target.closest && ev.target.closest(".termo");
+    if (alvo) { mostraDica(alvo); }
+  });
+  document.addEventListener("mouseout", function (ev) {
+    if (ev.target.closest && ev.target.closest(".termo") && dica) { dica.hidden = true; }
+  });
+  document.addEventListener("focusin", function (ev) {
+    var alvo = ev.target.closest && ev.target.closest(".termo");
+    if (alvo) { mostraDica(alvo); }
+  });
+  document.addEventListener("focusout", function () { if (dica) { dica.hidden = true; } });
 
   /* ------------------------------------------------ navegação por hash */
 
@@ -433,16 +706,183 @@
   if (menor) { menor.addEventListener("click", function () { aplicaFonte(escala - 0.08); }); }
   if (maior) { maior.addEventListener("click", function () { aplicaFonte(escala + 0.08); }); }
 
-  /* ------------------------------------------------- zerar o progresso */
+  /* -------------------------------- zerar, exportar e importar progresso */
 
   var zerar = document.getElementById("zera-progresso");
   if (zerar) {
     zerar.addEventListener("click", function () {
-      if (!window.confirm("Apagar as marcas de leitura de todos os capítulos?")) { return; }
-      lidos = {};
+      if (!window.confirm("Apagar as marcas de leitura e os exercícios resolvidos?")) { return; }
+      lidos = {}; resolvidos = {};
       guarda(CHAVE_LIDOS, "{}");
+      guarda(CHAVE_EXERCICIOS, "{}");
+      capitulos.forEach(function (c) {
+        c.querySelectorAll(".exercicio[data-exercicio]").forEach(pintaExercicio);
+        pintaContadorExercicios(c);
+      });
       pintaProgresso();
       pintaBotaoLido();
+    });
+  }
+
+  var exporta = document.getElementById("exporta-progresso");
+  if (exporta) {
+    exporta.addEventListener("click", function () {
+      var pacote = {
+        formato: "epc-progresso",
+        versao: 1,
+        livro: LIVRO.titulo,
+        data: new Date().toISOString(),
+        lidos: lidos,
+        exercicios: resolvidos
+      };
+      var url = URL.createObjectURL(new Blob([JSON.stringify(pacote, null, 1)],
+        { type: "application/json" }));
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "progresso-estatistica-" + new Date().toISOString().slice(0, 10) + ".json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    });
+  }
+
+  var importa = document.getElementById("importa-progresso");
+  var arquivo = document.getElementById("arquivo-progresso");
+  if (importa && arquivo) {
+    importa.addEventListener("click", function () { arquivo.click(); });
+    arquivo.addEventListener("change", function () {
+      var f = arquivo.files && arquivo.files[0];
+      if (!f) { return; }
+      var leitor = new FileReader();
+      leitor.onload = function () {
+        try {
+          var dados = JSON.parse(leitor.result);
+          if (dados.formato !== "epc-progresso") { throw new Error("formato"); }
+          lidos = dados.lidos || {};
+          resolvidos = dados.exercicios || {};
+          guarda(CHAVE_LIDOS, JSON.stringify(lidos));
+          guarda(CHAVE_EXERCICIOS, JSON.stringify(resolvidos));
+          capitulos.forEach(function (c) {
+            c.querySelectorAll(".exercicio[data-exercicio]").forEach(pintaExercicio);
+            pintaContadorExercicios(c);
+          });
+          pintaProgresso();
+          pintaBotaoLido();
+          window.alert("Progresso importado: " + Object.keys(lidos).length +
+                       " capítulos lidos e " + Object.keys(resolvidos).length +
+                       " exercícios resolvidos.");
+        } catch (e) {
+          window.alert("Arquivo inválido. Use um arquivo exportado por este livro.");
+        }
+        arquivo.value = "";
+      };
+      leitor.readAsText(f);
+    });
+  }
+
+  /* ------------------------------------------------------- como citar */
+
+  function hoje() {
+    var d = new Date();
+    var meses = ["jan.", "fev.", "mar.", "abr.", "maio", "jun.",
+                 "jul.", "ago.", "set.", "out.", "nov.", "dez."];
+    return { abnt: d.getDate() + " " + meses[d.getMonth()] + " " + d.getFullYear(),
+             vancouver: d.getFullYear() + " " + meses[d.getMonth()].replace(".", "") + " " + d.getDate() };
+  }
+
+  function sobrenomePrimeiro() {
+    var partes = LIVRO.autor.trim().split(/\s+/);
+    var sobrenome = partes.pop();
+    return { abnt: sobrenome.toUpperCase() + ", " + partes.join(" "),
+             vancouver: sobrenome + " " + partes.map(function (p) { return p.charAt(0); }).join("") };
+  }
+
+  function montaCitacoes(cap) {
+    var a = sobrenomePrimeiro(), d = hoje();
+    var obra = LIVRO.titulo + ": " + LIVRO.subtitulo;
+    var cidade = LIVRO.local.split(",")[0].trim();
+    var lista = [];
+
+    lista.push({
+      rotulo: "O livro, ABNT",
+      texto: a.abnt + ". " + obra + ". " + cidade + ", " + LIVRO.ano +
+             ". Disponível em: " + LIVRO.url + ". Acesso em: " + d.abnt + "."
+    });
+    lista.push({
+      rotulo: "O livro, Vancouver",
+      texto: a.vancouver + ". " + obra + " [Internet]. " + cidade + "; " + LIVRO.ano +
+             " [citado " + d.vancouver + "]. Disponível em: " + LIVRO.url
+    });
+
+    if (cap && cap.id !== "capa") {
+      var dados = LIVRO_CAPS.filter(function (c) { return c.id === cap.id; })[0];
+      if (dados) {
+        var endereco = LIVRO.url + "#" + cap.id;
+        lista.push({
+          rotulo: "Este capítulo, ABNT",
+          texto: a.abnt + ". " + dados.titulo + ". In: ______. " + obra + ". " + cidade + ", " +
+                 LIVRO.ano + ". cap. " + dados.n + ". Disponível em: " + endereco +
+                 ". Acesso em: " + d.abnt + "."
+        });
+        lista.push({
+          rotulo: "Este capítulo, Vancouver",
+          texto: a.vancouver + ". " + dados.titulo + ". Em: " + a.vancouver + ". " + obra +
+                 " [Internet]. " + cidade + "; " + LIVRO.ano + " [citado " + d.vancouver +
+                 "]. cap. " + dados.n + ". Disponível em: " + endereco
+        });
+      }
+    }
+    return lista;
+  }
+
+  var painelCitar = document.getElementById("painel-citar");
+  function abreCitar() {
+    if (!painelCitar) { return; }
+    var alvo = document.getElementById("citacoes");
+    alvo.innerHTML = "";
+    montaCitacoes(capitulos.find(function (c) { return !c.hidden; })).forEach(function (item) {
+      var bloco = document.createElement("div");
+      bloco.className = "citacao";
+      var titulo = document.createElement("p");
+      titulo.className = "rotulo-citacao";
+      titulo.textContent = item.rotulo;
+      var texto = document.createElement("p");
+      texto.className = "texto-citacao";
+      texto.textContent = item.texto;
+      var copiar = document.createElement("button");
+      copiar.type = "button";
+      copiar.textContent = "Copiar";
+      copiar.addEventListener("click", function () {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(item.texto).then(function () {
+            copiar.textContent = "Copiado";
+            setTimeout(function () { copiar.textContent = "Copiar"; }, 1800);
+          });
+        }
+      });
+      bloco.appendChild(titulo);
+      bloco.appendChild(texto);
+      bloco.appendChild(copiar);
+      alvo.appendChild(bloco);
+    });
+    var aviso = document.createElement("p");
+    aviso.className = "nota-calc";
+    aviso.textContent = "ISBN " + LIVRO.isbn + ". Licença " + LIVRO.licenca + ".";
+    alvo.appendChild(aviso);
+    if (painelCitar.showModal) { painelCitar.showModal(); } else { painelCitar.setAttribute("open", ""); }
+  }
+
+  document.addEventListener("click", function (ev) {
+    if (ev.target.id === "abre-citar" || (ev.target.closest && ev.target.closest(".citar-cap"))) {
+      ev.preventDefault();
+      abreCitar();
+    }
+  });
+  var fechaCitar = document.getElementById("fecha-citar");
+  if (fechaCitar && painelCitar) {
+    fechaCitar.addEventListener("click", function () {
+      if (painelCitar.close) { painelCitar.close(); } else { painelCitar.removeAttribute("open"); }
     });
   }
 
