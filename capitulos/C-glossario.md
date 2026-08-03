@@ -4,6 +4,63 @@ são curtas de propósito, e cada uma indica o capítulo em que o assunto é tra
 por inteiro.
 :::
 
+## Os acrônimos, e de onde vem cada letra
+
+Quase todos os acrônimos da pesquisa clínica são formados a partir de palavras
+**em inglês**, e é por isso que eles não fazem sentido quando lidos em
+português. FINER não abre em nenhuma palavra portuguesa, e o O de PICO não vem
+de nada que se pareça com "desfecho". Esta tabela abre todos eles.
+
+### Estruturas de pergunta
+
+| Sigla | Palavras que a formam | Em português |
+|---|---|---|
+| **FINER** | *Feasible, Interesting, Novel, Ethical, Relevant* | exequível, interessante, nova, ética, relevante |
+| **PICO** | *Population, Intervention, Comparison, Outcome* | população, intervenção, comparador, desfecho |
+| **PICOT** | PICO + *Time* | PICO mais o prazo |
+| **PECO**, **PEO** | *Population, Exposure, Comparison, Outcome* | população, exposição, comparador, desfecho |
+| **PIRD** | *Population, Index test, Reference test, Diagnosis of interest* | população, teste índice, padrão de referência, condição procurada |
+
+### Recomendações de relato
+
+| Sigla | Palavras que a formam | Para que serve |
+|---|---|---|
+| **CONSORT** | *Consolidated Standards of Reporting Trials* | ensaios clínicos randomizados |
+| **STROBE** | *Strengthening the Reporting of Observational Studies in Epidemiology* | estudos observacionais |
+| **STARD** | *Standards for Reporting Diagnostic Accuracy studies* | acurácia diagnóstica |
+| **PRISMA** | *Preferred Reporting Items for Systematic reviews and Meta-Analyses* | revisões sistemáticas |
+| **SPIRIT** | *Standard Protocol Items: Recommendations for Interventional Trials* | protocolos de ensaio |
+| **CARE** | *Case Report* | relatos de caso |
+| **EQUATOR** | *Enhancing the Quality and Transparency of Health Research* | a rede que reúne todas as anteriores |
+
+### Medidas e análises
+
+| Sigla | Origem | Em português |
+|---|---|---|
+| **AUC** | *area under the curve* | área sob a curva |
+| **DP** | *standard deviation*, SD em inglês | desvio padrão |
+| **HR** | *hazard ratio* | razão de riscos |
+| **IC** | *confidence interval*, CI em inglês | intervalo de confiança |
+| **NNT** | *number needed to treat* | número necessário para tratar |
+| **OR** | *odds ratio* | razão de chances |
+| **ROC** | *receiver operating characteristic* | nome herdado dos operadores de radar da Segunda Guerra, que precisavam separar sinal de ruído |
+| **RR** | *risk ratio*, *relative risk* | risco relativo |
+| **RV+**, **RV−** | *likelihood ratio*, LR em inglês | razão de verossimilhança positiva e negativa |
+
+### Clínica e regulação, no caso condutor
+
+| Sigla | Significado |
+|---|---|
+| **CEAP** | *Clinical, Etiological, Anatomical, Pathophysiological*: a classificação da doença venosa crônica, em que C6 designa a úlcera ativa |
+| **ITB** | índice tornozelo-braquial, *ankle-brachial index* (ABI) |
+| **EVA** | escala visual analógica, *visual analogue scale* (VAS) |
+| **TcPO₂** | pressão transcutânea de oxigênio |
+| **CEP**, **CONEP** | Comitê de Ética em Pesquisa e Comissão Nacional de Ética em Pesquisa |
+| **LGPD** | Lei Geral de Proteção de Dados |
+| **REDCap** | *Research Electronic Data Capture* |
+
+---
+
 ## A
 
 **Alfa (α).** Probabilidade que se aceita de concluir que há efeito quando não
@@ -17,7 +74,8 @@ até completar o tamanho previsto. É a melhor das técnicas não probabilístic
 alocado, independentemente do que recebeu. *Capítulos 7 e 15.*
 
 **Área sob a curva ROC.** Resumo da capacidade de discriminação de um teste, entre
-0,5, que é o acaso, e 1,0, que é a separação perfeita. *Capítulo 13.*
+0,5, que é o acaso, e 1,0, que é a separação perfeita. ROC vem de *receiver
+operating characteristic*. *Capítulo 13.*
 
 ## B
 
@@ -89,8 +147,9 @@ como negativos. *Capítulo 13.*
 
 ## F
 
-**FINER.** Filtro de cinco critérios para julgar uma pergunta de pesquisa:
-exequível, interessante, nova, ética e relevante. *Capítulo 2.*
+**FINER.** Filtro de cinco critérios para julgar uma pergunta de pesquisa, do
+inglês *feasible, interesting, novel, ethical, relevant*: exequível,
+interessante, nova, ética e relevante. *Capítulo 2.*
 
 ## H
 
@@ -136,7 +195,8 @@ quantos pacientes é preciso tratar para produzir um desfecho favorável adicion
 
 ## P
 
-**PICO.** Estrutura da pergunta de pesquisa: população, intervenção, comparador e
+**PICO.** Estrutura da pergunta de pesquisa, do inglês *population,
+intervention, comparison, outcome*: população, intervenção, comparador e
 desfecho. *Capítulo 2.*
 
 **Poder.** Probabilidade de detectar um efeito, se ele existir. Calcula-se antes.

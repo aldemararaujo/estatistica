@@ -16,17 +16,20 @@ Daí a existência das recomendações de relato, que não são normas de estilo
 listas do que precisa estar dito para que o leitor julgue. Cada delineamento tem
 a sua.
 
-| Delineamento | Recomendação |
-|---|---|
-| Ensaio clínico randomizado | CONSORT |
-| Estudo observacional | STROBE |
-| Acurácia diagnóstica | STARD |
-| Revisão sistemática | PRISMA |
-| Protocolo de ensaio | SPIRIT |
-| Relato de caso | CARE |
+| Delineamento | Recomendação | O que a sigla quer dizer |
+|---|---|---|
+| Ensaio clínico randomizado | CONSORT | *Consolidated Standards of Reporting Trials* |
+| Estudo observacional | STROBE | *Strengthening the Reporting of Observational Studies in Epidemiology* |
+| Acurácia diagnóstica | STARD | *Standards for Reporting Diagnostic Accuracy studies* |
+| Revisão sistemática | PRISMA | *Preferred Reporting Items for Systematic reviews and Meta-Analyses* |
+| Protocolo de ensaio | SPIRIT | *Standard Protocol Items: Recommendations for Interventional Trials* |
+| Relato de caso | CARE | *Case Report* |
 
-Todas estão reunidas na EQUATOR Network, e todas devem ser lidas **antes** de
-coletar o primeiro dado, não na véspera da submissão.
+Todas são acrônimos em inglês, e nenhuma tem tradução oficial em português: use
+as siglas como estão, que é como elas aparecem nas instruções aos autores. Todas
+estão reunidas na **EQUATOR Network**, de *Enhancing the Quality and Transparency
+of Health Research*, e todas devem ser lidas **antes** de coletar o primeiro
+dado, não na véspera da submissão.
 
 ## O diagrama de fluxo
 

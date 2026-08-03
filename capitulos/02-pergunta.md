@@ -23,43 +23,71 @@ capítulo vem antes de todos os que tratam de números.
 Antes de dar forma à pergunta, convém submetê-la a cinco testes. O acrônimo é
 antigo, é útil e evita muito desperdício.
 
-**F, exequível.** Existem pacientes suficientes? Há tempo, dinheiro e equipe? O
-método está ao alcance? A pergunta do caso condutor exige 200 pacientes com
-úlcera venosa ativa, o que um único ambulatório não recruta em prazo razoável, e
-foi essa constatação que tornou o estudo multicêntrico.
+Uma advertência antes de começar: **FINER é um acrônimo em inglês**, formado a
+partir de *feasible, interesting, novel, ethical, relevant*, e ele só fecha
+naquele idioma. Traduzido letra a letra em português, ele não formaria palavra
+alguma: seria EINER, de exequível, interessante, nova, ética e relevante. É por
+isso que este livro mantém a sigla original e apresenta cada letra nas duas
+línguas, para que ninguém precise adivinhar de onde saiu o F.
 
-**I, interessante.** Para a comunidade, não apenas para o pesquisador.
+| Letra | Em inglês | Em português | A pergunta que faz |
+|---|---|---|---|
+| **F** | *Feasible* | exequível, viável | eu consigo fazer este estudo? |
+| **I** | *Interesting* | interessante | alguém além de mim quer saber a resposta? |
+| **N** | *Novel* | nova, inédita | a resposta já existe na literatura? |
+| **E** | *Ethical* | ética | é aceitável submeter pacientes a isto? |
+| **R** | *Relevant* | relevante | a resposta muda alguma conduta? |
 
-**N, nova.** Aqui entra a etapa que muita gente pula: a busca da literatura. Se
-já existem três ensaios randomizados bem-feitos respondendo à mesma pergunta, o
-que falta não é outro ensaio, é uma revisão sistemática. Repetir sem saber é
-desperdiçar recursos e expor pacientes sem necessidade.
+O acrônimo foi popularizado por Hulley e colaboradores, no clássico *Designing
+Clinical Research*, e desde então virou o primeiro filtro que orientadores
+aplicam a qualquer ideia de projeto.
 
-**E, ética.** Só se randomiza sob incerteza genuína, o que a literatura chama de
-equipoise: se já se sabe que um dos braços é superior, o sorteio é inaceitável.
-No caso condutor, as evidências existentes vinham de séries pequenas sem
-comparação, e a incerteza era real.
+**F, de *feasible*, exequível.** Existem pacientes suficientes? Há tempo,
+dinheiro e equipe? O método está ao alcance? A pergunta do caso condutor exige
+200 pacientes com úlcera venosa ativa, o que um único ambulatório não recruta em
+prazo razoável, e foi essa constatação que tornou o estudo multicêntrico.
 
-**R, relevante.** A resposta muda alguma conduta? Se o estudo der positivo, o que
-passa a ser feito diferente? Se der negativo, o que se deixa de fazer? Uma
-pergunta cuja resposta não altera nada não merece pacientes.
+**I, de *interesting*, interessante.** Para a comunidade, não apenas para o
+pesquisador. A pergunta que interessa somente a quem a formulou costuma render
+uma defesa tranquila e nenhuma citação.
+
+**N, de *novel*, nova.** Aqui entra a etapa que muita gente pula: a busca da
+literatura. Se já existem três ensaios randomizados bem-feitos respondendo à
+mesma pergunta, o que falta não é outro ensaio, é uma revisão sistemática.
+Repetir sem saber é desperdiçar recursos e expor pacientes sem necessidade.
+Atenção ao que *novel* significa e ao que não significa: uma pergunta pode ser
+nova por tratar de outra população, outro contexto de serviço ou outro desfecho,
+sem que a intervenção seja inédita.
+
+**E, de *ethical*, ética.** Só se randomiza sob incerteza genuína, o que a
+literatura chama de *equipoise*: se já se sabe que um dos braços é superior, o
+sorteio é inaceitável. No caso condutor, as evidências existentes vinham de
+séries pequenas sem comparação, e a incerteza era real.
+
+**R, de *relevant*, relevante.** A resposta muda alguma conduta? Se o estudo der
+positivo, o que passa a ser feito diferente? Se der negativo, o que se deixa de
+fazer? Uma pergunta cuja resposta não altera nada não merece pacientes.
 
 ## A estrutura PICO
 
 Aprovada nos cinco testes, a pergunta ganha forma. O PICO é o esqueleto:
 
-| Componente | O que responde | No caso condutor |
-|---|---|---|
-| **O** | Medido como? | a diferença de proporção de úlceras completamente cicatrizadas |
-| **P** | Em quem? | adultos com úlcera venosa ativa de membro inferior |
-| **I** | O que se faz? | aspirado de medula óssea autólogo associado à terapia compressiva |
-| **C** | Comparado com o quê? | terapia compressiva isolada |
+Como o FINER, **PICO também é um acrônimo em inglês**, e uma de suas letras não
+tem correspondente óbvio em português: o O vem de *outcome*, que traduzimos por
+desfecho. Daí a tabela trazer sempre as duas línguas.
 
-A sigla se chama PICO, e a tabela acima começa pelo O de propósito: **é o
-desfecho que decide todo o resto**. Definido o desfecho, sabe-se o que medir, com
-que teste analisar e quantos participantes serão necessários. Muitos
-pesquisadores preenchem o P primeiro, porque é o mais fácil, e descobrem tarde
-demais que o desfecho escolhido não responde à dúvida que os trouxe até ali.
+| Letra | Em inglês | Em português | No caso condutor |
+|---|---|---|---|
+| **O** | *Outcome* | desfecho: medido como? | a diferença de proporção de úlceras completamente cicatrizadas |
+| **P** | *Population*, *Patient* | população: em quem? | adultos com úlcera venosa ativa de membro inferior |
+| **I** | *Intervention* | intervenção: o que se faz? | aspirado de medula óssea autólogo associado à terapia compressiva |
+| **C** | *Comparison*, *Comparator* | comparador: contra o quê? | terapia compressiva isolada |
+
+A tabela acima começa pelo O de propósito: **é o desfecho que decide todo o
+resto**. Definido o desfecho, sabe-se o que medir, com que teste analisar e
+quantos participantes serão necessários. Muitos pesquisadores preenchem o P
+primeiro, porque é o mais fácil, e descobrem tarde demais que o desfecho
+escolhido não responde à dúvida que os trouxe até ali.
 
 Montada a estrutura, a pergunta se escreve sozinha:
 
@@ -111,15 +139,20 @@ As duas formas são aceitáveis. O que não é aceitável é o prazo não existi
 lugar nenhum, porque sem ele não há como calcular o tamanho da amostra no
 Capítulo 6 nem saber quando marcar a consulta de avaliação.
 
-::: nota Variantes do PICO
-**PICOT** acrescenta o tempo (*time*), como na segunda versão acima.
-**PECO** troca intervenção por exposição (*exposure*), e serve a estudos
-observacionais: o "E" seria, por exemplo, tabagismo ou obesidade.
-**PIRO**, com *risk*, aparece em estudos de prognóstico.
-**PIRD**, com *reference standard*, organiza perguntas de acurácia diagnóstica,
-como as do Capítulo 13.
+::: nota Variantes do PICO, com as letras abertas
+**PICOT** acrescenta o **T** de *time*, o tempo, como na segunda versão acima.
 
-O esqueleto é o mesmo: quem, o quê, contra o quê, medido como.
+**PECO** troca o I pelo **E** de *exposure*, exposição, e serve a estudos
+observacionais: a exposição seria, por exemplo, tabagismo ou obesidade, que não
+se pode atribuir a ninguém deliberadamente. O mesmo esqueleto aparece como
+**PEO**, sem comparador explícito.
+
+**PIRD**, usado em perguntas de acurácia diagnóstica como as do Capítulo 13,
+abre em *population*, *index test*, *reference test* e *diagnosis of interest*:
+a população, o teste que se quer avaliar, o padrão de referência contra o qual
+ele é comparado e a condição que se procura.
+
+O esqueleto é sempre o mesmo: quem, o quê, contra o quê, medido como.
 :::
 
 ### O comparador é a parte que mais se erra

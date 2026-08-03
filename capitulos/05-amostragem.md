@@ -42,6 +42,12 @@ resultado se aplica.
 | Área entre 1 e 50 cm² | Discrasia sanguínea ou uso de anticoagulante pleno |
 | Consentimento assinado | Neoplasia ativa ou expectativa de vida < 6 meses |
 
+**CEAP** é a classificação internacional da doença venosa crônica, e as letras
+vêm do inglês *clinical, etiological, anatomical, pathophysiological*. A parte
+clínica vai de C0, sem sinais visíveis, a C6, que é a úlcera ativa: por isso o
+critério de inclusão do estudo é C6. O Apêndice C reúne todos os acrônimos do
+livro com as palavras que os formam.
+
 Cada exclusão é uma troca. Excluir índice tornozelo-braquial abaixo de 0,80
 protege o estudo, porque úlcera de componente arterial responde de outro jeito, e
 ao mesmo tempo retira da conclusão uma parcela grande dos pacientes reais, que

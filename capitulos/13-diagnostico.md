@@ -122,6 +122,12 @@ A curva ROC percorre todos os cortes possíveis e desenha sensibilidade contra u
 menos especificidade. A área sob ela resume a capacidade de discriminação em um
 número: 0,5 é o acaso, e 1,0 é a separação perfeita.
 
+A sigla não ajuda em nada e vale explicá-la: ROC vem de *receiver operating
+characteristic*, expressão herdada dos operadores de radar da Segunda Guerra
+Mundial, que precisavam decidir se um ponto na tela era um avião inimigo ou
+ruído. O problema deles era exatamente o nosso: escolher um limiar sabendo que
+qualquer escolha produz alarmes falsos ou aviões despercebidos.
+
 | Teste | Área sob a curva | IC 95% |
 |---|---|---|
 | TcPO₂ na inclusão | 0,656 | 0,574 a 0,737 |
