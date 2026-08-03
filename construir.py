@@ -531,8 +531,14 @@ def construir():
         "<!--NUMEROS-->"
         + texto_capa +
         '<div class="ficha">'
-        f'<p>{html.escape(livro["autor"])} — <a href="{livro["lattes"]}">currículo Lattes</a></p>'
-        f'<p>{html.escape(livro["local"])}, {html.escape(livro["ano"])}</p>'
+        f'<p class="autor-ficha">{html.escape(livro["autor"])}</p>'
+        '<p class="perfis">'
+        f'<a href="{livro["lattes"]}" target="_blank" rel="noopener">Lattes</a>'
+        '<span aria-hidden="true">|</span>'
+        f'<a href="{livro["google"]}" target="_blank" rel="noopener">Google</a>'
+        '<span aria-hidden="true">|</span>'
+        f'<a href="{livro["orcid"]}" target="_blank" rel="noopener">ORCID</a>'
+        "</p>"
         f'<p>ISBN: {html.escape(livro["isbn"])} · Licença {html.escape(livro["licenca"])}</p>'
         f'<p>Comentários, sugestões e críticas: <a href="mailto:{livro["contato"]}">{livro["contato"]}</a></p>'
         f'<p class="versao">Versão {html.escape(livro.get("versao", "1.0"))} · '

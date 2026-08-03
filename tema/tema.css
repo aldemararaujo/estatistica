@@ -173,6 +173,11 @@ html[data-tema="escuro"] mark { background: #6b5a1f; color: #fff; }
   font-size: .72rem; letter-spacing: .04em; color: var(--tinta-fraca);
 }
 .ficha .versao { font-weight: 600; color: var(--tinta); }
+.ficha .autor-ficha { font-size: .95rem; color: var(--tinta); font-weight: 600; margin-bottom: .2rem; }
+.ficha .perfis { display: flex; flex-wrap: wrap; gap: .55rem; align-items: baseline; margin-bottom: .6rem; }
+.ficha .perfis a { text-decoration: none; border-bottom: 1px solid var(--linha); }
+.ficha .perfis a:hover { border-bottom-color: var(--realce); }
+.ficha .perfis span { color: var(--linha); }
 #rodape-sumario button {
   font: inherit; font-family: var(--sans); cursor: pointer;
   padding: .35rem .6rem; border: 1px solid var(--linha); border-radius: 5px;
