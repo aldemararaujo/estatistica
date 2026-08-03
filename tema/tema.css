@@ -175,6 +175,50 @@ html[data-tema="escuro"] mark { background: #6b5a1f; color: #fff; }
 }
 #rodape-sumario button:hover { border-color: var(--realce); color: var(--realce); }
 
+/* --------------------------------------- o livro em números, na capa */
+
+#livro-em-numeros {
+  margin: 0 0 2.6rem;
+  padding: 1.5rem 1.6rem 1.3rem;
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  background: var(--papel-caixa);
+}
+.titulo-numeros {
+  margin: 0 0 1.2rem; font-family: var(--sans);
+  font-size: .76rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--realce);
+}
+.grade-numeros {
+  display: grid; gap: 1.1rem 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+}
+.grade-numeros .cartao { display: flex; flex-direction: column; min-width: 0; }
+.grade-numeros b {
+  font-family: var(--sans); font-size: 1.75rem; line-height: 1.05;
+  color: var(--realce); font-variant-numeric: tabular-nums;
+}
+.grade-numeros .rotulo {
+  font-family: var(--sans); font-size: .82rem; font-weight: 600;
+  color: var(--tinta); margin-top: .15rem;
+}
+.grade-numeros .detalhe {
+  font-family: var(--sans); font-size: .72rem; line-height: 1.4;
+  color: var(--tinta-fraca); margin-top: .2rem;
+}
+.rodape-numeros {
+  margin: 1.4rem 0 0; padding-top: .9rem;
+  border-top: 1px solid var(--linha);
+  font-family: var(--sans); font-size: .76rem; line-height: 1.5;
+  color: var(--tinta-fraca);
+}
+
+@media (max-width: 30rem) {
+  .grade-numeros { grid-template-columns: repeat(2, 1fr); gap: 1rem .9rem; }
+  .grade-numeros b { font-size: 1.45rem; }
+  #livro-em-numeros { padding: 1.2rem 1.1rem 1rem; }
+}
+
 /* --------------------------------------------- retomar, na capa */
 
 #retomar { margin: 0 0 2rem; }

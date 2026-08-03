@@ -319,6 +319,80 @@ def render(texto, prefixo="doc"):
     return "\n".join(saida)
 
 
+def numero(n):
+    """Formata com ponto de milhar, no padrao brasileiro."""
+    return f"{n:,}".replace(",", ".")
+
+
+def painel_numeros(paineis, meta, glossario, palavras_total):
+    """Monta o quadro 'O livro em números', na abertura.
+
+    Tudo e contado a partir do conteudo ja renderizado, para que os numeros
+    nunca envelhecam: o livro cresce e o quadro acompanha sozinho.
+    """
+    corpo = "".join(paineis)
+    minutos = round(palavras_total / 200)
+    horas, resto = divmod(minutos, 60)
+    tempo = f"{horas}h{resto:02d}" if horas else f"{minutos} min"
+
+    participantes = 0
+    variaveis = 0
+    bancos = 0
+    for arquivo in sorted((RAIZ / "dados").glob("*.csv")):
+        try:
+            linhas = arquivo.read_text(encoding="utf-8").splitlines()
+            participantes += max(0, len(linhas) - 1)
+            variaveis += len(linhas[0].split(",")) if linhas else 0
+            bancos += 1
+        except OSError:
+            pass
+
+    n_quizzes = corpo.count('class="quiz" data-quiz=')
+    n_capitulos = sum(1 for c in meta if str(c["n"]).isdigit())
+    n_apendices = len(meta) - n_capitulos
+
+    cartoes = [
+        (numero(len(meta)), "capítulos e apêndices",
+         f"{n_capitulos} capítulos mais {n_apendices} apêndices"),
+        (numero(palavras_total), "palavras",
+         f"cerca de {numero(round(palavras_total / 450))} páginas impressas"),
+        (tempo, "de leitura",
+         "a 200 palavras por minuto, do começo ao fim"),
+        (numero(corpo.count('class="quiz-pergunta"')), "perguntas de quiz",
+         f"em {n_quizzes} questionários, com cinco alternativas cada"),
+        (numero(corpo.count('class="quiz-retorno"')), "comentários de resposta",
+         "um para cada alternativa, certa ou errada"),
+        (numero(corpo.count('class="exercicio"')), "exercícios",
+         "todos com gabarito comentado"),
+        (numero(corpo.count('class="caixa revisor"')), "seções sobre rejeição",
+         "os erros que os revisores de fato devolvem"),
+        (numero(corpo.count("<table>")), "tabelas",
+         "além de fluxogramas e listas de verificação"),
+        (numero(corpo.count('class="calc"')), "calculadoras",
+         "tamanho de amostra, intervalos e probabilidade pós-teste"),
+        (numero(len(glossario)), "verbetes no glossário",
+         "com definição ao passar o cursor sobre o termo"),
+        (numero(len(set(re.findall(r'href="(https?://[^"]+)"', corpo)))), "links externos",
+         "verificados um a um, com data de conferência"),
+        (numero(participantes), "participantes simulados",
+         f"em {bancos} bancos de dados abertos, somando {variaveis} variáveis"),
+    ]
+
+    itens = "".join(
+        f'<div class="cartao"><b>{valor}</b><span class="rotulo">{rotulo}</span>'
+        f'<span class="detalhe">{detalhe}</span></div>'
+        for valor, rotulo, detalhe in cartoes)
+
+    return (
+        '<section id="livro-em-numeros" aria-label="O livro em números">'
+        '<h2 class="titulo-numeros">O livro em números</h2>'
+        f'<div class="grade-numeros">{itens}</div>'
+        '<p class="rodape-numeros">Tudo em uma única página, que funciona sem '
+        'internet e não depende de nenhum servidor. Os números acima são contados '
+        'automaticamente a cada nova versão.</p>'
+        "</section>")
+
+
 def extrai_glossario(caminho):
     """Le o apendice C e devolve {termo: definicao} para as dicas de leitura."""
     if not caminho.exists():
@@ -415,6 +489,7 @@ def construir():
         f'<h1>{html.escape(livro["titulo"])}</h1>'
         f'<p class="guia">{html.escape(livro["subtitulo"])}</p></header>'
         '<div id="retomar" hidden></div>'
+        "<!--NUMEROS-->"
         + texto_capa +
         '<div class="ficha">'
         f'<p>{html.escape(livro["autor"])} — <a href="{livro["lattes"]}">currículo Lattes</a></p>'
@@ -427,6 +502,12 @@ def construir():
         '</p>'
         "</div></article>")
     paineis.insert(0, capa)
+
+    # O quadro de numeros e montado por ultimo, sobre o conteudo ja renderizado,
+    # e substitui o marcador deixado na capa.
+    total_palavras = sum(p for _, _, p, existe in relatorio if existe)
+    paineis[0] = paineis[0].replace(
+        "<!--NUMEROS-->", painel_numeros(paineis[1:], meta, glossario, total_palavras))
 
     pagina = f"""<!DOCTYPE html>
 <html lang="pt-BR" data-tema="claro">

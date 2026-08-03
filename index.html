@@ -184,6 +184,50 @@ html[data-tema="escuro"] mark { background: #6b5a1f; color: #fff; }
 }
 #rodape-sumario button:hover { border-color: var(--realce); color: var(--realce); }
 
+/* --------------------------------------- o livro em números, na capa */
+
+#livro-em-numeros {
+  margin: 0 0 2.6rem;
+  padding: 1.5rem 1.6rem 1.3rem;
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  background: var(--papel-caixa);
+}
+.titulo-numeros {
+  margin: 0 0 1.2rem; font-family: var(--sans);
+  font-size: .76rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--realce);
+}
+.grade-numeros {
+  display: grid; gap: 1.1rem 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+}
+.grade-numeros .cartao { display: flex; flex-direction: column; min-width: 0; }
+.grade-numeros b {
+  font-family: var(--sans); font-size: 1.75rem; line-height: 1.05;
+  color: var(--realce); font-variant-numeric: tabular-nums;
+}
+.grade-numeros .rotulo {
+  font-family: var(--sans); font-size: .82rem; font-weight: 600;
+  color: var(--tinta); margin-top: .15rem;
+}
+.grade-numeros .detalhe {
+  font-family: var(--sans); font-size: .72rem; line-height: 1.4;
+  color: var(--tinta-fraca); margin-top: .2rem;
+}
+.rodape-numeros {
+  margin: 1.4rem 0 0; padding-top: .9rem;
+  border-top: 1px solid var(--linha);
+  font-family: var(--sans); font-size: .76rem; line-height: 1.5;
+  color: var(--tinta-fraca);
+}
+
+@media (max-width: 30rem) {
+  .grade-numeros { grid-template-columns: repeat(2, 1fr); gap: 1rem .9rem; }
+  .grade-numeros b { font-size: 1.45rem; }
+  #livro-em-numeros { padding: 1.2rem 1.1rem 1rem; }
+}
+
 /* --------------------------------------------- retomar, na capa */
 
 #retomar { margin: 0 0 2rem; }
@@ -660,7 +704,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   </div>
 </nav>
 <main id="leitura">
-<article class="capitulo" id="capa" data-titulo="Capa"><header class="cabecalho-cap"><div class="etiqueta">Aldemar Araujo Castro</div><h1>A Estatística na Pesquisa Clínica</h1><p class="guia">do problema clínico à decisão estatística</p></header><div id="retomar" hidden></div><p>Este livro nasceu de uma constatação repetida em bancas, em comitês de ética e
+<article class="capitulo" id="capa" data-titulo="Capa"><header class="cabecalho-cap"><div class="etiqueta">Aldemar Araujo Castro</div><h1>A Estatística na Pesquisa Clínica</h1><p class="guia">do problema clínico à decisão estatística</p></header><div id="retomar" hidden></div><section id="livro-em-numeros" aria-label="O livro em números"><h2 class="titulo-numeros">O livro em números</h2><div class="grade-numeros"><div class="cartao"><b>20</b><span class="rotulo">capítulos e apêndices</span><span class="detalhe">16 capítulos mais 4 apêndices</span></div><div class="cartao"><b>59.467</b><span class="rotulo">palavras</span><span class="detalhe">cerca de 132 páginas impressas</span></div><div class="cartao"><b>4h57</b><span class="rotulo">de leitura</span><span class="detalhe">a 200 palavras por minuto, do começo ao fim</span></div><div class="cartao"><b>112</b><span class="rotulo">perguntas de quiz</span><span class="detalhe">em 16 questionários, com cinco alternativas cada</span></div><div class="cartao"><b>560</b><span class="rotulo">comentários de resposta</span><span class="detalhe">um para cada alternativa, certa ou errada</span></div><div class="cartao"><b>100</b><span class="rotulo">exercícios</span><span class="detalhe">todos com gabarito comentado</span></div><div class="cartao"><b>15</b><span class="rotulo">seções sobre rejeição</span><span class="detalhe">os erros que os revisores de fato devolvem</span></div><div class="cartao"><b>50</b><span class="rotulo">tabelas</span><span class="detalhe">além de fluxogramas e listas de verificação</span></div><div class="cartao"><b>3</b><span class="rotulo">calculadoras</span><span class="detalhe">tamanho de amostra, intervalos e probabilidade pós-teste</span></div><div class="cartao"><b>54</b><span class="rotulo">verbetes no glossário</span><span class="detalhe">com definição ao passar o cursor sobre o termo</span></div><div class="cartao"><b>24</b><span class="rotulo">links externos</span><span class="detalhe">verificados um a um, com data de conferência</span></div><div class="cartao"><b>500</b><span class="rotulo">participantes simulados</span><span class="detalhe">em 2 bancos de dados abertos, somando 40 variáveis</span></div></div><p class="rodape-numeros">Tudo em uma única página, que funciona sem internet e não depende de nenhum servidor. Os números acima são contados automaticamente a cada nova versão.</p></section><p>Este livro nasceu de uma constatação repetida em bancas, em comitês de ética e
 em pareceres de revista: o pesquisador da área da saúde não erra em estatística
 por não saber calcular. Ele erra porque decidiu errado antes de ter dados, e
 nenhuma conta feita depois conserta uma decisão tomada antes.</p>
