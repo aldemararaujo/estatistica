@@ -338,7 +338,7 @@ tamanho da amostra antes de começar, assunto do próximo capítulo.
 - Miot HA. [Tamanho da amostra em estudos clínicos e
   experimentais](https://www.scielo.br/j/jvb/a/Dxg84WBMPnNrVcpKMXyVfHd/).
   *J Vasc Bras*. 2011;10(4):275-8. Faz a ponte com o Capítulo 6.
-- Pablos-Mendez A et al. [Run-in periods in clinical trials: implications for the
-  selection of patients](https://pubmed.ncbi.nlm.nih.gov/9556634/). *JAMA*.
+- Pablos-Mendez A e col. [*Run-in periods in clinical trials: implications for the
+  selection of patients*](https://pubmed.ncbi.nlm.nih.gov/9556634/). *JAMA*.
   1998;279(3):222-5. Como os critérios de seleção iniciais "limpam" a amostra e
   produzem resultados que não se reproduzem no paciente real.

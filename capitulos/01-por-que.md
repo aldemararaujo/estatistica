@@ -23,8 +23,8 @@ confiar nele e das decisões que o tornam possível.
 
 Note também o que a estatística **não** é. Não é matemática aplicada no sentido
 de cálculo: nenhuma fórmula deste livro exige mais do que uma raiz quadrada. Não
-é software. E não é uma etapa do fim do projeto, embora seja tratada assim na
-maioria das dissertações, quando já não há o que corrigir.
+é programa de computador. E não é uma etapa do fim do projeto, embora seja
+tratada assim na maioria das dissertações, quando já não há o que corrigir.
 
 ## Qual a importância
 
@@ -69,7 +69,7 @@ O estatístico é indispensável quando o delineamento é complexo, quando há a
 interina, dados hierárquicos, desfechos múltiplos, dados faltantes em grande
 volume ou modelagem sofisticada. E ele deve ser chamado **no planejamento**. A
 frase de Ronald Fisher continua exata: consultar o estatístico depois do
-experimento terminado costuma ser pedir a ele um exame post mortem, que dirá, no
+experimento terminado costuma ser pedir a ele um exame *post mortem*, que dirá, no
 máximo, do que o estudo morreu.
 
 ## Quando fazer
@@ -116,7 +116,8 @@ Seguindo o percurso das decisões, que é a ordem dos capítulos:
 11. E tudo termina em um relato que permita a outra pessoa julgar (Capítulo 15).
 
 Cada capítulo acompanha o mesmo estudo clínico, do começo ao fim, e cada um traz
-uma seção sobre os erros que o revisor de periódico devolve.
+uma seção sobre os erros que fazem um artigo ser rejeitado, e outra com o que
+fazer, naquele tema, no seu próprio projeto.
 
 ## Quanto custa
 

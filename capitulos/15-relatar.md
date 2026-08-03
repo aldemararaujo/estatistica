@@ -146,7 +146,7 @@ qual se aplica, reconhece a imprecisão e não vende o que não foi comprado. É
 que passa na revisão.
 
 ::: revisor
-**"O checklist CONSORT não foi submetido."** Devolução administrativa antes
+**"O *checklist* CONSORT não foi submetido."** Devolução administrativa antes
 mesmo da revisão científica.
 
 **"O diagrama de fluxo está ausente ou incompleto."** Precisa incluir os
@@ -248,9 +248,9 @@ de um único script, como o `analises-do-livro.py` faz nesta obra.
 :::
 
 ::: agora
-1. Baixe o checklist da recomendação correspondente ao seu delineamento e
+1. Baixe o *checklist* da recomendação correspondente ao seu delineamento e
    responda item por item, anotando a página do seu manuscrito. Muitas revistas
-   exigem o checklist preenchido na submissão.
+   exigem o *checklist* preenchido na submissão.
 2. Confira cada número do texto contra a saída do programa. O erro mais comum de
    todos é uma tabela que não bate com o parágrafo, porque o parágrafo ficou de
    uma versão anterior da análise.
@@ -266,7 +266,7 @@ de um único script, como o `analises-do-livro.py` faz nesta obra.
 
 ## Recursos
 
-- [CONSORT Statement](https://www.consort-statement.org/) — checklist e diagrama.
+- [CONSORT Statement](https://www.consort-statement.org/) — *checklist* e diagrama.
 - [EQUATOR Network](https://www.equator-network.org/) — todas as recomendações de
   relato, por delineamento.
 - [STROBE](https://www.strobe-statement.org/), [STARD](https://www.equator-network.org/reporting-guidelines/stard/),

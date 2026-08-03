@@ -83,7 +83,7 @@ muda.
 
 O que a ferramenta faz bem: gerar o código de uma análise descrita em palavras,
 lembrar qual teste se aplica a que situação, revisar um manuscrito contra o
-checklist CONSORT, encontrar inconsistências entre tabelas, explicar uma saída de
+*checklist* CONSORT, encontrar inconsistências entre tabelas, explicar uma saída de
 programa em linguagem clara.
 
 O que ela não faz: decidir a pergunta de pesquisa, escolher a menor diferença
@@ -175,7 +175,7 @@ artificial, e quais não delegaria?
 
 --- gabarito
 Delegáveis: escrever o código de uma análise já decidida, converter tabelas de
-formato, revisar o manuscrito contra o checklist CONSORT, verificar se os números
+formato, revisar o manuscrito contra o *checklist* CONSORT, verificar se os números
 do texto batem com os das tabelas, explicar uma saída de programa. Não
 delegáveis: definir a pergunta, escolher o delineamento, definir a menor
 diferença clinicamente relevante, decidir quais variáveis entram no ajuste,

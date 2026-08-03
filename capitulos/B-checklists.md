@@ -56,7 +56,7 @@ Duas perguntas ficam fora do fluxograma porque pedem ferramenta própria:
                          média e DP    mediana e quartis
 ```
 
-## Checklist do protocolo
+## Lista de verificação do protocolo
 
 Antes de submeter ao comitê de ética:
 
@@ -78,7 +78,7 @@ Antes de submeter ao comitê de ética:
 - [ ] O termo de consentimento está em linguagem acessível
 - [ ] O ensaio será registrado antes do primeiro participante
 
-## Checklist do banco de dados
+## Lista de verificação do banco de dados
 
 Antes de começar a coletar:
 
@@ -93,7 +93,7 @@ Antes de começar a coletar:
 - [ ] Rotina de cópia de segurança definida, com uma cópia fora do prédio
 - [ ] Validação de faixas configurada, se a coleta for eletrônica
 
-## Checklist antes de submeter o artigo
+## Lista de verificação antes de submeter o artigo
 
 - [ ] O delineamento está no título ou no resumo
 - [ ] O diagrama de fluxo inclui os avaliados para elegibilidade e os motivos de
@@ -107,7 +107,7 @@ Antes de começar a coletar:
 - [ ] Os eventos adversos estão relatados, mesmo os não significativos
 - [ ] As limitações são reais, não decorativas
 - [ ] A conclusão do resumo não é mais forte que o intervalo de confiança permite
-- [ ] O checklist da recomendação de relato correspondente está preenchido
+- [ ] O *checklist* da recomendação de relato correspondente está preenchido
 - [ ] Constam aprovação ética, registro do ensaio, financiamento e conflitos de
       interesse
 - [ ] Cada número do texto foi conferido contra a saída do programa
@@ -140,7 +140,7 @@ Uma leitura de dez minutos que evita meses de retrabalho:
 7. Qui-quadrado com valores esperados abaixo de 5.
 8. Dicotomização de variável contínua sem justificativa clínica.
 9. Ajuste por variável medida depois da intervenção.
-10. Seleção de covariáveis por stepwise.
+10. Seleção de covariáveis por *stepwise*.
 11. Conclusão causal a partir de estudo observacional.
 12. Média de tempo até o evento calculada com censurados.
 13. Curva de sobrevida sem tabela de participantes sob risco.

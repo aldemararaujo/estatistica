@@ -187,7 +187,7 @@ Reduza o modelo ao que a regra de dez eventos por variável comporta e justifiqu
 a escolha das variáveis por conhecimento clínico, não por seleção automática de
 passo a passo.
 
-**"As variáveis foram selecionadas por stepwise."** A seleção automática
+**"As variáveis foram selecionadas por *stepwise*."** A seleção automática
 capitaliza o acaso, produz intervalos de confiança inválidos e não reproduz em
 outra amostra. Escolha as covariáveis por raciocínio causal.
 

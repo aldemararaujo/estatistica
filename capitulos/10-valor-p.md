@@ -96,7 +96,7 @@ valor de p, e é só isso que ele é: uma área sob uma curva teórica.
 Três valores diferentes para os mesmos dados, e nenhum deles é errado. Eles
 resolvem de maneiras distintas o fato de a distribuição teórica ser contínua e a
 contagem de pacientes ser discreta. Quem escolhe qual reportar depois de ver os
-três está fazendo o que a literatura chama de p-hacking, e é por isso que a
+três está fazendo o que a literatura chama de *p-hacking*, e é por isso que a
 escolha do teste se declara antes, no protocolo, como o Capítulo 11 detalha.
 
 ::: jamovi
@@ -136,7 +136,7 @@ pouco menos do que o planejado.
 
 É tentador recalcular o poder usando a diferença observada. Com 17,4 pontos e 92
 participantes por grupo, esse cálculo devolve 68,3%. **Esse número não serve
-para nada.** O chamado poder observado, ou poder pós-hoc, é apenas uma
+para nada.** O chamado poder observado, ou poder *post hoc*, é apenas uma
 transformação matemática do valor de p: quanto menor o p, maior o poder
 calculado, sempre, em qualquer estudo. Ele não traz informação nova e não pode
 ser usado para explicar um resultado não significativo. Quem quer saber o que o

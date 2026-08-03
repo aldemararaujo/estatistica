@@ -7,6 +7,21 @@ salve com o nome previsto na estrutura e escreva por cima.
 REGRAS DE ESTILO DA OBRA
 - Frase curta, voz ativa, português formal.
 - Sem travessão: use vírgula ou dois-pontos.
+- ESTRANGEIRISMO VAI EM ITÁLICO. Toda palavra que não é portuguesa entra entre
+  asteriscos: *equipoise*, *stepwise*, *checklist*, *p-hacking*, *post hoc*,
+  *versus*, *outcome*. Vale também para o latim.
+  Três exceções, e só três:
+  (a) nomes próprios, de programas e de instituições: jamovi, R, GitHub,
+      PubMed, Zenodo, Death Watch, REDCap, Excel;
+  (b) siglas e acrônimos: PICO, CONSORT, ROC, STROBE. Mas as palavras que
+      formam a sigla, essas vão em itálico quando abertas no texto;
+  (c) nomes de menus e botões do programa, que vão em NEGRITO por serem
+      elementos de interface: **Analyses**, **Data**, **Setup**;
+  (d) a entrada de um verbete no glossário, que fica em negrito como todas as
+      outras, para a lista não ficar desuniforme. Nesse caso, a definição
+      informa que a palavra é estrangeira.
+  Na dúvida entre italizar e traduzir, prefira traduzir: "programa" em vez de
+  *software*, "baixar" em vez de fazer *download*.
 - Nenhuma fórmula que não sirva para tomar uma decisão.
 - Toda tabela e toda figura precisam de uma frase no texto dizendo o que o
   leitor deve enxergar nelas.

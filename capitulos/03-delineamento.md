@@ -128,7 +128,7 @@ Nem toda pergunta admite sorteio, e insistir seria antiético ou impossível:
 - **Desfechos raros ou tardios.** Um ensaio para detectar um efeito que ocorre em
   1 a cada 10 mil pacientes após quinze anos é inviável.
 - **Ausência de incerteza.** Se já se sabe que um braço é superior, não há
-  equipoise.
+  *equipoise*.
 - **Intervenções já disseminadas.** Quando a prática já mudou, randomizar de volta
   costuma ser recusado por pacientes e profissionais.
 
@@ -171,7 +171,7 @@ que a faixa elástica?
 (b) Coorte, ou caso-controle se o desfecho for pouco frequente; randomizar
 corticoide para observar dano seria antiético.
 (c) Ensaio clínico randomizado, porque é pergunta de eficácia entre duas opções
-disponíveis, ambas padrão de cuidado, o que garante equipoise.
+disponíveis, ambas padrão de cuidado, o que garante *equipoise*.
 :::
 
 ::: exercicio 2
@@ -254,7 +254,7 @@ Ignorar isso produz intervalos de confiança falsamente estreitos.
    fundidos em uma frase vaga.
 4. Liste quem será cegado, papel por papel, e o que você fará onde o cegamento
    for impossível.
-5. **Baixe o checklist da recomendação de relato do seu delineamento e responda a
+5. **Baixe o *checklist* da recomendação de relato do seu delineamento e responda a
    ele antes de coletar o primeiro dado.** Ele foi feito para relatar, e usá-lo
    como roteiro de planejamento é a melhor maneira de não descobrir uma falha
    estrutural quando não houver mais conserto.
@@ -262,7 +262,7 @@ Ignorar isso produz intervalos de confiança falsamente estreitos.
 
 ## Recursos
 
-- [CONSORT Statement](https://www.consort-statement.org/) — o checklist e o
+- [CONSORT Statement](https://www.consort-statement.org/) — o *checklist* e o
   diagrama de fluxo para ensaios randomizados.
 - [STROBE Statement](https://www.strobe-statement.org/) — o equivalente para
   estudos observacionais.

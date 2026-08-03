@@ -56,7 +56,7 @@
       "resumo": "O que se consulta, não o que se lê de ponta a ponta.",
       "capitulos": [
         {"n": "A", "arquivo": "A-jamovi.md", "titulo": "Primeiros passos no jamovi", "guia": "Por onde começo no programa?"},
-        {"n": "B", "arquivo": "B-checklists.md", "titulo": "Fluxogramas e checklists", "guia": "Esqueci alguma coisa?"},
+        {"n": "B", "arquivo": "B-checklists.md", "titulo": "Fluxogramas e listas de verificação", "guia": "Esqueci alguma coisa?"},
         {"n": "C", "arquivo": "C-glossario.md", "titulo": "Glossário", "guia": "O que quer dizer essa palavra?"},
         {"n": "D", "arquivo": "D-banco.md", "titulo": "O banco do caso condutor", "guia": "Que dados são esses?"}
       ]

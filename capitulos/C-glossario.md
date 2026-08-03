@@ -136,7 +136,8 @@ informação e poder. *Capítulo 4.*
 **Efeito teto.** Situação em que boa parte da amostra atinge o limite superior da
 escala, que deixa de discriminar. *Capítulos 8 e 4.*
 
-**Equipoise.** Incerteza genuína sobre qual braço é superior, condição ética para
+**Equipoise.** Palavra inglesa, sem tradução consagrada, que este livro grafa em
+itálico no corpo do texto. Incerteza genuína sobre qual braço é superior, condição ética para
 randomizar. *Capítulo 2.*
 
 **Erro padrão.** Medida da precisão com que um parâmetro foi estimado. Encolhe

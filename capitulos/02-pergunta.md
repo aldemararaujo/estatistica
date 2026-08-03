@@ -300,7 +300,7 @@ aspirado de medula óssea autólogo, ambos associados à terapia compressiva.
 Hipótese nula: a diferença de proporção de cicatrização em doze semanas entre as
 duas doses é zero.
 
-Título: Dose alta versus dose baixa de aspirado de medula óssea autólogo na
+Título: Dose alta *versus* dose baixa de aspirado de medula óssea autólogo na
 cicatrização de úlceras venosas: ensaio clínico randomizado. Repare que, sem
 braço de compressão isolada, o estudo compara doses entre si e não permite
 concluir se qualquer uma delas supera o tratamento padrão.

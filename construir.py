@@ -242,8 +242,9 @@ def extrai_glossario(caminho):
                          caminho.read_text(encoding="utf-8"), re.M | re.S):
         termo = m.group(1).strip()
         texto = re.sub(r"\s+", " ", m.group(2)).strip()
-        texto = re.sub(r"\*\*(.+?)\*\*", r"\1", texto)
-        texto = re.sub(r"\*(.+?)\*", r"\1", texto)
+        texto = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", texto)
+        # o italico dos estrangeirismos precisa sobreviver ate a dica de leitura
+        texto = re.sub(r"\*(.+?)\*", r"<em>\1</em>", texto)
         # "Alfa (α)" vira "Alfa"; "Wilson, intervalo de" vira "Wilson"
         principal = re.sub(r"\s*\(.*?\)", "", termo)
         principal = re.split(r",\s*", principal)[0].strip()

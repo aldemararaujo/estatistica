@@ -142,6 +142,6 @@ uma boa prática antes de qualquer análise filtrada.
 
 ## Recursos
 
-- [jamovi.org](https://www.jamovi.org/) — download e documentação.
+- [jamovi.org](https://www.jamovi.org/) — o programa e a documentação.
 - [jamovi library](https://library.jamovi.org/) — módulos adicionais.
 - [jamovi user guide](https://www.jamovi.org/user-manual.html) — manual oficial.
