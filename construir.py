@@ -531,7 +531,7 @@ def construir():
         "<!--NUMEROS-->"
         + texto_capa +
         '<div class="ficha">'
-        f'<p class="autor-ficha">{html.escape(livro["autor"])}</p>'
+        f'<p class="autor-ficha">Copyright © {html.escape(livro["autor"])}</p>'
         '<p class="perfis">'
         f'<a href="{livro["lattes"]}" target="_blank" rel="noopener">Lattes</a>'
         '<span aria-hidden="true">|</span>'
@@ -539,7 +539,9 @@ def construir():
         '<span aria-hidden="true">|</span>'
         f'<a href="{livro["orcid"]}" target="_blank" rel="noopener">ORCID</a>'
         "</p>"
-        f'<p>ISBN: {html.escape(livro["isbn"])} · Licença {html.escape(livro["licenca"])}</p>'
+        f'<p>ISBN: {html.escape(livro["isbn"])} · Licença '
+        f'<a href="{livro["licenca_url"]}" target="_blank" rel="license noopener">'
+        f'{html.escape(livro["licenca"])}</a></p>'
         f'<p>Comentários, sugestões e críticas: <a href="mailto:{livro["contato"]}">{livro["contato"]}</a></p>'
         f'<p class="versao">Versão {html.escape(livro.get("versao", "1.0"))} · '
         f'{date.today().strftime("%d/%m/%Y")} · '
