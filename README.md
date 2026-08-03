@@ -22,6 +22,14 @@ cliques.
 O livro é **uma única página HTML**, com CSS e JavaScript embutidos: abre com
 dois cliques, funciona sem internet e não depende de servidor.
 
+Recursos de leitura, todos guardados no próprio navegador do leitor, sem
+cadastro e sem enviar nada para lugar nenhum: marcador do que já foi lido, com
+percentual do livro ponderado pelo tamanho de cada capítulo; tempo estimado de
+leitura por capítulo e do que falta; retomada de onde parou; busca no texto
+completo, indiferente a acentos, com destaque das ocorrências; índice interno de
+cada capítulo; endereço permanente para cada seção; tamanho de texto ajustável;
+tema claro e escuro; e navegação por teclado.
+
 | Arquivo | Conteúdo |
 |---|---|
 | `index.html` | **o livro**, pronto para leitura |

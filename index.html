@@ -27,6 +27,8 @@
   --revisor:      #8a5a12;
   --revisor-fundo:#faf0dd;
   --largura:      44rem;
+  --escala:       1;
+  --lido:         #2a6b45;
   --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
   --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --mono: "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
@@ -46,6 +48,7 @@ html[data-tema="escuro"] {
   --jamovi-fundo: #16261d;
   --revisor:      #e0bb77;
   --revisor-fundo:#2a2318;
+  --lido:         #8ed0a8;
 }
 
 * { box-sizing: border-box; }
@@ -57,10 +60,20 @@ body {
   background: var(--papel);
   color: var(--tinta);
   font-family: var(--serif);
-  font-size: 1.02rem;
+  font-size: calc(1.02rem * var(--escala));
   line-height: 1.68;
   -webkit-text-size-adjust: 100%;
 }
+
+.pular {
+  position: absolute; left: -999px; top: 0; z-index: 80;
+  background: var(--realce); color: #fff; padding: .6rem 1rem;
+  font-family: var(--sans); font-size: .9rem; border-radius: 0 0 6px 0;
+}
+.pular:focus { left: 0; }
+
+mark { background: #ffe9a8; color: #1b1f24; padding: 0 .1em; border-radius: 2px; }
+html[data-tema="escuro"] mark { background: #6b5a1f; color: #fff; }
 
 /* ---------------------------------------------------------- estrutura */
 
@@ -105,19 +118,139 @@ body {
 #sumario a.ativo { background: var(--realce); color: #fff; }
 #sumario a.ativo .num { color: rgba(255,255,255,.75); }
 #sumario a .num { flex: 0 0 1.4rem; color: var(--tinta-fraca); font-variant-numeric: tabular-nums; font-size: .82rem; }
+#sumario a .rotulo { flex: 1 1 auto; }
 #sumario a.pendente { opacity: .45; }
 #sumario a.pendente::after { content: "em preparação"; margin-left: auto; font-size: .68rem;
   text-transform: uppercase; letter-spacing: .05em; }
 #sumario a.oculto { display: none; }
 
+/* capítulo já lido: marca discreta, legível nos dois temas */
+#sumario a.lido .rotulo { color: var(--tinta-fraca); }
+#sumario a.lido::after {
+  content: "✓"; margin-left: auto; color: var(--lido);
+  font-size: .95rem; line-height: 1; flex: 0 0 auto;
+}
+#sumario a.lido.ativo::after { color: #fff; }
+#sumario a.lido.ativo .rotulo { color: #fff; }
+
+/* ------------------------------------------------ painel de progresso */
+
+#painel-progresso { margin: 0 0 1.1rem; }
+#painel-progresso .trilho {
+  height: 8px; border-radius: 99px; background: var(--linha); overflow: hidden;
+}
+#painel-progresso .preenchido {
+  height: 100%; width: 0; background: var(--realce);
+  border-radius: 99px; transition: width .3s ease;
+}
+#painel-progresso .linha-progresso {
+  margin: .5rem 0 .15rem; font-size: .8rem; color: var(--tinta-fraca); line-height: 1.4;
+}
+#painel-progresso .linha-progresso strong { color: var(--realce); font-size: 1.05rem; }
+#painel-progresso .linha-restante { margin: 0; font-size: .76rem; color: var(--tinta-fraca); }
+
+/* ------------------------------------------------ resultados da busca */
+
+#resultados-busca { margin-bottom: 1rem; }
+#resultados-busca .cabeca-resultados {
+  margin: 0 0 .5rem; font-size: .74rem; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--tinta-fraca); font-weight: 700;
+}
+#resultados-busca .vazio { font-size: .84rem; color: var(--tinta-fraca); }
+#resultados-busca .resultado {
+  display: block; padding: .55rem .6rem; margin-bottom: .3rem;
+  border-radius: 6px; border: 1px solid var(--linha);
+  color: var(--tinta); text-decoration: none;
+}
+#resultados-busca .resultado:hover { border-color: var(--realce); background: var(--realce-fraco); }
+#resultados-busca .resultado b { display: inline-block; font-size: .86rem; }
+#resultados-busca .resultado .contagem {
+  float: right; background: var(--realce); color: #fff; border-radius: 99px;
+  font-size: .7rem; padding: .05rem .45rem; margin-left: .4rem;
+}
+#resultados-busca .resultado em {
+  display: block; margin-top: .3rem; font-size: .76rem;
+  color: var(--tinta-fraca); font-style: normal; line-height: 1.45;
+}
+
 #rodape-sumario { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--linha);
   font-size: .76rem; color: var(--tinta-fraca); }
+#rodape-sumario .ferramentas { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin-bottom: .4rem; }
+#rodape-sumario .rotulo-ferramenta { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
 #rodape-sumario button {
-  font: inherit; font-family: var(--sans); cursor: pointer; margin: 0 .35rem .35rem 0;
+  font: inherit; font-family: var(--sans); cursor: pointer;
   padding: .35rem .6rem; border: 1px solid var(--linha); border-radius: 5px;
   background: var(--papel); color: var(--tinta-fraca);
 }
 #rodape-sumario button:hover { border-color: var(--realce); color: var(--realce); }
+
+/* --------------------------------------------- retomar, na capa */
+
+#retomar { margin: 0 0 2rem; }
+#retomar a {
+  display: block; padding: .9rem 1.1rem; border-radius: 8px;
+  border: 1px solid var(--realce); background: var(--realce-fraco);
+  text-decoration: none; font-family: var(--sans);
+}
+#retomar span { display: block; font-size: .7rem; text-transform: uppercase;
+  letter-spacing: .09em; color: var(--tinta-fraca); margin-bottom: .2rem; }
+#retomar b { color: var(--realce); font-size: .96rem; }
+
+/* --------------------------------- tempo de leitura e índice do capítulo */
+
+.tempo-leitura {
+  margin: .7rem 0 0; font-family: var(--sans); font-size: .76rem;
+  color: var(--tinta-fraca); letter-spacing: .02em;
+}
+
+.indice-cap {
+  margin: 0 0 2rem; border: 1px solid var(--linha); border-radius: 8px;
+  background: var(--papel-caixa); font-family: var(--sans);
+}
+.indice-cap summary {
+  cursor: pointer; padding: .7rem 1rem; font-size: .82rem;
+  color: var(--tinta-fraca); font-weight: 600;
+}
+.indice-cap summary:hover { color: var(--realce); }
+.indice-cap ul { margin: 0; padding: 0 1.2rem 1rem 2.2rem; }
+.indice-cap li { margin-bottom: .3rem; font-size: .84rem; }
+.indice-cap a { color: var(--tinta); text-decoration: none; }
+.indice-cap a:hover { color: var(--realce); text-decoration: underline; }
+
+/* --------------------------------------------- âncora permanente */
+
+h2 .ancora, h3 .ancora {
+  margin-left: .4rem; font-size: .7em; color: var(--linha);
+  text-decoration: none; opacity: 0; transition: opacity .15s;
+}
+h2:hover .ancora, h3:hover .ancora { opacity: 1; }
+h2 .ancora:hover, h3 .ancora:hover { color: var(--realce); }
+
+/* ------------------------------------------ marcar capítulo como lido */
+
+.caixa-marcar { max-width: var(--largura); margin: 3rem auto 0; text-align: center; }
+.marcar-lido {
+  font-family: var(--sans); font-size: .88rem; cursor: pointer;
+  padding: .7rem 1.6rem; border-radius: 99px;
+  border: 1px solid var(--realce); background: var(--papel);
+  color: var(--realce); transition: background .15s, color .15s;
+}
+.marcar-lido:hover { background: var(--realce-fraco); }
+.marcar-lido.feito {
+  background: var(--lido); border-color: var(--lido); color: #fff;
+}
+html[data-tema="escuro"] .marcar-lido.feito { color: #15181c; }
+
+/* ------------------------------------------------- voltar ao topo */
+
+#ao-topo {
+  position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 50;
+  width: 2.6rem; height: 2.6rem; border-radius: 50%; cursor: pointer;
+  border: 1px solid var(--linha); background: var(--papel-caixa);
+  color: var(--tinta-fraca); font-size: 1.1rem; line-height: 1;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+#ao-topo:hover { color: var(--realce); border-color: var(--realce); }
 
 /* ------------------------------------------------------------ leitura */
 
@@ -243,7 +376,9 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 /* ----------------------------------------------------------- impressao */
 
 @media print {
-  #sumario, #abre-sumario, #barra-progresso, .navega-cap, #rodape-sumario { display: none !important; }
+  #sumario, #abre-sumario, #barra-progresso, .navega-cap, #rodape-sumario,
+  #ao-topo, #retomar, .caixa-marcar, .indice-cap, .pular, h2 .ancora, h3 .ancora
+    { display: none !important; }
   body { background: #fff; color: #000; font-size: 11pt; }
   #leitura { padding: 0; }
   .capitulo { max-width: none; }
@@ -260,6 +395,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 </head>
 <body>
 <div id="barra-progresso"></div>
+<a class="pular" href="#leitura">Pular para o conteúdo</a>
 <button id="abre-sumario" type="button">Sumário</button>
 <div id="leiaute">
 <nav id="sumario">
@@ -267,16 +403,38 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
     <b>A Estatística na Pesquisa Clínica</b>
     <span>do problema clínico à decisão estatística</span>
   </div>
-  <input id="busca" type="search" placeholder="Buscar capítulo (tecla /)" aria-label="Buscar capítulo">
-  <a href="#capa" data-id="capa" data-busca="capa rosto ficha"><span class="num">•</span><span>Capa e apresentação</span></a><div class="parte">Parte I — A pergunta</div><a href="#cap-1" data-id="cap-1" data-busca="Por que utilizar a matemática aplicada em pesquisa?"><span class="num">1</span><span>A pergunta antes do número</span></a><a href="#cap-2" data-id="cap-2" data-busca="O que exatamente eu quero saber?"><span class="num">2</span><span>Da dúvida clínica à pergunta respondível</span></a><a href="#cap-3" data-id="cap-3" data-busca="Que estudo responde à minha pergunta?"><span class="num">3</span><span>O delineamento decide tudo</span></a><div class="parte">Parte II — Antes de coletar</div><a href="#cap-4" data-id="cap-4" data-busca="O que eu vou medir?"><span class="num">4</span><span>Variáveis e desfechos</span></a><a href="#cap-5" data-id="cap-5" data-busca="Minha amostra representa quem?"><span class="num">5</span><span>Técnicas de amostragem</span></a><a href="#cap-6" data-id="cap-6" data-busca="Quantos indivíduos vou precisar estudar?"><span class="num">6</span><span>Cálculo do tamanho da amostra</span></a><a href="#cap-7" data-id="cap-7" data-busca="Como organizo meus dados?"><span class="num">7</span><span>Coleta, banco de dados e reprodutibilidade</span></a><div class="parte">Parte III — Diante dos dados</div><a href="#cap-8" data-id="cap-8" data-busca="Como resumo meus resultados?"><span class="num">8</span><span>Estatística descritiva</span></a><a href="#cap-9" data-id="cap-9" data-busca="Qual o grau de certeza do meu resultado?"><span class="num">9</span><span>Estimativa e incerteza</span></a><a href="#cap-10" data-id="cap-10" data-busca="O acaso é o responsável pelos meus resultados?"><span class="num">10</span><span>Teste de hipótese e valor de p</span></a><a href="#cap-11" data-id="cap-11" data-busca="Qual teste eu uso?"><span class="num">11</span><span>Escolhendo o teste</span></a><a href="#cap-12" data-id="cap-12" data-busca="E as outras variáveis?"><span class="num">12</span><span>Além do bivariado: regressão e confundimento</span></a><a href="#cap-13" data-id="cap-13" data-busca="Este exame serve?"><span class="num">13</span><span>Testes diagnósticos</span></a><a href="#cap-14" data-id="cap-14" data-busca="Quanto tempo até o desfecho?"><span class="num">14</span><span>Análise de sobrevida</span></a><div class="parte">Parte IV — Depois da análise</div><a href="#cap-15" data-id="cap-15" data-busca="Como apresento isso sem levar rejeição?"><span class="num">15</span><span>Relatar</span></a><a href="#cap-16" data-id="cap-16" data-busca="E agora?"><span class="num">16</span><span>Considerações finais</span></a><div class="parte">Apêndices</div><a href="#cap-A" data-id="cap-A" data-busca="Por onde começo no programa?"><span class="num">A</span><span>Primeiros passos no jamovi</span></a><a href="#cap-B" data-id="cap-B" data-busca="Esqueci alguma coisa?"><span class="num">B</span><span>Fluxogramas e checklists</span></a><a href="#cap-C" data-id="cap-C" data-busca="O que quer dizer essa palavra?"><span class="num">C</span><span>Glossário</span></a><a href="#cap-D" data-id="cap-D" data-busca="Que dados são esses?"><span class="num">D</span><span>O banco do caso condutor</span></a>
+
+  <section id="painel-progresso" aria-label="Progresso de leitura">
+    <div class="trilho"><div class="preenchido" id="progresso-preenchido"></div></div>
+    <p class="linha-progresso"><strong id="progresso-pct">0%</strong>
+       <span id="progresso-detalhe">do livro lido</span></p>
+    <p class="linha-restante" id="progresso-restante"></p>
+  </section>
+
+  <input id="busca" type="search" placeholder="Buscar no livro inteiro (tecla /)"
+         aria-label="Buscar no livro inteiro" autocomplete="off">
+  <div id="resultados-busca" hidden></div>
+
+  <div id="lista-capitulos">
+  <a href="#capa" data-id="capa" data-busca="capa rosto ficha"><span class="num">•</span><span>Capa e apresentação</span></a><div class="parte">Parte I — A pergunta</div><a href="#cap-1" data-id="cap-1" data-palavras="1942" data-busca="Por que utilizar a matemática aplicada em pesquisa?"><span class="num">1</span><span class="rotulo">A pergunta antes do número</span></a><a href="#cap-2" data-id="cap-2" data-palavras="2008" data-busca="O que exatamente eu quero saber?"><span class="num">2</span><span class="rotulo">Da dúvida clínica à pergunta respondível</span></a><a href="#cap-3" data-id="cap-3" data-palavras="2092" data-busca="Que estudo responde à minha pergunta?"><span class="num">3</span><span class="rotulo">O delineamento decide tudo</span></a><div class="parte">Parte II — Antes de coletar</div><a href="#cap-4" data-id="cap-4" data-palavras="1876" data-busca="O que eu vou medir?"><span class="num">4</span><span class="rotulo">Variáveis e desfechos</span></a><a href="#cap-5" data-id="cap-5" data-palavras="2449" data-busca="Minha amostra representa quem?"><span class="num">5</span><span class="rotulo">Técnicas de amostragem</span></a><a href="#cap-6" data-id="cap-6" data-palavras="1953" data-busca="Quantos indivíduos vou precisar estudar?"><span class="num">6</span><span class="rotulo">Cálculo do tamanho da amostra</span></a><a href="#cap-7" data-id="cap-7" data-palavras="2182" data-busca="Como organizo meus dados?"><span class="num">7</span><span class="rotulo">Coleta, banco de dados e reprodutibilidade</span></a><div class="parte">Parte III — Diante dos dados</div><a href="#cap-8" data-id="cap-8" data-palavras="2888" data-busca="Como resumo meus resultados?"><span class="num">8</span><span class="rotulo">Estatística descritiva</span></a><a href="#cap-9" data-id="cap-9" data-palavras="2264" data-busca="Qual o grau de certeza do meu resultado?"><span class="num">9</span><span class="rotulo">Estimativa e incerteza</span></a><a href="#cap-10" data-id="cap-10" data-palavras="2211" data-busca="O acaso é o responsável pelos meus resultados?"><span class="num">10</span><span class="rotulo">Teste de hipótese e valor de p</span></a><a href="#cap-11" data-id="cap-11" data-palavras="2240" data-busca="Qual teste eu uso?"><span class="num">11</span><span class="rotulo">Escolhendo o teste</span></a><a href="#cap-12" data-id="cap-12" data-palavras="2279" data-busca="E as outras variáveis?"><span class="num">12</span><span class="rotulo">Além do bivariado: regressão e confundimento</span></a><a href="#cap-13" data-id="cap-13" data-palavras="2046" data-busca="Este exame serve?"><span class="num">13</span><span class="rotulo">Testes diagnósticos</span></a><a href="#cap-14" data-id="cap-14" data-palavras="2247" data-busca="Quanto tempo até o desfecho?"><span class="num">14</span><span class="rotulo">Análise de sobrevida</span></a><div class="parte">Parte IV — Depois da análise</div><a href="#cap-15" data-id="cap-15" data-palavras="1943" data-busca="Como apresento isso sem levar rejeição?"><span class="num">15</span><span class="rotulo">Relatar</span></a><a href="#cap-16" data-id="cap-16" data-palavras="1815" data-busca="E agora?"><span class="num">16</span><span class="rotulo">Considerações finais</span></a><div class="parte">Apêndices</div><a href="#cap-A" data-id="cap-A" data-palavras="1028" data-busca="Por onde começo no programa?"><span class="num">A</span><span class="rotulo">Primeiros passos no jamovi</span></a><a href="#cap-B" data-id="cap-B" data-palavras="998" data-busca="Esqueci alguma coisa?"><span class="num">B</span><span class="rotulo">Fluxogramas e checklists</span></a><a href="#cap-C" data-id="cap-C" data-palavras="1163" data-busca="O que quer dizer essa palavra?"><span class="num">C</span><span class="rotulo">Glossário</span></a><a href="#cap-D" data-id="cap-D" data-palavras="1162" data-busca="Que dados são esses?"><span class="num">D</span><span class="rotulo">O banco do caso condutor</span></a>
+  </div>
+
   <div id="rodape-sumario">
-    <button id="alterna-tema" type="button">Tema escuro</button>
-    <button id="imprime-tudo" type="button">Imprimir</button>
-    <p>Setas ou J e K mudam de capítulo.</p>
+    <div class="ferramentas">
+      <button id="alterna-tema" type="button">Tema escuro</button>
+      <button id="imprime-tudo" type="button">Imprimir</button>
+    </div>
+    <div class="ferramentas">
+      <span class="rotulo-ferramenta">Texto</span>
+      <button id="fonte-menor" type="button" aria-label="Diminuir o texto">A&minus;</button>
+      <button id="fonte-maior" type="button" aria-label="Aumentar o texto">A+</button>
+      <button id="zera-progresso" type="button">Zerar leitura</button>
+    </div>
+    <p>Setas ou J e K mudam de capítulo. Tecla / busca. Tecla M marca como lido.</p>
   </div>
 </nav>
 <main id="leitura">
-<article class="capitulo" id="capa" data-titulo="Capa"><header class="cabecalho-cap"><div class="etiqueta">Aldemar Araujo Castro</div><h1>A Estatística na Pesquisa Clínica</h1><p class="guia">do problema clínico à decisão estatística</p></header><p>Este livro nasceu de uma constatação repetida em bancas, em comitês de ética e
+<article class="capitulo" id="capa" data-titulo="Capa"><header class="cabecalho-cap"><div class="etiqueta">Aldemar Araujo Castro</div><h1>A Estatística na Pesquisa Clínica</h1><p class="guia">do problema clínico à decisão estatística</p></header><div id="retomar" hidden></div><p>Este livro nasceu de uma constatação repetida em bancas, em comitês de ética e
 em pareceres de revista: o pesquisador da área da saúde não erra em estatística
 por não saber calcular. Ele erra porque decidiu errado antes de ter dados, e
 nenhuma conta feita depois conserta uma decisão tomada antes.</p>
@@ -319,7 +477,7 @@ catorze meses. Ele já tentou tudo o que sabe. Leu sobre uma terapia nova, viu
 relatos favoráveis, e precisa decidir se oferece aquilo a ela. A pergunta que ele
 tem diante de si não é estatística: é clínica. A estatística entra porque é a
 única maneira conhecida de responder a ela sem se enganar.</p></div>
-<h2>O que é</h2>
+<h2 id="cap-1-o-que-e">O que é<a class="ancora" href="#cap-1-o-que-e" aria-label="Link para esta seção">#</a></h2>
 <p>Estatística aplicada à pesquisa clínica é o conjunto de decisões que permitem
 concluir alguma coisa sobre pessoas que não foram estudadas, a partir de pessoas
 que foram.</p>
@@ -334,7 +492,7 @@ confiar nele e das decisões que o tornam possível.</p>
 de cálculo: nenhuma fórmula deste livro exige mais do que uma raiz quadrada. Não
 é software. E não é uma etapa do fim do projeto, embora seja tratada assim na
 maioria das dissertações, quando já não há o que corrigir.</p>
-<h2>Qual a importância</h2>
+<h2 id="cap-1-qual-a-importancia">Qual a importância<a class="ancora" href="#cap-1-qual-a-importancia" aria-label="Link para esta seção">#</a></h2>
 <p>Sem ela, o pesquisador fica à mercê de três armadilhas que a intuição clínica não
 detecta.</p>
 <p><strong>O acaso.</strong> Doze de quinze pacientes cicatrizaram. É bom? Depende de quantos
@@ -355,7 +513,7 @@ decisões é fraude, e o conjunto delas produz literatura não reprodutível.</p
 compromissos assumidos antes de olhar os dados. É por isso que o desfecho
 primário é um só, que o tamanho da amostra se calcula antes e que o protocolo se
 registra: não porque a conta seja difícil, mas porque a tentação é real.</p>
-<h2>Quem deve fazer</h2>
+<h2 id="cap-1-quem-deve-fazer">Quem deve fazer<a class="ancora" href="#cap-1-quem-deve-fazer" aria-label="Link para esta seção">#</a></h2>
 <p>O pesquisador, com auxílio de estatístico quando necessário. As duas metades
 dessa frase importam.</p>
 <p>O pesquisador precisa dominar as decisões deste livro porque <strong>elas são
@@ -370,7 +528,7 @@ volume ou modelagem sofisticada. E ele deve ser chamado <strong>no planejamento<
 frase de Ronald Fisher continua exata: consultar o estatístico depois do
 experimento terminado costuma ser pedir a ele um exame post mortem, que dirá, no
 máximo, do que o estudo morreu.</p>
-<h2>Quando fazer</h2>
+<h2 id="cap-1-quando-fazer">Quando fazer<a class="ancora" href="#cap-1-quando-fazer" aria-label="Link para esta seção">#</a></h2>
 <p>Antes, durante e depois, nesta proporção:</p>
 <div class="rolagem"><table>
 <thead>
@@ -401,7 +559,7 @@ máximo, do que o estudo morreu.</p>
 <p>A distribuição costuma surpreender, e é o resumo da tese deste livro. A análise
 propriamente dita, que é o que a maioria chama de "a estatística", é a menor
 fração do trabalho, e é a única que não pode consertar nada do que veio antes.</p>
-<h2>Onde fazer</h2>
+<h2 id="cap-1-onde-fazer">Onde fazer<a class="ancora" href="#cap-1-onde-fazer" aria-label="Link para esta seção">#</a></h2>
 <p>Em qualquer lugar, com um computador comum. Este livro usa o <strong>jamovi</strong>, que é
 gratuito, funciona por cliques, roda em Windows, macOS e Linux, e produz saídas
 que se copiam direto para o manuscrito. Não há neste livro nenhuma análise que
@@ -409,7 +567,7 @@ exija programa pago.</p>
 <p>Programas mudam. As decisões deste livro, não. Quem entender por que se escolhe
 uma mediana em vez de uma média fará isso no jamovi, no R, no SPSS ou no que
 vier depois deles.</p>
-<h2>Como fazer</h2>
+<h2 id="cap-1-como-fazer">Como fazer<a class="ancora" href="#cap-1-como-fazer" aria-label="Link para esta seção">#</a></h2>
 <p>Seguindo o percurso das decisões, que é a ordem dos capítulos:</p>
 <ol>
 <li>A dúvida clínica vira pergunta estruturada (Capítulo 2).</li>
@@ -428,7 +586,7 @@ vier depois deles.</p>
 </ol>
 <p>Cada capítulo acompanha o mesmo estudo clínico, do começo ao fim, e cada um traz
 uma seção sobre os erros que o revisor de periódico devolve.</p>
-<h2>Quanto custa</h2>
+<h2 id="cap-1-quanto-custa">Quanto custa<a class="ancora" href="#cap-1-quanto-custa" aria-label="Link para esta seção">#</a></h2>
 <p>Menos do que se imagina, e o cálculo vale ser feito.</p>
 <p><strong>Programa:</strong> zero. O jamovi é gratuito, assim como o R.</p>
 <p><strong>Tempo:</strong> o custo real. Aprender o conteúdo deste livro leva algumas semanas de
@@ -470,7 +628,7 @@ resposta for "porque é o que dá para medir", o estudo responderá a uma pergun
 que ninguém fez.</p>
 <p><strong>"O projeto não tem pergunta, tem tema."</strong> "Úlcera venosa" é um tema. Perguntas
 têm ponto de interrogação, e o Capítulo 2 mostra como chegar a uma.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-1-exercicios">Exercícios<a class="ancora" href="#cap-1-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Explique, em três linhas, por que a maior parte do trabalho estatístico de um
 estudo acontece antes da coleta de dados.</p>
@@ -518,7 +676,7 @@ frase original dizia em quem, o que, comparado com o quê, medido como e em quan
 tempo. Na esmagadora maioria dos casos, faltam pelo menos dois desses elementos, e
 é exatamente essa falta que o próximo capítulo corrige.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-1-recursos">Recursos<a class="ancora" href="#cap-1-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.jamovi.org/">jamovi</a> — o programa usado no livro.</li>
 <li><a href="https://www.equator-network.org/">EQUATOR Network</a> — as recomendações de
@@ -530,7 +688,7 @@ com úlcera venosa que não fecham, mesmo com compressão bem feita. Ele lê sob
 terapia celular, vê relatos animadores em séries de dez ou quinze casos, e pensa:
 "será que funciona?". Essa frase não é uma pergunta de pesquisa. Este capítulo
 transforma uma coisa na outra.</p></div>
-<h2>Por que "será que funciona" não serve</h2>
+<h2 id="cap-2-por-que-sera-que-funciona-nao-serve">Por que "será que funciona" não serve<a class="ancora" href="#cap-2-por-que-sera-que-funciona-nao-serve" aria-label="Link para esta seção">#</a></h2>
 <p>A frase não diz em quem, comparado com o quê, medido como, nem em quanto tempo.
 Duas pessoas que a ouvissem desenhariam estudos diferentes, e nenhuma das duas
 saberia calcular o tamanho da amostra, porque não há desfecho definido.</p>
@@ -539,7 +697,7 @@ análise e o tamanho da amostra. Ela não é o começo burocrático do projeto: 
 peça da qual todo o resto é consequência. Perguntas mal formuladas produzem
 estudos que não podem ser salvos por nenhuma estatística, e é por isso que este
 capítulo vem antes de todos os que tratam de números.</p>
-<h2>O filtro FINER</h2>
+<h2 id="cap-2-o-filtro-finer">O filtro FINER<a class="ancora" href="#cap-2-o-filtro-finer" aria-label="Link para esta seção">#</a></h2>
 <p>Antes de dar forma à pergunta, convém submetê-la a cinco testes. O acrônimo é
 antigo, é útil e evita muito desperdício.</p>
 <p><strong>F, exequível.</strong> Existem pacientes suficientes? Há tempo, dinheiro e equipe? O
@@ -558,7 +716,7 @@ comparação, e a incerteza era real.</p>
 <p><strong>R, relevante.</strong> A resposta muda alguma conduta? Se o estudo der positivo, o que
 passa a ser feito diferente? Se der negativo, o que se deixa de fazer? Uma
 pergunta cuja resposta não altera nada não merece pacientes.</p>
-<h2>A estrutura PICO</h2>
+<h2 id="cap-2-a-estrutura-pico">A estrutura PICO<a class="ancora" href="#cap-2-a-estrutura-pico" aria-label="Link para esta seção">#</a></h2>
 <p>Aprovada nos cinco testes, a pergunta ganha forma. O PICO é o esqueleto:</p>
 <div class="rolagem"><table>
 <thead>
@@ -611,7 +769,7 @@ observacionais: o "E" seria, por exemplo, tabagismo ou obesidade.
 <strong>PIRD</strong>, com <em>reference standard</em>, organiza perguntas de acurácia diagnóstica,
 como as do Capítulo 13.</p>
 <p>O esqueleto é o mesmo: quem, o quê, contra o quê, medido como.</p></div>
-<h3>O comparador é a parte que mais se erra</h3>
+<h3 id="cap-2-o-comparador-e-a-parte-que-mais-se-erra">O comparador é a parte que mais se erra<a class="ancora" href="#cap-2-o-comparador-e-a-parte-que-mais-se-erra" aria-label="Link para esta seção">#</a></h3>
 <p>Comparar com nada é a falha estrutural das séries de casos: "aplicamos o aspirado
 em quinze pacientes e doze cicatrizaram". Doze de quinze é 80%, o que parece
 excelente, até se lembrar que a compressão isolada cicatriza mais da metade das
@@ -621,7 +779,7 @@ tratamento e quanto é da história natural da doença sob o tratamento padrão.
 enfraquecida dele. Comparar terapia celular mais compressão contra curativo
 simples produziria um efeito enorme e eticamente indefensável, porque privaria o
 grupo controle do tratamento reconhecido.</p>
-<h2>Três tipos de pergunta, três desenhos de conclusão</h2>
+<h2 id="cap-2-tres-tipos-de-pergunta-tres-desenhos-de-conclusao">Três tipos de pergunta, três desenhos de conclusão<a class="ancora" href="#cap-2-tres-tipos-de-pergunta-tres-desenhos-de-conclusao" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Superioridade.</strong> O novo é melhor que o padrão? É a pergunta do caso condutor, e
 a mais comum.</p>
 <p><strong>Não inferioridade.</strong> O novo é, no máximo, um pouco pior que o padrão, e
@@ -632,7 +790,7 @@ aceita, e a conclusão se lê no intervalo de confiança, não no valor de p.</p
 declarada nos dois sentidos. Típica de estudos de bioequivalência.</p>
 <p>Trocar de tipo depois de ver os dados é falha grave: um estudo de superioridade
 que dá negativo <strong>não</strong> se transforma em estudo de não inferioridade bem-sucedido.</p>
-<h2>Da pergunta ao objetivo, à hipótese e ao título</h2>
+<h2 id="cap-2-da-pergunta-ao-objetivo-a-hipotese-e-ao-titulo">Da pergunta ao objetivo, à hipótese e ao título<a class="ancora" href="#cap-2-da-pergunta-ao-objetivo-a-hipotese-e-ao-titulo" aria-label="Link para esta seção">#</a></h2>
 <p>Formulada a pergunta, três textos do projeto se escrevem quase por decalque.</p>
 <p><strong>Objetivo geral.</strong> Um verbo no infinitivo, um desfecho, uma população:
 <em>comparar a proporção de cicatrização completa em doze semanas entre pacientes
@@ -674,7 +832,7 @@ após resultado negativo de superioridade."</strong> Trocar o tipo de pergunta d
 dados invalida a conclusão.</p>
 <p><strong>"Não há registro prévio do ensaio."</strong> Muitas revistas recusam sem sequer enviar
 para revisão. O registro é anterior à inclusão do primeiro paciente.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-2-exercicios">Exercícios<a class="ancora" href="#cap-2-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Transforme em pergunta PICO: "queria saber se bota de Unna é melhor que faixa
 elástica".</p>
@@ -740,7 +898,7 @@ específico para úlcera venosa entre a inclusão e a décima segunda semana". S
 instrumento e sem o prazo, não há como calcular tamanho de amostra nem escolher o
 teste, e dois avaliadores mediriam coisas diferentes.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-2-recursos">Recursos<a class="ancora" href="#cap-2-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://plataformabrasil.saude.gov.br/">Plataforma Brasil</a> — submissão de
   projetos ao sistema CEP/CONEP.</li>
@@ -754,7 +912,7 @@ teste, e dois avaliadores mediriam coisas diferentes.</p></details>
 é observar o que já acontece: identificar quem recebeu o tratamento, quem não
 recebeu, e comparar. A segunda é sortear. A diferença entre elas parece
 burocrática e é a diferença entre acertar e errar o sinal do efeito.</p></div>
-<h2>O delineamento decide o que se pode concluir</h2>
+<h2 id="cap-3-o-delineamento-decide-o-que-se-pode-concluir">O delineamento decide o que se pode concluir<a class="ancora" href="#cap-3-o-delineamento-decide-o-que-se-pode-concluir" aria-label="Link para esta seção">#</a></h2>
 <p>Nenhuma análise estatística conserta um delineamento inadequado. Um estudo
 transversal não estabelece que a exposição veio antes do desfecho; uma série de
 casos não tem com quem comparar; uma coorte pode ser destruída por um confundidor
@@ -764,7 +922,7 @@ verdadeiro do ensaio, conclui que o aspirado <strong>prejudica</strong> a cicatr
 <p>Por isso a ordem dos capítulos: pergunta, delineamento e só então medida,
 amostra, coleta e análise. Escolher o teste estatístico é a menor das decisões, e
 é a única em que a maioria dos pesquisadores pensa.</p>
-<h2>Os delineamentos, e a pergunta que cada um responde</h2>
+<h2 id="cap-3-os-delineamentos-e-a-pergunta-que-cada-um-responde">Os delineamentos, e a pergunta que cada um responde<a class="ancora" href="#cap-3-os-delineamentos-e-a-pergunta-que-cada-um-responde" aria-label="Link para esta seção">#</a></h2>
 <div class="rolagem"><table>
 <thead>
 <tr>
@@ -812,7 +970,7 @@ prevalência, um transversal bem-feito é superior a qualquer ensaio; para dano
 raro de longo prazo, a coorte é insubstituível; para a experiência do paciente, é
 a pesquisa qualitativa que responde. Delineamento não é bom ou ruim em abstrato:
 é adequado ou inadequado à pergunta.</p>
-<h2>Por que este estudo foi randomizado</h2>
+<h2 id="cap-3-por-que-este-estudo-foi-randomizado">Por que este estudo foi randomizado<a class="ancora" href="#cap-3-por-que-este-estudo-foi-randomizado" aria-label="Link para esta seção">#</a></h2>
 <p>A formulação clínica original do caso condutor era observacional: comparar quem
 usa o aspirado com quem não usa. Ela foi recusada, e o motivo é o <strong>confundimento
 por indicação</strong>.</p>
@@ -827,7 +985,7 @@ de 0,72, isto é, aparente prejuízo, quando o efeito verdadeiro é de benefíci
 imitar: ele equilibra, em média, <strong>tudo</strong>, inclusive o que ninguém mediu e o que
 ninguém sabe que existe. É essa a propriedade que faz do ensaio randomizado o
 padrão para perguntas de eficácia, e ela não tem substituto.</p>
-<h2>As três proteções de um ensaio, e o que cada uma protege</h2>
+<h2 id="cap-3-as-tres-protecoes-de-um-ensaio-e-o-que-cada-uma-protege">As três proteções de um ensaio, e o que cada uma protege<a class="ancora" href="#cap-3-as-tres-protecoes-de-um-ensaio-e-o-que-cada-uma-protege" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Randomização.</strong> Torna os grupos comparáveis na origem. Feita em blocos
 permutados de quatro, como neste estudo, mantém os grupos com tamanhos parecidos
 ao longo do recrutamento; estratificada por centro, garante equilíbrio dentro de
@@ -850,7 +1008,7 @@ cirúrgica, cegar paciente e operador é quase sempre impossível, e o que se ex
 o cegamento do avaliador, que é justamente onde o viés de aferição entraria. Um
 desfecho objetivo, como a morte, sofre pouco com a falta de cegamento; um desfecho
 julgado, como "melhora do aspecto da ferida", sofre muito.</p></div>
-<h2>Variantes do ensaio clínico</h2>
+<h2 id="cap-3-variantes-do-ensaio-clinico">Variantes do ensaio clínico<a class="ancora" href="#cap-3-variantes-do-ensaio-clinico" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Paralelo.</strong> Cada participante recebe um tratamento. É o deste estudo e o mais
 comum.</p>
 <p><strong>Cruzado.</strong> Cada participante recebe os dois, em ordem sorteada, e serve de
@@ -865,7 +1023,7 @@ combinações. Econômico, e só funciona quando não se espera interação entr
 <p><strong>Escalonado no tempo.</strong> Todos os centros acabam recebendo a intervenção, em
 ordem sorteada. Muito usado em pesquisa de implementação, quando negar a
 intervenção a alguém seria inaceitável.</p>
-<h2>Os vieses, e onde cada um entra</h2>
+<h2 id="cap-3-os-vieses-e-onde-cada-um-entra">Os vieses, e onde cada um entra<a class="ancora" href="#cap-3-os-vieses-e-onde-cada-um-entra" aria-label="Link para esta seção">#</a></h2>
 <div class="rolagem"><table>
 <thead>
 <tr>
@@ -899,7 +1057,7 @@ intervenção a alguém seria inaceitável.</p>
 </table></div>
 <p>Repare que três dos quatro se combatem no delineamento, e nenhum se combate na
 análise. É por isso que este capítulo antecede todos os de estatística.</p>
-<h2>Quando não se pode randomizar</h2>
+<h2 id="cap-3-quando-nao-se-pode-randomizar">Quando não se pode randomizar<a class="ancora" href="#cap-3-quando-nao-se-pode-randomizar" aria-label="Link para esta seção">#</a></h2>
 <p>Nem toda pergunta admite sorteio, e insistir seria antiético ou impossível:</p>
 <ul>
 <li><strong>Exposições danosas.</strong> Ninguém sorteia tabagismo.</li>
@@ -943,7 +1101,7 @@ causalidade. Reescreva como associação.</p>
 <p><strong>"Estudo observacional apresentado como se comparasse tratamentos de forma
 válida, sem discutir confundimento por indicação."</strong> É a falha mais comum na
 literatura cirúrgica.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-3-exercicios">Exercícios<a class="ancora" href="#cap-3-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Qual delineamento você usaria para cada pergunta? (a) Qual a prevalência de
 úlcera venosa em maiores de 60 anos no município? (b) O uso prolongado de
@@ -1009,7 +1167,7 @@ precisa levar em conta essa correlação intraconglomerado, e o cálculo do tama
 da amostra exige inflar o número de participantes pelo efeito de delineamento.
 Ignorar isso produz intervalos de confiança falsamente estreitos.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-3-recursos">Recursos<a class="ancora" href="#cap-3-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — o checklist e o
   diagrama de fluxo para ensaios randomizados.</li>
@@ -1022,7 +1180,7 @@ preencher a ficha de coleta. O que exatamente vai ser anotado sobre cada
 paciente? A resposta parece administrativa e é a decisão mais determinante que
 resta: variável mal definida não se conserta depois, e desfecho mal escolhido
 inutiliza um estudo inteiro.</p></div>
-<h2>Os quatro tipos de variável</h2>
+<h2 id="cap-4-os-quatro-tipos-de-variavel">Os quatro tipos de variável<a class="ancora" href="#cap-4-os-quatro-tipos-de-variavel" aria-label="Link para esta seção">#</a></h2>
 <p>Toda a estatística deste livro depende de classificar corretamente cada coluna do
 banco.</p>
 <div class="rolagem"><table>
@@ -1070,7 +1228,7 @@ que 9,9 cm² e 10,1 cm² são casos diferentes enquanto 10,1 e 60,0 são iguais.
 anterior aos dados, como o corte de 40% de redução em quatro semanas usado no
 Capítulo 13. E nunca escolha o corte testando vários e ficando com o que produz o
 menor valor de p.</p></div>
-<h2>O papel de cada variável no estudo</h2>
+<h2 id="cap-4-o-papel-de-cada-variavel-no-estudo">O papel de cada variável no estudo<a class="ancora" href="#cap-4-o-papel-de-cada-variavel-no-estudo" aria-label="Link para esta seção">#</a></h2>
 <p>Além do tipo, cada variável tem uma função, e confundir funções é o que produz as
 análises erradas do Capítulo 12.</p>
 <ul>
@@ -1086,7 +1244,7 @@ análises erradas do Capítulo 12.</p>
   entrar no ajuste. A adesão à compressão, medida após a alocação, é a candidata
   neste estudo.</li>
 </ul>
-<h2>O desfecho primário</h2>
+<h2 id="cap-4-o-desfecho-primario">O desfecho primário<a class="ancora" href="#cap-4-o-desfecho-primario" aria-label="Link para esta seção">#</a></h2>
 <p>Um estudo tem <strong>um</strong> desfecho primário. Não dois, não cinco. Ele define o cálculo
 do tamanho da amostra, define a conclusão e é o único protegido contra a
 multiplicidade discutida no Capítulo 10.</p>
@@ -1098,7 +1256,7 @@ crescimento não interessa a ninguém fora do laboratório.</p>
 e é aqui que entra a operacionalização.</p>
 <p><strong>Ocorrer com frequência suficiente.</strong> Desfecho raro exige amostra enorme, como o
 Capítulo 6 demonstra com números.</p>
-<h3>Operacionalizar é escrever a definição que não admite dúvida</h3>
+<h3 id="cap-4-operacionalizar-e-escrever-a-definicao-que-nao-admite-duvida">Operacionalizar é escrever a definição que não admite dúvida<a class="ancora" href="#cap-4-operacionalizar-e-escrever-a-definicao-que-nao-admite-duvida" aria-label="Link para esta seção">#</a></h3>
 <p>"Cicatrização" não é uma definição: é uma palavra. A definição do protocolo é
 esta:</p>
 <blockquote>
@@ -1119,7 +1277,7 @@ de sobrevida, redução de área no lugar de cicatrização. Ele acelera a pesqu
 já enganou muita gente, porque tratamentos que melhoram o substituto às vezes
 pioram o desfecho real. Se o estudo usar um substituto, isso precisa estar
 explícito no título, no resumo e na conclusão.</p></div>
-<h2>Desfechos compostos, e por que este estudo não usou um</h2>
+<h2 id="cap-4-desfechos-compostos-e-por-que-este-estudo-nao-usou-um">Desfechos compostos, e por que este estudo não usou um<a class="ancora" href="#cap-4-desfechos-compostos-e-por-que-este-estudo-nao-usou-um" aria-label="Link para esta seção">#</a></h2>
 <p>Desfecho composto reúne vários eventos em um só: por exemplo, "cicatrização ou
 redução de área superior a 60%". Ele aumenta o número de eventos e reduz o
 tamanho da amostra necessário, o que é tentador.</p>
@@ -1128,7 +1286,7 @@ paciente, o resultado passa a ser dominado pelo mais frequente, que costuma ser 
 menos grave. Um composto que junta morte com internação é, na prática, um estudo
 sobre internação. Quando o composto for inevitável, os componentes devem ser
 relatados separadamente, e a conclusão não pode se apoiar apenas no agregado.</p>
-<h2>As variáveis deste estudo, e por que cada uma está ali</h2>
+<h2 id="cap-4-as-variaveis-deste-estudo-e-por-que-cada-uma-esta-ali">As variáveis deste estudo, e por que cada uma está ali<a class="ancora" href="#cap-4-as-variaveis-deste-estudo-e-por-que-cada-uma-esta-ali" aria-label="Link para esta seção">#</a></h2>
 <div class="rolagem"><table>
 <thead>
 <tr>
@@ -1226,7 +1384,7 @@ risco de o corte ter sido escolhido pelos dados.</p>
 separadamente.</p>
 <p><strong>"Não há desfecho de segurança."</strong> Estudo de intervenção que só mede benefício
 está incompleto.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-4-exercicios">Exercícios<a class="ancora" href="#cap-4-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Classifique quanto ao tipo: <code>centro</code>, <code>idade</code>, <code>dor_eva_basal</code>, <code>itb</code> e
 <code>ulcera_recidivante</code>.</p>
@@ -1283,7 +1441,7 @@ Fumante atual. Os números são idênticos; o que muda é a legibilidade, e é e
 tabela que vai para o artigo. O exercício mostra que boa parte do trabalho
 estatístico é organização, não cálculo.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-4-recursos">Recursos<a class="ancora" href="#cap-4-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — item 6a, sobre
   definir completamente os desfechos primário e secundários.</li>
@@ -1296,7 +1454,7 @@ vascular, entre pacientes que procuraram atendimento e aceitaram participar. A
 conclusão do estudo, no entanto, não é sobre eles: é sobre pacientes com úlcera
 venosa em geral. Este capítulo trata da distância entre uma coisa e outra, e do
 que se pode honestamente afirmar apesar dela.</p></div>
-<h2>Três populações, não uma</h2>
+<h2 id="cap-5-tres-populacoes-nao-uma">Três populações, não uma<a class="ancora" href="#cap-5-tres-populacoes-nao-uma" aria-label="Link para esta seção">#</a></h2>
 <p>Todo estudo lida com três conjuntos encaixados, e confundi-los produz conclusões
 que não se sustentam.</p>
 <p><strong>População-alvo.</strong> Todos os pacientes sobre os quais se quer concluir alguma
@@ -1312,7 +1470,7 @@ resolve. O segundo, da população acessível para a população-alvo, <strong>a
 não resolve</strong>: é julgamento clínico sobre semelhança. Nenhum intervalo de
 confiança cobre a diferença entre um ambulatório universitário de Maceió e um
 posto de saúde rural.</p>
-<h2>Quem entra, quem fica de fora</h2>
+<h2 id="cap-5-quem-entra-quem-fica-de-fora">Quem entra, quem fica de fora<a class="ancora" href="#cap-5-quem-entra-quem-fica-de-fora" aria-label="Link para esta seção">#</a></h2>
 <p>Antes de qualquer técnica de amostragem, a população acessível é definida pelos
 critérios de elegibilidade. São eles, e não a técnica, que decidem a quem o
 resultado se aplica.</p>
@@ -1353,14 +1511,14 @@ frequentemente têm doença mista. Critérios apertados aumentam a validade inte
 e reduzem a externa. Critérios frouxos fazem o contrário.</p>
 <p>Não existe escolha certa: existe escolha declarada. O que não se admite é
 descobrir os critérios depois, olhando quem deu certo.</p>
-<h2>As técnicas de amostragem</h2>
+<h2 id="cap-5-as-tecnicas-de-amostragem">As técnicas de amostragem<a class="ancora" href="#cap-5-as-tecnicas-de-amostragem" aria-label="Link para esta seção">#</a></h2>
 <p>Antes de percorrê-las, uma distinção que evita confusão constante: a <strong>técnica</strong>
 de amostragem responde a <em>como</em> se seleciona, e é assunto deste capítulo; o
 <strong>tamanho</strong> da amostra responde a <em>quantos</em>, e é assunto do próximo. São decisões
 independentes, e a segunda não conserta a primeira. Uma amostra de dez mil
 pessoas mal selecionadas descreve com enorme precisão uma realidade que não
 existe.</p>
-<h3>Probabilísticas</h3>
+<h3 id="cap-5-probabilisticas">Probabilísticas<a class="ancora" href="#cap-5-probabilisticas" aria-label="Link para esta seção">#</a></h3>
 <p>Todo elemento da população tem probabilidade conhecida e não nula de ser
 sorteado. São as únicas que autorizam, em rigor, a inferência estatística
 clássica.</p>
@@ -1378,7 +1536,7 @@ clássica.</p>
   conta a correlação dentro de cada conglomerado, sob pena de intervalos falsamente
   estreitos.</li>
 </ul>
-<h3>Não probabilísticas</h3>
+<h3 id="cap-5-nao-probabilisticas">Não probabilísticas<a class="ancora" href="#cap-5-nao-probabilisticas" aria-label="Link para esta seção">#</a></h3>
 <ul>
 <li><strong>Consecutiva:</strong> incluem-se todos os elegíveis, na ordem em que aparecem, até
   completar o tamanho previsto. É a mais usada e a melhor das não probabilísticas,
@@ -1413,7 +1571,7 @@ Protege a <strong>validade interna</strong>, ou seja, a comparabilidade entre os
 praticamente todo ensaio clínico do mundo. A comparação entre os grupos é
 protegida; a extrapolação para outros serviços é argumento clínico, não garantia
 estatística.</p></div>
-<h2>Vieses de seleção</h2>
+<h2 id="cap-5-vieses-de-selecao">Vieses de seleção<a class="ancora" href="#cap-5-vieses-de-selecao" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Viés do voluntário.</strong> Quem aceita participar difere de quem recusa: costuma ser
 mais aderente, mais motivado e mais bem informado. Em estudo de tratamento que
 depende de adesão, como a terapia compressiva, isso tende a produzir resultados
@@ -1428,7 +1586,7 @@ amostra ter sido filtrada por algo relacionado ao desfecho.</p>
 recrutamento com detalhe suficiente para o leitor julgar a direção e o tamanho
 provável dele. É por isso que o diagrama CONSORT começa com o número de pacientes
 avaliados para elegibilidade, e não com o número de randomizados.</p>
-<h2>O que a amostra deste estudo representa</h2>
+<h2 id="cap-5-o-que-a-amostra-deste-estudo-representa">O que a amostra deste estudo representa<a class="ancora" href="#cap-5-o-que-a-amostra-deste-estudo-representa" aria-label="Link para esta seção">#</a></h2>
 <p>Vale aplicar o raciocínio ao próprio caso condutor. A amostra tem idade mediana
 de 62 anos, quase metade de mulheres, 22% de diabéticos, área mediana de úlcera
 de 7,7 cm² e duração mediana de 13 meses, e todos com índice tornozelo-braquial
@@ -1468,7 +1626,7 @@ randomização."</strong> São coisas diferentes e a troca aparece com frequênc
 constrangedora.</p>
 <p><strong>"Amostragem por conveniência apresentada como se fosse consecutiva."</strong> Se
 houve seleção do pesquisador, isso muda a interpretação e precisa estar escrito.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-5-exercicios">Exercícios<a class="ancora" href="#cap-5-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Explique, em duas frases, a diferença entre a randomização e a amostragem
 aleatória neste estudo.</p>
@@ -1542,7 +1700,7 @@ entre os grupos. Essa é a variabilidade amostral, é ela que o intervalo de
 confiança quantifica, e é também o argumento mais concreto a favor de calcular o
 tamanho da amostra antes de começar, assunto do próximo capítulo.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-5-recursos">Recursos<a class="ancora" href="#cap-5-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://aldemararaujo.github.io/amostra/">Simulador de amostragem</a> — mostra,
   em tempo real, o que este capítulo argumenta: aumentar o número de
@@ -1554,7 +1712,7 @@ tamanho da amostra antes de começar, assunto do próximo capítulo.</p></detail
 <li><a href="https://www.jamovi.org/">jamovi</a> — a função UNIF, em Data, Compute, permite a
   demonstração deste capítulo.</li>
 </ul>
-<h3>Para aprofundar</h3>
+<h3 id="cap-5-para-aprofundar">Para aprofundar<a class="ancora" href="#cap-5-para-aprofundar" aria-label="Link para esta seção">#</a></h3>
 <ul>
 <li>Szwarcwald CL et al. <a href="https://www.scielosp.org/article/ress/2023.v32n3/e2023431/pt/">Inquéritos nacionais de saúde: visão geral sobre técnicas
   de amostragem em pesquisas brasileiras</a>.
@@ -1576,7 +1734,7 @@ tamanho da amostra antes de começar, assunto do próximo capítulo.</p></detail
 que o revisor vai conferir: por que duzentos pacientes? Não cento e cinquenta,
 não trezentos. A resposta é uma conta de quatro ingredientes, e este capítulo a
 refaz do início ao fim, com os números do estudo.</p></div>
-<h2>Por que a conta é obrigatória</h2>
+<h2 id="cap-6-por-que-a-conta-e-obrigatoria">Por que a conta é obrigatória<a class="ancora" href="#cap-6-por-que-a-conta-e-obrigatoria" aria-label="Link para esta seção">#</a></h2>
 <p>Um estudo pequeno demais não consegue responder à pergunta e expõe pacientes a
 risco sem nenhum ganho de conhecimento. Um estudo grande demais gasta recursos,
 atrasa a resposta e expõe pacientes desnecessariamente à intervenção que se
@@ -1586,7 +1744,7 @@ e por qualquer periódico sério.</p>
 <p>Note a consequência: o cálculo é feito <strong>antes</strong>, e nunca depois. Justificar o
 tamanho depois de coletar é justificar o que se conseguiu, não o que se
 precisava.</p>
-<h2>Os quatro ingredientes</h2>
+<h2 id="cap-6-os-quatro-ingredientes">Os quatro ingredientes<a class="ancora" href="#cap-6-os-quatro-ingredientes" aria-label="Link para esta seção">#</a></h2>
 <p>Toda conta de tamanho de amostra combina os mesmos quatro elementos, qualquer que
 seja o desfecho.</p>
 <p><strong>1. O nível de significância, alfa.</strong> A probabilidade que se aceita de concluir
@@ -1607,7 +1765,7 @@ encontrar, nem a que apareceu em um estudo piloto pequeno. É a menor diferença
 que, existindo, mudaria a conduta clínica. Colocar ali um número otimista é a
 maneira mais eficiente de produzir um estudo subdimensionado com aparência de
 rigor: a conta fica bonita no protocolo e o estudo nasce condenado.</p></div>
-<h2>A conta deste estudo, passo a passo</h2>
+<h2 id="cap-6-a-conta-deste-estudo-passo-a-passo">A conta deste estudo, passo a passo<a class="ancora" href="#cap-6-a-conta-deste-estudo-passo-a-passo" aria-label="Link para esta seção">#</a></h2>
 <p>Proporção de cicatrização esperada: 55% no controle, com base na literatura de
 compressão isolada, e 75% no grupo tratado, o que representa os 20 pontos
 percentuais considerados relevantes.</p>
@@ -1629,7 +1787,7 @@ protocolo arredondou para <strong>100 por grupo, 200 randomizados</strong>.</p>
 <p>O estudo terminou com 8% de perdas, um pouco abaixo do previsto, e com 92
 participantes analisados por grupo, acima dos 89 necessários. O planejamento se
 sustentou.</p>
-<h2>Quanto custa cada ponto percentual</h2>
+<h2 id="cap-6-quanto-custa-cada-ponto-percentual">Quanto custa cada ponto percentual<a class="ancora" href="#cap-6-quanto-custa-cada-ponto-percentual" aria-label="Link para esta seção">#</a></h2>
 <p>A relação entre a diferença a detectar e o tamanho da amostra é o argumento mais
 convincente deste capítulo, e ela não é linear:</p>
 <div class="rolagem"><table>
@@ -1671,7 +1829,7 @@ modesto exigem centenas ou milhares de pacientes, e é por isso que efeitos
 modestos só são estabelecidos por estudos multicêntricos ou por metanálise. Um
 estudo de cinquenta pacientes não vai resolver a questão, e propor um é planejar
 um resultado inconclusivo.</p>
-<h2>Outros desfechos, outras contas</h2>
+<h2 id="cap-6-outros-desfechos-outras-contas">Outros desfechos, outras contas<a class="ancora" href="#cap-6-outros-desfechos-outras-contas" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Desfecho contínuo.</strong> O que entra no lugar das proporções é o desvio padrão
 esperado, e a diferença relevante vai na mesma unidade do desfecho. Para detectar
 uma diferença de 15 pontos percentuais na redução de área em quatro semanas, com
@@ -1722,7 +1880,7 @@ efetivo caiu, e isso precisa aparecer nas limitações.</p>
 declarado."</strong> Precisa ser o primário, sempre.</p>
 <p><strong>"Teste unilateral usado sem justificativa."</strong> Reduz artificialmente a amostra.
 Justifique ou refaça bilateral.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-6-exercicios">Exercícios<a class="ancora" href="#cap-6-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Refaça a conta do estudo supondo poder de 90% em vez de 80%. O que acontece com o
 tamanho da amostra?</p>
@@ -1782,7 +1940,7 @@ por grupo. O formato importa mais que os números: o ganho de poder é acentuado
 começo e vai se achatando, de modo que aumentar de 40 para 90 pacientes muda
 muito, e de 150 para 200 muda pouco. É essa curva que ajuda a decidir onde parar.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-6-recursos">Recursos<a class="ancora" href="#cap-6-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://library.jamovi.org/">jamovi library</a> — onde se instala o
   módulo jpower.</li>
@@ -1795,7 +1953,7 @@ três centros ao longo de dois anos, por pessoas diferentes. Entre a última
 consulta e a análise estatística existe uma etapa que nenhum manual de
 bioestatística ensina e que determina se o estudo será analisável: transformar
 papel em banco de dados.</p></div>
-<h2>O banco é um ativo, não um rascunho</h2>
+<h2 id="cap-7-o-banco-e-um-ativo-nao-um-rascunho">O banco é um ativo, não um rascunho<a class="ancora" href="#cap-7-o-banco-e-um-ativo-nao-um-rascunho" aria-label="Link para esta seção">#</a></h2>
 <p>Um banco de dados bem-feito sobrevive ao estudo. Ele permite reanálise, permite
 metanálise, permite responder à pergunta do revisor três meses depois e permite
 que outra pessoa confira o que você fez. Um banco malfeito obriga a refazer
@@ -1807,7 +1965,7 @@ qualquer conferência.</p>
 célula.</strong></p>
 </blockquote>
 <p>Parece óbvio e é violado o tempo inteiro.</p>
-<h2>Os erros que destroem bancos</h2>
+<h2 id="cap-7-os-erros-que-destroem-bancos">Os erros que destroem bancos<a class="ancora" href="#cap-7-os-erros-que-destroem-bancos" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Uma coluna com duas informações.</strong> "PA: 140/90" precisa virar duas colunas,
 sistólica e diastólica. "Diabetes tipo 2 há 8 anos" vira três: presença, tipo e
 duração.</p>
@@ -1836,7 +1994,7 @@ importação, a coluna não calcula, a data sai errada. O 0 no lugar de ausente
 produz um resultado plausível e falso. Uma área de úlcera registrada como 0
 porque não foi medida entra na média e a puxa para baixo, e ninguém percebe. Se o
 dado não existe, a célula fica vazia.</p></div>
-<h2>O dicionário de variáveis</h2>
+<h2 id="cap-7-o-dicionario-de-variaveis">O dicionário de variáveis<a class="ancora" href="#cap-7-o-dicionario-de-variaveis" aria-label="Link para esta seção">#</a></h2>
 <p>Todo banco precisa de um documento que descreva cada coluna: nome, tipo, unidade,
 valores possíveis, o que significa ausente e como a variável foi aferida. O deste
 estudo está em <code>dados/dicionario.md</code>.</p>
@@ -1877,7 +2035,7 @@ codificação antes da coleta, quando ainda dá tempo de mudar a ficha.</p>
 </tr>
 </tbody>
 </table></div>
-<h2>As três naturezas do dado ausente</h2>
+<h2 id="cap-7-as-tres-naturezas-do-dado-ausente">As três naturezas do dado ausente<a class="ancora" href="#cap-7-as-tres-naturezas-do-dado-ausente" aria-label="Link para esta seção">#</a></h2>
 <p>O banco deste estudo tem ausências de três tipos, e o Capítulo 12 depende de
 distingui-las:</p>
 <p><strong>Falha de aferição.</strong> O TcPO₂ tem 12 valores ausentes por falha do equipamento.
@@ -1896,7 +2054,7 @@ recebeu, e declarar explicitamente como os faltantes foram tratados. A análise
 principal costuma ser acompanhada de análises de sensibilidade, como a que
 considera todas as perdas como não cicatrizadas, para mostrar que a conclusão não
 depende de uma suposição conveniente.</p>
-<h2>Coleta: papel, planilha ou sistema</h2>
+<h2 id="cap-7-coleta-papel-planilha-ou-sistema">Coleta: papel, planilha ou sistema<a class="ancora" href="#cap-7-coleta-papel-planilha-ou-sistema" aria-label="Link para esta seção">#</a></h2>
 <div class="rolagem"><table>
 <thead>
 <tr>
@@ -1930,7 +2088,7 @@ gratuito para instituições acadêmicas e é hoje o padrão em pesquisa clínic
 <p>Se a coleta for em papel, a proteção clássica é a <strong>dupla digitação</strong>: duas
 pessoas digitam o mesmo material de forma independente e um programa compara as
 duas versões. É trabalhoso e detecta erros que nenhuma conferência visual pega.</p>
-<h2>Reprodutibilidade, que é o assunto verdadeiro deste capítulo</h2>
+<h2 id="cap-7-reprodutibilidade-que-e-o-assunto-verdadeiro-deste-capitulo">Reprodutibilidade, que é o assunto verdadeiro deste capítulo<a class="ancora" href="#cap-7-reprodutibilidade-que-e-o-assunto-verdadeiro-deste-capitulo" aria-label="Link para esta seção">#</a></h2>
 <p>Reprodutível é o estudo cujos resultados podem ser regerados por outra pessoa a
 partir dos dados originais. Não é um ideal abstrato: é a diferença entre
 conseguir e não conseguir responder ao revisor que pede uma análise adicional.</p>
@@ -1986,7 +2144,7 @@ exigem declaração de disponibilidade de dados. "Disponíveis mediante solicita
 razoável" é aceito, e cobrado.</p>
 <p><strong>"O número de participantes difere entre tabelas sem explicação."</strong> Cada tabela
 deve dizer sobre quantos casos foi calculada.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-7-exercicios">Exercícios<a class="ancora" href="#cap-7-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Uma planilha traz a coluna "PA" com valores como "140/90", "150 x 100" e
 "hipertenso". Descreva como reorganizá-la.</p>
@@ -2050,7 +2208,7 @@ análise foi conduzida por intenção de tratar, com análises de sensibilidade
 descritas adiante. O banco anonimizado está disponível mediante solicitação ao
 autor correspondente."</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-7-recursos">Recursos<a class="ancora" href="#cap-7-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://projectredcap.org/">REDCap</a> — sistema gratuito de captura de dados de
   pesquisa para instituições acadêmicas.</li>
@@ -2063,7 +2221,7 @@ semanas. O banco está fechado. Antes de comparar coisa alguma, é preciso
 responder a uma pergunta que parece banal e não é: quem são essas pessoas? A
 primeira tabela de todo artigo clínico existe para isso, e é ela que vamos
 construir neste capítulo.</p></div>
-<h2>Descrever é decidir o que omitir</h2>
+<h2 id="cap-8-descrever-e-decidir-o-que-omitir">Descrever é decidir o que omitir<a class="ancora" href="#cap-8-descrever-e-decidir-o-que-omitir" aria-label="Link para esta seção">#</a></h2>
 <p>O banco do estudo tem duzentas linhas e vinte e seis colunas: cinco mil e
 duzentos valores. Nenhum leitor de artigo vai olhar para eles, e nenhum revisor
 quer olhar. A estatística descritiva existe para substituir esses cinco mil
@@ -2073,7 +2231,7 @@ resto.</p>
 e o trabalho do pesquisador é escolher qual informação pode ser perdida. Quando
 essa escolha é feita sem critério, o resumo mente sem que ninguém perceba, e o
 capítulo inteiro trata de como evitar isso.</p>
-<h2>Cada tipo de variável pede um resumo</h2>
+<h2 id="cap-8-cada-tipo-de-variavel-pede-um-resumo">Cada tipo de variável pede um resumo<a class="ancora" href="#cap-8-cada-tipo-de-variavel-pede-um-resumo" aria-label="Link para esta seção">#</a></h2>
 <p>A regra é curta e resolve a quase totalidade dos casos:</p>
 <div class="rolagem"><table>
 <thead>
@@ -2109,7 +2267,7 @@ capítulo inteiro trata de como evitar isso.</p>
 <p>O único julgamento que sobra é o da terceira linha contra a quarta: a
 distribuição é simétrica ou não? É aí que quase todo mundo erra, e por um motivo
 curioso, tratado na seção seguinte.</p>
-<h3>Como decidir se a distribuição é simétrica</h3>
+<h3 id="cap-8-como-decidir-se-a-distribuicao-e-simetrica">Como decidir se a distribuição é simétrica<a class="ancora" href="#cap-8-como-decidir-se-a-distribuicao-e-simetrica" aria-label="Link para esta seção">#</a></h3>
 <p>Olhando para ela. Um histograma resolve em três segundos o que nenhum teste
 resolve bem.</p>
 <p>A prática difundida de aplicar um teste de normalidade, quase sempre o de
@@ -2122,7 +2280,7 @@ irrelevante. O leitor fica, portanto, com um critério que erra nas duas pontas 
 que substitui o próprio julgamento por um valor de p.</p>
 <p>Olhe o histograma. Se a cauda de um lado for visivelmente mais longa que a do
 outro, a distribuição é assimétrica e a mediana descreve melhor.</p>
-<h3>O caso da área da úlcera</h3>
+<h3 id="cap-8-o-caso-da-area-da-ulcera">O caso da área da úlcera<a class="ancora" href="#cap-8-o-caso-da-area-da-ulcera" aria-label="Link para esta seção">#</a></h3>
 <p>A área inicial das úlceras do estudo é o exemplo perfeito, e por isso vai
 acompanhar o leitor até o fim do livro. Estes são os dois resumos possíveis:</p>
 <div class="rolagem"><table>
@@ -2157,7 +2315,7 @@ amostra cresce e serve para construir intervalo de confiança, assunto do
 Capítulo 9. Descrever a amostra com erro padrão faz a variabilidade parecer
 menor do que é, e é exatamente por isso que a troca costuma passar despercebida
 por quem a comete.</p></div>
-<h2>A Tabela 1 do estudo</h2>
+<h2 id="cap-8-a-tabela-1-do-estudo">A Tabela 1 do estudo<a class="ancora" href="#cap-8-a-tabela-1-do-estudo" aria-label="Link para esta seção">#</a></h2>
 <p>A primeira tabela de um artigo clínico descreve os grupos na linha de base. Ela
 não compara nada: apenas mostra com quem o estudo foi feito, para que o leitor
 julgue se aqueles resultados valem para os pacientes dele.</p>
@@ -2237,7 +2395,7 @@ média, ao longo de muitas repetições, mas não garante equilíbrio perfeito e
 estudo particular. As duas voltarão no Capítulo 12, quando o resultado for
 ajustado por essas características, e voltarão de novo no Capítulo 15, quando for
 preciso decidir o que dizer sobre elas no artigo.</p>
-<h3>Por que não há valor de p nesta tabela</h3>
+<h3 id="cap-8-por-que-nao-ha-valor-de-p-nesta-tabela">Por que não há valor de p nesta tabela<a class="ancora" href="#cap-8-por-que-nao-ha-valor-de-p-nesta-tabela" aria-label="Link para esta seção">#</a></h3>
 <p>Falta uma coluna que o leitor talvez tenha estranhado não encontrar. Muitos
 artigos publicam uma coluna de valor de p na Tabela 1, comparando os grupos na
 linha de base, e a recomendação CONSORT desaconselha essa coluna explicitamente.</p>
@@ -2280,7 +2438,7 @@ quartil é o valor abaixo do qual estão 25% das observações, e o terceiro, 75
 medida de dispersão que acompanha a mediana pelo mesmo motivo que o desvio
 padrão acompanha a média: ambas resumem o espalhamento sem sofrer com os valores
 extremos que o resumo escolheu ignorar.</p></div></div>
-<h2>Quando o resumo esconde o resultado</h2>
+<h2 id="cap-8-quando-o-resumo-esconde-o-resultado">Quando o resumo esconde o resultado<a class="ancora" href="#cap-8-quando-o-resumo-esconde-o-resultado" aria-label="Link para esta seção">#</a></h2>
 <p>A redução percentual da área em doze semanas parece o desfecho contínuo natural
 deste estudo. Veja o que acontece quando se descreve os dois grupos por ele:</p>
 <div class="rolagem"><table>
@@ -2356,7 +2514,7 @@ pode deixar o leitor supondo que foram duzentas.</p>
 <p><strong>"Precisão excessiva."</strong> Idade média de 62,34 anos sugere uma exatidão que não
 existe. Uma casa decimal basta para idade, peso e escores; percentuais em estudo
 com duzentos participantes não precisam de decimal algum.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-8-exercicios">Exercícios<a class="ancora" href="#cap-8-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>A duração da úlcera no grupo controle tem média de 16,0 meses, desvio padrão de
 11,8, mediana de 12,5 meses e quartis de 7,8 e 21,0. Qual par de medidas deve
@@ -2433,7 +2591,7 @@ o mais provável é que o jamovi tenha classificado a variável com o tipo errad
 importação, ou que a análise esteja incluindo os participantes com dado ausente
 de maneira diferente da usada aqui.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-8-recursos">Recursos<a class="ancora" href="#cap-8-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — a recomendação para
   relato de ensaios clínicos randomizados, incluindo a orientação sobre a
@@ -2448,7 +2606,7 @@ do grupo controle, ou 53,3%. A diferença é de 17,4 pontos percentuais. A
 pergunta que este capítulo responde não é se essa diferença existe, porque ela
 está ali. É outra: se o estudo fosse repetido com outros duzentos pacientes,
 quanto esse número poderia mudar?</p></div>
-<h2>Todo resultado é uma estimativa</h2>
+<h2 id="cap-9-todo-resultado-e-uma-estimativa">Todo resultado é uma estimativa<a class="ancora" href="#cap-9-todo-resultado-e-uma-estimativa" aria-label="Link para esta seção">#</a></h2>
 <p>O estudo não mediu a eficácia do aspirado de medula óssea. Mediu o que aconteceu
 com 184 pessoas específicas, em três centros específicos, em um período
 específico. O interesse, porém, nunca é aquelas 184 pessoas: é o próximo
@@ -2459,7 +2617,7 @@ proporção de cicatrização que o tratamento produziria na população de onde
 amostra veio. Como todo palpite, ele tem margem de erro, e o trabalho deste
 capítulo é medir essa margem.</p>
 <p>Um número sozinho esconde a margem. Um intervalo de confiança a mostra.</p>
-<h2>O que o intervalo de confiança diz</h2>
+<h2 id="cap-9-o-que-o-intervalo-de-confianca-diz">O que o intervalo de confiança diz<a class="ancora" href="#cap-9-o-que-o-intervalo-de-confianca-diz" aria-label="Link para esta seção">#</a></h2>
 <p>O intervalo de confiança de 95% da proporção de cicatrização no grupo do
 aspirado vai de 60,7% a 79,0%.</p>
 <p>A definição formal é incômoda e vale enfrentá-la: se o estudo inteiro fosse
@@ -2476,7 +2634,7 @@ quartis, e foi assunto do Capítulo 8. O intervalo de confiança descreve a
 incerteza sobre uma estimativa, não a variação entre pessoas. Confundir as duas
 coisas leva a afirmar que "95% dos pacientes cicatrizam entre 60,7% e 79,0%",
 uma frase que não significa nada.</p></div>
-<h3>A largura importa mais que os extremos</h3>
+<h3 id="cap-9-a-largura-importa-mais-que-os-extremos">A largura importa mais que os extremos<a class="ancora" href="#cap-9-a-largura-importa-mais-que-os-extremos" aria-label="Link para esta seção">#</a></h3>
 <p>Compare os dois intervalos do desfecho primário:</p>
 <div class="rolagem"><table>
 <thead>
@@ -2505,7 +2663,7 @@ gente teria intervalos com metade dessa largura, porque a precisão melhora com 
 raiz quadrada do tamanho da amostra: para reduzir a incerteza pela metade, é
 preciso quadruplicar o estudo. Essa relação é a razão de o Capítulo 6 existir, e
 é também a razão de estudos pequenos raramente resolverem alguma coisa.</p>
-<h2>O intervalo do que interessa: a diferença</h2>
+<h2 id="cap-9-o-intervalo-do-que-interessa-a-diferenca">O intervalo do que interessa: a diferença<a class="ancora" href="#cap-9-o-intervalo-do-que-interessa-a-diferenca" aria-label="Link para esta seção">#</a></h2>
 <p>Os dois intervalos acima se sobrepõem, entre 60,7% e 63,1%. Um leitor apressado
 concluiria daí que os grupos não diferem. Ele estaria cometendo um erro comum, e
 a demonstração de que é erro vem a seguir: o intervalo que interessa não é o de
@@ -2546,7 +2704,7 @@ hipótese de que o tratamento não faz diferença alguma, ainda que os intervalo
 individuais se sobreponham. Sobreposição de intervalos individuais não é
 critério para nada: o intervalo da diferença é uma quantidade diferente, com
 erro padrão próprio.</p>
-<h3>Ler cada medida pelo que ela diz</h3>
+<h3 id="cap-9-ler-cada-medida-pelo-que-ela-diz">Ler cada medida pelo que ela diz<a class="ancora" href="#cap-9-ler-cada-medida-pelo-que-ela-diz" aria-label="Link para esta seção">#</a></h3>
 <p>A <strong>diferença absoluta</strong> é a mais útil na clínica: tratar cem pacientes produz
 cerca de dezessete cicatrizações a mais. É a única medida que fala em pacientes,
 e não em razões.</p>
@@ -2559,7 +2717,7 @@ frequente, e as duas medidas contam a mesma história.</p>
 cicatrizado. Repare no intervalo dele: de 3,2 a 27,9. É assimétrico e muito
 largo, porque o NNT é o inverso de um número pequeno, e inverter amplia a
 incerteza. Um NNT sem intervalo é uma promessa sem lastro.</p>
-<h3>O tamanho de efeito de uma variável contínua</h3>
+<h3 id="cap-9-o-tamanho-de-efeito-de-uma-variavel-continua">O tamanho de efeito de uma variável contínua<a class="ancora" href="#cap-9-o-tamanho-de-efeito-de-uma-variavel-continua" aria-label="Link para esta seção">#</a></h3>
 <p>Para a redução de área em quatro semanas, o raciocínio é o mesmo, com outra
 aritmética:</p>
 <div class="rolagem"><table>
@@ -2637,7 +2795,7 @@ diferença exclui o zero, como acontece neste estudo.</p>
 <p><strong>"Não se distingue desvio padrão de intervalo de confiança nas figuras."</strong>
 Barras de erro sem legenda são inúteis. Escreva na legenda o que a barra
 representa.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-9-exercicios">Exercícios<a class="ancora" href="#cap-9-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>O intervalo de confiança de 95% da diferença absoluta vai de 3,6 a 31,2 pontos
 percentuais. Escreva, em uma frase que um clínico entenda, o que isso significa
@@ -2707,7 +2865,7 @@ melhora com a raiz quadrada do tamanho da amostra e a raiz de 400 dividida pela
 raiz de 92 é cerca de 2,1. O estudo maior não encontraria um efeito diferente:
 saberia com mais precisão qual é o efeito.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-9-recursos">Recursos<a class="ancora" href="#cap-9-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — item 17b, sobre
   apresentar tamanho de efeito e precisão para cada desfecho.</li>
@@ -2721,7 +2879,7 @@ pontos percentuais e intervalo de confiança de 3,6 a 31,2. Falta responder à
 pergunta que dá nome a este capítulo, e que é a única que muitos pesquisadores
 fazem: o acaso é o responsável por esse resultado? O teste qui-quadrado devolve
 5,90, com um grau de liberdade, e um valor de p de 0,015.</p></div>
-<h2>O que o valor de p é</h2>
+<h2 id="cap-10-o-que-o-valor-de-p-e">O que o valor de p é<a class="ancora" href="#cap-10-o-que-o-valor-de-p-e" aria-label="Link para esta seção">#</a></h2>
 <p>O valor de p responde a uma pergunta muito específica, e é indispensável
 enunciá-la por inteiro, porque é da abreviação dela que nascem quase todos os
 erros.</p>
@@ -2737,7 +2895,7 @@ que 0,05 é o limite a partir do qual se prefere a primeira explicação.</p>
 <p>Note tudo o que está embutido nessa frase. O p supõe que a hipótese nula seja
 verdadeira: ele não a testa, ele parte dela. E mede a raridade do resultado sob
 essa suposição, nada além disso.</p>
-<h2>O que o valor de p não é</h2>
+<h2 id="cap-10-o-que-o-valor-de-p-nao-e">O que o valor de p não é<a class="ancora" href="#cap-10-o-que-o-valor-de-p-nao-e" aria-label="Link para esta seção">#</a></h2>
 <p>Aqui é onde se ganha ou se perde um capítulo inteiro de pesquisa clínica.</p>
 <p><strong>O p não é a probabilidade de a hipótese nula ser verdadeira.</strong> Ele é calculado
 <em>supondo</em> que ela é verdadeira, e uma probabilidade calculada sob uma suposição
@@ -2768,7 +2926,7 @@ de evidência.</p>
 título "Movendo-se para um mundo além de p &lt; 0,05". A recomendação central é a
 que este livro adota: relate estimativa e intervalo, e trate o p como uma
 informação a mais, nunca como o veredito.</p></div>
-<h2>O que acontece por trás do teste</h2>
+<h2 id="cap-10-o-que-acontece-por-tras-do-teste">O que acontece por trás do teste<a class="ancora" href="#cap-10-o-que-acontece-por-tras-do-teste" aria-label="Link para esta seção">#</a></h2>
 <p>O teste qui-quadrado compara o que se observou com o que se esperaria se não
 houvesse associação alguma.</p>
 <div class="rolagem"><table>
@@ -2848,7 +3006,7 @@ escolha do teste se declara antes, no protocolo, como o Capítulo 11 detalha.</p
 esperado. Quando ele fica abaixo de 5, o qui-quadrado deixa de ser confiável e o
 teste exato de Fisher passa a ser a escolha obrigatória. Aqui o menor esperado é
 35, e não há problema.</p></div>
-<h2>Significância estatística e relevância clínica</h2>
+<h2 id="cap-10-significancia-estatistica-e-relevancia-clinica">Significância estatística e relevância clínica<a class="ancora" href="#cap-10-significancia-estatistica-e-relevancia-clinica" aria-label="Link para esta seção">#</a></h2>
 <p>São duas perguntas diferentes, e o quadro abaixo resume o que fazer diante de
 cada combinação:</p>
 <div class="rolagem"><table>
@@ -2876,7 +3034,7 @@ cada combinação:</p>
 com intervalo de confiança larguíssimo, produz p acima de 0,05 e é publicado
 com a conclusão de que "não houve diferença entre os grupos". A conclusão
 correta seria que o estudo não tinha tamanho para responder.</p>
-<h3>Poder, e por que não se calcula poder depois</h3>
+<h3 id="cap-10-poder-e-por-que-nao-se-calcula-poder-depois">Poder, e por que não se calcula poder depois<a class="ancora" href="#cap-10-poder-e-por-que-nao-se-calcula-poder-depois" aria-label="Link para esta seção">#</a></h3>
 <p>O estudo foi planejado para ter 80% de poder para detectar uma diferença de 20
 pontos percentuais, com 89 participantes por grupo. Observou 17,4 pontos, um
 pouco menos do que o planejado.</p>
@@ -2889,7 +3047,7 @@ ser usado para explicar um resultado não significativo. Quem quer saber o que o
 estudo conseguiu excluir olha o intervalo de confiança, que é a ferramenta certa
 para isso.</p>
 <p>Poder se calcula antes, no planejamento, e o Capítulo 6 trata disso.</p>
-<h3>Quando se testa muita coisa</h3>
+<h3 id="cap-10-quando-se-testa-muita-coisa">Quando se testa muita coisa<a class="ancora" href="#cap-10-quando-se-testa-muita-coisa" aria-label="Link para esta seção">#</a></h3>
 <p>O estudo tem um desfecho primário e quatro secundários, além de dois desfechos
 de segurança e uma dúzia de variáveis basais. Se cada um for testado a 5%, a
 probabilidade de pelo menos um falso positivo entre vinte testes independentes
@@ -2915,7 +3073,7 @@ observado é redundante com o valor de p e não explica resultado nenhum.</p>
 <p><strong>"Foram testados dezoito desfechos e três resultaram significativos, tratados
 na discussão como confirmatórios."</strong> Declare qual era o primário e classifique o
 resto como exploratório.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-10-exercicios">Exercícios<a class="ancora" href="#cap-10-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Traduza o p de 0,015 deste estudo em uma frase completa, sem usar as palavras
 "significativo" ou "chance de o tratamento funcionar".</p>
@@ -2973,7 +3131,7 @@ secundário, com o primário escondido na discussão, é a prática que o CONSOR
 chama de troca de desfecho, e é a razão de o registro prévio do protocolo
 existir.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-10-recursos">Recursos<a class="ancora" href="#cap-10-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108">ASA Statement on p-Values and Statistical Significance</a>
   — os seis princípios, em quatro páginas.</li>
@@ -2985,7 +3143,7 @@ existir.</p></details>
 dúzia de variáveis basais. Cada comparação pede um teste, e nenhum deles é o
 mesmo. Este capítulo é o mapa que leva de uma pergunta a um teste, e ele cabe em
 três perguntas.</p></div>
-<h2>As três perguntas que decidem tudo</h2>
+<h2 id="cap-11-as-tres-perguntas-que-decidem-tudo">As três perguntas que decidem tudo<a class="ancora" href="#cap-11-as-tres-perguntas-que-decidem-tudo" aria-label="Link para esta seção">#</a></h2>
 <p>Escolher teste estatístico parece exigir memorizar uma lista. Não exige. Exige
 responder, nesta ordem:</p>
 <ol>
@@ -3000,7 +3158,7 @@ responder, nesta ordem:</p>
 </ol>
 <p>Com as três respostas, a tabela abaixo resolve praticamente toda a pesquisa
 clínica de rotina.</p>
-<h2>A tabela de decisão</h2>
+<h2 id="cap-11-a-tabela-de-decisao">A tabela de decisão<a class="ancora" href="#cap-11-a-tabela-de-decisao" aria-label="Link para esta seção">#</a></h2>
 <div class="rolagem"><table>
 <thead>
 <tr>
@@ -3081,7 +3239,7 @@ diferença dentro de cada indivíduo e elimina a variabilidade entre pessoas, qu
 justamente a maior fonte de ruído. Tratar os dados como independentes joga fora
 essa vantagem e pode transformar um efeito evidente em resultado não
 significativo.</p></div>
-<h2>O mito da normalidade</h2>
+<h2 id="cap-11-o-mito-da-normalidade">O mito da normalidade<a class="ancora" href="#cap-11-o-mito-da-normalidade" aria-label="Link para esta seção">#</a></h2>
 <p>A pergunta 3 costuma ser respondida errado, e a origem do erro é uma frase
 repetida em disciplinas de metodologia: "o teste t exige que os dados sejam
 normais".</p>
@@ -3120,7 +3278,7 @@ expostas no Capítulo 8.</p>
 quando os dois testes discordam de maneira relevante, a causa quase sempre é um
 punhado de valores extremos, e o que se deve investigar é aquele punhado, não a
 escolha do teste.</p>
-<h2>Os testes deste estudo, um a um</h2>
+<h2 id="cap-11-os-testes-deste-estudo-um-a-um">Os testes deste estudo, um a um<a class="ancora" href="#cap-11-os-testes-deste-estudo-um-a-um" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Desfecho primário, cicatrização em 12 semanas.</strong> Categórico, dois grupos
 independentes: qui-quadrado. Resultado no Capítulo 10.</p>
 <p><strong>Redução de área em 4 semanas.</strong> Numérica, dois grupos independentes. A
@@ -3191,7 +3349,7 @@ Dicotomizar joga informação fora e reduz poder. Faça isso apenas quando o pon
 de corte tiver significado clínico próprio, como o corte de 40% de redução em
 quatro semanas usado no Capítulo 13, e nunca escolhendo o corte que produz o
 menor valor de p.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-11-exercicios">Exercícios<a class="ancora" href="#cap-11-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Você quer comparar a proporção de infecção da ferida entre os dois grupos. Foram
 6 casos em 100 no grupo do aspirado e 10 em 100 no controle. Qual teste?</p>
@@ -3256,7 +3414,7 @@ o tabagismo tem três categorias.
 aproximadamente simétrico e a redução de área tem cauda, então relate Spearman ou
 os dois coeficientes.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-11-recursos">Recursos<a class="ancora" href="#cap-11-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.jamovi.org/">jamovi</a> — todos os testes deste capítulo estão nos
   menus Frequencies, T-Tests, ANOVA e Regression.</li>
@@ -3272,7 +3430,7 @@ maioria dos estudos publicados faz, e é o que este capítulo vai fazer, com um
 banco construído exatamente para isso: <code>coorte-observacional.csv</code>, trezentos
 pacientes, o mesmo tratamento, o mesmo desfecho e o mesmo efeito verdadeiro do
 ensaio randomizado.</p></div>
-<h2>O que a coorte responde</h2>
+<h2 id="cap-12-o-que-a-coorte-responde">O que a coorte responde<a class="ancora" href="#cap-12-o-que-a-coorte-responde" aria-label="Link para esta seção">#</a></h2>
 <p>Nessa coorte, 144 dos 300 pacientes receberam o aspirado. O resultado bruto é
 este:</p>
 <div class="rolagem"><table>
@@ -3300,7 +3458,7 @@ este:</p>
 simulação, e é exatamente o mesmo do ensaio randomizado, que encontrou razão de
 chances de 2,11. A coorte não errou por azar nem por conta pequena: ela errou o
 <strong>sinal</strong> do efeito.</p>
-<h3>Por que ela errou</h3>
+<h3 id="cap-12-por-que-ela-errou">Por que ela errou<a class="ancora" href="#cap-12-por-que-ela-errou" aria-label="Link para esta seção">#</a></h3>
 <p>Basta olhar quem recebeu o tratamento:</p>
 <div class="rolagem"><table>
 <thead>
@@ -3335,7 +3493,7 @@ seguiu a gravidade, e a gravidade determina o desfecho. O benefício do tratamen
 foi engolido pelo prognóstico ruim de quem o recebeu.</p>
 <p>Isso se chama <strong>confundimento por indicação</strong>, e é a razão pela qual, neste
 livro, o caso condutor foi desenhado como ensaio randomizado.</p>
-<h2>O que é um confundidor</h2>
+<h2 id="cap-12-o-que-e-um-confundidor">O que é um confundidor<a class="ancora" href="#cap-12-o-que-e-um-confundidor" aria-label="Link para esta seção">#</a></h2>
 <p>Uma variável é confundidora quando cumpre três condições ao mesmo tempo:</p>
 <ol>
 <li><strong>Associa-se ao desfecho</strong>, independentemente da exposição. A área inicial
@@ -3355,7 +3513,7 @@ modelos porque ela ilustra bem o funcionamento da regressão, mas em um artigo
 real ela deveria ficar fora do modelo principal e aparecer, no máximo, em análise
 secundária. A regra prática é curta: no modelo de ajuste de um ensaio, só entram
 variáveis medidas <strong>antes</strong> da alocação.</p></div>
-<h2>A regressão como ferramenta de ajuste</h2>
+<h2 id="cap-12-a-regressao-como-ferramenta-de-ajuste">A regressão como ferramenta de ajuste<a class="ancora" href="#cap-12-a-regressao-como-ferramenta-de-ajuste" aria-label="Link para esta seção">#</a></h2>
 <p>A regressão permite estimar o efeito de uma variável mantendo as outras
 constantes. Aplicada à coorte, com ajuste por área, duração, diabetes e adesão:</p>
 <div class="rolagem"><table>
@@ -3402,7 +3560,7 @@ confundimento residual, e nenhum modelo o elimina.</p>
 <p>A randomização não é uma técnica estatística: é a única maneira conhecida de
 equilibrar também aquilo que ninguém mediu.</p>
 </blockquote>
-<h2>Lendo uma regressão logística</h2>
+<h2 id="cap-12-lendo-uma-regressao-logistica">Lendo uma regressão logística<a class="ancora" href="#cap-12-lendo-uma-regressao-logistica" aria-label="Link para esta seção">#</a></h2>
 <p>O modelo ajustado do ensaio randomizado, com os 184 participantes que têm
 desfecho observado:</p>
 <div class="rolagem"><table>
@@ -3469,7 +3627,7 @@ cinco variáveis do modelo, e comportaria até onze. Modelos com mais variáveis
 que o número de eventos permite produzem coeficientes instáveis e intervalos
 absurdamente largos, e é comum vê-los em teses com quarenta desfechos e quinze
 preditores.</p></div>
-<h2>A regressão linear, quando o desfecho é numérico</h2>
+<h2 id="cap-12-a-regressao-linear-quando-o-desfecho-e-numerico">A regressão linear, quando o desfecho é numérico<a class="ancora" href="#cap-12-a-regressao-linear-quando-o-desfecho-e-numerico" aria-label="Link para esta seção">#</a></h2>
 <p>Para a redução de área em quatro semanas, o modelo é linear, e os coeficientes
 já vêm na unidade do desfecho, o que os torna muito mais fáceis de comunicar:</p>
 <div class="rolagem"><table>
@@ -3552,7 +3710,7 @@ chances pode ser interpretada.</p>
 <p><strong>"O ajuste alterou o efeito de 0,72 para 1,87 e os autores relatam apenas o
 ajustado."</strong> Relate os dois. A diferença entre bruto e ajustado é informação
 sobre o confundimento, e escondê-la impede o leitor de julgar.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-12-exercicios">Exercícios<a class="ancora" href="#cap-12-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Na coorte observacional, a razão de chances bruta foi 0,72 e a ajustada, 1,87.
 Explique, em termos clínicos, o que aconteceu entre um número e outro.</p>
@@ -3615,7 +3773,7 @@ a terceira condição de confundimento. O ajuste deve incluir características
 basais que prevejam o desfecho, como área, duração, índice tornozelo-braquial e
 comorbidades.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-12-recursos">Recursos<a class="ancora" href="#cap-12-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.strobe-statement.org/">STROBE Statement</a> — a recomendação para
   relato de estudos observacionais, com itens específicos sobre confundimento.</li>
@@ -3628,7 +3786,7 @@ sofrimento. Se fosse possível, na quarta semana, saber quem não vai cicatrizar
 esses pacientes poderiam ser encaminhados mais cedo para outra conduta. O estudo
 mediu duas coisas que poderiam servir a isso: a pressão transcutânea de oxigênio
 na inclusão e a redução da área da úlcera em quatro semanas. Qual delas serve?</p></div>
-<h2>O que se pergunta a um teste</h2>
+<h2 id="cap-13-o-que-se-pergunta-a-um-teste">O que se pergunta a um teste<a class="ancora" href="#cap-13-o-que-se-pergunta-a-um-teste" aria-label="Link para esta seção">#</a></h2>
 <p>Um teste diagnóstico ou prognóstico não acerta ou erra: ele acerta e erra em
 proporções que precisam ser medidas, e a medida depende de comparar o teste com
 um padrão de referência.</p>
@@ -3666,7 +3824,7 @@ com o ponto de corte clássico de 40%. A tabela de quatro casas fica assim:</p>
 </tbody>
 </table></div>
 <p>Dela saem todas as medidas do capítulo.</p>
-<h2>As medidas, e a pergunta que cada uma responde</h2>
+<h2 id="cap-13-as-medidas-e-a-pergunta-que-cada-uma-responde">As medidas, e a pergunta que cada uma responde<a class="ancora" href="#cap-13-as-medidas-e-a-pergunta-que-cada-uma-responde" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Sensibilidade: 71,1%.</strong> Dos que cicatrizaram, quantos o teste havia apontado?
 81 de 114. Responde à pergunta do pesquisador que já sabe o desfecho, e mede a
 capacidade do teste de não deixar escapar quem tem a condição.</p>
@@ -3690,7 +3848,7 @@ serviço. Sensibilidade e especificidade viajam; valores preditivos, não. Ao le
 um estudo de acurácia diagnóstica, a primeira coisa a verificar é a prevalência
 da condição na amostra estudada, e a segunda é se ela se parece com a do seu
 consultório.</p></div>
-<h2>As razões de verossimilhança, que resolvem o problema</h2>
+<h2 id="cap-13-as-razoes-de-verossimilhanca-que-resolvem-o-problema">As razões de verossimilhança, que resolvem o problema<a class="ancora" href="#cap-13-as-razoes-de-verossimilhanca-que-resolvem-o-problema" aria-label="Link para esta seção">#</a></h2>
 <p>A razão de verossimilhança combina as duas propriedades do teste e permite levar
 o resultado para qualquer população.</p>
 <p><strong>Razão de verossimilhança positiva: 3,55.</strong> É a sensibilidade dividida por um
@@ -3729,7 +3887,7 @@ assim que deve ser. Uma regra grosseira ajuda a julgar utilidade: razões
 positivas acima de 10 e negativas abaixo de 0,1 mudam conduta com frequência;
 entre 5 e 10, ou entre 0,1 e 0,2, ajudam; e valores próximos de 1 não informam
 quase nada.</p>
-<h2>Escolher o corte é escolher o erro que se prefere cometer</h2>
+<h2 id="cap-13-escolher-o-corte-e-escolher-o-erro-que-se-prefere-cometer">Escolher o corte é escolher o erro que se prefere cometer<a class="ancora" href="#cap-13-escolher-o-corte-e-escolher-o-erro-que-se-prefere-cometer" aria-label="Link para esta seção">#</a></h2>
 <p>Nenhum ponto de corte é o certo. Cada um troca sensibilidade por especificidade:</p>
 <div class="rolagem"><table>
 <thead>
@@ -3771,7 +3929,7 @@ sensibilidade alta. Se o objetivo é selecionar, para um tratamento caro e
 arriscado, apenas quem realmente não vai cicatrizar, prefere-se especificidade
 alta. O corte de 50% tem razão de verossimilhança positiva de 8,84, quase no
 patamar em que um teste muda conduta.</p>
-<h2>A curva ROC e a comparação entre dois testes</h2>
+<h2 id="cap-13-a-curva-roc-e-a-comparacao-entre-dois-testes">A curva ROC e a comparação entre dois testes<a class="ancora" href="#cap-13-a-curva-roc-e-a-comparacao-entre-dois-testes" aria-label="Link para esta seção">#</a></h2>
 <p>A curva ROC percorre todos os cortes possíveis e desenha sensibilidade contra um
 menos especificidade. A área sob ela resume a capacidade de discriminação em um
 número: 0,5 é o acaso, e 1,0 é a separação perfeita.</p>
@@ -3871,7 +4029,7 @@ de verossimilhança nos cortes clinicamente relevantes.</p>
 diferente."</strong> Recalcule com as razões de verossimilhança.</p>
 <p><strong>"Os intervalos de confiança das medidas de acurácia não foram apresentados."</strong>
 Sensibilidade de 71,1% baseada em 114 pacientes tem incerteza considerável.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-13-exercicios">Exercícios<a class="ancora" href="#cap-13-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Com o corte de 40%, o valor preditivo positivo foi 85,3%. Calcule qual seria esse
 valor em um serviço onde apenas 30% das úlceras cicatrizam em doze semanas,
@@ -3930,7 +4088,7 @@ Convertida de volta, a probabilidade é 5,9 dividido por 6,9, ou cerca de 86%.
 O paciente saiu de uma dúvida genuína para uma expectativa francamente favorável,
 e é isso que se espera de um teste útil.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-13-recursos">Recursos<a class="ancora" href="#cap-13-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.equator-network.org/reporting-guidelines/stard/">STARD 2015</a> — a
   recomendação para relato de estudos de acurácia diagnóstica.</li>
@@ -3942,7 +4100,7 @@ e é isso que se espera de um teste útil.</p></details>
 cicatrizou em doze semanas ou não cicatrizou. Isso desperdiça informação. Uma
 úlcera que fechou aos vinte dias e outra que fechou aos oitenta e três entraram
 na mesma casinha da tabela, e não deveriam. Este capítulo recupera o tempo.</p></div>
-<h2>O problema que só a análise de sobrevida resolve</h2>
+<h2 id="cap-14-o-problema-que-so-a-analise-de-sobrevida-resolve">O problema que só a análise de sobrevida resolve<a class="ancora" href="#cap-14-o-problema-que-so-a-analise-de-sobrevida-resolve" aria-label="Link para esta seção">#</a></h2>
 <p>Chama-se análise de sobrevida por razões históricas, porque nasceu estudando
 morte, mas o método serve a qualquer evento cuja data importe: cicatrização,
 recidiva, alta, falha de prótese, engravidar. O nome moderno, análise de tempo
@@ -3964,7 +4122,7 @@ Um tempo de 84 dias com evento igual a 1 significa uma úlcera que cicatrizou no
 cicatrizou. Analisar a coluna de tempo sozinha, calculando sua média, é o erro
 mais frequente de quem começa neste assunto, e produz um número sem sentido
 algum.</p></div>
-<h2>A curva de Kaplan-Meier</h2>
+<h2 id="cap-14-a-curva-de-kaplan-meier">A curva de Kaplan-Meier<a class="ancora" href="#cap-14-a-curva-de-kaplan-meier" aria-label="Link para esta seção">#</a></h2>
 <p>O método de Kaplan-Meier constrói a curva em degraus: a cada dia em que alguém
 cicatriza, a proporção de úlceras ainda abertas cai um degrau, e o tamanho do
 degrau leva em conta quantas pessoas ainda estavam sob observação naquele
@@ -4017,7 +4175,7 @@ que cicatrizaram. A mediana de Kaplan-Meier, 50 e 82 dias, é o tempo em que
 metade de <strong>todos</strong> os participantes já havia cicatrizado, contando os que não
 cicatrizaram. É essa a medida que se publica, porque a outra descarta em silêncio
 justamente os piores casos.</p></div>
-<h2>O teste de log-rank</h2>
+<h2 id="cap-14-o-teste-de-log-rank">O teste de log-rank<a class="ancora" href="#cap-14-o-teste-de-log-rank" aria-label="Link para esta seção">#</a></h2>
 <p>Comparar duas curvas exige um teste próprio, porque a pergunta não é sobre uma
 proporção em um momento, e sim sobre o comportamento inteiro das curvas.</p>
 <p>O log-rank percorre cada instante em que houve evento, calcula quantos eventos se
@@ -4028,7 +4186,7 @@ os mesmos pacientes, produz evidência mais forte quando a informação do tempo
 usada. Não houve truque: houve aproveitamento de dados que a dicotomização
 jogava fora. Essa é a razão prática para preferir o desfecho de tempo até o
 evento sempre que a data for conhecida.</p>
-<h2>O modelo de Cox</h2>
+<h2 id="cap-14-o-modelo-de-cox">O modelo de Cox<a class="ancora" href="#cap-14-o-modelo-de-cox" aria-label="Link para esta seção">#</a></h2>
 <p>O log-rank compara curvas, mas não estima o tamanho do efeito nem permite
 ajustar por outras variáveis. Quem faz isso é o modelo de riscos proporcionais de
 Cox, que é para o tempo até o evento o que a regressão logística é para o
@@ -4110,7 +4268,7 @@ absoluta de 17,4 pontos percentuais em doze semanas.</p>
 Capítulo 12 já havia mostrado: área e duração pioram, diabetes piora, adesão
 melhora. Que dois modelos diferentes, sobre desfechos diferentes, concordem tão
 bem é um bom sinal sobre a consistência interna do estudo.</p>
-<h3>A suposição que dá nome ao modelo</h3>
+<h3 id="cap-14-a-suposicao-que-da-nome-ao-modelo">A suposição que dá nome ao modelo<a class="ancora" href="#cap-14-a-suposicao-que-da-nome-ao-modelo" aria-label="Link para esta seção">#</a></h3>
 <p>O modelo de Cox supõe <strong>riscos proporcionais</strong>: a razão entre as taxas dos dois
 grupos é a mesma ao longo de todo o seguimento. Se o tratamento agisse só nas
 primeiras semanas e depois perdesse efeito, a suposição estaria violada e a razão
@@ -4160,7 +4318,7 @@ relativo compara proporções acumuladas em um momento.</p>
 <p><strong>"O número de eventos não está informado."</strong> Em análise de sobrevida, o que
 determina a precisão é o número de eventos, não o de participantes. Um estudo
 com quinhentos pacientes e doze eventos é um estudo pequeno.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-14-exercicios">Exercícios<a class="ancora" href="#cap-14-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>No banco, o participante P003 tem tempo de 84 dias e evento igual a 0, e o P005
 tem tempo de 77 dias e evento igual a 1. Descreva o que aconteceu com cada um.</p>
@@ -4221,7 +4379,7 @@ enganosa. A conduta é abandonar a razão de riscos como medida principal e rela
 as curvas com diferenças de cicatrização em momentos definidos, ou usar modelos
 que admitam efeito dependente do tempo.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-14-recursos">Recursos<a class="ancora" href="#cap-14-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — orientações sobre
   figuras de sobrevida e a tabela de participantes sob risco.</li>
@@ -4234,7 +4392,7 @@ que admitam efeito dependente do tempo.</p></details>
 confiança de 3,6 a 31,2 e p de 0,015. Falta a etapa em que a maioria dos estudos
 brasileiros se perde: transformar isso em um artigo que sobreviva à revisão por
 pares.</p></div>
-<h2>O relato é parte do método, não um resumo dele</h2>
+<h2 id="cap-15-o-relato-e-parte-do-metodo-nao-um-resumo-dele">O relato é parte do método, não um resumo dele<a class="ancora" href="#cap-15-o-relato-e-parte-do-metodo-nao-um-resumo-dele" aria-label="Link para esta seção">#</a></h2>
 <p>Um estudo que não pode ser avaliado por quem o lê é, para efeitos práticos, um
 estudo que não foi feito. Relatar mal não é falha de redação: é falha de método,
 porque impede a verificação, que é o que distingue ciência de opinião.</p>
@@ -4277,7 +4435,7 @@ a sua.</p>
 </table></div>
 <p>Todas estão reunidas na EQUATOR Network, e todas devem ser lidas <strong>antes</strong> de
 coletar o primeiro dado, não na véspera da submissão.</p>
-<h2>O diagrama de fluxo</h2>
+<h2 id="cap-15-o-diagrama-de-fluxo">O diagrama de fluxo<a class="ancora" href="#cap-15-o-diagrama-de-fluxo" aria-label="Link para esta seção">#</a></h2>
 <p>O CONSORT começa por uma figura, e ela é a primeira coisa que um revisor
 experiente procura. A do caso condutor:</p>
 <pre><code>             Avaliados para elegibilidade (n = 246)
@@ -4304,7 +4462,7 @@ experiente procura. A do caso condutor:</p>
 desequilíbrio de perdas e sobre quantas pessoas cada número foi calculado. Note
 que os 246 avaliados dão a medida de quão selecionada é a amostra, tema do
 Capítulo 5.</p>
-<h2>O que vai em cada seção</h2>
+<h2 id="cap-15-o-que-vai-em-cada-secao">O que vai em cada seção<a class="ancora" href="#cap-15-o-que-vai-em-cada-secao" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Introdução.</strong> Três parágrafos bastam: o que se sabe, o que não se sabe e a
 pergunta do estudo, esta última em uma frase, no fim, como o Capítulo 2 propôs.
 Introdução longa é sinal de pergunta imprecisa.</p>
@@ -4334,7 +4492,7 @@ proporcionalidade pelos resíduos de Schoenfeld. Análises ajustadas
 pré-especificadas incluíram área inicial, duração da úlcera e diabetes. Todas as
 análises seguiram o princípio de intenção de tratar. Adotou-se nível de
 significância de 5%, bilateral. As análises foram conduzidas no jamovi versão X."</p></div>
-<h2>As três tabelas e as duas figuras</h2>
+<h2 id="cap-15-as-tres-tabelas-e-as-duas-figuras">As três tabelas e as duas figuras<a class="ancora" href="#cap-15-as-tres-tabelas-e-as-duas-figuras" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Tabela 1, características basais.</strong> Sem valor de p, pelas razões do Capítulo 8.</p>
 <p><strong>Tabela 2, desfechos.</strong> Uma linha por desfecho, com os dois grupos, a medida de
 efeito, o intervalo e o p:</p>
@@ -4381,7 +4539,7 @@ tabela de participantes sob risco embaixo do eixo.</p>
 com legenda que defina abreviações e diga o que está entre parênteses; e nenhuma
 informação deve aparecer em tabela <strong>e</strong> em figura <strong>e</strong> no texto, o que é
 desperdício de espaço e fonte de discrepância.</p>
-<h2>Escrever o resultado sem exagerar</h2>
+<h2 id="cap-15-escrever-o-resultado-sem-exagerar">Escrever o resultado sem exagerar<a class="ancora" href="#cap-15-escrever-o-resultado-sem-exagerar" aria-label="Link para esta seção">#</a></h2>
 <p>Compare as duas versões da mesma conclusão:</p>
 <blockquote>
 <p><strong>Ruim:</strong> "O aspirado de medula óssea mostrou-se altamente eficaz, melhorando
@@ -4425,7 +4583,7 @@ genérica não permite julgar adequação.</p>
 Obrigatório.</p>
 <p><strong>"Não há número de aprovação ética nem de registro do ensaio."</strong> Sem eles, o
 manuscrito não segue.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-15-exercicios">Exercícios<a class="ancora" href="#cap-15-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Escreva a conclusão do resumo deste estudo, em no máximo três linhas, sem usar as
 palavras "significativo" e "eficaz".</p>
@@ -4485,7 +4643,7 @@ ponto do exercício é a conferência: cada valor precisa bater exatamente com o
 capítulo de origem, e a maneira segura de garantir isso é gerar todos os números
 de um único script, como o <code>analises-do-livro.py</code> faz nesta obra.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-15-recursos">Recursos<a class="ancora" href="#cap-15-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — checklist e diagrama.</li>
 <li><a href="https://www.equator-network.org/">EQUATOR Network</a> — todas as recomendações de
@@ -4498,7 +4656,7 @@ adicionais e elas foram feitas em vinte minutos, porque o banco estava
 organizado e as análises, em um script. É um final feliz que depende inteiramente
 de decisões tomadas lá no começo. Este capítulo olha para trás, para os lados e
 para a frente.</p></div>
-<h2>O passado: como a estatística entrou na medicina</h2>
+<h2 id="cap-16-o-passado-como-a-estatistica-entrou-na-medicina">O passado: como a estatística entrou na medicina<a class="ancora" href="#cap-16-o-passado-como-a-estatistica-entrou-na-medicina" aria-label="Link para esta seção">#</a></h2>
 <p>A pesquisa clínica moderna tem data de nascimento razoavelmente precisa. Em 1948,
 o Medical Research Council britânico publicou o ensaio da estreptomicina para
 tuberculose pulmonar, planejado por Austin Bradford Hill, com alocação
@@ -4515,7 +4673,7 @@ poder. Bradford Hill trouxe tudo isso para o leito do paciente.</p>
 baseada em evidências nos anos 1990, CONSORT em 1996, registro obrigatório de
 ensaios em 2005. A cada etapa, a exigência de transparência aumentou, e sempre
 depois de um escândalo.</p>
-<h2>O presente: uma disciplina em revisão</h2>
+<h2 id="cap-16-o-presente-uma-disciplina-em-revisao">O presente: uma disciplina em revisão<a class="ancora" href="#cap-16-o-presente-uma-disciplina-em-revisao" aria-label="Link para esta seção">#</a></h2>
 <p>Três movimentos definem o momento atual, e este livro é filho dos três.</p>
 <p><strong>A crise de reprodutibilidade.</strong> A partir de 2011, tentativas sistemáticas de
 replicar achados publicados encontraram taxas de sucesso desconfortavelmente
@@ -4538,7 +4696,7 @@ deixou de ser formalidade e virou credencial. Segundo, o desfecho primário úni
 e declarado é hoje o principal sinal de seriedade metodológica que um leitor
 consegue verificar. Terceiro, ninguém mais deveria escrever "não houve diferença
 (p = 0,21)" sem apresentar o intervalo de confiança ao lado.</p></div>
-<h2>O futuro: quatro apostas</h2>
+<h2 id="cap-16-o-futuro-quatro-apostas">O futuro: quatro apostas<a class="ancora" href="#cap-16-o-futuro-quatro-apostas" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Dados abertos como padrão.</strong> A tendência é que o banco anonimizado passe a ser
 condição de publicação, como já ocorre em várias revistas. Quem organiza o banco
 desde o começo, como o Capítulo 7 recomenda, chega pronto; quem improvisa, terá
@@ -4570,7 +4728,7 @@ relato, continuam sendo do pesquisador, e um erro cometido com auxílio de
 inteligência artificial continua sendo um erro do autor. A vantagem prática é que
 o tempo antes gasto em cálculo pode ser gasto em pensar, que é onde os estudos se
 ganham e se perdem.</p>
-<h2>O que fazer amanhã de manhã</h2>
+<h2 id="cap-16-o-que-fazer-amanha-de-manha">O que fazer amanhã de manhã<a class="ancora" href="#cap-16-o-que-fazer-amanha-de-manha" aria-label="Link para esta seção">#</a></h2>
 <p>O livro cabe em uma lista, e ela é curta:</p>
 <ol>
 <li>Escreva sua pergunta em PICO, em uma frase. Se não couber, ela não está pronta.</li>
@@ -4588,7 +4746,7 @@ ganham e se perdem.</p>
 <li>Ajuste apenas por variáveis basais, escolhidas por raciocínio clínico.</li>
 <li>Siga a recomendação de relato do seu delineamento, e siga desde o começo.</li>
 </ol>
-<h2>Uma palavra final</h2>
+<h2 id="cap-16-uma-palavra-final">Uma palavra final<a class="ancora" href="#cap-16-uma-palavra-final" aria-label="Link para esta seção">#</a></h2>
 <p>A estatística na pesquisa clínica não é um obstáculo entre o pesquisador e a
 publicação. É a disciplina que impede que ele engane a si mesmo, que é o erro
 mais fácil de cometer e o mais difícil de perceber. Quem randomiza está admitindo
@@ -4607,7 +4765,7 @@ mudam; a disposição, não.</p>
 <p>Se o item não marcado estiver entre os cinco primeiros, e a coleta já tiver
 começado, pare a coleta. É desconfortável e é mais barato do que descobrir o
 problema na banca.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-16-exercicios">Exercícios<a class="ancora" href="#cap-16-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>O ensaio da estreptomicina, de 1948, é considerado o marco inicial da pesquisa
 clínica moderna. O que ele fez que estudos anteriores não faziam?</p>
@@ -4666,7 +4824,7 @@ o cálculo do tamanho da amostra com uma diferença relevante mais modesta, mont
 o dicionário de variáveis antes da primeira consulta, ou trocar a coluna de valor
 de p da Tabela 1 por uma coluna de diferença com intervalo de confiança.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-16-recursos">Recursos<a class="ancora" href="#cap-16-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108">ASA Statement on p-Values</a>
   e <a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913">Moving to a World Beyond "p &lt; 0.05"</a>.</li>
@@ -4678,7 +4836,7 @@ de p da Tabela 1 por uma coluna de diferença com intervalo de confiança.</p></
 </ul><nav class="navega-cap"><a href="#cap-15"><span>Anterior</span><b>Relatar</b></a><a class="prox" href="#cap-A"><span>Próximo</span><b>Primeiros passos no jamovi</b></a></nav></article><article class="capitulo" id="cap-A" data-titulo="Primeiros passos no jamovi" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo A</div><h1>Primeiros passos no jamovi</h1><p class="guia">Por onde começo no programa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Todas as análises deste livro foram feitas no jamovi. Este apêndice existe para
 que quem nunca o abriu consiga chegar ao fim do Capítulo 8 sem travar na terceira
 tela.</p></div>
-<h2>Por que jamovi</h2>
+<h2 id="cap-A-por-que-jamovi">Por que jamovi<a class="ancora" href="#cap-A-por-que-jamovi" aria-label="Link para esta seção">#</a></h2>
 <p>É gratuito e de código aberto. Funciona por cliques, sem programação. Roda em
 Windows, macOS e Linux. Atualiza os resultados sozinho quando os dados mudam. E
 guarda dados, análises e resultados em um único arquivo, o que resolve boa parte
@@ -4686,7 +4844,7 @@ do problema de reprodutibilidade do Capítulo 7.</p>
 <p>Por baixo dele roda o R, o que significa que quem quiser migrar depois não estará
 começando do zero, e que quem precisar de algo que o menu não oferece pode
 instalar o módulo <strong>Rj</strong> e escrever código dentro do próprio programa.</p>
-<h2>Instalar</h2>
+<h2 id="cap-A-instalar">Instalar<a class="ancora" href="#cap-A-instalar" aria-label="Link para esta seção">#</a></h2>
 <ol>
 <li>Vá a <a href="https://www.jamovi.org/">jamovi.org</a> e baixe a versão <strong>solid</strong>, que é a
    estável. A versão <em>current</em> traz novidades e também instabilidades.</li>
@@ -4694,14 +4852,14 @@ instalar o módulo <strong>Rj</strong> e escrever código dentro do próprio pro
 <li>Anote a versão instalada. Ela precisa constar dos métodos do seu artigo, e é o
    que permite a alguém reproduzir suas telas anos depois.</li>
 </ol>
-<h2>A tela, em três partes</h2>
+<h2 id="cap-A-a-tela-em-tres-partes">A tela, em três partes<a class="ancora" href="#cap-A-a-tela-em-tres-partes" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Aba Data.</strong> A planilha. É aqui que se importa, se confere e se transforma.</p>
 <p><strong>Aba Analyses.</strong> Os menus de análise, agrupados por família: Exploration,
 T-Tests, ANOVA, Regression, Frequencies, Factor.</p>
 <p><strong>Painel de resultados</strong>, à direita. Cada análise pedida aparece ali e permanece.
 Clicar no resultado reabre as opções que o geraram, o que é a maior vantagem do
 programa: nada é uma saída morta, tudo continua editável.</p>
-<h2>As oito operações que resolvem o livro inteiro</h2>
+<h2 id="cap-A-as-oito-operacoes-que-resolvem-o-livro-inteiro">As oito operações que resolvem o livro inteiro<a class="ancora" href="#cap-A-as-oito-operacoes-que-resolvem-o-livro-inteiro" aria-label="Link para esta seção">#</a></h2>
 <p><strong>1. Importar.</strong> Menu ☰, <strong>Open</strong>, <strong>Browse</strong>. Ele lê CSV, XLSX, SAV do SPSS,
 RData e outros. Para o banco deste livro, escolha <code>coorte-condutor.csv</code>.</p>
 <p><strong>2. Conferir os tipos.</strong> Aba <strong>Data</strong>, botão <strong>Setup</strong>. Três ícones: régua para
@@ -4826,7 +4984,7 @@ Procure pelo assunto, e não pelo nome exato citado aqui.</p>
 <p><strong>8. Salvar e exportar.</strong> Salve sempre como <strong>.omv</strong>, que guarda dados, análises
 e resultados. Para o manuscrito, clique com o botão direito em qualquer tabela e
 escolha copiar, ou use <strong>Export</strong> para gerar PDF ou HTML de todos os resultados.</p>
-<h2>Cinco armadilhas do jamovi</h2>
+<h2 id="cap-A-cinco-armadilhas-do-jamovi">Cinco armadilhas do jamovi<a class="ancora" href="#cap-A-cinco-armadilhas-do-jamovi" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Tipo errado de variável.</strong> É a causa da maioria dos resultados absurdos. O
 programa não avisa: ele calcula.</p>
 <p><strong>Categoria de referência invertida.</strong> Se a referência de <code>grupo</code> for "Aspirado",
@@ -4840,7 +4998,7 @@ espera ponto. Se uma coluna numérica for importada como texto, é quase sempre
 isso. O banco deste livro já vem com ponto.</p>
 <p><strong>Análise que some.</strong> Se você apagar a análise do painel de resultados, ela se
 vai. Prefira desmarcar opções a excluir a análise inteira.</p>
-<h2>Exercícios</h2>
+<h2 id="cap-A-exercicios">Exercícios<a class="ancora" href="#cap-A-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Instale o jamovi, importe <code>coorte-condutor.csv</code> e corrija o tipo de
 <code>evento_cicatrizacao</code>. Quantas variáveis o programa classificou errado?</p>
@@ -4860,7 +5018,7 @@ já que o terceiro quartil da área é 12,7 cm². O número exato aparece no rod
 planilha, que mostra quantas linhas o filtro manteve, e conferir esse rodapé é
 uma boa prática antes de qualquer análise filtrada.</p></details>
 </div>
-<h2>Recursos</h2>
+<h2 id="cap-A-recursos">Recursos<a class="ancora" href="#cap-A-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.jamovi.org/">jamovi.org</a> — download e documentação.</li>
 <li><a href="https://library.jamovi.org/">jamovi library</a> — módulos adicionais.</li>
@@ -4868,7 +5026,7 @@ uma boa prática antes de qualquer análise filtrada.</p></details>
 </ul><nav class="navega-cap"><a href="#cap-16"><span>Anterior</span><b>Considerações finais</b></a><a class="prox" href="#cap-B"><span>Próximo</span><b>Fluxogramas e checklists</b></a></nav></article><article class="capitulo" id="cap-B" data-titulo="Fluxogramas e checklists" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo B</div><h1>Fluxogramas e checklists</h1><p class="guia">Esqueci alguma coisa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Este apêndice reúne, em uma página, o que o livro espalhou por dezesseis
 capítulos. É a parte que se consulta com o projeto aberto ao lado, não a que se
 lê na poltrona.</p></div>
-<h2>Fluxograma: qual teste eu uso?</h2>
+<h2 id="cap-B-fluxograma-qual-teste-eu-uso">Fluxograma: qual teste eu uso?<a class="ancora" href="#cap-B-fluxograma-qual-teste-eu-uso" aria-label="Link para esta seção">#</a></h2>
 <pre><code>                        Qual é o desfecho?
                                 │
         ┌───────────────────────┴───────────────────────┐
@@ -4897,7 +5055,7 @@ McNemar     Quantos grupos?               t pareado      Quantos grupos?
   (Capítulo 14).</li>
 <li><strong>Ajuste por outras variáveis</strong>: regressão linear ou logística (Capítulo 12).</li>
 </ul>
-<h2>Fluxograma: como descrever uma variável</h2>
+<h2 id="cap-B-fluxograma-como-descrever-uma-variavel">Fluxograma: como descrever uma variável<a class="ancora" href="#cap-B-fluxograma-como-descrever-uma-variavel" aria-label="Link para esta seção">#</a></h2>
 <pre><code>              Que tipo de variável?
                         │
         ┌───────────────┴───────────────┐
@@ -4914,7 +5072,7 @@ McNemar     Quantos grupos?               t pareado      Quantos grupos?
                                 ▼            ▼
                          média e DP    mediana e quartis
 </code></pre>
-<h2>Checklist do protocolo</h2>
+<h2 id="cap-B-checklist-do-protocolo">Checklist do protocolo<a class="ancora" href="#cap-B-checklist-do-protocolo" aria-label="Link para esta seção">#</a></h2>
 <p>Antes de submeter ao comitê de ética:</p>
 <ul>
 <li>[ ] A pergunta está escrita em PICO, em uma frase</li>
@@ -4935,7 +5093,7 @@ McNemar     Quantos grupos?               t pareado      Quantos grupos?
 <li>[ ] O termo de consentimento está em linguagem acessível</li>
 <li>[ ] O ensaio será registrado antes do primeiro participante</li>
 </ul>
-<h2>Checklist do banco de dados</h2>
+<h2 id="cap-B-checklist-do-banco-de-dados">Checklist do banco de dados<a class="ancora" href="#cap-B-checklist-do-banco-de-dados" aria-label="Link para esta seção">#</a></h2>
 <p>Antes de começar a coletar:</p>
 <ul>
 <li>[ ] Uma linha por participante</li>
@@ -4949,7 +5107,7 @@ McNemar     Quantos grupos?               t pareado      Quantos grupos?
 <li>[ ] Rotina de cópia de segurança definida, com uma cópia fora do prédio</li>
 <li>[ ] Validação de faixas configurada, se a coleta for eletrônica</li>
 </ul>
-<h2>Checklist antes de submeter o artigo</h2>
+<h2 id="cap-B-checklist-antes-de-submeter-o-artigo">Checklist antes de submeter o artigo<a class="ancora" href="#cap-B-checklist-antes-de-submeter-o-artigo" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li>[ ] O delineamento está no título ou no resumo</li>
 <li>[ ] O diagrama de fluxo inclui os avaliados para elegibilidade e os motivos de
@@ -4968,7 +5126,7 @@ McNemar     Quantos grupos?               t pareado      Quantos grupos?
       interesse</li>
 <li>[ ] Cada número do texto foi conferido contra a saída do programa</li>
 </ul>
-<h2>Tabela de referência rápida</h2>
+<h2 id="cap-B-tabela-de-referencia-rapida">Tabela de referência rápida<a class="ancora" href="#cap-B-tabela-de-referencia-rapida" aria-label="Link para esta seção">#</a></h2>
 <div class="rolagem"><table>
 <thead>
 <tr>
@@ -5019,7 +5177,7 @@ McNemar     Quantos grupos?               t pareado      Quantos grupos?
 </tr>
 </tbody>
 </table></div>
-<h2>Erros mais devolvidos pelos revisores, reunidos</h2>
+<h2 id="cap-B-erros-mais-devolvidos-pelos-revisores-reunidos">Erros mais devolvidos pelos revisores, reunidos<a class="ancora" href="#cap-B-erros-mais-devolvidos-pelos-revisores-reunidos" aria-label="Link para esta seção">#</a></h2>
 <p>Uma leitura de dez minutos que evita meses de retrabalho:</p>
 <ol>
 <li>Média e desvio padrão para variável assimétrica.</li>
@@ -5043,7 +5201,7 @@ McNemar     Quantos grupos?               t pareado      Quantos grupos?
 </ol><nav class="navega-cap"><a href="#cap-A"><span>Anterior</span><b>Primeiros passos no jamovi</b></a><a class="prox" href="#cap-C"><span>Próximo</span><b>Glossário</b></a></nav></article><article class="capitulo" id="cap-C" data-titulo="Glossário" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo C</div><h1>Glossário</h1><p class="guia">O que quer dizer essa palavra?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Os termos abaixo aparecem no livro e nos artigos que você vai ler. As definições
 são curtas de propósito, e cada uma indica o capítulo em que o assunto é tratado
 por inteiro.</p></div>
-<h2>A</h2>
+<h2 id="cap-C-a">A<a class="ancora" href="#cap-C-a" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Alfa (α).</strong> Probabilidade que se aceita de concluir que há efeito quando não
 há, o erro tipo I. Convencionalmente 5%. <em>Capítulos 6 e 10.</em></p>
 <p><strong>Amostragem consecutiva.</strong> Incluir todos os elegíveis, na ordem em que aparecem,
@@ -5053,12 +5211,12 @@ até completar o tamanho previsto. É a melhor das técnicas não probabilístic
 alocado, independentemente do que recebeu. <em>Capítulos 7 e 15.</em></p>
 <p><strong>Área sob a curva ROC.</strong> Resumo da capacidade de discriminação de um teste, entre
 0,5, que é o acaso, e 1,0, que é a separação perfeita. <em>Capítulo 13.</em></p>
-<h2>B</h2>
+<h2 id="cap-C-b">B<a class="ancora" href="#cap-C-b" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Beta (β).</strong> Probabilidade de não detectar um efeito que existe, o erro tipo II.
 O poder é 1 menos beta. <em>Capítulo 6.</em></p>
 <p><strong>Bloco permutado.</strong> Técnica de randomização que mantém os grupos com tamanhos
 parecidos ao longo do recrutamento. <em>Capítulo 3.</em></p>
-<h2>C</h2>
+<h2 id="cap-C-c">C<a class="ancora" href="#cap-C-c" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Censura.</strong> Situação em que se sabe apenas que o evento não ocorreu até certo
 momento. <em>Capítulo 14.</em></p>
 <p><strong>Cegamento.</strong> Manter desconhecida a alocação, para paciente, profissional,
@@ -5076,7 +5234,7 @@ randomizados. <em>Capítulo 15.</em></p>
 <p><strong>Cotas, amostragem por.</strong> Técnica não probabilística em que se define quantos
 participantes de cada subgrupo entram, preenchendo cada vaga por conveniência.
 Parece estratificada e não é: falta o sorteio. <em>Capítulo 5.</em></p>
-<h2>D</h2>
+<h2 id="cap-C-d">D<a class="ancora" href="#cap-C-d" aria-label="Link para esta seção">#</a></h2>
 <p><strong>d de Cohen.</strong> Diferença entre duas médias expressa em desvios padrão.
 <em>Capítulo 9.</em></p>
 <p><strong>Desfecho composto.</strong> Reunião de vários eventos em um único desfecho.
@@ -5089,7 +5247,7 @@ rápido ou fácil. <em>Capítulo 4.</em></p>
 participantes. <em>Capítulo 8.</em></p>
 <p><strong>Dicotomizar.</strong> Transformar variável contínua em duas categorias. Perde
 informação e poder. <em>Capítulo 4.</em></p>
-<h2>E</h2>
+<h2 id="cap-C-e">E<a class="ancora" href="#cap-C-e" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Efeito teto.</strong> Situação em que boa parte da amostra atinge o limite superior da
 escala, que deixa de discriminar. <em>Capítulos 8 e 4.</em></p>
 <p><strong>Equipoise.</strong> Incerteza genuína sobre qual braço é superior, condição ética para
@@ -5098,23 +5256,23 @@ randomizar. <em>Capítulo 2.</em></p>
 com o tamanho da amostra. Não confundir com desvio padrão. <em>Capítulos 8 e 9.</em></p>
 <p><strong>Especificidade.</strong> Proporção dos que não têm a condição e que o teste classifica
 como negativos. <em>Capítulo 13.</em></p>
-<h2>F</h2>
+<h2 id="cap-C-f">F<a class="ancora" href="#cap-C-f" aria-label="Link para esta seção">#</a></h2>
 <p><strong>FINER.</strong> Filtro de cinco critérios para julgar uma pergunta de pesquisa:
 exequível, interessante, nova, ética e relevante. <em>Capítulo 2.</em></p>
-<h2>H</h2>
+<h2 id="cap-C-h">H<a class="ancora" href="#cap-C-h" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Hipótese nula.</strong> A hipótese de ausência de efeito, que o teste estatístico
 supõe verdadeira para calcular o valor de p. <em>Capítulo 10.</em></p>
-<h2>I</h2>
+<h2 id="cap-C-i">I<a class="ancora" href="#cap-C-i" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Intervalo de confiança.</strong> Faixa de valores compatíveis com os dados observados.
 Sua largura mede a incerteza que restou. <em>Capítulo 9.</em></p>
 <p><strong>Intervalo interquartil.</strong> Distância entre o primeiro e o terceiro quartil.
 Acompanha a mediana. <em>Capítulo 8.</em></p>
-<h2>K</h2>
+<h2 id="cap-C-k">K<a class="ancora" href="#cap-C-k" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Kaplan-Meier.</strong> Método de estimar a curva de tempo até o evento na presença de
 censura. <em>Capítulo 14.</em></p>
-<h2>L</h2>
+<h2 id="cap-C-l">L<a class="ancora" href="#cap-C-l" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Log-rank.</strong> Teste que compara duas ou mais curvas de sobrevida. <em>Capítulo 14.</em></p>
-<h2>M</h2>
+<h2 id="cap-C-m">M<a class="ancora" href="#cap-C-m" aria-label="Link para esta seção">#</a></h2>
 <p><strong>McNemar.</strong> Teste para proporções pareadas, que usa apenas os discordantes.
 <em>Capítulo 11.</em></p>
 <p><strong>Mediador.</strong> Variável que está no caminho causal entre exposição e desfecho.
@@ -5123,21 +5281,21 @@ Não deve entrar no ajuste. <em>Capítulo 12.</em></p>
 Sem ele não há amostragem probabilística, e em pesquisa clínica ele quase nunca
 existe. <em>Capítulo 5.</em></p>
 <p><strong>Mediana.</strong> Valor que divide a amostra ordenada ao meio. <em>Capítulo 8.</em></p>
-<h2>N</h2>
+<h2 id="cap-C-n">N<a class="ancora" href="#cap-C-n" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Número necessário para tratar (NNT).</strong> Inverso da diferença absoluta de risco:
 quantos pacientes é preciso tratar para produzir um desfecho favorável adicional.
 <em>Capítulo 9.</em></p>
-<h2>P</h2>
+<h2 id="cap-C-p">P<a class="ancora" href="#cap-C-p" aria-label="Link para esta seção">#</a></h2>
 <p><strong>PICO.</strong> Estrutura da pergunta de pesquisa: população, intervenção, comparador e
 desfecho. <em>Capítulo 2.</em></p>
 <p><strong>Poder.</strong> Probabilidade de detectar um efeito, se ele existir. Calcula-se antes.
 <em>Capítulo 6.</em></p>
 <p><strong>Poder observado.</strong> Poder recalculado a partir do efeito observado. Não informa
 nada além do valor de p. <em>Capítulo 10.</em></p>
-<h2>Q</h2>
+<h2 id="cap-C-q">Q<a class="ancora" href="#cap-C-q" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Qui-quadrado.</strong> Teste que compara frequências observadas com as esperadas sob a
 hipótese de ausência de associação. <em>Capítulo 10.</em></p>
-<h2>R</h2>
+<h2 id="cap-C-r">R<a class="ancora" href="#cap-C-r" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Randomização.</strong> Sorteio que define quem vai para qual grupo, entre os já
 incluídos. Protege a validade interna. Não confundir com amostragem aleatória.
 <em>Capítulos 3 e 5.</em></p>
@@ -5150,7 +5308,7 @@ quem tem a condição do que em quem não tem. Permite levar o teste para popula
 de prevalência diferente. <em>Capítulo 13.</em></p>
 <p><strong>Risco relativo.</strong> Razão entre as proporções de desfecho nos dois grupos.
 <em>Capítulo 9.</em></p>
-<h2>S</h2>
+<h2 id="cap-C-s">S<a class="ancora" href="#cap-C-s" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Saturação teórica.</strong> Critério de parada da amostragem qualitativa: o ponto a
 partir do qual novas entrevistas deixam de trazer conteúdo novo. Faz, na pesquisa
 qualitativa, o papel que o cálculo do tamanho da amostra faz na quantitativa.
@@ -5160,7 +5318,7 @@ positivos. <em>Capítulo 13.</em></p>
 <p><strong>Sigilo de alocação.</strong> Impedir que quem recruta conheça a próxima alocação.
 Diferente de cegamento, e ainda mais importante. <em>Capítulo 3.</em></p>
 <p><strong>STROBE.</strong> Recomendação para relato de estudos observacionais. <em>Capítulo 15.</em></p>
-<h2>V</h2>
+<h2 id="cap-C-v">V<a class="ancora" href="#cap-C-v" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Validade externa.</strong> Possibilidade de generalizar o resultado para outras
 populações. <em>Capítulo 5.</em></p>
 <p><strong>Validade interna.</strong> Confiança de que a diferença observada se deve à intervenção
@@ -5176,12 +5334,12 @@ positivos, ou como negativos. Depende da prevalência. <em>Capítulo 13.</em></p
 os negativos. <em>Capítulos 2 e 16.</em></p>
 <p><strong>Viés de seleção.</strong> Distorção na definição de quem entra no estudo ou em cada
 grupo. <em>Capítulos 3 e 5.</em></p>
-<h2>W</h2>
+<h2 id="cap-C-w">W<a class="ancora" href="#cap-C-w" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Wilson, intervalo de.</strong> Método de calcular intervalo de confiança de proporção
 que não produz limites impossíveis. Preferível ao de Wald. <em>Capítulo 9.</em></p><nav class="navega-cap"><a href="#cap-B"><span>Anterior</span><b>Fluxogramas e checklists</b></a><a class="prox" href="#cap-D"><span>Próximo</span><b>O banco do caso condutor</b></a></nav></article><article class="capitulo" id="cap-D" data-titulo="O banco do caso condutor" hidden><header class="cabecalho-cap"><div class="etiqueta">Apêndices · Capítulo D</div><h1>O banco do caso condutor</h1><p class="guia">Que dados são esses?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Todos os números impressos neste livro vêm de dois bancos de dados. Este apêndice
 descreve os dois, diz como obtê-los e explica como conferir qualquer resultado da
 obra.</p></div>
-<h2>Uma advertência antes de tudo</h2>
+<h2 id="cap-D-uma-advertencia-antes-de-tudo">Uma advertência antes de tudo<a class="ancora" href="#cap-D-uma-advertencia-antes-de-tudo" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Os dados são simulados.</strong> Nenhum paciente real foi estudado, nenhum aspirado de
 medula óssea foi aplicado e nenhum dos resultados deste livro constitui evidência
 sobre o tratamento de úlceras venosas. O estudo é fictício; as decisões que ele
@@ -5190,14 +5348,14 @@ existe.</p>
 <p>Um estudo verdadeiro dessa natureza exigiria aprovação em Comitê de Ética em
 Pesquisa, registro prévio em plataforma pública de ensaios clínicos e
 consentimento livre e esclarecido de cada participante.</p>
-<h2>O ensaio randomizado</h2>
+<h2 id="cap-D-o-ensaio-randomizado">O ensaio randomizado<a class="ancora" href="#cap-D-o-ensaio-randomizado" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Arquivo:</strong> <code>coorte-condutor.csv</code> · 200 linhas · 26 variáveis · UTF-8, separador
 vírgula, ponto decimal.</p>
 <p>Ensaio clínico randomizado, paralelo, 1:1, multicêntrico, com avaliador de
 desfecho cego, comparando aspirado de medula óssea autólogo associado à terapia
 compressiva contra terapia compressiva isolada, em úlcera venosa de membro
 inferior. Desfecho primário: cicatrização completa em 12 semanas.</p>
-<h3>As variáveis</h3>
+<h3 id="cap-D-as-variaveis">As variáveis<a class="ancora" href="#cap-D-as-variaveis" aria-label="Link para esta seção">#</a></h3>
 <div class="rolagem"><table>
 <thead>
 <tr>
@@ -5339,7 +5497,7 @@ inferior. Desfecho primário: cicatrização completa em 12 semanas.</p>
 </tr>
 </tbody>
 </table></div>
-<h3>As três naturezas de ausência</h3>
+<h3 id="cap-D-as-tres-naturezas-de-ausencia">As três naturezas de ausência<a class="ancora" href="#cap-D-as-tres-naturezas-de-ausencia" aria-label="Link para esta seção">#</a></h3>
 <p>O banco foi construído com os três tipos que o Capítulo 7 distingue, e é
 proposital:</p>
 <ul>
@@ -5349,12 +5507,12 @@ proposital:</p>
 <li><strong>Ausência estrutural:</strong> <code>dor_sitio_puncao</code>, que não se aplica a quem não
   recebeu o aspirado. Não é dado faltante e não se imputa.</li>
 </ul>
-<h3>Advertência sobre o tempo</h3>
+<h3 id="cap-D-advertencia-sobre-o-tempo">Advertência sobre o tempo<a class="ancora" href="#cap-D-advertencia-sobre-o-tempo" aria-label="Link para esta seção">#</a></h3>
 <p><code>tempo_ate_cicatrizacao_dias</code> <strong>não</strong> pode ser analisada sozinha. Um valor de 84
 significa uma úlcera que cicatrizou no último dia se <code>evento_cicatrizacao</code> for 1,
 e uma úlcera que nunca cicatrizou se for 0. As duas colunas se leem juntas,
 sempre. <em>Capítulo 14.</em></p>
-<h2>A coorte observacional</h2>
+<h2 id="cap-D-a-coorte-observacional">A coorte observacional<a class="ancora" href="#cap-D-a-coorte-observacional" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Arquivo:</strong> <code>coorte-observacional.csv</code> · 300 linhas · 12 variáveis.</p>
 <p>Mesma pergunta, mesmo tratamento, mesmo desfecho e <strong>o mesmo efeito verdadeiro</strong>
 do ensaio. A única diferença é que ninguém sorteou: o aspirado foi indicado a
@@ -5405,7 +5563,7 @@ quando o tratamento na verdade beneficia.</p>
 </tr>
 </tbody>
 </table></div>
-<h2>Como reproduzir tudo</h2>
+<h2 id="cap-D-como-reproduzir-tudo">Como reproduzir tudo<a class="ancora" href="#cap-D-como-reproduzir-tudo" aria-label="Link para esta seção">#</a></h2>
 <p>Os arquivos e scripts da obra:</p>
 <div class="rolagem"><table>
 <thead>
@@ -5452,7 +5610,7 @@ que permite mostrar quando um método acerta e quando erra, coisa impossível co
 dados reais, em que ninguém sabe a resposta. Terceiro, honestidade: um exemplo
 inventado apresentado como real seria pior do que um exemplo inventado
 apresentado como tal.</p></div>
-<h2>Exercícios</h2>
+<h2 id="cap-D-exercicios">Exercícios<a class="ancora" href="#cap-D-exercicios" aria-label="Link para esta seção">#</a></h2>
 <div class="exercicio"><div class="titulo">Exercício 1</div>
 <p>Abra os dois bancos no jamovi e compare a área inicial mediana entre quem recebeu
 e quem não recebeu o tratamento, em cada um. O que a comparação revela?</p>
@@ -5474,11 +5632,21 @@ comum descrito no Capítulo 15.</p></details>
 </div><nav class="navega-cap"><a href="#cap-C"><span>Anterior</span><b>Glossário</b></a></nav></article>
 </main>
 </div>
+<button id="ao-topo" type="button" hidden aria-label="Voltar ao topo">&uarr;</button>
 <script>
 var LIVRO_TITULO = "A Estat\u00edstica na Pesquisa Cl\u00ednica";
+var LIVRO_CAPS = [{"id": "cap-1", "n": "1", "titulo": "A pergunta antes do número", "palavras": 1942, "parte": "Parte I — A pergunta"}, {"id": "cap-2", "n": "2", "titulo": "Da dúvida clínica à pergunta respondível", "palavras": 2008, "parte": "Parte I — A pergunta"}, {"id": "cap-3", "n": "3", "titulo": "O delineamento decide tudo", "palavras": 2092, "parte": "Parte I — A pergunta"}, {"id": "cap-4", "n": "4", "titulo": "Variáveis e desfechos", "palavras": 1876, "parte": "Parte II — Antes de coletar"}, {"id": "cap-5", "n": "5", "titulo": "Técnicas de amostragem", "palavras": 2449, "parte": "Parte II — Antes de coletar"}, {"id": "cap-6", "n": "6", "titulo": "Cálculo do tamanho da amostra", "palavras": 1953, "parte": "Parte II — Antes de coletar"}, {"id": "cap-7", "n": "7", "titulo": "Coleta, banco de dados e reprodutibilidade", "palavras": 2182, "parte": "Parte II — Antes de coletar"}, {"id": "cap-8", "n": "8", "titulo": "Estatística descritiva", "palavras": 2888, "parte": "Parte III — Diante dos dados"}, {"id": "cap-9", "n": "9", "titulo": "Estimativa e incerteza", "palavras": 2264, "parte": "Parte III — Diante dos dados"}, {"id": "cap-10", "n": "10", "titulo": "Teste de hipótese e valor de p", "palavras": 2211, "parte": "Parte III — Diante dos dados"}, {"id": "cap-11", "n": "11", "titulo": "Escolhendo o teste", "palavras": 2240, "parte": "Parte III — Diante dos dados"}, {"id": "cap-12", "n": "12", "titulo": "Além do bivariado: regressão e confundimento", "palavras": 2279, "parte": "Parte III — Diante dos dados"}, {"id": "cap-13", "n": "13", "titulo": "Testes diagnósticos", "palavras": 2046, "parte": "Parte III — Diante dos dados"}, {"id": "cap-14", "n": "14", "titulo": "Análise de sobrevida", "palavras": 2247, "parte": "Parte III — Diante dos dados"}, {"id": "cap-15", "n": "15", "titulo": "Relatar", "palavras": 1943, "parte": "Parte IV — Depois da análise"}, {"id": "cap-16", "n": "16", "titulo": "Considerações finais", "palavras": 1815, "parte": "Parte IV — Depois da análise"}, {"id": "cap-A", "n": "A", "titulo": "Primeiros passos no jamovi", "palavras": 1028, "parte": "Apêndices"}, {"id": "cap-B", "n": "B", "titulo": "Fluxogramas e checklists", "palavras": 998, "parte": "Apêndices"}, {"id": "cap-C", "n": "C", "titulo": "Glossário", "palavras": 1163, "parte": "Apêndices"}, {"id": "cap-D", "n": "D", "titulo": "O banco do caso condutor", "palavras": 1162, "parte": "Apêndices"}];
+var PALAVRAS_POR_MINUTO = 200;
 /* ------------------------------------------------------------------
    A Estatística na Pesquisa Clínica — comportamento da página do livro
-   Embutido em livro.html pelo construir.py. Sem dependência externa.
+   Embutido em index.html pelo construir.py. Sem dependência externa.
+
+   O que este arquivo faz:
+   - navegação por capítulo, com endereço permanente por seção
+   - marcador de leitura: o que já foi lido e quanto falta do livro
+   - busca no texto completo, com trecho de contexto e destaque
+   - índice interno do capítulo
+   - tema claro e escuro, tamanho do texto, impressão
    ------------------------------------------------------------------ */
 (function () {
   "use strict";
@@ -5486,124 +5654,479 @@ var LIVRO_TITULO = "A Estat\u00edstica na Pesquisa Cl\u00ednica";
   var capitulos = Array.prototype.slice.call(document.querySelectorAll(".capitulo"));
   var elos = Array.prototype.slice.call(document.querySelectorAll("#sumario a[data-id]"));
   var busca = document.getElementById("busca");
+  var resultados = document.getElementById("resultados-busca");
+  var listaCapitulos = document.getElementById("lista-capitulos");
   var progresso = document.getElementById("barra-progresso");
   var corpo = document.body;
 
-  /* ------------------------------------------------ navegacao por hash */
+  var CHAVE_LIDOS = "epc-lidos";
+  var CHAVE_ULTIMO = "epc-ultimo";
+  var CHAVE_TEMA = "epc-tema";
+  var CHAVE_FONTE = "epc-fonte";
 
-  function mostrar(id, rolarAoTopo) {
-    var alvo = document.getElementById(id) ? id : capitulos[0].id;
-    capitulos.forEach(function (c) { c.hidden = c.id !== alvo; });
+  /* ------------------------------------------------------- utilidades */
+
+  function guarda(chave, valor) {
+    try { localStorage.setItem(chave, valor); } catch (e) {}
+  }
+  function busca_guardado(chave) {
+    try { return localStorage.getItem(chave); } catch (e) { return null; }
+  }
+  function semAcento(s) {
+    return s.normalize ? s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
+                       : s.toLowerCase();
+  }
+  function duracao(palavras) {
+    var min = Math.round(palavras / PALAVRAS_POR_MINUTO);
+    if (min < 1) { return "menos de 1 min"; }
+    if (min < 60) { return min + " min"; }
+    var h = Math.floor(min / 60), m = min % 60;
+    return h + " h" + (m ? " " + m + " min" : "");
+  }
+
+  /* --------------------------------------------------- marcador de leitura */
+
+  var lidos = {};
+  (function carregaLidos() {
+    try { lidos = JSON.parse(busca_guardado(CHAVE_LIDOS) || "{}") || {}; } catch (e) { lidos = {}; }
+  })();
+
+  var totalPalavras = LIVRO_CAPS.reduce(function (s, c) { return s + c.palavras; }, 0);
+
+  function palavrasLidas() {
+    return LIVRO_CAPS.reduce(function (s, c) { return s + (lidos[c.id] ? c.palavras : 0); }, 0);
+  }
+
+  function estaLido(id) { return !!lidos[id]; }
+
+  function marca(id, valor) {
+    if (!LIVRO_CAPS.some(function (c) { return c.id === id; })) { return; }
+    if (valor) { lidos[id] = 1; } else { delete lidos[id]; }
+    guarda(CHAVE_LIDOS, JSON.stringify(lidos));
+    pintaProgresso();
+    pintaBotaoLido();
+  }
+
+  function pintaProgresso() {
+    var lidasP = palavrasLidas();
+    var pct = totalPalavras ? Math.round((lidasP / totalPalavras) * 100) : 0;
+    var quantos = LIVRO_CAPS.filter(function (c) { return lidos[c.id]; }).length;
+
+    var preenchido = document.getElementById("progresso-preenchido");
+    if (preenchido) { preenchido.style.width = pct + "%"; }
+    var elPct = document.getElementById("progresso-pct");
+    if (elPct) { elPct.textContent = pct + "%"; }
+    var det = document.getElementById("progresso-detalhe");
+    if (det) {
+      det.textContent = "do livro lido · " + quantos + " de " + LIVRO_CAPS.length + " capítulos";
+    }
+    var rest = document.getElementById("progresso-restante");
+    if (rest) {
+      var faltam = totalPalavras - lidasP;
+      rest.textContent = faltam > 0 ? "Faltam cerca de " + duracao(faltam) + " de leitura"
+                                    : "Você leu o livro inteiro.";
+    }
+
     elos.forEach(function (a) {
-      var ativo = a.getAttribute("data-id") === alvo;
+      a.classList.toggle("lido", estaLido(a.getAttribute("data-id")));
+    });
+  }
+
+  function pintaBotaoLido() {
+    var cap = capitulos.find(function (c) { return !c.hidden; });
+    if (!cap) { return; }
+    var botao = cap.querySelector(".marcar-lido");
+    if (!botao) { return; }
+    var lido = estaLido(cap.id);
+    botao.classList.toggle("feito", lido);
+    botao.setAttribute("aria-pressed", String(lido));
+    botao.textContent = lido ? "✓ Capítulo lido" : "Marcar como lido";
+  }
+
+  /* ------------------ enfeites que cada capítulo recebe uma única vez */
+
+  function preparaCapitulo(cap) {
+    if (cap.dataset.pronto === "1") { return; }
+    cap.dataset.pronto = "1";
+
+    var dados = LIVRO_CAPS.filter(function (c) { return c.id === cap.id; })[0];
+    var cabecalho = cap.querySelector(".cabecalho-cap");
+
+    // tempo de leitura, logo abaixo da pergunta-guia
+    if (dados && cabecalho) {
+      var t = document.createElement("p");
+      t.className = "tempo-leitura";
+      t.textContent = duracao(dados.palavras) + " de leitura · " +
+                      dados.palavras.toLocaleString("pt-BR") + " palavras";
+      cabecalho.appendChild(t);
+    }
+
+    // índice interno, quando o capítulo tem seções suficientes
+    var titulos = Array.prototype.slice.call(cap.querySelectorAll("h2[id]"));
+    if (titulos.length >= 3 && cabecalho) {
+      var box = document.createElement("details");
+      box.className = "indice-cap";
+      var resumo = document.createElement("summary");
+      resumo.textContent = "Neste capítulo (" + titulos.length + " seções)";
+      box.appendChild(resumo);
+      var ul = document.createElement("ul");
+      titulos.forEach(function (h) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = "#" + h.id;
+        a.textContent = h.textContent.replace(/#$/, "").trim();
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      box.appendChild(ul);
+      cabecalho.parentNode.insertBefore(box, cabecalho.nextSibling);
+    }
+
+    // botão de marcar como lido, antes da navegação de rodapé
+    if (dados) {
+      var nav = cap.querySelector(".navega-cap");
+      var caixa = document.createElement("div");
+      caixa.className = "caixa-marcar";
+      var botao = document.createElement("button");
+      botao.type = "button";
+      botao.className = "marcar-lido";
+      caixa.appendChild(botao);
+      if (nav) { cap.insertBefore(caixa, nav); } else { cap.appendChild(caixa); }
+    }
+    religa(cap);
+  }
+
+  /* Trocar o innerHTML (ao destacar e ao limpar a busca) mata os ouvintes de
+     evento sem apagar os elementos. Esta função os devolve, e é por isso que
+     ela não pode criar nada: quem cria é preparaCapitulo, uma única vez. */
+  function religa(cap) {
+    cap.querySelectorAll(".abas").forEach(function (g) { g.dataset.ligado = ""; });
+    ligaAbas(cap);
+    var botao = cap.querySelector(".marcar-lido");
+    if (botao && botao.dataset.ligado !== "1") {
+      botao.dataset.ligado = "1";
+      botao.addEventListener("click", function () { marca(cap.id, !estaLido(cap.id)); });
+    }
+    pintaBotaoLido();
+  }
+
+  /* ------------------------------------------------ navegação por hash */
+
+  function capituloDe(elemento) {
+    while (elemento && !elemento.classList.contains("capitulo")) { elemento = elemento.parentElement; }
+    return elemento;
+  }
+
+  function mostrar(id, rolarPara) {
+    var alvo = document.getElementById(id);
+    var cap = alvo ? capituloDe(alvo) : null;
+    if (!cap) { cap = capitulos[0]; }
+
+    capitulos.forEach(function (c) { c.hidden = c !== cap; });
+    preparaCapitulo(cap);
+
+    elos.forEach(function (a) {
+      var ativo = a.getAttribute("data-id") === cap.id;
       a.classList.toggle("ativo", ativo);
       if (ativo) { a.setAttribute("aria-current", "page"); } else { a.removeAttribute("aria-current"); }
     });
-    var cap = document.getElementById(alvo);
+
     document.title = (cap.getAttribute("data-titulo") || "") + " — " + LIVRO_TITULO;
-    try { localStorage.setItem("epc-ultimo", alvo); } catch (e) {}
-    if (rolarAoTopo !== false) { window.scrollTo(0, 0); }
+    guarda(CHAVE_ULTIMO, cap.id);
     corpo.classList.remove("sumario-aberto");
-    atualizaProgresso();
-  }
 
-  function daHash() {
-    var id = (location.hash || "").replace(/^#/, "");
-    if (!id) {
-      try { id = localStorage.getItem("epc-ultimo") || ""; } catch (e) { id = ""; }
+    if (rolarPara !== false) {
+      if (alvo && alvo !== cap) {
+        alvo.scrollIntoView({ block: "start" });
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
-    mostrar(id || capitulos[0].id, false);
+    pintaBotaoLido();
+    atualizaProgresso();
+    if (termoAtivo) { destaca(cap, termoAtivo); }
+    setTimeout(verificaLeituraCompleta, 400);
   }
 
-  window.addEventListener("hashchange", function () { mostrar((location.hash || "").replace(/^#/, "")); });
+  window.addEventListener("hashchange", function () {
+    mostrar((location.hash || "").replace(/^#/, ""));
+  });
 
-  /* ------------------------------------------------------------ busca */
+  /* --------------------- marcação automática ao terminar o capítulo */
+
+  function verificaLeituraCompleta() {
+    var cap = capitulos.find(function (c) { return !c.hidden; });
+    if (!cap || estaLido(cap.id)) { return; }
+    if (!LIVRO_CAPS.some(function (c) { return c.id === cap.id; })) { return; }
+
+    var h = document.documentElement;
+    var rolavel = h.scrollHeight - h.clientHeight;
+    if (rolavel < 200) {
+      // capítulo que cabe na tela: conta como lido após alguns segundos
+      if (!cap.dataset.temporizador) {
+        cap.dataset.temporizador = "1";
+        setTimeout(function () { if (!cap.hidden) { marca(cap.id, true); } }, 8000);
+      }
+      return;
+    }
+    if (h.scrollTop / rolavel > 0.9) { marca(cap.id, true); }
+  }
+
+  /* ------------------------------------------- busca no texto completo */
+
+  var indice = null;
+  var termoAtivo = "";
+
+  function montaIndice() {
+    if (indice) { return indice; }
+    indice = capitulos.map(function (cap) {
+      var texto = cap.textContent.replace(/\s+/g, " ").trim();
+      return {
+        id: cap.id,
+        titulo: cap.getAttribute("data-titulo") || "Capa",
+        texto: texto,
+        normal: semAcento(texto)
+      };
+    });
+    return indice;
+  }
+
+  function trecho(texto, pos, termo) {
+    var ini = Math.max(0, pos - 60);
+    var fim = Math.min(texto.length, pos + termo.length + 90);
+    return (ini > 0 ? "…" : "") + texto.slice(ini, fim).trim() + (fim < texto.length ? "…" : "");
+  }
+
+  function mostraResultados(termo) {
+    var alvo = semAcento(termo);
+    var achados = [];
+    montaIndice().forEach(function (item) {
+      var n = 0, de = 0, primeiro = -1;
+      while (true) {
+        var p = item.normal.indexOf(alvo, de);
+        if (p === -1) { break; }
+        if (primeiro === -1) { primeiro = p; }
+        n++; de = p + alvo.length;
+        if (n > 99) { break; }
+      }
+      if (n) { achados.push({ id: item.id, titulo: item.titulo, n: n, trecho: trecho(item.texto, primeiro, termo) }); }
+    });
+
+    resultados.innerHTML = "";
+    if (!achados.length) {
+      resultados.innerHTML = '<p class="vazio">Nada encontrado para <b>' +
+        termo.replace(/[<>&]/g, "") + "</b>.</p>";
+      resultados.hidden = false;
+      listaCapitulos.hidden = true;
+      return;
+    }
+
+    achados.sort(function (a, b) { return b.n - a.n; });
+    var total = achados.reduce(function (s, a) { return s + a.n; }, 0);
+    var cabeca = document.createElement("p");
+    cabeca.className = "cabeca-resultados";
+    cabeca.textContent = total + (total === 1 ? " ocorrência em " : " ocorrências em ") +
+                         achados.length + (achados.length === 1 ? " capítulo" : " capítulos");
+    resultados.appendChild(cabeca);
+
+    achados.forEach(function (a) {
+      var link = document.createElement("a");
+      link.className = "resultado";
+      link.href = "#" + a.id;
+      link.innerHTML = "<b>" + a.titulo + "</b><span class=\"contagem\">" + a.n + "</span>" +
+                       "<em>" + a.trecho.replace(/[<>&]/g, " ") + "</em>";
+      link.addEventListener("click", function () {
+        termoAtivo = termo;
+        corpo.classList.remove("sumario-aberto");
+      });
+      resultados.appendChild(link);
+    });
+
+    resultados.hidden = false;
+    listaCapitulos.hidden = true;
+  }
+
+  function limpaDestaque(cap) {
+    if (cap.dataset.original) {
+      cap.innerHTML = cap.dataset.original;
+      delete cap.dataset.original;
+      religa(cap);
+    }
+  }
+
+  function destaca(cap, termo) {
+    limpaDestaque(cap);
+    if (!termo || termo.length < 2) { return; }
+    cap.dataset.original = cap.innerHTML;
+
+    var alvo = semAcento(termo);
+    var caminhante = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (no) {
+        if (!no.nodeValue.trim()) { return NodeFilter.FILTER_REJECT; }
+        var pai = no.parentNode.nodeName;
+        if (pai === "SCRIPT" || pai === "STYLE" || pai === "BUTTON") { return NodeFilter.FILTER_REJECT; }
+        return semAcento(no.nodeValue).indexOf(alvo) === -1
+          ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    var nos = [], no, primeiro = null;
+    while ((no = caminhante.nextNode())) { nos.push(no); }
+
+    nos.forEach(function (texto) {
+      var valor = texto.nodeValue, normal = semAcento(valor);
+      var frag = document.createDocumentFragment();
+      var de = 0, p;
+      while ((p = normal.indexOf(alvo, de)) !== -1) {
+        if (p > de) { frag.appendChild(document.createTextNode(valor.slice(de, p))); }
+        var m = document.createElement("mark");
+        m.textContent = valor.slice(p, p + alvo.length);
+        frag.appendChild(m);
+        if (!primeiro) { primeiro = m; }
+        de = p + alvo.length;
+      }
+      frag.appendChild(document.createTextNode(valor.slice(de)));
+      texto.parentNode.replaceChild(frag, texto);
+    });
+
+    if (primeiro) { primeiro.scrollIntoView({ block: "center" }); }
+  }
 
   if (busca) {
+    var atraso;
     busca.addEventListener("input", function () {
-      var termo = busca.value.trim().toLowerCase();
-      elos.forEach(function (a) {
-        var texto = (a.textContent + " " + (a.getAttribute("data-busca") || "")).toLowerCase();
-        a.classList.toggle("oculto", termo.length > 1 && texto.indexOf(termo) === -1);
-      });
-      document.querySelectorAll("#sumario .parte").forEach(function (p) {
-        var visiveis = 0, no = p.nextElementSibling;
-        while (no && no.tagName === "A") {
-          if (!no.classList.contains("oculto")) { visiveis++; }
-          no = no.nextElementSibling;
+      clearTimeout(atraso);
+      atraso = setTimeout(function () {
+        var termo = busca.value.trim();
+        if (termo.length < 2) {
+          resultados.hidden = true;
+          listaCapitulos.hidden = false;
+          termoAtivo = "";
+          capitulos.forEach(limpaDestaque);
+          return;
         }
-        p.style.display = visiveis ? "" : "none";
-      });
+        mostraResultados(termo);
+      }, 180);
+    });
+    busca.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape") {
+        busca.value = "";
+        busca.dispatchEvent(new Event("input"));
+        busca.blur();
+      }
     });
   }
 
   /* ------------------------------------------------------------- abas */
 
-  document.querySelectorAll(".abas").forEach(function (grupo) {
-    var botoes = Array.prototype.slice.call(grupo.querySelectorAll(".abas-tira button"));
-    var paineis = Array.prototype.slice.call(grupo.querySelectorAll(".aba-painel"));
-    botoes.forEach(function (b, i) {
-      b.addEventListener("click", function () {
-        botoes.forEach(function (o, j) { o.setAttribute("aria-selected", String(i === j)); });
-        paineis.forEach(function (p, j) { p.hidden = i !== j; });
-      });
-      b.addEventListener("keydown", function (ev) {
-        var d = ev.key === "ArrowRight" ? 1 : ev.key === "ArrowLeft" ? -1 : 0;
-        if (!d) { return; }
-        ev.preventDefault();
-        botoes[(i + d + botoes.length) % botoes.length].focus();
-        botoes[(i + d + botoes.length) % botoes.length].click();
+  function ligaAbas(escopo) {
+    (escopo || document).querySelectorAll(".abas").forEach(function (grupo) {
+      if (grupo.dataset.ligado === "1") { return; }
+      grupo.dataset.ligado = "1";
+      var botoes = Array.prototype.slice.call(grupo.querySelectorAll(".abas-tira button"));
+      var paineis = Array.prototype.slice.call(grupo.querySelectorAll(".aba-painel"));
+      botoes.forEach(function (b, i) {
+        b.addEventListener("click", function () {
+          botoes.forEach(function (o, j) { o.setAttribute("aria-selected", String(i === j)); });
+          paineis.forEach(function (p, j) { p.hidden = i !== j; });
+        });
+        b.addEventListener("keydown", function (ev) {
+          var d = ev.key === "ArrowRight" ? 1 : ev.key === "ArrowLeft" ? -1 : 0;
+          if (!d) { return; }
+          ev.preventDefault();
+          var alvo = botoes[(i + d + botoes.length) % botoes.length];
+          alvo.focus(); alvo.click();
+        });
       });
     });
-  });
+  }
+  ligaAbas(document);
 
   /* ------------------------------------------------------------- tema */
 
   var btnTema = document.getElementById("alterna-tema");
   function aplicaTema(t) {
     document.documentElement.setAttribute("data-tema", t);
-    try { localStorage.setItem("epc-tema", t); } catch (e) {}
+    guarda(CHAVE_TEMA, t);
     if (btnTema) { btnTema.textContent = t === "escuro" ? "Tema claro" : "Tema escuro"; }
   }
-  var temaSalvo = null;
-  try { temaSalvo = localStorage.getItem("epc-tema"); } catch (e) {}
-  aplicaTema(temaSalvo || (window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches ? "escuro" : "claro"));
+  aplicaTema(busca_guardado(CHAVE_TEMA) ||
+    (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "escuro" : "claro"));
   if (btnTema) {
     btnTema.addEventListener("click", function () {
       aplicaTema(document.documentElement.getAttribute("data-tema") === "escuro" ? "claro" : "escuro");
     });
   }
 
-  /* -------------------------------------------------------- progresso */
+  /* -------------------------------------------------- tamanho do texto */
 
+  var escala = parseFloat(busca_guardado(CHAVE_FONTE) || "1");
+  function aplicaFonte(v) {
+    escala = Math.min(1.5, Math.max(0.85, Math.round(v * 100) / 100));
+    document.documentElement.style.setProperty("--escala", escala);
+    guarda(CHAVE_FONTE, String(escala));
+  }
+  aplicaFonte(escala);
+  var menor = document.getElementById("fonte-menor");
+  var maior = document.getElementById("fonte-maior");
+  if (menor) { menor.addEventListener("click", function () { aplicaFonte(escala - 0.08); }); }
+  if (maior) { maior.addEventListener("click", function () { aplicaFonte(escala + 0.08); }); }
+
+  /* ------------------------------------------------- zerar o progresso */
+
+  var zerar = document.getElementById("zera-progresso");
+  if (zerar) {
+    zerar.addEventListener("click", function () {
+      if (!window.confirm("Apagar as marcas de leitura de todos os capítulos?")) { return; }
+      lidos = {};
+      guarda(CHAVE_LIDOS, "{}");
+      pintaProgresso();
+      pintaBotaoLido();
+    });
+  }
+
+  /* --------------------------------------------- retomar de onde parou */
+
+  (function montaRetomar() {
+    var alvo = document.getElementById("retomar");
+    var ultimo = busca_guardado(CHAVE_ULTIMO);
+    if (!alvo || !ultimo || ultimo === "capa") { return; }
+    var dados = LIVRO_CAPS.filter(function (c) { return c.id === ultimo; })[0];
+    if (!dados) { return; }
+    alvo.innerHTML = '<a href="#' + dados.id + '"><span>Continuar de onde parou</span><b>' +
+      "Capítulo " + dados.n + ". " + dados.titulo + "</b></a>";
+    alvo.hidden = false;
+  })();
+
+  /* --------------------------------- barra de progresso e voltar ao topo */
+
+  var aoTopo = document.getElementById("ao-topo");
   function atualizaProgresso() {
-    if (!progresso) { return; }
     var h = document.documentElement;
     var total = h.scrollHeight - h.clientHeight;
-    progresso.style.width = (total > 40 ? (h.scrollTop / total) * 100 : 0) + "%";
+    if (progresso) { progresso.style.width = (total > 40 ? (h.scrollTop / total) * 100 : 0) + "%"; }
+    if (aoTopo) { aoTopo.hidden = h.scrollTop < 600; }
   }
-  window.addEventListener("scroll", atualizaProgresso, { passive: true });
-
-  /* ------------------------------------------------- sumario no celular */
+  window.addEventListener("scroll", function () {
+    atualizaProgresso();
+    verificaLeituraCompleta();
+  }, { passive: true });
+  if (aoTopo) {
+    aoTopo.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+  }
 
   var btnSumario = document.getElementById("abre-sumario");
   if (btnSumario) {
     btnSumario.addEventListener("click", function () { corpo.classList.toggle("sumario-aberto"); });
   }
-
-  /* --------------------------------------------------------- impressao */
-
   var btnImprimir = document.getElementById("imprime-tudo");
   if (btnImprimir) { btnImprimir.addEventListener("click", function () { window.print(); }); }
 
   /* ---------------------------------------------------------- teclado */
 
   document.addEventListener("keydown", function (ev) {
-    if (ev.target.tagName === "INPUT" || ev.target.tagName === "TEXTAREA" || ev.metaKey || ev.ctrlKey) {
-      if (ev.key === "Escape" && ev.target === busca) { busca.value = ""; busca.dispatchEvent(new Event("input")); busca.blur(); }
-      return;
-    }
+    if (ev.target.tagName === "INPUT" || ev.target.tagName === "TEXTAREA" ||
+        ev.metaKey || ev.ctrlKey || ev.altKey) { return; }
     var atual = capitulos.findIndex(function (c) { return !c.hidden; });
     if (ev.key === "ArrowRight" || ev.key === "j") {
       if (atual < capitulos.length - 1) { location.hash = capitulos[atual + 1].id; }
@@ -5611,11 +6134,19 @@ var LIVRO_TITULO = "A Estat\u00edstica na Pesquisa Cl\u00ednica";
       if (atual > 0) { location.hash = capitulos[atual - 1].id; }
     } else if (ev.key === "/") {
       ev.preventDefault();
-      if (busca) { corpo.classList.add("sumario-aberto"); busca.focus(); }
+      corpo.classList.add("sumario-aberto");
+      if (busca) { busca.focus(); }
+    } else if (ev.key === "m" || ev.key === "M") {
+      var cap = capitulos[atual];
+      if (cap) { marca(cap.id, !estaLido(cap.id)); }
     }
   });
 
-  daHash();
+  /* ------------------------------------------------------------ início */
+
+  var inicial = (location.hash || "").replace(/^#/, "") || busca_guardado(CHAVE_ULTIMO) || capitulos[0].id;
+  mostrar(inicial, false);
+  pintaProgresso();
 })();
 
 </script>

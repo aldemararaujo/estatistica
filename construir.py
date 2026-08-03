@@ -18,6 +18,7 @@ Dependencia unica: markdown (pip install markdown)
 import html
 import json
 import re
+import unicodedata
 from datetime import date
 from pathlib import Path
 
@@ -50,6 +51,29 @@ def para_html(texto):
 def envolve_tabelas(bruto):
     """Toda tabela rola sozinha: a pagina nunca rola na horizontal."""
     return re.sub(r"(<table>.*?</table>)", r'<div class="rolagem">\1</div>', bruto, flags=re.S)
+
+
+def slug(texto):
+    """Identificador estavel para um titulo: serve de ancora permanente."""
+    limpo = unicodedata.normalize("NFKD", re.sub(r"<[^>]+>", "", texto))
+    limpo = limpo.encode("ascii", "ignore").decode("ascii").lower()
+    return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", limpo)).strip("-")[:60]
+
+
+def ancora_titulos(bruto, prefixo):
+    """Da id e link permanente a cada h2 e h3, para citar uma secao em aula."""
+    usados = {}
+
+    def troca(m):
+        nivel, texto = m.group(1), m.group(2)
+        base = f"{prefixo}-{slug(texto)}" or prefixo
+        usados[base] = usados.get(base, 0) + 1
+        ident = base if usados[base] == 1 else f"{base}-{usados[base]}"
+        return (f'<h{nivel} id="{ident}">{texto}'
+                f'<a class="ancora" href="#{ident}" aria-label="Link para esta seção">#</a>'
+                f"</h{nivel}>")
+
+    return re.sub(r"<h([23])>(.*?)</h\1>", troca, bruto, flags=re.S)
 
 
 # --------------------------------------------------------------- blocos
@@ -147,7 +171,7 @@ def construir():
     css = (TEMA / "tema.css").read_text(encoding="utf-8")
     js = (TEMA / "livro.js").read_text(encoding="utf-8")
 
-    sumario, paineis, sequencia, relatorio = [], [], [], []
+    sumario, paineis, sequencia, relatorio, meta = [], [], [], [], []
 
     # capa
     sequencia.append(("capa", "Capa"))
@@ -164,13 +188,19 @@ def construir():
             palavras = len(fonte.split())
 
             sumario.append(
-                f'<a href="#{cid}" data-id="{cid}" data-busca="{html.escape(cap["guia"])}"'
+                f'<a href="#{cid}" data-id="{cid}" data-palavras="{palavras}" '
+                f'data-busca="{html.escape(cap["guia"])}"'
                 + ("" if existe else ' class="pendente"') + ">"
-                + f'<span class="num">{cap["n"]}</span><span>{html.escape(cap["titulo"])}</span></a>')
+                + f'<span class="num">{cap["n"]}</span>'
+                + f'<span class="rotulo">{html.escape(cap["titulo"])}</span></a>')
 
-            miolo = render(fonte) if existe else (
+            miolo = ancora_titulos(render(fonte), cid) if existe else (
                 '<div class="aviso-vazio"><p>Capítulo em preparação.</p>'
                 f'<p>Ele responderá: <em>{html.escape(cap["guia"])}</em></p></div>')
+
+            if existe:
+                meta.append({"id": cid, "n": str(cap["n"]), "titulo": cap["titulo"],
+                             "palavras": palavras, "parte": parte["titulo"]})
 
             paineis.append(
                 f'<article class="capitulo" id="{cid}" data-titulo="{html.escape(cap["titulo"])}" hidden>'
@@ -207,6 +237,7 @@ def construir():
         f'<div class="etiqueta">{html.escape(livro["autor"])}</div>'
         f'<h1>{html.escape(livro["titulo"])}</h1>'
         f'<p class="guia">{html.escape(livro["subtitulo"])}</p></header>'
+        '<div id="retomar" hidden></div>'
         + texto_capa +
         '<div class="ficha">'
         f'<p>{html.escape(livro["autor"])} — <a href="{livro["lattes"]}">currículo Lattes</a></p>'
@@ -231,6 +262,7 @@ def construir():
 </head>
 <body>
 <div id="barra-progresso"></div>
+<a class="pular" href="#leitura">Pular para o conteúdo</a>
 <button id="abre-sumario" type="button">Sumário</button>
 <div id="leiaute">
 <nav id="sumario">
@@ -238,20 +270,45 @@ def construir():
     <b>{html.escape(livro["titulo"])}</b>
     <span>{html.escape(livro["subtitulo"])}</span>
   </div>
-  <input id="busca" type="search" placeholder="Buscar capítulo (tecla /)" aria-label="Buscar capítulo">
+
+  <section id="painel-progresso" aria-label="Progresso de leitura">
+    <div class="trilho"><div class="preenchido" id="progresso-preenchido"></div></div>
+    <p class="linha-progresso"><strong id="progresso-pct">0%</strong>
+       <span id="progresso-detalhe">do livro lido</span></p>
+    <p class="linha-restante" id="progresso-restante"></p>
+  </section>
+
+  <input id="busca" type="search" placeholder="Buscar no livro inteiro (tecla /)"
+         aria-label="Buscar no livro inteiro" autocomplete="off">
+  <div id="resultados-busca" hidden></div>
+
+  <div id="lista-capitulos">
   {"".join(sumario)}
+  </div>
+
   <div id="rodape-sumario">
-    <button id="alterna-tema" type="button">Tema escuro</button>
-    <button id="imprime-tudo" type="button">Imprimir</button>
-    <p>Setas ou J e K mudam de capítulo.</p>
+    <div class="ferramentas">
+      <button id="alterna-tema" type="button">Tema escuro</button>
+      <button id="imprime-tudo" type="button">Imprimir</button>
+    </div>
+    <div class="ferramentas">
+      <span class="rotulo-ferramenta">Texto</span>
+      <button id="fonte-menor" type="button" aria-label="Diminuir o texto">A&minus;</button>
+      <button id="fonte-maior" type="button" aria-label="Aumentar o texto">A+</button>
+      <button id="zera-progresso" type="button">Zerar leitura</button>
+    </div>
+    <p>Setas ou J e K mudam de capítulo. Tecla / busca. Tecla M marca como lido.</p>
   </div>
 </nav>
 <main id="leitura">
 {"".join(paineis)}
 </main>
 </div>
+<button id="ao-topo" type="button" hidden aria-label="Voltar ao topo">&uarr;</button>
 <script>
 var LIVRO_TITULO = {json.dumps(livro["titulo"])};
+var LIVRO_CAPS = {json.dumps(meta, ensure_ascii=False)};
+var PALAVRAS_POR_MINUTO = 200;
 {js}
 </script>
 </body>
