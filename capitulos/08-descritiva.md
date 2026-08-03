@@ -226,6 +226,64 @@ existe. Uma casa decimal basta para idade, peso e escores; percentuais em estudo
 com duzentos participantes não precisam de decimal algum.
 :::
 
+::: quiz
+? [facil] A área inicial das úlceras tem média de 10,5 cm² e mediana de 7,7 cm². Qual resumo deve ir para a Tabela 1?
++ Mediana e quartis, porque a distribuição é assimétrica à direita. | Correto. Apenas 67 das 200 úlceras têm área acima da média, e um resumo que descreve mal dois terços da amostra não serve, por mais correta que esteja a aritmética.
+- Média e desvio padrão, porque são as medidas usuais. | Usuais não significa adequadas. Aqui a média é puxada por poucas úlceras enormes, uma delas de 66,4 cm².
+- Os dois pares, para o leitor escolher. | Poluir a tabela transfere ao leitor uma decisão que era do autor.
+- Média e amplitude, que mostra os extremos. | A amplitude depende inteiramente dos dois valores mais extremos e é a medida de dispersão menos estável.
+- Moda e amplitude interquartil. | A moda quase nunca informa em variáveis contínuas.
+@ cap-8-cada-tipo-de-variavel-pede-um-resumo
+
+? [facil] Qual a diferença entre desvio padrão e erro padrão?
++ O desvio padrão descreve o quanto os participantes variam entre si; o erro padrão descreve a precisão com que a média foi estimada. | Correto. O desvio padrão entra na descrição da amostra; o erro padrão, na construção do intervalo de confiança do Capítulo 9.
+- São a mesma coisa, com nomes diferentes. | São grandezas distintas, e o erro padrão encolhe conforme a amostra cresce, enquanto o desvio padrão não.
+- O erro padrão descreve a variação entre participantes e o desvio padrão, a precisão da média. | É a troca invertida, e ela é frequente.
+- O desvio padrão só se aplica a distribuições normais. | Pode ser calculado em qualquer distribuição, embora descreva melhor as simétricas.
+- O erro padrão é o desvio padrão dividido pelo número de participantes. | É dividido pela **raiz** do número de participantes, e essa diferença é o motivo de a precisão melhorar devagar.
+@ cap-8-cada-tipo-de-variavel-pede-um-resumo
+
+? [media] Por que a Tabela 1 de um ensaio randomizado não deve trazer coluna de valor de p?
++ Porque se sabe de antemão que qualquer desequilíbrio surgiu por acaso: foi um sorteio que alocou os participantes. | Correto. Testar o que já se sabe verdadeiro responde a uma pergunta sem interesse e sugere que p acima de 0,05 autorizaria concluir comparabilidade, o que não autoriza.
+- Porque a Tabela 1 é descritiva e testes não cabem em tabelas descritivas. | O argumento é lógico, e não formal: o problema é a pergunta que o teste responderia.
+- Porque as variáveis basais raramente são normais. | A distribuição não é a questão aqui.
+- Porque isso aumentaria o número de comparações múltiplas. | Multiplicidade é um problema real e adicional, e não o motivo central.
+- Porque o CONSORT proíbe qualquer valor de p em tabelas. | O CONSORT desaconselha essa coluna específica, e valores de p aparecem legitimamente na tabela de desfechos.
+@ cap-8-a-tabela-1-do-estudo
+
+? [media] Como decidir se uma distribuição comporta a média?
++ Olhando o histograma: se a cauda de um lado for visivelmente mais longa, a mediana descreve melhor. | Correto. O teste de normalidade responde a uma pergunta que não interessa e responde mal: com amostra pequena quase nunca rejeita, e com amostra grande rejeita quase sempre.
+- Aplicando o teste de Shapiro-Wilk e decidindo pelo valor de p. | É a pior herança dos manuais antigos: um critério que erra nas duas pontas e substitui o julgamento por um p.
+- Verificando se média e mediana são exatamente iguais. | Coincidência exata é rara mesmo em distribuições simétricas; o que importa é a proximidade e a forma.
+- Calculando o coeficiente de variação. | Mede dispersão relativa e não indica assimetria.
+- Comparando a amostra com uma tabela de valores normais. | Não existe tal procedimento, e a forma se avalia pela própria distribuição observada.
+@ cap-8-cada-tipo-de-variavel-pede-um-resumo
+
+? [media] A redução de área em 12 semanas tem mediana de 100% nos dois grupos, embora a cicatrização tenha sido de 70,7% e 53,3%. Qual a explicação?
++ Efeito teto: em ambos os grupos mais da metade cicatrizou, e uma úlcera cicatrizada tem exatamente 100% de redução. | Correto. Como o participante do meio está, nos dois casos, dentro do conjunto dos que cicatrizaram, a mediana é 100% nos dois grupos. A mediana só discrimina onde ainda há variação na escala.
+- Erro no cálculo das medianas. | O cálculo está certo, e a coincidência é consequência da escala, não de engano.
+- As duas informações se contradizem e uma delas está errada. | Não se contradizem: descrevem aspectos diferentes dos mesmos dados.
+- A mediana não deve ser usada para variáveis percentuais. | Pode ser usada; o que a inutiliza aqui é a saturação da escala.
+- O grupo controle teve mais valores extremos. | Teve mais dispersão, o que aparece no desvio padrão, e não é o que explica a mediana idêntica.
+@ cap-8-quando-o-resumo-esconde-o-resultado
+
+? [dificil] Um artigo descreve a área inicial como "10,5 ± 9,4 cm²". Aponte os dois problemas.
++ A escolha do resumo, inadequado para distribuição assimétrica, e a notação, que não informa o que vem depois do símbolo. | Correto. O leitor não sabe se 9,4 é desvio padrão, erro padrão ou metade de um intervalo, e a notação sugere um limite inferior de 1,1 cm², implausível para uma amostra cujo menor valor é 0,8.
+- Apenas a notação: o resumo está correto. | O resumo também está inadequado, pela assimetria.
+- Apenas o resumo: a notação com ± é padrão consagrado. | É comum e ambíguo, e as recomendações de relato pedem que se escreva o que está entre parênteses.
+- O número de casas decimais e a unidade de medida. | A precisão está razoável e a unidade está presente.
+- A ausência do valor de p e do tamanho da amostra. | Nenhum dos dois pertence a essa descrição.
+@ cap-8-cada-tipo-de-variavel-pede-um-resumo
+
+? [dificil] Na Tabela 1 do caso condutor, o diabetes aparece em 17% do grupo tratado e 27% do controle. Qual conduta é correta?
++ Descrever o desequilíbrio e considerá-lo na análise ajustada, sem testá-lo. | Correto. O que decide é o tamanho do desequilíbrio e o efeito conhecido do diabetes sobre a cicatrização, e não a significância dele, que se sabe de antemão ser fruto do acaso.
+- Aplicar um qui-quadrado e, se p for menor que 0,05, ajustar a análise. | Usar o p da Tabela 1 como gatilho para decidir o ajuste é exatamente o que o capítulo desaconselha.
+- Refazer a randomização até obter grupos equilibrados. | Isso destruiria a aleatoriedade, que é a única propriedade que equilibra também o que ninguém mediu.
+- Excluir participantes diabéticos para restaurar o equilíbrio. | Excluir depois da alocação quebra a randomização e a análise por intenção de tratar.
+- Ignorar, porque a randomização garante comparabilidade. | Ela equilibra em média, ao longo de repetições, e não garante equilíbrio perfeito em um estudo particular.
+@ cap-8-a-tabela-1-do-estudo
+:::
+
 ## Exercícios
 
 ::: exercicio 1

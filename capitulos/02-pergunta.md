@@ -229,6 +229,64 @@ dados invalida a conclusão.
 para revisão. O registro é anterior à inclusão do primeiro paciente.
 :::
 
+::: quiz
+? [facil] No acrônimo FINER, de onde vem a letra F?
++ De *feasible*, que em português é exequível ou viável. | Correto. FINER é acrônimo inglês, e traduzido letra a letra não formaria palavra alguma em português: seria EINER.
+- De "factível", palavra portuguesa equivalente a viável. | A letra vem do inglês *feasible*. A coincidência com "factível" é acidental e não explica as outras letras.
+- De *fundamental*, indicando que a pergunta deve ser central para a área. | Não existe essa letra no acrônimo, e relevância é o R.
+- De *final*, indicando que é o último filtro antes de começar. | O FINER é o primeiro filtro, e não o último.
+- De "financiável", ou seja, com verba disponível. | Verba faz parte da exequibilidade, mas a palavra é *feasible*, e ela abrange também tempo, equipe e método.
+@ cap-2-o-filtro-finer
+
+? [facil] No PICO, o que representa a letra O?
++ *Outcome*, o desfecho: o que será medido. | Correto. É a letra que menos se parece com sua tradução, e por isso o livro sempre apresenta as duas línguas.
+- *Objective*, o objetivo geral do estudo. | O objetivo é um texto derivado da pergunta, e não um componente dela.
+- "Observação", o método de coleta dos dados. | Não faz parte da estrutura, e o modo de coletar é assunto do Capítulo 7.
+- *Odds*, a razão de chances a ser calculada. | A medida de efeito é escolhida depois, na análise, e não integra o acrônimo.
+- "Origem", o serviço de onde vêm os participantes. | A procedência dos participantes faz parte do P, a população.
+@ cap-2-a-estrutura-pico
+
+? [media] Por que este livro prefere "qual a diferença de proporção de cicatrização?" a "o aspirado aumenta a proporção de cicatrização?"
++ Porque a primeira só pode ser respondida com um número e uma margem de erro, e a segunda admite um sim ou um não. | Correto. A pergunta escrita como "se" produz artigos que concluem "houve diferença significativa" sem dizer de quanto; escrita como "quanto", a omissão se torna impossível.
+- Porque a primeira é mais formal e adequada ao texto acadêmico. | A razão é metodológica, não estilística.
+- Porque a segunda pressupõe que o tratamento funciona. | Não pressupõe: ela pergunta se funciona. O problema é o formato da resposta que ela convida.
+- Porque a primeira dispensa o cálculo do valor de p. | O valor de p continua podendo ser calculado. O que muda é o que ocupa o primeiro plano do relato.
+- Porque a segunda não permite calcular o tamanho da amostra. | As duas permitem, desde que a diferença relevante esteja declarada.
+@ cap-2-a-estrutura-pico
+
+? [media] Um pesquisador escreve: "avaliar o perfil epidemiológico dos pacientes com úlcera venosa atendidos no serviço". O que se pode dizer dessa formulação?
++ É um objetivo descritivo legítimo, mas não sustenta conclusão sobre eficácia de nada. | Correto. Serve a um estudo transversal, cujo produto é a descrição de frequências. Para testar algo, faltariam comparação e desfecho.
+- É uma pergunta PICO completa, com população e desfecho definidos. | Faltam a intervenção ou exposição, o comparador e um desfecho definido operacionalmente.
+- Não serve para nada, por ser apenas descritiva. | Descrever é legítimo e útil para planejar serviços e dimensionar estudos futuros.
+- É uma pergunta de superioridade mal escrita. | Não há dois braços a comparar, portanto não há superioridade em questão.
+- Deveria ser reescrita como pergunta de não inferioridade. | Não inferioridade também exige comparador, que aqui não existe.
+@ cap-2-tres-tipos-de-pergunta-tres-desenhos-de-conclusao
+
+? [media] O caso condutor compara o aspirado associado à compressão contra compressão isolada. Por que o comparador não é curativo simples, sem compressão?
++ Porque o comparador deve ser o melhor tratamento disponível, e privar o grupo controle da compressão seria eticamente indefensável. | Correto. Um comparador enfraquecido produziria um efeito enorme e sem valor: mediria a compressão, não o aspirado.
+- Porque curativo simples produziria um efeito pequeno demais para detectar. | O efeito seria maior, e não menor. O problema é ético e interpretativo, não de magnitude.
+- Porque a compressão isolada é mais barata de aplicar no estudo. | Custo não é o critério que define o comparador.
+- Porque o CONSORT exige que o comparador seja ativo. | O CONSORT trata de relato, não determina qual comparador escolher.
+- Porque assim o estudo dispensa aprovação ética. | Nenhuma escolha de comparador dispensa aprovação em comitê de ética.
+@ cap-2-tres-tipos-de-pergunta-tres-desenhos-de-conclusao
+
+? [dificil] Um estudo de superioridade termina sem alcançar significância. Os autores propõem reescrevê-lo como estudo de não inferioridade, argumentando que o novo tratamento é mais barato. Qual a avaliação correta?
++ É inaceitável: a margem de não inferioridade precisa ser definida antes da coleta, e trocar o tipo de pergunta depois dos dados invalida a conclusão. | Correto. Um estudo de superioridade que dá negativo não se converte em não inferioridade bem-sucedida, e o registro prévio existe para tornar essa troca visível.
+- É aceitável, desde que a margem seja justificada com base na literatura. | A justificativa posterior não resolve: o problema é a escolha ter sido feita conhecendo o resultado.
+- É aceitável, porque o custo menor é um benefício legítimo. | O custo menor é um argumento clínico válido, e ele deveria ter motivado o desenho de não inferioridade desde o início.
+- É aceitável se o intervalo de confiança estiver inteiramente dentro da margem. | Isso descreveria o resultado de um estudo de não inferioridade planejado como tal, não a conversão posterior de um estudo negativo.
+- É aceitável, desde que declarado como análise exploratória na discussão. | Como exploração, pode ser mencionado; o que não se admite é a conclusão do artigo passar a se apoiar nele.
+@ cap-2-tres-tipos-de-pergunta-tres-desenhos-de-conclusao
+
+? [dificil] Qual das perguntas abaixo falha no critério N do FINER, mesmo tratando de intervenção ainda pouco usada no Brasil?
++ Uma cuja resposta já foi estabelecida por três ensaios randomizados bem conduzidos em populações semelhantes. | Correto. O que falta nesse caso não é outro ensaio, e sim uma revisão sistemática. Repetir sem saber desperdiça recursos e expõe pacientes sem necessidade.
+- Uma que investiga a mesma intervenção em uma população com comorbidade ainda não estudada. | Isso é novidade legítima: uma pergunta pode ser nova pela população, pelo contexto ou pelo desfecho.
+- Uma que mede um desfecho nunca avaliado para aquela intervenção. | Também é novidade legítima, pelo desfecho.
+- Uma que replica um estudo estrangeiro em um sistema de saúde estruturalmente diferente. | A validade externa é a questão aqui, e replicar em outro contexto costuma ser justificável.
+- Uma que compara duas intervenções já existentes que nunca foram comparadas entre si. | Comparação direta inédita é uma das formas mais claras de novidade.
+@ cap-2-o-filtro-finer
+:::
+
 ## Exercícios
 
 ::: exercicio 1

@@ -199,6 +199,64 @@ razoável" é aceito, e cobrado.
 deve dizer sobre quantos casos foi calculada.
 :::
 
+::: quiz
+? [facil] Qual a regra que organiza um banco de dados de pesquisa?
++ Uma linha por participante, uma coluna por variável, uma informação por célula. | Correto. Parece óbvia e é violada o tempo inteiro, com pressão arterial em uma célula só, cores com significado e células mescladas.
+- Uma linha por variável e uma coluna por participante. | É a transposição do formato correto, e nenhum programa estatístico a lê diretamente.
+- Uma planilha por participante, reunidas em uma pasta. | Inviabiliza qualquer análise e multiplica o risco de perda.
+- Uma linha por consulta, com o participante repetido. | É o formato longo, útil em medidas repetidas, e ainda assim exige identificador e estrutura declarada; a regra geral do capítulo é uma linha por participante.
+- Uma planilha por variável, ligadas por fórmulas. | Fragmenta o banco e torna a conferência impossível.
+@ cap-7-o-banco-e-um-ativo-nao-um-rascunho
+
+? [facil] Como se registra um dado que não foi coletado?
++ Deixando a célula vazia. | Correto. Códigos numéricos entram nos cálculos se ninguém os recodificar, e o texto no meio de uma coluna numérica faz o programa importar tudo como texto.
+- Com o código 999. | É o erro clássico: 999 é um número e será tratado como tal, distorcendo médias e modelos.
+- Com o valor 0. | É o mais perigoso de todos, porque produz um resultado plausível e falso, que ninguém percebe.
+- Com a palavra "ausente" na célula. | Texto em coluna numérica faz o programa importar a coluna inteira como texto.
+- Com um traço ou hífen. | Mesmo problema do texto: contamina o tipo da coluna.
+@ cap-7-os-erros-que-destroem-bancos
+
+? [media] O banco do caso condutor tem três naturezas diferentes de dado ausente. Qual delas ameaça a validade do resultado principal?
++ A perda de seguimento, porque pode se relacionar ao próprio desfecho. | Correto. Quem não melhora tende a abandonar mais, e é por isso que ela motiva a análise por intenção de tratar e as análises de sensibilidade.
+- A falha de aferição do TcPO₂ por defeito do equipamento. | Não tem relação com o desfecho e custa apenas precisão.
+- A ausência estrutural da dor no sítio de punção no grupo controle. | Não é dado faltante: é pergunta que não se aplica, e imputá-la seria inventar dado.
+- A falta do índice de massa corporal em três participantes. | Falha de aferição pontual, sem relação com o desfecho.
+- Todas ameaçam igualmente. | Elas têm consequências diferentes, e distingui-las é justamente o que o capítulo ensina.
+@ cap-7-as-tres-naturezas-do-dado-ausente
+
+? [media] Por que o banco bruto nunca deve ser editado à mão?
++ Porque a edição manual não deixa rastro, e meses depois ninguém sabe se o valor era assim na ficha ou se foi corrigido, por quem e por quê. | Correto. Banco bruto preservado mais script de limpeza permitem reconstruir o banco analítico e mostram a cadeia inteira de decisões. É a mesma lógica do prontuário: não se apaga, acrescenta-se.
+- Porque programas estatísticos não conseguem ler arquivos editados. | Leem normalmente; o problema é de rastreabilidade, não de formato.
+- Porque a edição manual sempre introduz erros de digitação. | Pode introduzir, e o argumento central é a impossibilidade de auditar depois.
+- Porque a LGPD proíbe alterar dados de pesquisa. | A lei trata de proteção de dados pessoais, e não de metodologia de limpeza.
+- Porque o banco bruto é propriedade do comitê de ética. | Não é, e a razão para preservá-lo é metodológica.
+@ cap-7-reprodutibilidade-que-e-o-assunto-verdadeiro-deste-capitulo
+
+? [media] Qual formato de data evita ambiguidade entre sistemas?
++ AAAA-MM-DD, que ordena corretamente como texto e não admite leitura dupla. | Correto. É a maior fonte de dor silenciosa em bancos: 03/04 significa 3 de abril em uma máquina e 4 de março em outra.
+- DD/MM/AAAA, o formato usado no Brasil. | É ambíguo quando o arquivo circula entre máquinas com configurações regionais diferentes.
+- MM/DD/AAAA, o formato internacional. | É o formato americano, e é justamente o que gera o conflito com o brasileiro.
+- O formato que o Excel sugerir automaticamente. | O programa sugere conforme a configuração da máquina, que é exatamente o problema.
+- Data por extenso, como "3 de abril de 2026". | Não ambíguo, e impossível de ordenar e calcular sem conversão.
+@ cap-7-os-erros-que-destroem-bancos
+
+? [dificil] Um estudo perdeu 16 participantes, oito em cada grupo. Por que o equilíbrio no número não basta para descartar viés?
++ Porque perdas equilibradas em número podem ser desequilibradas em natureza: os motivos de abandono podem diferir entre os grupos. | Correto. Se no grupo tratado abandonaram os que não melhoravam e no controle os que melhoraram cedo, o viés existe apesar do equilíbrio numérico. Por isso se comparam as características basais dos perdidos.
+- Porque dezesseis perdas são muitas para um estudo de duzentos participantes. | Oito por cento está dentro do previsto no protocolo e não é, em si, um problema.
+- Porque o cálculo do tamanho da amostra não previa perdas. | Previa 10%, e o observado ficou abaixo disso.
+- Porque a análise por intenção de tratar exige que não haja perdas. | Ela existe justamente para lidar com elas, e não pressupõe ausência.
+- Porque perdas sempre invalidam um ensaio clínico. | Não invalidam: exigem descrição, comparação dos perdidos e análise de sensibilidade.
+@ cap-7-as-tres-naturezas-do-dado-ausente
+
+? [dificil] O que caracteriza um estudo reprodutível, na definição deste capítulo?
++ Outra pessoa consegue regerar os resultados a partir dos dados originais. | Correto. Não é ideal abstrato: é a diferença entre conseguir e não conseguir responder ao revisor que pede uma análise adicional.
+- Outro grupo consegue repetir o estudo e obter o mesmo resultado. | Isso é replicação, que é diferente e depende de um novo estudo com novos participantes.
+- Os resultados são publicados em revista de acesso aberto. | Acesso aberto facilita a leitura, e não garante que alguém consiga refazer as contas.
+- O banco de dados foi aprovado pelo comitê de ética. | Aprovação ética é obrigatória e não diz nada sobre reprodutibilidade.
+- As análises foram conferidas por um estatístico. | Conferência ajuda, e reprodutibilidade significa que qualquer pessoa, com os dados, chega ao mesmo número.
+@ cap-7-reprodutibilidade-que-e-o-assunto-verdadeiro-deste-capitulo
+:::
+
 ## Exercícios
 
 ::: exercicio 1

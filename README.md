@@ -30,6 +30,11 @@ completo, indiferente a acentos, com destaque das ocorrências; índice interno 
 cada capítulo; endereço permanente para cada seção; tamanho de texto ajustável;
 tema claro e escuro; e navegação por teclado.
 
+Cada capítulo traz ainda um **quiz recolhido**, com sete perguntas de cinco
+alternativas, duas fáceis, três intermediárias e duas difíceis. Cada alternativa
+tem seu próprio comentário, e o erro leva ao endereço da seção que responde à
+questão. São 112 perguntas e 560 comentários no livro inteiro.
+
 | Arquivo | Conteúdo |
 |---|---|
 | `index.html` | **o livro**, pronto para leitura |

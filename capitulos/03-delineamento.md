@@ -158,6 +158,64 @@ válida, sem discutir confundimento por indicação."** É a falha mais comum na
 literatura cirúrgica.
 :::
 
+::: quiz
+? [facil] Qual delineamento responde melhor a "qual a prevalência de úlcera venosa em maiores de 60 anos no município?"
++ Transversal, com amostragem probabilística da população. | Correto. Para prevalência, um transversal bem-feito é superior a qualquer ensaio, o que mostra que a hierarquia da evidência vale para perguntas de eficácia, e não para todas.
+- Ensaio clínico randomizado. | Ensaios medem eficácia de intervenção em quem foi selecionado para entrar, e não a frequência da doença na população.
+- Coorte prospectiva de dez anos. | Coorte estima incidência, que é doença nova ao longo do tempo, e não prevalência, que é a existente em um momento.
+- Caso-controle. | Caso-controle serve à etiologia de doenças raras e não permite estimar frequência na população.
+- Série de casos do ambulatório. | Descreve quem chegou ao serviço, o que é uma amostra enviesada da população do município.
+@ cap-3-os-delineamentos-e-a-pergunta-que-cada-um-responde
+
+? [facil] O que a randomização protege, e o que ela não protege?
++ Protege a comparabilidade entre os grupos, e não a possibilidade de generalizar o resultado para outras populações. | Correto. Randomização protege a validade interna; a validade externa depende de quem entrou no estudo, assunto do Capítulo 5.
+- Protege a generalização, garantindo que a amostra represente a população. | Isso seria amostragem aleatória, que é outra coisa e que praticamente nenhum ensaio clínico faz.
+- Protege contra erros de aferição do desfecho. | Isso é papel do cegamento do avaliador.
+- Protege contra perdas de seguimento. | Perdas ocorrem depois da alocação e são combatidas com seguimento ativo e análise por intenção de tratar.
+- Protege contra erros de digitação no banco. | Isso é assunto de coleta e validação de dados, no Capítulo 7.
+@ cap-3-as-tres-protecoes-de-um-ensaio-e-o-que-cada-uma-protege
+
+? [media] Qual a diferença entre sigilo de alocação e cegamento?
++ O sigilo protege o momento da inclusão, impedindo que quem recruta saiba a próxima alocação; o cegamento protege o período posterior, impedindo que o conhecimento influencie cuidado e aferição. | Correto. São proteções distintas e, na literatura, a ausência de sigilo de alocação é a que mais se associa a efeitos superestimados.
+- São sinônimos, e a diferença é apenas terminológica. | São conceitos distintos, e um estudo pode ter um sem o outro.
+- O sigilo se aplica ao paciente e o cegamento, ao pesquisador. | Ambos podem envolver vários papéis, e a distinção correta é temporal: antes e depois da alocação.
+- O sigilo é obrigatório e o cegamento é opcional. | O cegamento do avaliador é exigido sempre que o desfecho envolver julgamento; nenhum dos dois é mero opcional.
+- O cegamento é mais importante, porque dura todo o estudo. | A duração não define a importância, e a ausência de sigilo é o item com maior impacto documentado sobre o tamanho do efeito.
+@ cap-3-as-tres-protecoes-de-um-ensaio-e-o-que-cada-uma-protege
+
+? [media] Por que o delineamento cruzado não serviria para o caso condutor?
++ Porque a cicatrização é irreversível: uma úlcera fechada não volta ao estado inicial para receber o segundo tratamento. | Correto. O cruzado exige condição estável e efeito reversível, como dor neuropática ou asma.
+- Porque exigiria o dobro de pacientes. | O cruzado exige menos participantes, e não mais, já que cada um serve de controle de si mesmo.
+- Porque não permite cegamento. | O cegamento é igualmente difícil nos dois desenhos, e não é isso que inviabiliza o cruzado aqui.
+- Porque o comitê de ética não aprovaria. | O impedimento é biológico, e não regulatório.
+- Porque a análise estatística seria complexa demais. | Existe metodologia consolidada para o cruzado; o problema é que a condição não retorna ao estado inicial.
+@ cap-3-variantes-do-ensaio-clinico
+
+? [media] No caso condutor, o cegamento é parcial. Qual desfecho é mais vulnerável a essa limitação?
++ A dor relatada pelo paciente na escala visual analógica. | Correto. Desfechos relatados pelo próprio paciente são sensíveis à expectativa de quem sabe que recebeu uma terapia celular.
+- A cicatrização completa aferida por avaliador cego em fotografia. | É o menos vulnerável: tem critério objetivo e o avaliador desconhece a alocação.
+- O tempo até a cicatrização registrado no prontuário. | Deriva da mesma aferição cega da cicatrização, e portanto é pouco vulnerável.
+- A área da úlcera medida por planimetria. | A planimetria é feita por avaliador cego sobre fotografia codificada.
+- A ocorrência de infecção confirmada por critérios clínicos definidos. | Critérios objetivos definidos previamente reduzem bastante a vulnerabilidade.
+@ cap-3-as-tres-protecoes-de-um-ensaio-e-o-que-cada-uma-protege
+
+? [dificil] Um pesquisador quer avaliar se um novo protocolo de curativo, aplicado por toda a equipe de enfermagem, reduz o tempo de cicatrização. Qual delineamento e qual cuidado adicional a análise exige?
++ Ensaio randomizado por conglomerados, com análise que leve em conta a correlação entre pacientes da mesma unidade. | Correto. A intervenção é da equipe, e randomizar pacientes dentro da mesma unidade contaminaria os grupos. Ignorar a correlação produz intervalos falsamente estreitos.
+- Ensaio randomizado paralelo comum, sorteando pacientes dentro de cada unidade. | Haveria contaminação: a mesma equipe aplicaria os dois protocolos, e o novo influenciaria o cuidado de todos.
+- Coorte comparando unidades que adotaram e não adotaram o protocolo. | Perde a randomização sem necessidade, já que sortear unidades é viável.
+- Ensaio cruzado, com cada unidade usando os dois protocolos em sequência. | É possível como desenho escalonado, mas a alternativa correta continua exigindo o ajuste pela correlação intraconglomerado, que esta opção ignora.
+- Estudo transversal comparando o tempo de cicatrização entre unidades. | Transversal não estabelece temporalidade nem permite atribuir o efeito ao protocolo.
+@ cap-3-variantes-do-ensaio-clinico
+
+? [dificil] A coorte simulada do livro, com o mesmo efeito verdadeiro do ensaio, conclui que o aspirado prejudica a cicatrização. O que esse resultado demonstra?
++ Que o confundimento por indicação pode inverter o sinal do efeito, e não apenas atenuá-lo. | Correto. É a demonstração central do Capítulo 12 e o argumento mais forte do livro a favor da randomização.
+- Que estudos observacionais são sempre inúteis para avaliar tratamentos. | Não são: quando randomizar é impossível ou antiético, a coorte é o melhor disponível, com ajuste e honestidade sobre o confundimento residual.
+- Que o tamanho da amostra da coorte era insuficiente. | A coorte tem 300 participantes, mais que o ensaio. O problema não é tamanho, é comparabilidade.
+- Que houve erro na simulação dos dados. | O efeito verdadeiro embutido é idêntico ao do ensaio, e a inversão vem exclusivamente do modo como o tratamento foi indicado.
+- Que a análise deveria ter usado outro teste estatístico. | Nenhum teste corrige grupos que diferem sistematicamente na origem.
+@ cap-3-por-que-este-estudo-foi-randomizado
+:::
+
 ## Exercícios
 
 ::: exercicio 1

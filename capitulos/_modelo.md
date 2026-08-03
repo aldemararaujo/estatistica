@@ -79,10 +79,29 @@ do **próprio leitor**, e não ao caso condutor. É o que transforma leitura em
 trabalho, e o único bloco do livro escrito em segunda pessoa.
 :::
 
+::: quiz
+? [facil] BLOCO 6. Sete perguntas por capítulo, sempre nesta ordem de dificuldade: duas fáceis, três intermediárias e duas difíceis.
++ A alternativa correta é a que começa com o sinal de mais. | O texto após a barra vertical é o retorno mostrado ao leitor. Explique por que está certa, e não apenas que está.
+- As erradas começam com o sinal de menos. | Cada distrator deve ser um erro real, de preferência retirado do bloco "Aqui é onde o artigo é rejeitado". Nunca invente absurdos: eles se eliminam sozinhos.
+- Sempre cinco alternativas por pergunta. | Nunca use "todas as anteriores" nem "nenhuma das anteriores": são muletas de quem não conseguiu escrever o quinto distrator.
+- O retorno de cada errada trata da confusão específica daquela alternativa. | Um retorno genérico de "resposta incorreta" desperdiça a melhor oportunidade de ensino do capítulo.
+- A linha com arroba indica a âncora da seção para releitura. | Ela aparece só quando o leitor erra, e leva ao ponto exato do capítulo. Confira que a âncora existe: o construtor não valida isso.
+@ cap-modelo-secao-correspondente
+
+? [media] Duas perguntas de cada quiz devem tratar do caso condutor, com os números do estudo.
++ Aplicação distingue quem entendeu de quem memorizou. | O construtor distribui a posição da resposta correta por rodízio, então escreva sempre na ordem que preferir.
+- Teoria pura em todas as sete empobrece o quiz. | Mantenha ao menos duas ancoradas nos dados do estudo.
+- Perguntas sobre o programa estatístico não pertencem ao quiz. | O jamovi tem o bloco próprio e o Apêndice A.
+- Perguntas com pegadinha de redação não pertencem ao quiz. | O objetivo é diagnosticar compreensão, não confundir o leitor.
+- Perguntas que dependem de decorar números não pertencem ao quiz. | Salvo quando o número é o próprio conceito, como o 40% de redução em quatro semanas.
+@ cap-modelo-secao-correspondente
+:::
+
 ## Exercícios
 
-BLOCO 6. De cinco a oito exercícios, todos com gabarito comentado, que fica
-colapsado até o leitor pedir.
+BLOCO 7. De cinco a oito exercícios, todos com gabarito comentado, que fica
+colapsado até o leitor pedir. Diferem do quiz de propósito: aqui o leitor
+elabora e escreve; lá ele se testa em dois minutos.
 
 ::: exercicio 1
 Enunciado do exercício.
@@ -93,7 +112,7 @@ Resposta comentada. Explique por que a resposta é essa, não apenas qual é.
 
 ## Recursos
 
-BLOCO 7. Links verificados, com a data da verificação anotada em `recursos.md`.
+BLOCO 8. Links verificados, com a data da verificação anotada em `recursos.md`.
 
 - [Nome do recurso](https://exemplo.org) — o que o leitor encontra ali.
 

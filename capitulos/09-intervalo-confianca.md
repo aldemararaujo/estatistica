@@ -185,6 +185,64 @@ Barras de erro sem legenda são inúteis. Escreva na legenda o que a barra
 representa.
 :::
 
+::: quiz
+? [facil] O intervalo de confiança de 95% da diferença absoluta deste estudo vai de 3,6 a 31,2 pontos percentuais. O que ele indica?
++ Que os dados são compatíveis com benefícios entre quase quatro e trinta e uma cicatrizações a mais por cem tratados. | Correto. Como até o limite inferior é benefício, o estudo aponta efeito real, sem permitir dizer se ele é modesto ou expressivo. É essa indefinição que justificaria um estudo maior.
+- Que 95% dos pacientes terão benefício nessa faixa. | Confunde incerteza sobre a estimativa com variação entre pessoas. A faixa em que estão os pacientes se descreve com quartis.
+- Que há 95% de certeza de que o efeito é de 17,4 pontos. | O intervalo descreve a incerteza em torno da estimativa, e não uma certeza sobre o valor pontual.
+- Que o tratamento funciona em 95% dos casos. | Nada no intervalo diz respeito à proporção de pacientes que respondem.
+- Que o estudo precisa de mais 95 participantes. | O intervalo não indica quantos participantes faltam, embora sua largura sugira que o estudo é pequeno para a precisão desejada.
+@ cap-9-o-intervalo-do-que-interessa-a-diferenca
+
+? [facil] Dois grupos têm intervalos de confiança que se sobrepõem. O que se conclui sobre a diferença entre eles?
++ Nada: o que decide é o intervalo da diferença, que é outra quantidade, com erro padrão próprio. | Correto. Neste estudo os intervalos individuais se sobrepõem entre 60,7% e 63,1%, e ainda assim o intervalo da diferença exclui o zero.
+- Que não há diferença estatisticamente detectável. | É o erro mais comum na leitura de gráficos com barras de erro.
+- Que a diferença é significativa, porque a sobreposição é pequena. | O tamanho da sobreposição não é critério para nada.
+- Que os grupos têm a mesma variabilidade. | Sobreposição de intervalos não informa sobre variabilidade.
+- Que a amostra é insuficiente. | Pode ser, e isso se avalia pela largura dos intervalos, não pela sobreposição.
+@ cap-9-o-intervalo-do-que-interessa-a-diferenca
+
+? [media] O número necessário para tratar deste estudo é 5,8, com intervalo de 3,2 a 27,9. Por que ele é tão assimétrico?
++ Porque o NNT é o inverso da diferença absoluta, e inverter uma escala a distorce. | Correto. O limite superior da diferença, 31,2 pontos, vira 3,2; o inferior, 3,6 pontos, vira 27,9. Diferenças pequenas no denominador produzem NNT enormes.
+- Porque o cálculo do NNT usa uma distribuição assimétrica. | Não há distribuição envolvida: o NNT é uma transformação determinística da diferença.
+- Porque houve perdas de seguimento desiguais. | As perdas foram iguais nos dois grupos e não afetam a forma do intervalo.
+- Porque a amostra é pequena. | A amostra afeta a largura, e não a assimetria, que decorre da inversão.
+- Porque o desfecho é binário. | Desfechos binários não produzem, por si, intervalos assimétricos nessa escala.
+@ cap-9-o-intervalo-do-que-interessa-a-diferenca
+
+? [media] Um estudo quadruplica o tamanho da amostra e observa exatamente as mesmas proporções. O que acontece?
++ A estimativa não muda e o intervalo encolhe para cerca de metade da largura. | Correto. A precisão melhora com a raiz quadrada do tamanho da amostra: para reduzir a incerteza pela metade, é preciso quadruplicar o estudo.
+- A estimativa não muda e o intervalo encolhe para um quarto da largura. | Seria assim se a precisão melhorasse linearmente, o que não ocorre.
+- A estimativa aumenta e o intervalo encolhe. | O tamanho da amostra não desloca a estimativa pontual.
+- Nada muda, porque as proporções são as mesmas. | O intervalo depende do tamanho da amostra e encolhe.
+- O valor de p permanece igual. | O p diminui bastante, porque depende do tamanho da amostra.
+@ cap-9-o-que-o-intervalo-de-confianca-diz
+
+? [media] Por que este livro prefere o intervalo de Wilson ao de Wald para proporções?
++ Porque Wilson não produz limites impossíveis, abaixo de zero ou acima de cem por cento, nas situações em que mais importa: eventos raros e amostras pequenas. | Correto. A diferença entre os dois é pequena perto de 50% com amostra grande, e grande justamente nas pontas.
+- Porque Wilson é mais simples de calcular à mão. | Wald é mais simples; Wilson é mais correto.
+- Porque Wald não pode ser usado em desfechos binários. | Pode, e é o método clássico; o problema é o comportamento nas pontas.
+- Porque Wilson produz intervalos sempre mais estreitos. | Nem sempre; ele produz intervalos com cobertura mais adequada.
+- Porque o jamovi não oferece o método de Wald. | O jamovi oferece opções, e a escolha é metodológica.
+@ cap-9-o-que-o-intervalo-de-confianca-diz
+
+? [dificil] Um colega afirma: "há 95% de probabilidade de a taxa verdadeira estar entre 60,7% e 79,0%". Como avaliar essa frase?
++ Tecnicamente incorreta na estatística frequentista, porque a taxa verdadeira é fixa e a confiança está no procedimento ao longo de repetições. | Correto. A leitura de probabilidade seria legítima em um intervalo de credibilidade bayesiano, e é por isso que o erro é tão comum e tão pouco danoso na prática, sem deixar de ser erro em um artigo.
+- Correta, e é assim que o intervalo deve ser interpretado. | É a leitura intuitiva, e ela atribui probabilidade a um parâmetro fixo.
+- Incorreta porque o intervalo deveria ser de 99%. | O nível de confiança é uma escolha, e não a origem do erro.
+- Incorreta porque a taxa verdadeira nunca é conhecível. | Não é conhecível, e isso não é o que torna a frase incorreta.
+- Correta apenas se a distribuição for normal. | A forma da distribuição não converte confiança em probabilidade do parâmetro.
+@ cap-9-o-que-o-intervalo-de-confianca-diz
+
+? [dificil] O d de Cohen da redução de área em quatro semanas foi 0,34, classificado como efeito pequeno. Um revisor conclui que o achado é clinicamente irrelevante. Qual a resposta adequada?
++ O d apenas expressa a diferença em desvios padrão, e a variabilidade dessa variável é enorme; relevância clínica se argumenta com conhecimento da doença. | Correto. Quinze pontos percentuais a mais de redução em quatro semanas antecipam a cicatrização, e a própria redução de 40% em quatro semanas é marcador prognóstico reconhecido, como mostra o Capítulo 13.
+- O revisor está certo, e o desfecho deveria ser abandonado. | Aceitar a tabela de pontos de corte como veredito clínico é justamente o erro.
+- O d de Cohen não se aplica a desfechos percentuais. | Aplica-se a qualquer variável contínua.
+- O correto seria recalcular o d com a amostra completa. | O cálculo já usa os participantes com a medida disponível.
+- Deve-se apresentar apenas o valor de p, que foi significativo. | Trocar o tamanho de efeito pelo valor de p é retroceder ao problema que o Capítulo 10 descreve.
+@ cap-9-o-intervalo-do-que-interessa-a-diferenca
+:::
+
 ## Exercícios
 
 ::: exercicio 1

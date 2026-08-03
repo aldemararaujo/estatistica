@@ -25,6 +25,7 @@
   var CHAVE_TEMA = "epc-tema";
   var CHAVE_FONTE = "epc-fonte";
   var CHAVE_EXERCICIOS = "epc-exercicios";
+  var CHAVE_QUIZ = "epc-quiz";
 
   /* ------------------------------------------------------- utilidades */
 
@@ -50,9 +51,11 @@
 
   var lidos = {};
   var resolvidos = {};
+  var quizzes = {};
   (function carregaLidos() {
     try { lidos = JSON.parse(busca_guardado(CHAVE_LIDOS) || "{}") || {}; } catch (e) { lidos = {}; }
     try { resolvidos = JSON.parse(busca_guardado(CHAVE_EXERCICIOS) || "{}") || {}; } catch (e) { resolvidos = {}; }
+    try { quizzes = JSON.parse(busca_guardado(CHAVE_QUIZ) || "{}") || {}; } catch (e) { quizzes = {}; }
   })();
 
   var totalPalavras = LIVRO_CAPS.reduce(function (s, c) { return s + c.palavras; }, 0);
@@ -92,6 +95,13 @@
       var linha = faltam > 0 ? "Faltam cerca de " + duracao(faltam) + " de leitura"
                              : "Você leu o livro inteiro.";
       if (feitos) { linha += " · " + feitos + " de " + totalEx + " exercícios resolvidos"; }
+      var ids = Object.keys(quizzes);
+      if (ids.length) {
+        var certos = 0, possiveis = 0;
+        ids.forEach(function (k) { certos += quizzes[k].acertos; possiveis += quizzes[k].total; });
+        linha += " · quiz: " + certos + " de " + possiveis + " em " + ids.length +
+                 (ids.length === 1 ? " capítulo" : " capítulos");
+      }
       rest.textContent = linha;
     }
 
@@ -203,8 +213,125 @@
     }
     ligaExercicios(cap);
     ligaCalculadoras(cap);
+    ligaQuiz(cap);
     ligaTermos(cap);
     pintaBotaoLido();
+  }
+
+  /* -------------------------------------------------------------- quiz */
+
+  function ligaQuiz(escopo) {
+    escopo.querySelectorAll(".quiz").forEach(function (quiz) {
+      if (quiz.dataset.ligado === "1") { return; }
+      quiz.dataset.ligado = "1";
+
+      var perguntas = Array.prototype.slice.call(quiz.querySelectorAll(".quiz-pergunta"));
+      var placar = quiz.querySelector(".quiz-placar");
+      var acoes = quiz.querySelector(".quiz-acoes");
+
+      function respondidas() {
+        return perguntas.filter(function (p) { return p.dataset.respondida === "1"; });
+      }
+      function acertos() {
+        return perguntas.filter(function (p) { return p.dataset.acertou === "1"; }).length;
+      }
+
+      function mostraPlacar() {
+        var feitas = respondidas().length;
+        if (feitas < perguntas.length) { return; }
+        var n = acertos(), total = perguntas.length;
+        var recado;
+        if (n === total) {
+          recado = "Você acertou todas. Siga para o próximo capítulo.";
+        } else if (n >= Math.ceil(total * 0.7)) {
+          recado = "Bom resultado. Releia as seções indicadas nas que errou e siga adiante.";
+        } else if (n >= Math.ceil(total * 0.4)) {
+          recado = "Vale reler o capítulo antes de seguir: metade do conteúdo ainda não está firme.";
+        } else {
+          recado = "Releia o capítulo com calma. Errar aqui é barato; errar no projeto, não.";
+        }
+        placar.innerHTML = "<b>" + n + " de " + total + "</b> " +
+          (n === 1 ? "acerto" : "acertos") + "<p>" + recado + "</p>";
+        placar.hidden = false;
+        acoes.hidden = false;
+        guardaQuiz(quiz.getAttribute("data-quiz"), n, total);
+        pintaProgresso();
+      }
+
+      perguntas.forEach(function (pergunta) {
+        var certa = parseInt(pergunta.getAttribute("data-certa"), 10);
+        var botoes = Array.prototype.slice.call(pergunta.querySelectorAll(".quiz-alt"));
+
+        botoes.forEach(function (botao, i) {
+          botao.addEventListener("click", function () {
+            if (pergunta.dataset.respondida === "1") { return; }
+            pergunta.dataset.respondida = "1";
+            var acertou = i === certa;
+            pergunta.dataset.acertou = acertou ? "1" : "0";
+
+            botoes.forEach(function (b, k) {
+              b.disabled = true;
+              if (k === certa) { b.classList.add("certa"); }
+              else if (k === i) { b.classList.add("errada"); }
+              else { b.classList.add("apagada"); }
+            });
+
+            var retorno = botao.parentNode.querySelector(".quiz-retorno");
+            if (retorno) {
+              retorno.hidden = false;
+              retorno.classList.add(acertou ? "acerto" : "erro");
+            }
+            if (!acertou) {
+              var certaRetorno = botoes[certa].parentNode.querySelector(".quiz-retorno");
+              if (certaRetorno) { certaRetorno.hidden = false; certaRetorno.classList.add("acerto"); }
+              var releia = pergunta.querySelector(".quiz-releia");
+              if (releia) { releia.hidden = false; }
+            }
+            mostraPlacar();
+          });
+        });
+      });
+
+      function limpa(pergunta) {
+        delete pergunta.dataset.respondida;
+        delete pergunta.dataset.acertou;
+        pergunta.querySelectorAll(".quiz-alt").forEach(function (b) {
+          b.disabled = false;
+          b.classList.remove("certa", "errada", "apagada");
+        });
+        pergunta.querySelectorAll(".quiz-retorno").forEach(function (r) {
+          r.hidden = true;
+          r.classList.remove("acerto", "erro");
+        });
+        var releia = pergunta.querySelector(".quiz-releia");
+        if (releia) { releia.hidden = true; }
+      }
+
+      var refazer = quiz.querySelector(".quiz-refazer");
+      if (refazer) {
+        refazer.addEventListener("click", function () {
+          perguntas.forEach(limpa);
+          placar.hidden = true; acoes.hidden = true;
+          quiz.querySelector("summary").scrollIntoView({ block: "start" });
+        });
+      }
+      var soErros = quiz.querySelector(".quiz-refazer-erros");
+      if (soErros) {
+        soErros.addEventListener("click", function () {
+          var erradas = perguntas.filter(function (p) { return p.dataset.acertou === "0"; });
+          if (!erradas.length) { return; }
+          erradas.forEach(limpa);
+          placar.hidden = true; acoes.hidden = true;
+          erradas[0].scrollIntoView({ block: "center" });
+        });
+      }
+    });
+  }
+
+  function guardaQuiz(id, acertos, total) {
+    if (!id) { return; }
+    quizzes[id] = { acertos: acertos, total: total };
+    guarda(CHAVE_QUIZ, JSON.stringify(quizzes));
   }
 
   /* ---------------------------------------------- exercícios resolvidos */
@@ -712,9 +839,10 @@
   if (zerar) {
     zerar.addEventListener("click", function () {
       if (!window.confirm("Apagar as marcas de leitura e os exercícios resolvidos?")) { return; }
-      lidos = {}; resolvidos = {};
+      lidos = {}; resolvidos = {}; quizzes = {};
       guarda(CHAVE_LIDOS, "{}");
       guarda(CHAVE_EXERCICIOS, "{}");
+      guarda(CHAVE_QUIZ, "{}");
       capitulos.forEach(function (c) {
         c.querySelectorAll(".exercicio[data-exercicio]").forEach(pintaExercicio);
         pintaContadorExercicios(c);
@@ -733,7 +861,8 @@
         livro: LIVRO.titulo,
         data: new Date().toISOString(),
         lidos: lidos,
-        exercicios: resolvidos
+        exercicios: resolvidos,
+        quiz: quizzes
       };
       var url = URL.createObjectURL(new Blob([JSON.stringify(pacote, null, 1)],
         { type: "application/json" }));
@@ -761,8 +890,10 @@
           if (dados.formato !== "epc-progresso") { throw new Error("formato"); }
           lidos = dados.lidos || {};
           resolvidos = dados.exercicios || {};
+          quizzes = dados.quiz || {};
           guarda(CHAVE_LIDOS, JSON.stringify(lidos));
           guarda(CHAVE_EXERCICIOS, JSON.stringify(resolvidos));
+          guarda(CHAVE_QUIZ, JSON.stringify(quizzes));
           capitulos.forEach(function (c) {
             c.querySelectorAll(".exercicio[data-exercicio]").forEach(pintaExercicio);
             pintaContadorExercicios(c);

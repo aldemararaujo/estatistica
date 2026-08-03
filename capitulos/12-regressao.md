@@ -203,6 +203,64 @@ ajustado."** Relate os dois. A diferença entre bruto e ajustado é informação
 sobre o confundimento, e escondê-la impede o leitor de julgar.
 :::
 
+::: quiz
+? [facil] Quais são as três condições para uma variável ser confundidora?
++ Associa-se ao desfecho, associa-se à exposição e não está no caminho causal entre elas. | Correto. A terceira é a mais esquecida, e é ela que distingue confundidor de mediador.
+- Associa-se ao desfecho, tem muitos valores faltantes e é contínua. | Faltantes e tipo de variável não têm relação com confundimento.
+- Associa-se à exposição, é medida depois da intervenção e afeta o desfecho. | Ser medida depois da intervenção caracteriza um mediador, e não um confundidor.
+- É clinicamente relevante, foi coletada e tem distribuição normal. | Nenhum dos três é critério de confundimento.
+- Difere entre os grupos com valor de p abaixo de 0,05. | Significância na comparação basal não é o critério: o que importa é o tamanho do desequilíbrio e a relação com o desfecho.
+@ cap-12-o-que-e-um-confundidor
+
+? [facil] Na coorte observacional do livro, quem recebeu o aspirado tinha úlcera com o dobro da área e quase o dobro de duração. Como se chama esse fenômeno?
++ Confundimento por indicação. | Correto. O cirurgião indicou a terapia celular para a úlcera grande, antiga e do paciente diabético, que é o que qualquer bom cirurgião faria, e a indicação seguiu a gravidade.
+- Viés de aferição. | Diz respeito a como o desfecho é medido, e não a quem recebe o tratamento.
+- Efeito teto. | É a saturação de uma escala, discutida no Capítulo 8.
+- Viés de publicação. | Ocorre depois do estudo, na decisão de publicar.
+- Regressão à média. | Fenômeno de medidas repetidas em valores extremos, sem relação com a indicação do tratamento.
+@ cap-12-o-que-a-coorte-responde
+
+? [media] Na coorte, a razão de chances passou de 0,72 na análise bruta para 1,87 na ajustada, e o ensaio randomizado deu 2,11. Qual a lição mais importante?
++ O ajuste corrige apenas o que foi medido, e o que sobra é confundimento residual, impossível de dimensionar com os próprios dados. | Correto. A primeira lição é que a regressão funciona; a segunda, mais importante, é que ela não chegou lá.
+- Que a regressão resolve o confundimento de estudos observacionais. | Resolveu parte dele, e a estimativa ajustada continuou abaixo do valor verdadeiro, com intervalo cruzando o 1.
+- Que a coorte tinha amostra insuficiente. | Tinha 300 participantes, mais que o ensaio. O problema era comparabilidade, não tamanho.
+- Que o modelo escolheu variáveis erradas. | As variáveis escolhidas eram as corretas e conhecidas; faltaram as não medidas.
+- Que o ensaio randomizado superestimou o efeito. | O efeito do ensaio corresponde ao valor verdadeiro embutido na simulação.
+@ cap-12-a-regressao-como-ferramenta-de-ajuste
+
+? [media] No ensaio randomizado, a razão de chances bruta foi 2,11 e a ajustada, 2,25. O que essa proximidade indica?
++ Que a randomização equilibrou as covariáveis, de modo que ajustar por elas quase não altera a estimativa. | Correto. Essa estabilidade é uma verificação valiosa: em um ensaio, diferença grande entre bruto e ajustado levantaria suspeita sobre a alocação.
+- Que o ajuste foi malfeito, por não ter alterado o resultado. | O ajuste funcionou como esperado em um estudo randomizado.
+- Que as covariáveis escolhidas não têm relação com o desfecho. | Têm, e forte: área, duração e diabetes aparecem com efeitos expressivos no próprio modelo.
+- Que o modelo está sobreajustado. | Cinco variáveis para 114 eventos está bem dentro do limite de dez eventos por variável.
+- Que o tamanho da amostra foi insuficiente para o ajuste. | Foi suficiente, e a proximidade não decorre de falta de poder.
+@ cap-12-lendo-uma-regressao-logistica
+
+? [media] Um modelo tem 22 eventos e o pesquisador quer incluir 15 variáveis. Qual o problema?
++ A regra de dez eventos por variável comporta apenas duas: o modelo produziria coeficientes instáveis e intervalos absurdamente largos. | Correto. É comum ver isso em teses com quarenta desfechos e quinze preditores.
+- Nenhum, desde que todas as variáveis sejam clinicamente relevantes. | Relevância não cria informação: o que limita é o número de eventos.
+- O problema é o número de participantes, e não o de eventos. | Em modelos para desfechos binários e de sobrevida, o que limita é o número de eventos.
+- Basta aumentar o nível de significância para 10%. | Elevar o alfa não resolve instabilidade de estimativas.
+- Basta usar seleção automática por stepwise para reduzir o modelo. | A seleção automática capitaliza o acaso e produz intervalos inválidos.
+@ cap-12-lendo-uma-regressao-logistica
+
+? [dificil] Por que ajustar por uma variável medida depois da intervenção pode subestimar o efeito do tratamento?
++ Porque, se ela é consequência do tratamento e causa do desfecho, o ajuste remove o caminho pelo qual parte do efeito se realiza. | Correto. É o caso da adesão à compressão: se o aspirado reduz a dor e melhora a tolerância à compressão, ajustar por adesão subtrai esse pedaço do benefício.
+- Porque variáveis medidas depois têm mais dados faltantes. | Podem ter, e não é isso que causa a subestimação.
+- Porque o modelo passa a ter variáveis demais. | O problema é a natureza causal da variável, e não a quantidade.
+- Porque a variável deixa de ser confundidora e passa a ser modificadora de efeito. | Modificação de efeito é interação, e é outro fenômeno.
+- Porque a randomização não equilibra variáveis medidas depois. | Ela de fato não as equilibra necessariamente, e a razão da subestimação é a mediação.
+@ cap-12-o-que-e-um-confundidor
+
+? [dificil] Um artigo relata apenas o efeito ajustado de uma coorte, omitindo o bruto. Por que isso é um problema?
++ Porque a diferença entre bruto e ajustado é informação sobre o confundimento, e escondê-la impede o leitor de julgar. | Correto. Na coorte do livro, essa diferença é a distância entre 0,72 e 1,87, e é justamente ela que revela o tamanho do problema.
+- Porque o efeito bruto é sempre mais confiável. | Não é: em estudo observacional, o bruto costuma ser o mais enviesado dos dois.
+- Porque o CONSORT exige os dois valores. | O CONSORT trata de ensaios; para observacionais, a recomendação é o STROBE, que pede relato de ambos.
+- Porque o ajustado só é válido se o bruto for significativo. | Não há tal dependência entre os dois.
+- Porque omitir o bruto impede calcular o intervalo de confiança. | Cada estimativa tem seu próprio intervalo, calculável independentemente.
+@ cap-12-a-regressao-como-ferramenta-de-ajuste
+:::
+
 ## Exercícios
 
 ::: exercicio 1

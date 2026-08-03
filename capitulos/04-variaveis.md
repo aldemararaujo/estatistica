@@ -167,6 +167,64 @@ separadamente.
 está incompleto.
 :::
 
+::: quiz
+? [facil] A variável `tabagismo`, com as categorias "nunca fumou", "ex-fumante" e "fumante atual", é de que tipo?
++ Ordinal: categorias com ordem, mas sem distância definida entre elas. | Correto. Há uma ordem natural de exposição, e não se pode afirmar que a distância entre "nunca" e "ex" seja igual à distância entre "ex" e "atual".
+- Nominal: categorias sem ordem. | Existe ordem, e ignorá-la faz as tabelas saírem em ordem alfabética, que não significa nada.
+- Discreta: contagem de valores inteiros. | Não há contagem: são categorias, não números.
+- Contínua: admite qualquer valor em uma faixa. | Não admite frações nem valores intermediários.
+- Binária, depois de agrupar ex-fumantes com fumantes atuais. | Agrupar é uma decisão posterior e opcional; a variável, como está, tem três categorias ordenadas.
+@ cap-4-os-quatro-tipos-de-variavel
+
+? [facil] Quantos desfechos primários deve ter um estudo?
++ Um. | Correto. Ele define o cálculo do tamanho da amostra, define a conclusão e é o único protegido contra a multiplicidade discutida no Capítulo 10.
+- Dois, um clínico e um laboratorial. | Dois desfechos primários significam, na prática, nenhum: a conclusão passa a poder se apoiar no que der certo.
+- Quantos forem clinicamente relevantes. | Relevância clínica define quais desfechos medir, e não quantos são primários.
+- Nenhum, se o estudo for exploratório. | Mesmo estudos exploratórios ganham em declarar o desfecho principal, e ensaios sempre exigem um.
+- Depende do número de grupos comparados. | O número de grupos não altera essa regra.
+@ cap-4-o-desfecho-primario
+
+? [media] Por que a adesão à terapia compressiva não deve entrar no modelo de ajuste do desfecho primário?
++ Porque foi medida depois da alocação e pode ser consequência do próprio tratamento. | Correto. Se o aspirado reduz a dor e com isso melhora a tolerância à compressão, parte do benefício passa pela adesão, e ajustar por ela subtrai esse caminho.
+- Porque tem muitos dados faltantes. | A adesão não tem faltantes no banco, e a razão para excluí-la é outra.
+- Porque é uma variável nominal, e o modelo exige variáveis contínuas. | Modelos aceitam variáveis nominais sem problema.
+- Porque seu efeito é pequeno demais para importar. | O efeito dela é o maior da tabela do Capítulo 12, com razão de chances de 2,90.
+- Porque a randomização já a equilibrou entre os grupos. | O equilíbrio é real e é o que faz o ajuste alterar pouco, mas não é a razão para excluí-la: a razão é ela ser potencial mediadora.
+@ cap-4-o-papel-de-cada-variavel-no-estudo
+
+? [media] Qual é o problema de usar "redução percentual da área em 12 semanas" como desfecho primário deste estudo?
++ Ela satura em 100% para a maioria dos participantes e deixa de discriminar entre os grupos. | Correto. É o efeito teto: a mediana é 100% nos dois grupos, e nenhuma análise recupera informação que a escala destruiu.
+- Ela não pode ser medida com precisão suficiente. | A planimetria mede bem; o problema é o limite superior da escala, e não a precisão.
+- Ela exigiria uma amostra muito maior. | O tamanho não resolve um efeito teto.
+- Ela é uma variável nominal, imprópria para desfecho primário. | É contínua. O problema é a distribuição, não o tipo.
+- Ela não tem definição operacional possível. | Tem, e é objetiva: área inicial menos área final, dividida pela inicial.
+@ cap-4-o-desfecho-primario
+
+? [media] O que caracteriza uma definição operacional adequada de desfecho?
++ Diz o que é, quando se afere, com que critério e quem afere, de modo que dois avaliadores cheguem à mesma conclusão. | Correto. "Cicatrização" é uma palavra; a definição do protocolo especifica epitelização completa, sem curativo, confirmada por avaliador cego e mantida por catorze dias.
+- Cita a referência bibliográfica de onde o desfecho foi tirado. | A referência ajuda a justificar a escolha, e não substitui a especificação operacional.
+- Descreve o teste estatístico que será aplicado ao desfecho. | O teste vem depois e é assunto do Capítulo 11.
+- Indica o valor considerado clinicamente relevante. | Isso é ingrediente do cálculo do tamanho da amostra, e não a definição do desfecho.
+- Estabelece a unidade de medida e o número de casas decimais. | Necessário para variáveis contínuas, e muito longe de suficiente.
+@ cap-4-o-desfecho-primario
+
+? [dificil] Um pesquisador propõe o desfecho composto "cicatrização completa ou redução de área superior a 60%". Qual a principal consequência dessa escolha?
++ O resultado passa a ser dominado pelo componente mais frequente, que costuma ser o menos grave, e a interpretação clínica se torna ambígua. | Correto. Compostos aumentam o número de eventos e reduzem a amostra necessária, e o preço é a interpretação. Os componentes precisam ser relatados separadamente.
+- O estudo passa a exigir amostra maior. | Ocorre o contrário: mais eventos exigem menos participantes, e é justamente essa tentação que leva ao composto.
+- O desfecho deixa de ser binário e passa a ser contínuo. | Continua binário: o participante atinge ou não atinge o composto.
+- O composto elimina a necessidade de definição operacional. | Ao contrário: cada componente precisa da sua.
+- O composto impede o cálculo do risco relativo. | O risco relativo continua calculável.
+@ cap-4-desfechos-compostos-e-por-que-este-estudo-nao-usou-um
+
+? [dificil] Em que situação dicotomizar uma variável contínua é defensável?
++ Quando o ponto de corte tem significado clínico próprio e anterior aos dados, como a redução de 40% em quatro semanas. | Correto. O corte precisa existir antes e por razões clínicas. Escolher o corte que produz o menor valor de p é o que o livro condena.
+- Sempre que a distribuição for assimétrica. | Assimetria se resolve com mediana e quartis, ou com transformação, e não descartando informação.
+- Quando o programa estatístico não aceita variáveis contínuas no modelo. | Todos os programas aceitam, e a limitação não existe.
+- Quando facilita a apresentação dos resultados em tabela. | Conveniência de apresentação não justifica perder poder estatístico.
+- Quando o número de participantes é pequeno. | Amostra pequena é razão para preservar informação, e não para descartá-la.
+@ cap-4-os-quatro-tipos-de-variavel
+:::
+
 ## Exercícios
 
 ::: exercicio 1

@@ -187,6 +187,90 @@ def render_calculadora(bloco):
     return CALCULADORAS.get(bloco["arg"].strip(), "")
 
 
+NIVEIS = {"facil": "fácil", "media": "intermediária", "dificil": "difícil"}
+
+
+def render_quiz(bloco, prefixo):
+    """Converte o bloco ::: quiz em um questionario recolhido.
+
+    Sintaxe de cada pergunta:
+        ? [facil] Enunciado da pergunta
+        - alternativa errada | por que ela esta errada
+        + alternativa certa   | por que ela esta certa
+        @ ancora-da-secao-para-reler
+    """
+    perguntas, atual = [], None
+    for linha in bloco["linhas"]:
+        crua = linha.strip()
+        if crua.startswith("?"):
+            if atual:
+                perguntas.append(atual)
+            m = re.match(r"\?\s*(?:\[(\w+)\])?\s*(.+)$", crua)
+            atual = {"nivel": (m.group(1) or "media"), "texto": m.group(2).strip(),
+                     "alts": [], "ancora": ""}
+        elif atual and crua.startswith("@"):
+            atual["ancora"] = crua[1:].strip()
+        elif atual and (crua.startswith("-") or crua.startswith("+")):
+            corpo = crua[1:].strip()
+            texto, _, retorno = corpo.partition("|")
+            atual["alts"].append({"certa": crua.startswith("+"),
+                                  "texto": texto.strip(),
+                                  "retorno": retorno.strip()})
+        elif atual and crua and atual["alts"]:
+            atual["alts"][-1]["retorno"] += " " + crua
+    if atual:
+        perguntas.append(atual)
+    if not perguntas:
+        return ""
+
+    # Deslocamento por capitulo, para que a posicao da resposta certa nao siga
+    # o mesmo desenho em todos os quizzes do livro.
+    desloca = sum(ord(c) for c in prefixo) % 5
+
+    itens = []
+    for i, p in enumerate(perguntas, 1):
+        # A correta vai para uma posicao distribuida por rodizio, e nao sorteada:
+        # sorteio com poucas perguntas produz aglomerados, e foi o que aconteceu
+        # na primeira versao, com a resposta certa caindo em D ou E sete vezes.
+        outras = [a for a in p["alts"] if not a["certa"]]
+        certa_alt = next((a for a in p["alts"] if a["certa"]), None)
+        if certa_alt is None:
+            continue
+        certa = (i - 1 + desloca) % len(p["alts"])
+        alts = outras[:certa] + [certa_alt] + outras[certa:]
+
+        linhas_alt = []
+        for k, a in enumerate(alts):
+            linhas_alt.append(
+                f'<li><button type="button" class="quiz-alt" data-i="{k}">'
+                f'<span class="letra">{chr(65 + k)}</span>'
+                f'<span class="texto">{para_html(a["texto"])[3:-4]}</span></button>'
+                f'<p class="quiz-retorno" hidden>{para_html(a["retorno"])[3:-4]}</p></li>')
+
+        releia = (f'<p class="quiz-releia" hidden>Releia: '
+                  f'<a href="#{p["ancora"]}">a seção correspondente do capítulo</a></p>'
+                  if p["ancora"] else "")
+
+        itens.append(
+            f'<li class="quiz-pergunta" data-certa="{certa}">'
+            f'<p class="quiz-enunciado">'
+            f'<span class="nivel {p["nivel"]}">{NIVEIS.get(p["nivel"], p["nivel"])}</span>'
+            f'{para_html(p["texto"])[3:-4]}</p>'
+            f'<ul class="quiz-alternativas">{"".join(linhas_alt)}</ul>'
+            f"{releia}</li>")
+
+    return (f'<details class="quiz" data-quiz="{prefixo}">'
+            f'<summary><b>Teste o que você entendeu</b>'
+            f'<span class="quiz-resumo">{len(perguntas)} perguntas · '
+            f'responda sem consultar o capítulo</span></summary>'
+            f'<div class="quiz-corpo"><ol class="quiz-perguntas">{"".join(itens)}</ol>'
+            f'<div class="quiz-placar" hidden></div>'
+            f'<div class="quiz-acoes" hidden>'
+            f'<button type="button" class="quiz-refazer">Refazer o quiz</button>'
+            f'<button type="button" class="quiz-refazer-erros">Refazer só as que errei</button>'
+            f"</div></div></details>")
+
+
 def render_abas(bloco, seq):
     """Blocos '== Rotulo' viram abas. Serve para 'no jamovi' x 'a conta'."""
     corpo = "\n".join(bloco["linhas"])
@@ -228,6 +312,8 @@ def render(texto, prefixo="doc"):
             saida.append(render_abas(dado, seq))
         elif dado["tipo"] == "calculadora":
             saida.append(render_calculadora(dado))
+        elif dado["tipo"] == "quiz":
+            saida.append(render_quiz(dado, prefixo))
         else:
             saida.append(render_caixa(dado))
     return "\n".join(saida)

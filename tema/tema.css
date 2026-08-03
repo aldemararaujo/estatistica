@@ -262,6 +262,92 @@ html[data-tema="escuro"] .marcar-lido.feito { color: #15181c; }
 .exercicio.feito .resolvido { background: var(--lido); border-color: var(--lido); color: #fff; }
 html[data-tema="escuro"] .exercicio.feito .resolvido { color: #15181c; }
 
+/* ------------------------------------------------------------- quiz */
+
+.quiz {
+  margin: 2.4rem 0; border: 2px solid var(--realce); border-radius: 10px;
+  background: var(--papel-caixa); overflow: hidden;
+}
+.quiz > summary {
+  cursor: pointer; padding: .95rem 1.2rem; font-family: var(--sans);
+  background: var(--realce-fraco); color: var(--realce); font-size: .92rem;
+}
+.quiz > summary b { display: block; }
+.quiz > summary .quiz-resumo {
+  display: block; font-size: .76rem; color: var(--tinta-fraca);
+  font-weight: 400; margin-top: .15rem;
+}
+.quiz > summary::marker { color: var(--realce); }
+.quiz-corpo { padding: 1.2rem; }
+.quiz-perguntas { margin: 0; padding: 0; list-style: none; counter-reset: quiz; }
+
+.quiz-pergunta {
+  counter-increment: quiz; margin-bottom: 2rem;
+  padding-bottom: 1.4rem; border-bottom: 1px dashed var(--linha);
+}
+.quiz-pergunta:last-child { border-bottom: 0; margin-bottom: .5rem; }
+.quiz-enunciado { margin: 0 0 .9rem; font-size: .98rem; line-height: 1.55; }
+.quiz-enunciado::before {
+  content: counter(quiz) ". "; font-family: var(--sans);
+  font-weight: 700; color: var(--realce);
+}
+.nivel {
+  display: inline-block; font-family: var(--sans); font-size: .64rem;
+  text-transform: uppercase; letter-spacing: .09em; font-weight: 700;
+  padding: .12rem .5rem; border-radius: 99px; margin-right: .5rem;
+  vertical-align: .12em;
+}
+.nivel.facil   { background: var(--jamovi-fundo);  color: var(--jamovi); }
+.nivel.media   { background: var(--caso-fundo);    color: var(--caso); }
+.nivel.dificil { background: var(--revisor-fundo); color: var(--revisor); }
+
+.quiz-alternativas { list-style: none; margin: 0; padding: 0; }
+.quiz-alternativas li { margin-bottom: .45rem; }
+.quiz-alt {
+  display: flex; gap: .7rem; width: 100%; text-align: left; cursor: pointer;
+  font: inherit; font-size: .92rem; line-height: 1.5;
+  padding: .6rem .8rem; border-radius: 8px;
+  border: 1px solid var(--linha); background: var(--papel); color: var(--tinta);
+}
+.quiz-alt:hover:not(:disabled) { border-color: var(--realce); background: var(--realce-fraco); }
+.quiz-alt:disabled { cursor: default; }
+.quiz-alt .letra {
+  flex: 0 0 1.4rem; font-family: var(--sans); font-weight: 700;
+  color: var(--tinta-fraca); font-size: .82rem;
+}
+.quiz-alt.certa {
+  border-color: var(--lido); background: var(--jamovi-fundo);
+}
+.quiz-alt.certa .letra { color: var(--jamovi); }
+.quiz-alt.errada {
+  border-color: var(--realce); background: var(--realce-fraco); opacity: .95;
+}
+.quiz-alt.errada .letra { color: var(--realce); }
+.quiz-alt.apagada { opacity: .5; }
+
+.quiz-retorno {
+  margin: .4rem 0 .8rem 2.1rem; font-family: var(--sans);
+  font-size: .84rem; line-height: 1.55; color: var(--tinta-fraca);
+  padding-left: .8rem; border-left: 2px solid var(--linha);
+}
+.quiz-retorno.acerto { border-left-color: var(--lido); }
+.quiz-retorno.erro { border-left-color: var(--realce); }
+.quiz-releia { margin: .2rem 0 0 2.1rem; font-family: var(--sans); font-size: .8rem; }
+
+.quiz-placar {
+  margin-top: 1.4rem; padding: 1rem 1.2rem; border-radius: 8px;
+  background: var(--realce-fraco); font-family: var(--sans); font-size: .92rem;
+}
+.quiz-placar b { color: var(--realce); font-size: 1.15rem; }
+.quiz-placar p { margin: .3rem 0 0; font-size: .84rem; color: var(--tinta-fraca); }
+.quiz-acoes { margin-top: .9rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+.quiz-acoes button {
+  font-family: var(--sans); font-size: .82rem; cursor: pointer;
+  padding: .45rem 1rem; border-radius: 99px;
+  border: 1px solid var(--linha); background: var(--papel); color: var(--tinta-fraca);
+}
+.quiz-acoes button:hover { border-color: var(--realce); color: var(--realce); }
+
 /* ------------------------------------------------------ calculadoras */
 
 .calc {

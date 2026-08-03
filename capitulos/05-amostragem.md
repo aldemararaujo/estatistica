@@ -205,6 +205,64 @@ constrangedora.
 houve seleção do pesquisador, isso muda a interpretação e precisa estar escrito.
 :::
 
+::: quiz
+? [facil] Qual a diferença entre amostragem aleatória e randomização?
++ A amostragem decide quem entra no estudo; a randomização decide, entre os que entraram, quem vai para cada grupo. | Correto. A primeira protege a validade externa, a segunda a interna. Este estudo é randomizado e não tem amostra aleatória, o que é a situação de quase todo ensaio clínico.
+- São sinônimos: as duas usam sorteio. | As duas usam sorteio, e é justamente isso que produz a confusão. Elas atuam em momentos diferentes e protegem coisas diferentes.
+- A amostragem se aplica a estudos observacionais e a randomização a ensaios. | Ambas podem ocorrer no mesmo estudo, e um ensaio pode ter amostra não aleatória, como este.
+- A randomização garante que a amostra represente a população. | Isso seria papel da amostragem aleatória, e a randomização não faz essa promessa.
+- A amostragem aleatória é obrigatória em ensaios clínicos. | Praticamente nenhum ensaio clínico do mundo tem amostra aleatória; usa-se amostragem consecutiva.
+@ cap-5-as-tecnicas-de-amostragem
+
+? [facil] Qual técnica de amostragem foi usada no caso condutor?
++ Consecutiva: todos os elegíveis, na ordem em que apareceram, até completar o previsto. | Correto. É o padrão dos ensaios clínicos e a melhor das técnicas não probabilísticas, porque não deixa margem para o pesquisador escolher.
+- Aleatória simples, a partir da lista de pacientes do serviço. | Exigiria uma lista completa da população, que em pesquisa clínica quase nunca existe.
+- Por conglomerados, sorteando os três centros. | Os centros não foram sorteados: foram os que participaram do estudo.
+- Estratificada por gravidade da úlcera. | Houve estratificação por centro na randomização, que é outra coisa, e não na amostragem.
+- Por cotas, com número fixo de diabéticos. | Não houve cota alguma; a proporção de diabéticos foi a que apareceu.
+@ cap-5-as-tecnicas-de-amostragem
+
+? [media] Uma pesquisadora recruta na sala de espera até completar 60 diabéticos e 140 não diabéticos. Que técnica ela usou?
++ Por cotas, que é não probabilística. | Correto. A composição final fica idêntica à de uma estratificada, e é isso que engana: falta o sorteio dentro de cada estrato.
+- Estratificada, que é probabilística. | Na estratificada, o participante de cada estrato é sorteado, e cada elegível tem probabilidade conhecida de entrar.
+- Sistemática, porque seguiu a ordem de chegada. | Sistemática exige sortear o primeiro e depois tomar um a cada k.
+- Consecutiva, porque incluiu quem apareceu. | Consecutiva não impõe números por subgrupo; aqui há cotas fixadas de antemão.
+- Intencional, porque a pesquisadora escolheu os participantes. | Ela não escolheu pelo julgamento clínico de cada caso, e sim preencheu vagas por conveniência.
+@ cap-5-as-tecnicas-de-amostragem
+
+? [media] Por que o diagrama CONSORT exige informar quantos pacientes foram avaliados para elegibilidade, e não apenas quantos foram randomizados?
++ Porque a razão entre avaliados e incluídos revela quão selecionada é a amostra e a quem o resultado se aplica. | Correto. Avaliar 210 para incluir 200 é diferente de avaliar 2.000 para incluir 200, e o leitor precisa saber qual filtro foi aplicado.
+- Porque o número de avaliados entra no cálculo do tamanho da amostra. | O cálculo usa o número de participantes necessários, e não o de avaliados.
+- Porque comitês de ética exigem esse dado. | Podem exigir, e a razão metodológica é anterior à exigência formal.
+- Porque permite calcular a taxa de perdas de seguimento. | Perdas ocorrem depois da randomização e são contabilizadas em outra parte do diagrama.
+- Porque identifica erros de digitação no banco. | Não tem relação com qualidade de digitação.
+@ cap-5-quem-entra-quem-fica-de-fora
+
+? [media] O estudo excluiu pacientes com índice tornozelo-braquial abaixo de 0,80. Qual a consequência dessa decisão?
++ Ganha validade interna e perde validade externa, já que doença venosa e arterial coexistem com frequência na população idosa. | Correto. Critérios apertados aumentam a validade interna e reduzem a externa. Não existe escolha certa: existe escolha declarada.
+- Ganha validade externa, por tornar a amostra mais homogênea. | Homogeneidade favorece a validade interna, e é justamente o que restringe a generalização.
+- Não tem consequência, porque esses pacientes são raros. | Não são raros: a doença mista é frequente, e o capítulo destaca isso.
+- Aumenta o poder estatístico sem nenhum custo. | Reduzir a variabilidade ajuda o poder, e o custo existe e é de aplicabilidade.
+- Elimina o confundimento por indicação. | O confundimento por indicação é problema de estudos observacionais e é resolvido pela randomização.
+@ cap-5-quem-entra-quem-fica-de-fora
+
+? [dificil] Um estudo recruta voluntários por anúncio para testar um tratamento que depende de adesão diária. Qual viés é mais provável e em que direção ele atua?
++ Viés do voluntário, que tende a superestimar o efeito, porque quem se oferece costuma ser mais aderente e motivado que a população real. | Correto. Em intervenções dependentes de adesão, esse viés produz resultados melhores do que a prática clínica reproduzirá.
+- Viés de aferição, que atua sobre a medida do desfecho. | Aferição diz respeito a como o desfecho é medido, e não a quem entrou no estudo.
+- Viés de atrito, que decorre das perdas de seguimento. | Atrito ocorre depois da inclusão, e voluntários motivados tendem justamente a abandonar menos.
+- Confundimento por indicação, típico de estudos observacionais de tratamento. | Aqui o tratamento não é indicado por gravidade: é oferecido a quem se apresentou.
+- Viés de publicação, que decorre do que é publicado. | Ocorre depois do estudo terminado e não depende do recrutamento.
+@ cap-5-vieses-de-selecao
+
+? [dificil] Em pesquisa qualitativa, o que substitui o cálculo do tamanho da amostra?
++ A saturação teórica, o ponto a partir do qual novas entrevistas deixam de trazer conteúdo novo. | Correto. É outra lógica de suficiência, e precisa ser descrita com o mesmo rigor: como a saturação foi constatada e por quem.
+- Nada: pesquisa qualitativa não precisa justificar o número de participantes. | Precisa, e o procedimento de constatação da saturação é justamente essa justificativa.
+- Uma amostra mínima de doze participantes, por convenção. | Não há número fixo consagrado; o critério é a saturação do conteúdo.
+- O mesmo cálculo, aplicado ao desfecho qualitativo principal. | Não há desfecho quantitativo a dimensionar, e a lógica de poder estatístico não se aplica.
+- A amostragem por cotas, garantindo diversidade demográfica. | Cotas podem compor a amostra, e não definem quando parar de coletar.
+@ cap-5-as-tecnicas-de-amostragem
+:::
+
 ## Exercícios
 
 ::: exercicio 1

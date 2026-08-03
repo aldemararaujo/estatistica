@@ -184,6 +184,64 @@ determina a precisão é o número de eventos, não o de participantes. Um estud
 com quinhentos pacientes e doze eventos é um estudo pequeno.
 :::
 
+::: quiz
+? [facil] O que significa uma observação censurada?
++ Sabe-se apenas que o evento não ocorreu até certo momento, quando a observação parou. | Correto. Pode ser censura pelo fim do seguimento ou por perda, e a análise de sobrevida existe para usar exatamente a informação que cada participante traz.
+- O participante foi excluído do estudo por violação de protocolo. | Exclusão é outra coisa, e censurar não é excluir.
+- O dado foi perdido por erro de digitação. | Censura é uma característica do desfecho, e não uma falha de registro.
+- O participante não cicatrizou e o desfecho foi negativo. | Ele pode cicatrizar depois; tratar censura como fracasso definitivo enviesa a análise.
+- O tempo foi medido com imprecisão. | Imprecisão de medida é outro problema, e a censura é sobre até quando se observou.
+@ cap-14-o-problema-que-so-a-analise-de-sobrevida-resolve
+
+? [facil] Um participante tem tempo de 84 dias e evento igual a 0. O que aconteceu com ele?
++ Foi seguido até o fim das doze semanas com a úlcera ainda aberta. | Correto. As duas colunas são inseparáveis: o mesmo 84 com evento igual a 1 significaria uma úlcera que cicatrizou no último dia.
+- Cicatrizou no octogésimo quarto dia. | Isso corresponderia a evento igual a 1.
+- Abandonou o estudo no octogésimo quarto dia. | Perdas ocorreram antes do fim; 84 dias é o encerramento do seguimento.
+- Não foi avaliado. | Foi avaliado ao longo de todo o período.
+- O dado está incorreto, porque evento zero exige tempo menor. | Não exige: censura administrativa acontece exatamente no fim do seguimento.
+@ cap-14-o-problema-que-so-a-analise-de-sobrevida-resolve
+
+? [media] O log-rank deste estudo deu p de 0,002 e o qui-quadrado sobre o desfecho binário deu 0,015. Por que a diferença?
++ Porque a análise de sobrevida usa a informação de quando cada evento ocorreu, enquanto a dicotomização em doze semanas trata como iguais uma úlcera que fechou aos vinte dias e outra que fechou aos oitenta e três. | Correto. Mais informação aproveitada produz estimativa mais precisa e teste mais poderoso, sem nenhum truque.
+- Porque o log-rank é um teste menos exigente. | Não é menos exigente: aproveita mais dados.
+- Porque a análise de sobrevida usou mais participantes. | Usa os mesmos duzentos, inclusive os censurados.
+- Porque o qui-quadrado foi calculado errado. | Ambos estão corretos e respondem a perguntas ligeiramente diferentes.
+- Porque o log-rank não corrige para múltiplas comparações. | Nenhum dos dois faz correção aqui, e não é disso que decorre a diferença.
+@ cap-14-o-teste-de-log-rank
+
+? [media] O tempo mediano até cicatrizar foi de 50 dias no grupo tratado e 82 no controle. Como esses números foram obtidos?
++ Pela curva de Kaplan-Meier: é o instante em que metade de todos os participantes já havia cicatrizado, contando os que não cicatrizaram. | Correto. Calcular a mediana apenas entre os que cicatrizaram daria 36 e 46 dias, número diferente, que descarta em silêncio justamente os piores casos.
+- Pela média dos tempos observados em cada grupo. | Média com censurados não faz sentido, e é o erro mais frequente de quem começa neste assunto.
+- Pela mediana dos tempos apenas entre os que cicatrizaram. | Isso daria 36 e 46 dias e responderia a outra pergunta.
+- Pelo modelo de Cox ajustado. | O Cox estima razão de riscos, e não tempos medianos.
+- Pelo tempo em que metade das úlceras ainda estava aberta ao fim do estudo. | Descrição confusa; a mediana é o instante em que a curva cruza os 50%.
+@ cap-14-a-curva-de-kaplan-meier
+
+? [media] A razão de riscos ajustada foi 2,10. Como interpretá-la corretamente?
++ Entre os que ainda têm a úlcera aberta, a taxa instantânea de cicatrização é 2,1 vezes maior no grupo tratado. | Correto. Ela não diz que o dobro dos pacientes cicatriza, nem que cicatrizam na metade do tempo, e por isso convive com uma diferença absoluta de 17,4 pontos percentuais.
+- O dobro dos pacientes cicatriza no grupo tratado. | Isso seria risco relativo, e neste estudo ele é 1,33.
+- Os pacientes tratados cicatrizam na metade do tempo. | Razão de riscos não se traduz diretamente em razão de tempos.
+- A probabilidade de cicatrizar é de 210%. | Probabilidades não passam de 100%, e a razão de riscos não é probabilidade.
+- O tratamento reduz o risco de não cicatrizar em 2,1 vezes. | Inverte o sentido do desfecho e a natureza da medida.
+@ cap-14-o-modelo-de-cox
+
+? [dificil] Como se verifica a suposição de riscos proporcionais?
++ Observando se as curvas de Kaplan-Meier se cruzam, examinando os resíduos de Schoenfeld contra o tempo e testando uma interação entre tratamento e tempo. | Correto. Quando a suposição falha, relatam-se as curvas e as diferenças em momentos definidos, em vez de uma razão de riscos única.
+- Aplicando o teste de normalidade aos tempos observados. | A distribuição dos tempos não é a suposição em questão.
+- Comparando as medianas dos dois grupos. | Comparar medianas não informa sobre a constância da razão ao longo do tempo.
+- Verificando se o número de eventos é igual nos dois grupos. | Eventos desiguais são o resultado esperado quando há efeito, e não uma violação.
+- Conferindo se o seguimento teve a mesma duração para todos. | Duração desigual é a regra em estudos de sobrevida e é tratada pela censura.
+@ cap-14-o-modelo-de-cox
+
+? [dificil] Se o estudo tivesse durado apenas oito semanas, o que aconteceria com o tempo mediano do grupo controle?
++ Não seria atingido, e o relato correto seria "mediana não alcançada". | Correto. Com oito semanas o controle acumulava 35% de cicatrização, e a curva não cruzaria os 50%. Extrapolar um número nesse caso seria inventá-lo.
+- Seria menor, porque o seguimento é mais curto. | A mediana não encolhe com o seguimento: ela simplesmente pode não ser observada.
+- Seria o mesmo, porque a mediana não depende do seguimento. | Depende da observação: sem cruzar 50%, não há mediana a relatar.
+- Poderia ser estimado pela média dos tempos observados. | Média com censurados não é interpretável.
+- Seria estimado por extrapolação linear da curva. | Extrapolar além do observado é injustificado e produz número sem lastro.
+@ cap-14-a-curva-de-kaplan-meier
+:::
+
 ## Exercícios
 
 ::: exercicio 1

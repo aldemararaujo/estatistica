@@ -166,6 +166,64 @@ que ninguém fez.
 têm ponto de interrogação, e o Capítulo 2 mostra como chegar a uma.
 :::
 
+::: quiz
+? [facil] Segundo este capítulo, qual fração do trabalho estatístico de um estudo acontece na fase de planejamento?
++ Cerca de 60%, contra 25% na coleta e 15% na análise. | Correto. É a tese central do livro: a análise, que a maioria chama de "a estatística", é a menor parte do trabalho, e é a única incapaz de consertar o que veio antes.
+- Cerca de 15%, porque planejar é rápido e analisar é demorado. | Inverte a proporção. Analisar é a etapa mais rápida e a mais dependente de tudo o que foi decidido antes.
+- Cerca de 50%, dividido igualmente com a análise. | O peso do planejamento é maior, e a coleta também consome mais que a análise.
+- Nenhuma: a estatística começa quando os dados chegam. | É exatamente a crença que este livro combate, e a que produz estudos irrecuperáveis.
+- Depende do programa estatístico usado. | A escolha do programa não altera onde está o trabalho intelectual do estudo.
+@ cap-1-quando-fazer
+
+? [facil] O que caracteriza a estatística aplicada à pesquisa clínica, na definição deste capítulo?
++ O conjunto de decisões que permite concluir sobre pessoas que não foram estudadas, a partir das que foram. | Correto. O que define a disciplina é o salto da amostra para a população, e não as tarefas de coletar e organizar.
+- A coleta, a organização e a apresentação de dados. | É a definição dos manuais tradicionais, e ela descreve tarefas, não o que caracteriza a disciplina.
+- O cálculo de médias, desvios e valores de p. | Cálculo é a menor parte, e nenhuma fórmula deste livro exige mais que uma raiz quadrada.
+- O domínio de um programa estatístico. | Programas mudam; as decisões, não. Quem entende por que escolhe a mediana fará isso em qualquer programa.
+- A aplicação de testes de hipótese aos resultados obtidos. | Reduz a disciplina à sua etapa final, que é justamente a que não conserta nada.
+@ cap-1-o-que-e
+
+? [media] Um pesquisador terminou a coleta de 60 pacientes e procura um estatístico perguntando "o que dá significativo aqui?". Qual o problema central dessa abordagem?
++ As decisões que determinam se o estudo responde à pergunta já foram tomadas, e nenhuma análise as desfaz. | Correto. O estatístico poderá, no máximo, dizer do que o estudo morreu, na imagem de Fisher citada no capítulo.
+- Nenhum, desde que o estatístico seja experiente. | Experiência não recupera variáveis não coletadas, desfecho mal definido nem amostra insuficiente.
+- O problema é apenas de custo, porque a consultoria fica mais cara. | O custo é o menor dos problemas: o estudo pode simplesmente não ter resposta a dar.
+- O erro é procurar um estatístico, já que o pesquisador deveria analisar sozinho. | O capítulo defende o contrário: o estatístico é indispensável em situações complexas, mas precisa ser chamado no planejamento.
+- Procurar "o que dá significativo" é aceitável em estudos exploratórios. | Mesmo em estudo exploratório, garimpar significância sem declarar o que se procurava produz achados que não se replicam.
+@ cap-1-quem-deve-fazer
+
+? [media] Entre as decisões abaixo, qual **não** pode ser delegada ao estatístico?
++ Qual a menor diferença que mudaria a conduta clínica. | Correto. É decisão clínica, não estatística, e é o ingrediente que o Capítulo 6 mostra ser o mais errado de todos no cálculo do tamanho da amostra.
+- Qual teste se aplica a um desfecho binário com dois grupos independentes. | Essa é técnica, e o estatístico responde com facilidade.
+- Como tratar dados faltantes em grande volume. | Exige método, e é uma das situações em que o capítulo recomenda explicitamente consultar um estatístico.
+- Como modelar dados hierárquicos de um estudo por conglomerados. | Também é técnica e complexa, e o capítulo a lista entre as que exigem estatístico.
+- Como calcular o intervalo de confiança de uma razão de riscos. | É conta, e o programa a faz.
+@ cap-1-quem-deve-fazer
+
+? [media] O capítulo afirma que a terceira armadilha, enganar a si mesmo, é a mais séria. Por quê?
++ Porque cada decisão isolada parece defensável, e o viés nasce da direção em que todas elas pendem. | Correto. Excluir um caso atípico, testar mais um desfecho, ajustar um corte: nada disso é fraude, e o conjunto produz literatura que não se replica.
+- Porque a maioria dos pesquisadores age de má-fé. | O capítulo diz o oposto: nenhuma dessas decisões é fraude, e é justamente por isso que o problema passa despercebido.
+- Porque os programas estatísticos têm erros de cálculo. | Não é disso que se trata. A conta costuma estar certa; a escolha do que calcular é que foi contaminada.
+- Porque o acaso é imprevisível. | O acaso é a primeira armadilha, e é diferente desta.
+- Porque revisores não conseguem detectar erros de análise. | Muitos erros são detectáveis, e o livro dedica uma seção por capítulo a eles. O que não se detecta é a decisão que não foi relatada.
+@ cap-1-qual-a-importancia
+
+? [dificil] Um serviço tem verba para um único estudo e hesita entre gastar em consultoria metodológica no planejamento ou em análise estatística ao final. Com base neste capítulo, qual argumento sustenta a primeira opção?
++ O custo de um estudo subdimensionado ou mal desenhado é o desperdício de todo o investimento restante, e a consultoria inicial é a fração mínima que protege o resto. | Correto. É o raciocínio da seção sobre custo: o pagamento é antecipado, e é isso que o torna difícil de aceitar.
+- Consultoria no planejamento é mais barata que a análise final. | Pode até ser, mas o argumento decisivo não é o preço relativo, e sim o que cada uma consegue evitar.
+- A análise final pode ser feita gratuitamente no jamovi. | O programa é gratuito, mas executar uma análise não substitui decidir o que analisar.
+- Comitês de ética exigem consultoria metodológica prévia. | Comitês exigem cálculo de tamanho de amostra, o que não é a mesma coisa, e o argumento aqui é de mérito, não de exigência formal.
+- A análise só pode ser feita por estatístico, e o planejamento pode ser feito pelo pesquisador. | Inverte a divisão de trabalho proposta pelo capítulo, que atribui ao pesquisador as decisões clínicas do planejamento.
+@ cap-1-quanto-custa
+
+? [dificil] Por que o capítulo afirma que "estatística não é matemática aplicada no sentido de cálculo"?
++ Porque o que a caracteriza são decisões sobre delineamento, medida e inferência, e não a execução de fórmulas. | Correto. Nenhuma fórmula do livro exige mais que uma raiz quadrada, e ainda assim o livro tem dezesseis capítulos: o conteúdo está nas decisões.
+- Porque os cálculos são feitos por computador e não interessam mais. | O computador executa, e continuar sem entender o que ele executa é justamente o que produz resultados sem sentido.
+- Porque a matemática envolvida é elementar demais para ser chamada assim. | O grau de dificuldade da conta não é o critério, e sim a natureza do trabalho.
+- Porque a estatística clínica é qualitativa, e não quantitativa. | Ela é quantitativa. O que se nega é que seu conteúdo se reduza ao ato de calcular.
+- Porque a inferência é subjetiva e depende do pesquisador. | A inferência tem regras, e o livro inteiro trata delas. Reconhecer que há decisões não é dizer que tudo é subjetivo.
+@ cap-1-o-que-e
+:::
+
 ## Exercícios
 
 ::: exercicio 1

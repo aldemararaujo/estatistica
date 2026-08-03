@@ -178,6 +178,64 @@ declarado."** Precisa ser o primário, sempre.
 Justifique ou refaça bilateral.
 :::
 
+::: quiz
+? [facil] Quais são os quatro ingredientes de todo cálculo de tamanho de amostra?
++ Nível de significância, poder, menor diferença clinicamente relevante e variabilidade esperada. | Correto. Qualquer que seja o desfecho, a conta combina esses quatro, e apenas o terceiro é decisão clínica, e não estatística.
+- Número de grupos, número de desfechos, alfa e poder. | O número de desfechos não entra na conta, e o de grupos afeta a fórmula, não a lista de ingredientes.
+- Média, desvio padrão, mediana e amplitude. | São medidas descritivas; só a variabilidade participa do cálculo.
+- Prevalência da doença, incidência, alfa e beta. | Prevalência e incidência não são ingredientes do cálculo de comparação entre dois grupos.
+- Orçamento, tempo disponível, número de centros e taxa de perdas. | São restrições de viabilidade, importantes e externas à fórmula, embora as perdas entrem no ajuste final.
+@ cap-6-os-quatro-ingredientes
+
+? [facil] Quando o cálculo do tamanho da amostra deve ser feito?
++ Antes da coleta, no protocolo. | Correto. Calcular depois é justificar o que se conseguiu, e não o que se precisava. É exigência ética, e não apenas metodológica.
+- Depois da coleta, com os dados reais em mãos. | Isso é contradição em termos e devolução certa em qualquer revista.
+- Durante a coleta, ajustando conforme os resultados aparecem. | Continuar até alcançar significância é uma das formas mais eficientes de produzir falso positivo.
+- Na fase de redação do artigo. | Tarde demais para qualquer decisão útil.
+- Somente se o comitê de ética solicitar. | O comitê solicita, e a razão de fazê-lo é anterior à exigência.
+@ cap-6-por-que-a-conta-e-obrigatoria
+
+? [media] O que é a "menor diferença clinicamente relevante"?
++ A menor diferença que, existindo, mudaria a conduta clínica. | Correto. Não é a diferença que se espera encontrar, nem a que apareceu em um piloto pequeno, e colocar ali um número otimista é a maneira mais eficiente de produzir um estudo subdimensionado com aparência de rigor.
+- A diferença que o pesquisador espera encontrar. | É o erro mais comum: a expectativa costuma ser otimista, e o estudo nasce condenado.
+- A diferença observada em um estudo piloto. | Pilotos pequenos estimam efeito com enorme imprecisão, e usá-los assim propaga o otimismo do acaso.
+- A diferença que o tamanho de amostra disponível permite detectar. | Isso é a conta invertida, legítima quando declarada, e não a definição da diferença relevante.
+- A diferença que resulta em valor de p abaixo de 0,05. | O valor de p depende do tamanho da amostra e não define relevância clínica.
+@ cap-6-os-quatro-ingredientes
+
+? [media] O caso condutor precisaria de 89 participantes por grupo para detectar 20 pontos percentuais. Quantos precisaria para detectar 10 pontos?
++ Cerca de 376 por grupo, ou seja, aproximadamente quatro vezes mais. | Correto. Reduzir pela metade a diferença a detectar multiplica o tamanho da amostra por cerca de quatro: precisão é cara e fica exponencialmente mais cara.
+- Cerca de 178 por grupo, o dobro. | A relação não é linear: é aproximadamente quadrática em relação ao inverso da diferença.
+- Cerca de 89 por grupo, porque o tamanho não depende da diferença. | Depende, e é a variável que mais influencia o resultado da conta.
+- Cerca de 45 por grupo, porque a diferença é menor. | Diferenças menores exigem mais participantes, e não menos.
+- Não é possível calcular sem conhecer o desvio padrão. | Para desfecho binário, as proporções esperadas fazem o papel da variabilidade, e o desvio padrão não é necessário.
+@ cap-6-quanto-custa-cada-ponto-percentual
+
+? [media] Em um estudo de tempo até o evento, o que determina a precisão da estimativa?
++ O número de eventos observados, e não o número de participantes. | Correto. Calcula-se primeiro quantos eventos são necessários e, depois, quantos participantes e quanto tempo de seguimento os produzem. Em doenças lentas, estender o seguimento costuma ser mais barato que ampliar a amostra.
+- O número de participantes randomizados. | Um estudo com quinhentos participantes e doze eventos é, para efeitos de precisão, um estudo pequeno.
+- O tempo total de seguimento, isoladamente. | O tempo importa porque gera eventos, e é o número deles que conta.
+- O número de centros participantes. | Multicêntrico ajuda a recrutar, e não determina a precisão.
+- A frequência das visitas de avaliação. | Afeta a exatidão da data do evento, e não a precisão da estimativa do efeito.
+@ cap-6-outros-desfechos-outras-contas
+
+? [dificil] Um pesquisador tem acesso a 40 pacientes por grupo e o desfecho é binário, com 55% de cicatrização no controle. O que ele deve escrever no protocolo?
++ A conta invertida: com 40 por grupo, a menor diferença detectável com 80% de poder é de cerca de 30 pontos percentuais, e a decisão de prosseguir deve considerar se esse efeito é plausível. | Correto. A inversão é honesta e permite decidir conscientemente. Fazer assim mesmo e escrever depois "não houve diferença" é o desperdício que o livro tenta evitar.
+- Que o tamanho da amostra foi determinado pela disponibilidade de pacientes. | Verdadeiro e insuficiente: falta dizer o que essa amostra consegue detectar.
+- Que o cálculo será feito ao final, com os dados observados. | Poder calculado depois é redundante com o valor de p, como mostra o Capítulo 10.
+- Que 40 por grupo é suficiente porque é o usual na literatura da área. | Argumento de autoridade que não substitui a conta, e replica o subdimensionamento alheio.
+- Que aumentará o alfa para 10% a fim de compensar a amostra pequena. | Elevar o alfa aumenta a taxa de falsos positivos, e precisaria ser justificado explicitamente, o que raramente é aceitável.
+@ cap-6-outros-desfechos-outras-contas
+
+? [dificil] O estudo previu 10% de perdas e observou 8%, terminando com 92 participantes por grupo. O que se pode afirmar sobre o poder?
++ O planejamento se sustentou, porque 92 supera os 89 exigidos pelo cálculo. | Correto. A previsão de perdas cumpriu sua função, que é garantir que a amostra analisável não fique abaixo do necessário.
+- O poder caiu, porque houve perdas. | Houve perdas, e a amostra analisada ainda superou a exigida, justamente porque as perdas foram previstas no dimensionamento.
+- O poder aumentou, porque as perdas foram menores que o previsto. | O poder projetado era para 89 por grupo; terminar com 92 mantém o planejado, sem ganho relevante.
+- O poder não pode ser avaliado sem recalculá-lo com o efeito observado. | Recalcular com o efeito observado é o poder pós-hoc, que não informa nada.
+- O estudo perdeu validade, porque a amostra final difere da planejada. | Diferir do planejado para mais não compromete nada; comprometeria se ficasse abaixo do necessário.
+@ cap-6-a-conta-deste-estudo-passo-a-passo
+:::
+
 ## Exercícios
 
 ::: exercicio 1

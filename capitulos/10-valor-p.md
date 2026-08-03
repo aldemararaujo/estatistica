@@ -182,6 +182,64 @@ na discussão como confirmatórios."** Declare qual era o primário e classifiqu
 resto como exploratório.
 :::
 
+::: quiz
+? [facil] O desfecho primário deste estudo teve p de 0,015. O que exatamente esse número significa?
++ Se o tratamento fosse inerte, uma diferença tão grande quanto a observada apareceria em cerca de 1,5% dos estudos deste tamanho. | Correto. O valor de p é a probabilidade dos dados, ou de dados mais extremos, calculada **supondo** que a hipótese nula seja verdadeira. É só isso, e é sempre isso.
+- Há 1,5% de probabilidade de o tratamento não funcionar. | Esta é a inversão da condicional, o erro mais comum da literatura clínica. O p é calculado supondo a hipótese nula verdadeira, e uma probabilidade calculada sob uma suposição não pode ser a probabilidade daquela suposição.
+- Há 98,5% de probabilidade de o tratamento funcionar. | Mesma inversão da alternativa anterior, agora pelo complemento. O p não diz nada sobre a probabilidade de nenhuma hipótese ser verdadeira.
+- O tratamento aumenta a cicatrização em 1,5%. | O valor de p não é uma medida de efeito. O efeito deste estudo foi de 17,4 pontos percentuais, e está no intervalo de confiança, não no p.
+- O estudo tem 1,5% de chance de estar errado. | O p não mede a probabilidade de o estudo estar errado. Erros de delineamento, de aferição e de seleção não entram nessa conta, e nenhum deles é detectado por um valor de p.
+@ cap-10-o-que-o-valor-de-p-e
+
+? [facil] Um estudo comparou dois curativos e concluiu, com p de 0,31, que "não houve diferença entre os grupos". Qual informação é indispensável para julgar essa conclusão?
++ O intervalo de confiança da diferença. | Correto. Um intervalo estreito em torno do nulo permite concluir ausência de efeito relevante; um intervalo largo significa apenas que o estudo não teve tamanho para decidir. Os dois produzem p acima de 0,05 e significam coisas opostas.
+- O poder calculado a partir do efeito observado. | O poder observado é uma transformação matemática do próprio valor de p e não acrescenta nenhuma informação. Quanto menor o p, maior o poder calculado, sempre.
+- O valor de p com mais casas decimais. | A precisão do p não muda nada. Um p de 0,3142 continua sem dizer se o estudo excluiu efeitos grandes.
+- O teste de normalidade dos dados. | Não é disso que depende a conclusão. A questão aqui é a precisão da estimativa, e não a escolha do teste.
+- O tamanho da amostra isoladamente. | O tamanho da amostra ajuda, mas o que resume a informação relevante é o intervalo de confiança, que já incorpora tamanho e variabilidade.
+@ cap-10-significancia-estatistica-e-relevancia-clinica
+
+? [media] Dois estudos medem a mesma intervenção. O primeiro, com 40 pacientes, encontra 20 pontos percentuais de diferença e p de 0,08. O segundo, com 4.000 pacientes, encontra 2 pontos percentuais e p de 0,001. O que se pode afirmar?
++ O segundo tem mais evidência contra a hipótese nula, e o primeiro estimou um efeito maior, embora com muita imprecisão. | Correto. O valor de p mistura tamanho de efeito, tamanho de amostra e variabilidade. Separar as três coisas exige olhar a estimativa e o intervalo de cada estudo.
+- O segundo estudo encontrou um efeito maior, porque tem p menor. | O p menor não significa efeito maior. Aqui, o efeito do segundo estudo é dez vezes menor que o do primeiro, e o p é menor apenas porque a amostra é cem vezes maior.
+- O primeiro estudo provou que não há efeito. | Um p de 0,08 com 40 pacientes é o retrato de um estudo sem tamanho para decidir, e não uma prova de ausência de efeito.
+- Os dois estudos se contradizem e um deles está errado. | Não há contradição. São estimativas diferentes com precisões diferentes, e a diferença entre elas é compatível com o acaso amostral.
+- O segundo estudo é clinicamente mais relevante. | Dois pontos percentuais podem ser clinicamente irrelevantes, por mais impressionante que seja o valor de p. Significância estatística e relevância clínica são perguntas diferentes.
+@ cap-10-o-que-o-valor-de-p-nao-e
+
+? [media] No caso condutor, o mesmo desfecho produziu p de 0,015 pelo qui-quadrado de Pearson, 0,023 com correção de continuidade e 0,022 pelo teste exato de Fisher. Qual conduta é correta?
++ Declarar o teste no protocolo, antes de ver os dados, e relatar o que foi declarado. | Correto. Os três valores são legítimos e diferem pelo modo de lidar com a natureza discreta da contagem. Escolher depois de ver os três é o que a literatura chama de *p-hacking*.
+- Relatar o menor dos três, que é o mais favorável ao estudo. | É exatamente a prática que o registro prévio do protocolo existe para coibir.
+- Relatar os três e deixar o leitor decidir. | Parece transparente e não é: transfere ao leitor uma decisão que era do pesquisador e que deveria ter sido tomada antes da coleta.
+- Usar sempre o teste exato de Fisher, que é o mais rigoroso. | O teste exato é obrigatório quando os valores esperados são pequenos, e não é "mais rigoroso" em toda situação. Aqui o menor esperado é 35.
+- Refazer a coleta até que os três valores concordem. | Não faz sentido metodológico nem ético, e a discordância entre eles não é um defeito dos dados.
+@ cap-10-o-que-acontece-por-tras-do-teste
+
+? [media] O estudo foi planejado com 80% de poder para detectar 20 pontos percentuais, e observou 17,4. Um revisor pede o "poder observado" recalculado com o efeito encontrado. Como responder?
++ Explicar que o poder observado é redundante com o valor de p e não explica resultado nenhum. | Correto. O poder calculado a partir do efeito observado é uma função matemática do próprio p: quanto menor o p, maior o poder, sempre e em qualquer estudo. Quem quer saber o que o estudo excluiu olha o intervalo de confiança.
+- Calcular e relatar os 68,3%, atendendo ao pedido. | Atender ao pedido propaga um erro. O número existe, é calculável e não informa nada além do que o p já informou.
+- Recalcular o tamanho da amostra necessário e relatá-lo. | Isso responde a outra pergunta, sobre estudos futuros, e não sobre o que este estudo conseguiu mostrar.
+- Aumentar a amostra até atingir 80% de poder com o efeito observado. | Continuar coletando até alcançar significância é uma das formas mais eficientes de produzir falso positivo.
+- Relatar o poder do desfecho secundário, que foi maior. | Trocar o desfecho para exibir um número melhor é troca de desfecho, e o registro prévio existe para expô-la.
+@ cap-10-significancia-estatistica-e-relevancia-clinica
+
+? [dificil] Um projeto declara um desfecho primário e testa, além dele, quatro secundários, dois de segurança e doze variáveis basais, todos a 5%. Supondo independência entre os testes e nenhuma diferença verdadeira, qual a probabilidade aproximada de pelo menos um resultado significativo?
++ Cerca de 60%. | Correto. Com dezenove testes independentes a 5%, a probabilidade de nenhum falso positivo é 0,95 elevado a 19, algo em torno de 0,38. Logo, a de pelo menos um passa de 60%. É a razão de existir desfecho primário único.
+- Cerca de 5%, porque cada teste é independente. | Os 5% valem para **cada** teste isoladamente. A pergunta é sobre pelo menos um entre dezenove, e as probabilidades se acumulam.
+- Cerca de 19%, somando os riscos. | Somar diretamente superestima em situações grandes e não é o cálculo correto: a conta é feita pelo complemento, com 0,95 elevado ao número de testes.
+- Cerca de 95%, porque quase sempre aparece algo. | Exagera. Com dezenove testes a probabilidade fica em torno de 62%, e não perto da certeza.
+- Não é possível calcular sem conhecer o tamanho da amostra. | O tamanho da amostra afeta o poder, e não a taxa de erro tipo I, que permanece em 5% por teste independentemente do n.
+@ cap-10-significancia-estatistica-e-relevancia-clinica
+
+? [dificil] Qual das afirmações abaixo é compatível com os seis princípios da American Statistical Association sobre o valor de p?
++ O valor de p pode indicar quão incompatíveis os dados são com um modelo estatístico especificado. | Correto. É a formulação do primeiro princípio, e ela é deliberadamente modesta: incompatibilidade com um modelo, e não prova, nem probabilidade de hipótese, nem medida de efeito.
+- O valor de p mede a probabilidade de a hipótese estudada ser verdadeira. | A declaração afirma exatamente o contrário, em seu segundo princípio.
+- Conclusões científicas devem se basear em o valor de p cruzar ou não um limiar. | O terceiro princípio desaconselha explicitamente decidir por limiar isolado.
+- Um valor de p pequeno é, por si só, boa medida da magnitude do efeito. | O quinto princípio nega isso: o p não mede tamanho de efeito nem importância de um resultado.
+- Relatar apenas os testes que resultaram significativos é aceitável se o método estiver descrito. | O quarto princípio exige transparência total sobre tudo o que foi testado; relatar seletivamente invalida a interpretação do p.
+@ cap-10-o-que-o-valor-de-p-nao-e
+:::
+
 ## Exercícios
 
 ::: exercicio 1

@@ -175,6 +175,64 @@ quatro semanas usado no Capítulo 13, e nunca escolhendo o corte que produz o
 menor valor de p.
 :::
 
+::: quiz
+? [facil] Quais são as três perguntas que decidem a escolha do teste?
++ Que tipo de variável é o desfecho, quantos grupos há e se são pareados, e se a distribuição comporta a média. | Correto. Com essas três respostas, a tabela de decisão resolve praticamente toda a pesquisa clínica de rotina.
+- Qual o tamanho da amostra, qual o valor de p desejado e qual o programa disponível. | Nenhuma das três define o teste adequado.
+- Se os dados são normais, se há valores extremos e se a amostra é grande. | São considerações que entram na terceira pergunta, e deixam de fora tipo de desfecho e pareamento.
+- Qual o delineamento, qual o desfecho primário e qual o comparador. | Definem a pergunta de pesquisa, e não diretamente o teste.
+- Quantas variáveis há no banco, quantos grupos e quantos desfechos. | O número de variáveis no banco não influencia a escolha do teste de um desfecho.
+@ cap-11-as-tres-perguntas-que-decidem-tudo
+
+? [facil] A dor foi medida na inclusão e em 12 semanas, nos mesmos participantes. Qual teste compara os dois momentos?
++ Teste t pareado, ou Wilcoxon dos postos sinalizados. | Correto. São 184 pares, e não dois grupos independentes. O teste pareado usa a diferença dentro de cada indivíduo e elimina a variabilidade entre pessoas.
+- Teste t para amostras independentes. | É o erro que mais custa poder estatístico: trata como independentes medidas que vêm da mesma pessoa.
+- Qui-quadrado. | O desfecho aqui é numérico, e não categórico.
+- ANOVA de uma via. | Compara três ou mais grupos independentes.
+- Correlação de Pearson. | Mede associação entre duas variáveis, e não mudança entre dois momentos.
+@ cap-11-a-tabela-de-decisao
+
+? [media] O que o teste t realmente supõe sobre a distribuição?
++ Que a distribuição das médias amostrais seja aproximadamente normal, o que o teorema central do limite garante em amostras razoáveis mesmo com dados assimétricos. | Correto. Com noventa participantes por grupo, o teste é robusto a assimetrias consideráveis. O que de fato o compromete são valores extremos e amostras pequenas com assimetria forte.
+- Que os dados individuais sigam distribuição normal. | É a frase repetida nas disciplinas de metodologia, e ela confunde a distribuição dos dados com a das médias.
+- Que as duas amostras tenham exatamente o mesmo tamanho. | Não exige, e o teste funciona com grupos desiguais.
+- Que as variâncias sejam iguais, sem exceção. | O de Welch dispensa essa suposição e deve ser o padrão.
+- Que não haja valores faltantes. | Faltantes reduzem o n disponível e não invalidam a suposição do teste.
+@ cap-11-o-mito-da-normalidade
+
+? [media] Por que este livro recomenda o teste t de Welch em vez do t de Student clássico?
++ Porque Welch não supõe variâncias iguais e, quando elas são iguais, entrega resultados praticamente idênticos. | Correto. Não há motivo para testar igualdade de variâncias antes: usar Welch sempre é a recomendação corrente da literatura metodológica e o padrão do jamovi.
+- Porque Welch tem mais poder estatístico em qualquer situação. | Não tem mais poder por princípio; tem validade mais ampla.
+- Porque o t de Student só serve a amostras pareadas. | O t de Student clássico é para amostras independentes; o pareado é outro teste.
+- Porque Welch dispensa a suposição de normalidade. | A suposição sobre a distribuição das médias continua valendo.
+- Porque o t de Student exige amostras de tamanho igual. | Não exige, embora seu desempenho piore com grupos desiguais e variâncias diferentes.
+@ cap-11-os-testes-deste-estudo-um-a-um
+
+? [media] No teste de McNemar aplicado à dor deste estudo, 84 participantes saíram de dor alta para baixa e 1 fez o caminho contrário. Por que o teste ignora os que não mudaram?
++ Porque quem permaneceu na mesma categoria não traz informação sobre a direção da mudança. | Correto. Cinquenta pessoas com dor alta antes e depois são compatíveis tanto com melhora quanto com nada ter acontecido. O que discrimina são os discordantes.
+- Porque eles seriam contados duas vezes. | Não haveria dupla contagem; eles simplesmente não informam sobre mudança.
+- Porque o teste exige tabelas de duas por duas com casas iguais. | Não exige nada disso.
+- Porque quem não mudou provavelmente não aderiu ao tratamento. | É especulação clínica, e não a razão estatística.
+- Porque incluí-los violaria a suposição de independência. | A independência entre pares não é afetada pelos concordantes.
+@ cap-11-os-testes-deste-estudo-um-a-um
+
+? [dificil] A correlação entre área inicial e tempo até cicatrizar deu r de Pearson de 0,19 e rô de Spearman de 0,28. O que explica a diferença e qual relatar?
++ A área é fortemente assimétrica, e Pearson, que trabalha com valores brutos, é sensível aos extremos; relatar Spearman, que usa postos e capta relação monótona. | Correto. Com variável assimétrica, prefira Spearman e diga no texto por que a escolheu.
+- Um dos dois foi calculado errado, já que deveriam coincidir. | Não precisam coincidir: medem coisas diferentes sobre a mesma relação.
+- Pearson é sempre superior por usar a informação completa dos valores. | Usa mais informação da escala, e isso o torna vulnerável justamente quando a escala é distorcida.
+- A diferença indica ausência de relação entre as variáveis. | Ambos apontam relação positiva, ainda que modesta.
+- Deve-se relatar os dois sem escolher, deixando a decisão ao leitor. | Relatar ambos é aceitável, e a escolha e sua justificativa continuam sendo do autor.
+@ cap-11-os-testes-deste-estudo-um-a-um
+
+? [dificil] O que se perde ao relatar apenas o resultado de um teste por postos, como Mann-Whitney?
++ A estimativa do efeito na escala original, porque o teste compara distribuições e não produz diferença de médias interpretável. | Correto. Por isso o livro sugere relatar o intervalo de confiança da diferença mesmo quando o valor de p vem do teste por postos: o clínico precisa do tamanho do efeito, e ele não está no U.
+- Nada: o teste por postos fornece as mesmas informações. | Fornece o valor de p, e não a magnitude na unidade do desfecho.
+- Perde-se poder estatístico em qualquer situação. | Em distribuições assimétricas ele pode ter mais poder que o paramétrico.
+- Perde-se a possibilidade de calcular o valor de p. | O valor de p é exatamente o que ele fornece.
+- Perde-se a capacidade de ajustar por covariáveis. | Ajuste exige modelo de regressão, o que também não é oferecido pelo teste paramétrico simples.
+@ cap-11-a-tabela-de-decisao
+:::
+
 ## Exercícios
 
 ::: exercicio 1

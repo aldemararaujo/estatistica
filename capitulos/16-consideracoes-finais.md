@@ -142,6 +142,64 @@ começado, pare a coleta. É desconfortável e é mais barato do que descobrir o
 problema na banca.
 :::
 
+::: quiz
+? [facil] O que o ensaio da estreptomicina, de 1948, fez que os estudos anteriores não faziam?
++ Usou alocação verdadeiramente aleatória, com sigilo, tratando o sorteio como instrumento metodológico deliberado. | Correto. Não foi o primeiro estudo comparativo da história, e foi o primeiro a usar o sorteio como método, impedindo que o pesquisador influenciasse quem receberia o novo tratamento.
+- Foi o primeiro estudo a comparar dois tratamentos. | Comparações existiam antes; o que mudou foi como os grupos passaram a ser formados.
+- Foi o primeiro a calcular valor de p. | O arcabouço já existia desde as décadas anteriores, com Fisher.
+- Foi o primeiro estudo multicêntrico. | Não é essa a razão de sua importância histórica.
+- Foi o primeiro a obter consentimento dos participantes. | O consentimento informado se consolidou depois, com a Declaração de Helsinque.
+@ cap-16-o-passado-como-a-estatistica-entrou-na-medicina
+
+? [facil] Qual é a orientação prática consolidada após a revisão do valor de p promovida pela American Statistical Association?
++ Colocar estimativa, intervalo e magnitude clínica em primeiro plano, tratando o valor de p como informação acessória. | Correto. Não houve substituto único para o p, e é essa a orientação que o livro adota do início ao fim.
+- Substituir o valor de p pelo intervalo de credibilidade bayesiano. | Métodos bayesianos ganham espaço, e não houve substituição oficial recomendada.
+- Adotar 0,005 como novo limiar de significância. | Foi proposto por alguns autores, e não é a orientação consolidada.
+- Abandonar completamente o uso de testes de hipótese. | A recomendação é de contexto e proporção, e não de abolição.
+- Exigir replicação independente antes de qualquer publicação. | Replicação é desejável e não é a orientação decorrente da declaração.
+@ cap-16-o-presente-uma-disciplina-em-revisao
+
+? [media] O que caracteriza o formato de relatório registrado adotado por algumas revistas?
++ A revista avalia o protocolo e aceita o artigo antes de conhecer os resultados. | Correto. A decisão editorial passa a se basear na relevância da pergunta e na qualidade do método, eliminando o viés de publicação.
+- O autor registra o protocolo em plataforma pública antes de coletar. | Isso é o registro prévio, que é necessário e diferente: nele, a revista não se compromete previamente.
+- A revista exige que os dados sejam publicados junto com o artigo. | É a política de dados abertos, também diferente.
+- O artigo é revisado por pares abertamente, com pareceres assinados. | É revisão aberta, outra prática.
+- O estudo é registrado em cartório antes da submissão. | Não existe tal exigência na pesquisa clínica.
+@ cap-16-o-presente-uma-disciplina-em-revisao
+
+? [media] Por que a crise de reprodutibilidade se relaciona com estudos pequenos?
++ Porque, entre estudos pequenos, os que atingem significância são justamente aqueles em que o acaso produziu efeito exagerado, e são esses que acabam publicados. | Correto. A literatura passa a conter estimativas sistematicamente infladas, que não se replicam quando alguém repete o estudo com tamanho adequado.
+- Porque estudos pequenos têm mais erros de digitação. | Não é disso que decorre o fenômeno.
+- Porque estudos pequenos usam testes estatísticos inadequados. | Podem usar, e o mecanismo central é a combinação de baixo poder com viés de publicação.
+- Porque estudos pequenos raramente passam por revisão por pares. | Passam pela mesma revisão dos demais.
+- Porque estudos pequenos não calculam intervalo de confiança. | Muitos calculam, e o problema persiste.
+@ cap-16-o-presente-uma-disciplina-em-revisao
+
+? [media] Segundo o capítulo, o que uma ferramenta de inteligência artificial **não** faz na análise estatística?
++ Decidir a pergunta de pesquisa e julgar a relevância clínica de um efeito. | Correto. Ela executa e não julga: não sabe que a adesão foi medida depois da randomização, nem reconhece que uma mediana de 100% nos dois grupos é efeito teto e não ausência de diferença.
+- Gerar o código de uma análise descrita em palavras. | Isso ela faz bem, e é uma das aplicações citadas.
+- Revisar um manuscrito contra o checklist CONSORT. | Também está entre as tarefas delegáveis.
+- Explicar uma saída de programa em linguagem clara. | Idem.
+- Encontrar inconsistências entre tabelas de um artigo. | Idem, e é uma das mais úteis.
+@ cap-16-o-futuro-quatro-apostas
+
+? [dificil] Dos dez itens da lista final do livro, quantos são anteriores à análise dos dados?
++ Sete dos dez. | Correto. É a tese do livro enunciada em forma de lista: a análise é a menor parte do trabalho e a única que não conserta o que veio antes.
+- Três dos dez. | Subestima: pergunta, delineamento, desfecho, tamanho da amostra, registro, banco e descrição vêm antes.
+- Cinco dos dez, metade exata. | A maioria é anterior, e não a metade.
+- Nove dos dez. | Ajuste, relato e interpretação de estimativas pertencem à fase analítica.
+- Todos, porque a análise apenas executa o planejado. | A execução envolve decisões próprias, tratadas nos Capítulos 8 a 15.
+@ cap-16-o-que-fazer-amanha-de-manha
+
+? [dificil] Qual afirmação melhor resume a posição do livro sobre a estatística na pesquisa clínica?
++ É a disciplina que impede o pesquisador de enganar a si mesmo, e a disposição de admitir a própria ignorância vale mais do que qualquer teste. | Correto. Quem randomiza admite que não sabe qual braço é melhor; quem calcula a amostra admite que sua impressão clínica pode estar errada; quem publica o intervalo admite o tamanho de sua ignorância.
+- É o conjunto de técnicas que transforma dados em conclusões publicáveis. | Reduz a disciplina a um instrumento de publicação, que é o oposto do que o livro defende.
+- É uma exigência burocrática das revistas e dos comitês de ética. | O livro argumenta exatamente contra essa leitura.
+- É a parte do estudo que deve ser delegada ao estatístico. | Parte deve, e as decisões clínicas do planejamento são do pesquisador.
+- É o que garante que os resultados sejam verdadeiros. | Nenhum método garante verdade; o que ela oferece é disciplina contra o autoengano.
+@ cap-16-uma-palavra-final
+:::
+
 ## Exercícios
 
 ::: exercicio 1

@@ -196,6 +196,64 @@ diferente."** Recalcule com as razões de verossimilhança.
 Sensibilidade de 71,1% baseada em 114 pacientes tem incerteza considerável.
 :::
 
+::: quiz
+? [facil] O que é a sensibilidade de um teste?
++ A proporção dos que têm a condição e que o teste classifica como positivos. | Correto. No caso condutor, com o corte de 40%, o teste apontou 81 dos 114 que cicatrizaram: 71,1%.
+- A proporção dos que o teste apontou e que de fato têm a condição. | Esse é o valor preditivo positivo, que responde à pergunta do clínico e depende da prevalência.
+- A proporção dos que não têm a condição e que o teste descarta. | Essa é a especificidade.
+- A proporção total de acertos do teste. | É a acurácia global, que mistura os dois tipos de erro e depende da prevalência.
+- A probabilidade de o teste dar positivo em qualquer paciente. | Não é uma medida de desempenho, e sim a frequência de positivos na amostra.
+@ cap-13-as-medidas-e-a-pergunta-que-cada-uma-responde
+
+? [facil] Quais medidas de desempenho mudam quando o teste é aplicado em uma população com prevalência diferente?
++ Os valores preditivos, positivo e negativo. | Correto. Sensibilidade e especificidade viajam; valores preditivos, não. Por isso a primeira coisa a verificar em um estudo de acurácia é a prevalência da amostra.
+- A sensibilidade e a especificidade. | São propriedades do teste e, dentro de certos limites, não mudam com a população.
+- As razões de verossimilhança. | Justamente por não dependerem da prevalência é que elas permitem transportar o resultado.
+- A área sob a curva ROC. | Resume a discriminação e não depende diretamente da prevalência.
+- Nenhuma: o desempenho do teste é fixo. | Os valores preditivos mudam, e essa é a lição central do capítulo.
+@ cap-13-as-medidas-e-a-pergunta-que-cada-uma-responde
+
+? [media] Com sensibilidade de 71,1% e especificidade de 80,0%, o valor preditivo positivo é 85,3% em uma população com 62% de prevalência. Em um serviço com 30%, ele fica em torno de quanto?
++ Cerca de 60%. | Correto. Em mil pacientes, 213 verdadeiros positivos contra 140 falsos positivos resultam em pouco mais de 60%. O teste não piorou: a população mudou.
+- Continua 85,3%, porque o teste é o mesmo. | O teste é o mesmo, e o valor preditivo depende de quantos doentes existem antes de testar.
+- Cerca de 30%, igual à prevalência. | O teste acrescenta informação e eleva a probabilidade acima da prevalência.
+- Cerca de 71%, igual à sensibilidade. | Sensibilidade e valor preditivo respondem a perguntas opostas.
+- Cerca de 95%, porque a especificidade é alta. | Especificidade alta ajuda, e não compensa a queda de prevalência.
+@ cap-13-as-medidas-e-a-pergunta-que-cada-uma-responde
+
+? [media] Aumentar o ponto de corte de 30% para 50% produz que efeito?
++ Reduz a sensibilidade e aumenta a especificidade. | Correto. Um corte mais exigente classifica menos pacientes como positivos: alguns verdadeiros positivos viram falsos negativos, e alguns falsos positivos deixam de existir.
+- Aumenta as duas, melhorando o teste. | Não existe corte que melhore as duas ao mesmo tempo: essa é a troca que a curva ROC desenha.
+- Reduz as duas. | A especificidade sobe quando o corte fica mais exigente.
+- Não altera nenhuma das duas, apenas os valores preditivos. | Altera as duas, e por consequência também os preditivos.
+- Aumenta a sensibilidade e reduz a especificidade. | É o efeito de **baixar** o corte, e não de elevá-lo.
+@ cap-13-escolher-o-corte-e-escolher-o-erro-que-se-prefere-cometer
+
+? [media] O TcPO₂ teve área sob a curva de 0,656, com intervalo de 0,574 a 0,737. Que conclusão se sustenta?
++ É melhor que o acaso, porque o intervalo não inclui 0,5, e ainda assim é clinicamente inútil, porque nenhum corte oferece combinação aproveitável. | Correto. Um teste pode ser estatisticamente melhor que o acaso e clinicamente inútil, e é por isso que o capítulo insiste em razões de verossimilhança, e não em área sob a curva.
+- É um bom teste, porque a área supera 0,5. | Superar o acaso é um patamar baixíssimo para decidir conduta.
+- Não é melhor que o acaso, porque a área é inferior a 0,7. | O limite de 0,7 é convenção, e o critério estatístico é o intervalo não incluir 0,5.
+- É equivalente à redução de área em quatro semanas. | Os intervalos mal se tocam: 0,656 contra 0,824.
+- Não é possível concluir sem conhecer a prevalência. | A área sob a curva não depende diretamente da prevalência.
+@ cap-13-a-curva-roc-e-a-comparacao-entre-dois-testes
+
+? [dificil] Um paciente tem, na sua avaliação, 40% de probabilidade de cicatrizar. Ele retorna com redução de área de 55% em quatro semanas, e a razão de verossimilhança positiva desse corte é 8,84. Qual a probabilidade pós-teste aproximada?
++ Cerca de 85%. | Correto. A chance pré-teste é 40 para 60, ou 0,67; multiplicada por 8,84 resulta em 5,9; convertida de volta, 5,9 dividido por 6,9, ou cerca de 86%.
+- Cerca de 55%, igual à redução observada. | A redução de área é o resultado do teste, e não a probabilidade do desfecho.
+- Cerca de 48%, somando 8,84 pontos percentuais. | Razão de verossimilhança multiplica chances, e não soma percentuais.
+- Cerca de 99%, porque a razão é alta. | A razão é alta e parte de uma probabilidade pré-teste modesta, o que limita o resultado final.
+- Cerca de 40%, porque o teste não altera a probabilidade. | Um teste com razão de 8,84 altera bastante a probabilidade.
+@ cap-13-as-razoes-de-verossimilhanca-que-resolvem-o-problema
+
+? [dificil] Por que o capítulo desaconselha confiar no ponto de corte "ótimo" calculado automaticamente pelo índice de Youden?
++ Porque ele trata um falso positivo e um falso negativo como igualmente ruins, o que na clínica quase nunca é verdade. | Correto. A escolha do corte é clínica: depende de qual erro custa mais, se indicar cirurgia desnecessária ou deixar de tratar quem não vai cicatrizar.
+- Porque o índice de Youden não tem base estatística. | Tem base estatística; o problema é o pressuposto de simetria entre os erros.
+- Porque ele sempre escolhe o corte de maior sensibilidade. | Ele busca equilíbrio entre os dois, e não o extremo de um.
+- Porque exige amostras muito grandes. | Não é uma limitação de tamanho de amostra.
+- Porque não pode ser calculado quando a área sob a curva é baixa. | Pode ser calculado, e continua sendo pouco útil.
+@ cap-13-escolher-o-corte-e-escolher-o-erro-que-se-prefere-cometer
+:::
+
 ## Exercícios
 
 ::: exercicio 1
