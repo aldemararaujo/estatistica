@@ -496,7 +496,9 @@ def construir():
         f'<p>{html.escape(livro["local"])}, {html.escape(livro["ano"])}</p>'
         f'<p>ISBN: {html.escape(livro["isbn"])} · Licença {html.escape(livro["licenca"])}</p>'
         f'<p>Comentários, sugestões e críticas: <a href="mailto:{livro["contato"]}">{livro["contato"]}</a></p>'
-        f'<p>Versão de {date.today().strftime("%d/%m/%Y")}</p>'
+        f'<p class="versao">Versão {html.escape(livro.get("versao", "1.0"))} · '
+        f'{date.today().strftime("%d/%m/%Y")} · '
+        f'<a href="{livro["repositorio"]}/blob/main/VERSOES.md">histórico de versões</a></p>'
         '<p class="acoes-ficha">'
         '<button type="button" id="abre-citar">Como citar este livro</button>'
         '</p>'
@@ -565,6 +567,8 @@ def construir():
       <input type="file" id="arquivo-progresso" accept="application/json,.json" hidden>
     </div>
     <p>Setas ou J e K mudam de capítulo. Tecla / busca. Tecla M marca como lido.</p>
+    <p class="selo-versao">Versão {html.escape(livro.get("versao", "1.0"))}
+       · {date.today().strftime("%d/%m/%Y")}</p>
   </div>
 </nav>
 <main id="leitura">
@@ -583,8 +587,9 @@ def construir():
 
 <script>
 var LIVRO_TITULO = {json.dumps(livro["titulo"])};
-var LIVRO = {json.dumps({k: livro[k] for k in
-    ["titulo", "subtitulo", "autor", "local", "ano", "url", "repositorio", "licenca", "isbn"]},
+var LIVRO = {json.dumps({k: livro.get(k, "") for k in
+    ["titulo", "subtitulo", "autor", "local", "ano", "url", "repositorio",
+     "licenca", "isbn", "versao"]},
     ensure_ascii=False)};
 var LIVRO_CAPS = {json.dumps(meta, ensure_ascii=False)};
 var GLOSSARIO = {json.dumps(glossario, ensure_ascii=False)};

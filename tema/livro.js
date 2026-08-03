@@ -935,15 +935,18 @@
     var cidade = LIVRO.local.split(",")[0].trim();
     var lista = [];
 
+    var versao = LIVRO.versao ? "Versão " + LIVRO.versao + ". " : "";
+    var versaoVanc = LIVRO.versao ? " Versão " + LIVRO.versao + "." : "";
+
     lista.push({
       rotulo: "O livro, ABNT",
-      texto: a.abnt + ". " + obra + ". " + cidade + ", " + LIVRO.ano +
+      texto: a.abnt + ". " + obra + ". " + versao + cidade + ", " + LIVRO.ano +
              ". Disponível em: " + LIVRO.url + ". Acesso em: " + d.abnt + "."
     });
     lista.push({
       rotulo: "O livro, Vancouver",
-      texto: a.vancouver + ". " + obra + " [Internet]. " + cidade + "; " + LIVRO.ano +
-             " [citado " + d.vancouver + "]. Disponível em: " + LIVRO.url
+      texto: a.vancouver + ". " + obra + " [Internet]." + versaoVanc + " " + cidade + "; " +
+             LIVRO.ano + " [citado " + d.vancouver + "]. Disponível em: " + LIVRO.url
     });
 
     if (cap && cap.id !== "capa") {
@@ -952,15 +955,16 @@
         var endereco = LIVRO.url + "#" + cap.id;
         lista.push({
           rotulo: "Este capítulo, ABNT",
-          texto: a.abnt + ". " + dados.titulo + ". In: ______. " + obra + ". " + cidade + ", " +
-                 LIVRO.ano + ". cap. " + dados.n + ". Disponível em: " + endereco +
-                 ". Acesso em: " + d.abnt + "."
+          texto: a.abnt + ". " + dados.titulo + ". In: ______. " + obra + ". " + versao +
+                 cidade + ", " + LIVRO.ano + ". cap. " + dados.n + ". Disponível em: " +
+                 endereco + ". Acesso em: " + d.abnt + "."
         });
         lista.push({
           rotulo: "Este capítulo, Vancouver",
           texto: a.vancouver + ". " + dados.titulo + ". Em: " + a.vancouver + ". " + obra +
-                 " [Internet]. " + cidade + "; " + LIVRO.ano + " [citado " + d.vancouver +
-                 "]. cap. " + dados.n + ". Disponível em: " + endereco
+                 " [Internet]." + versaoVanc + " " + cidade + "; " + LIVRO.ano +
+                 " [citado " + d.vancouver + "]. cap. " + dados.n +
+                 ". Disponível em: " + endereco
         });
       }
     }

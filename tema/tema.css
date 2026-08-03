@@ -168,6 +168,11 @@ html[data-tema="escuro"] mark { background: #6b5a1f; color: #fff; }
   font-size: .76rem; color: var(--tinta-fraca); }
 #rodape-sumario .ferramentas { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin-bottom: .4rem; }
 #rodape-sumario .rotulo-ferramenta { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
+#rodape-sumario .selo-versao {
+  margin-top: .6rem; padding-top: .6rem; border-top: 1px solid var(--linha);
+  font-size: .72rem; letter-spacing: .04em; color: var(--tinta-fraca);
+}
+.ficha .versao { font-weight: 600; color: var(--tinta); }
 #rodape-sumario button {
   font: inherit; font-family: var(--sans); cursor: pointer;
   padding: .35rem .6rem; border: 1px solid var(--linha); border-radius: 5px;
