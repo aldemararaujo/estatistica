@@ -1,0 +1,248 @@
+/* ------------------------------------------------------------------
+   A Estatística na Pesquisa Clínica — folha de estilo do livro
+   Embutida em livro.html pelo construir.py. Editar aqui, nunca no HTML.
+   ------------------------------------------------------------------ */
+
+:root {
+  --tinta:        #1b1f24;
+  --tinta-fraca:  #55606c;
+  --papel:        #fbfaf7;
+  --papel-caixa:  #ffffff;
+  --linha:        #e2ded6;
+  --realce:       #7a1f2b;   /* vinho: titulos e destaques */
+  --realce-fraco: #f3e9ea;
+  --caso:         #1d5b73;
+  --caso-fundo:   #e9f2f6;
+  --jamovi:       #2a6b45;
+  --jamovi-fundo: #e8f3ec;
+  --revisor:      #8a5a12;
+  --revisor-fundo:#faf0dd;
+  --largura:      44rem;
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+}
+
+html[data-tema="escuro"] {
+  --tinta:        #e6e3dd;
+  --tinta-fraca:  #a2a9b3;
+  --papel:        #15181c;
+  --papel-caixa:  #1c2026;
+  --linha:        #2f353d;
+  --realce:       #e0919c;
+  --realce-fraco: #2c1f22;
+  --caso:         #7fc0da;
+  --caso-fundo:   #16262d;
+  --jamovi:       #8ed0a8;
+  --jamovi-fundo: #16261d;
+  --revisor:      #e0bb77;
+  --revisor-fundo:#2a2318;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.68;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---------------------------------------------------------- estrutura */
+
+#leiaute { display: flex; min-height: 100vh; }
+
+#barra-progresso {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: var(--realce); z-index: 60; transition: width .15s linear;
+}
+
+/* ------------------------------------------------------------ sumario */
+
+#sumario {
+  width: 20rem; flex: 0 0 20rem;
+  background: var(--papel-caixa);
+  border-right: 1px solid var(--linha);
+  padding: 1.6rem 1.1rem 3rem;
+  height: 100vh; position: sticky; top: 0; overflow-y: auto;
+  font-family: var(--sans); font-size: .88rem;
+}
+
+#sumario .marca { font-family: var(--serif); margin-bottom: 1.2rem; }
+#sumario .marca b { display: block; font-size: 1.08rem; color: var(--realce); line-height: 1.3; }
+#sumario .marca span { display: block; font-size: .8rem; color: var(--tinta-fraca); font-style: italic; margin-top: .2rem; }
+
+#busca {
+  width: 100%; padding: .5rem .7rem; margin-bottom: 1rem;
+  border: 1px solid var(--linha); border-radius: 6px;
+  background: var(--papel); color: var(--tinta); font: inherit;
+}
+#busca:focus { outline: 2px solid var(--realce); outline-offset: 1px; }
+
+#sumario .parte { margin: 1.3rem 0 .4rem; font-size: .74rem; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--tinta-fraca); font-weight: 700; }
+
+#sumario a {
+  display: flex; gap: .6rem; align-items: baseline;
+  padding: .42rem .55rem; margin-bottom: 1px; border-radius: 6px;
+  color: var(--tinta); text-decoration: none; line-height: 1.35;
+}
+#sumario a:hover { background: var(--realce-fraco); }
+#sumario a.ativo { background: var(--realce); color: #fff; }
+#sumario a.ativo .num { color: rgba(255,255,255,.75); }
+#sumario a .num { flex: 0 0 1.4rem; color: var(--tinta-fraca); font-variant-numeric: tabular-nums; font-size: .82rem; }
+#sumario a.pendente { opacity: .45; }
+#sumario a.pendente::after { content: "em preparação"; margin-left: auto; font-size: .68rem;
+  text-transform: uppercase; letter-spacing: .05em; }
+#sumario a.oculto { display: none; }
+
+#rodape-sumario { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--linha);
+  font-size: .76rem; color: var(--tinta-fraca); }
+#rodape-sumario button {
+  font: inherit; font-family: var(--sans); cursor: pointer; margin: 0 .35rem .35rem 0;
+  padding: .35rem .6rem; border: 1px solid var(--linha); border-radius: 5px;
+  background: var(--papel); color: var(--tinta-fraca);
+}
+#rodape-sumario button:hover { border-color: var(--realce); color: var(--realce); }
+
+/* ------------------------------------------------------------ leitura */
+
+#leitura { flex: 1 1 auto; min-width: 0; padding: 3rem 2.5rem 6rem; }
+.capitulo { max-width: var(--largura); margin: 0 auto; }
+.capitulo[hidden] { display: none; }
+
+.cabecalho-cap { margin-bottom: 2.4rem; padding-bottom: 1.2rem; border-bottom: 2px solid var(--realce); }
+.cabecalho-cap .etiqueta { font-family: var(--sans); font-size: .74rem; letter-spacing: .11em;
+  text-transform: uppercase; color: var(--tinta-fraca); }
+.cabecalho-cap h1 { font-size: 2rem; line-height: 1.2; margin: .35rem 0 .5rem; color: var(--realce); }
+.cabecalho-cap .guia { font-size: 1.06rem; font-style: italic; color: var(--tinta-fraca); margin: 0; }
+
+h2 { font-size: 1.35rem; margin: 2.6rem 0 .8rem; line-height: 1.3; }
+h3 { font-size: 1.1rem; margin: 1.9rem 0 .6rem; font-family: var(--sans); }
+p { margin: 0 0 1.1rem; }
+a { color: var(--realce); text-underline-offset: 2px; }
+
+blockquote { margin: 1.4rem 0; padding: .2rem 0 .2rem 1.2rem;
+  border-left: 3px solid var(--linha); color: var(--tinta-fraca); font-style: italic; }
+
+code { font-family: var(--mono); font-size: .88em; background: var(--realce-fraco);
+  padding: .1em .35em; border-radius: 4px; }
+pre { background: var(--papel-caixa); border: 1px solid var(--linha); border-radius: 8px;
+  padding: 1rem 1.1rem; overflow-x: auto; font-size: .86rem; line-height: 1.55; }
+pre code { background: none; padding: 0; }
+
+.rolagem { overflow-x: auto; margin: 1.5rem 0; }
+table { border-collapse: collapse; width: 100%; font-family: var(--sans); font-size: .88rem; }
+th, td { padding: .5rem .7rem; text-align: left; border-bottom: 1px solid var(--linha); vertical-align: top; }
+thead th { border-bottom: 2px solid var(--tinta-fraca); font-size: .8rem;
+  text-transform: uppercase; letter-spacing: .04em; }
+tbody tr:hover { background: var(--realce-fraco); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------ caixas */
+
+.caixa { margin: 1.8rem 0; padding: 1.1rem 1.3rem; border-radius: 8px;
+  border-left: 4px solid var(--linha); background: var(--papel-caixa); }
+.caixa > .titulo { font-family: var(--sans); font-size: .74rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; margin-bottom: .55rem; }
+.caixa > :last-child { margin-bottom: 0; }
+
+.caixa.caso    { border-color: var(--caso);    background: var(--caso-fundo); }
+.caixa.caso    > .titulo { color: var(--caso); }
+.caixa.jamovi  { border-color: var(--jamovi);  background: var(--jamovi-fundo); }
+.caixa.jamovi  > .titulo { color: var(--jamovi); }
+.caixa.revisor { border-color: var(--revisor); background: var(--revisor-fundo); }
+.caixa.revisor > .titulo { color: var(--revisor); }
+.caixa.atencao { border-color: var(--realce);  background: var(--realce-fraco); }
+.caixa.atencao > .titulo { color: var(--realce); }
+.caixa.nota    { border-color: var(--tinta-fraca); }
+.caixa.nota    > .titulo { color: var(--tinta-fraca); }
+
+/* ------------------------------------------------------------- abas */
+
+.abas { margin: 1.8rem 0; border: 1px solid var(--linha); border-radius: 8px; overflow: hidden; }
+.abas-tira { display: flex; flex-wrap: wrap; gap: 0; background: var(--papel-caixa);
+  border-bottom: 1px solid var(--linha); }
+.abas-tira button {
+  font-family: var(--sans); font-size: .84rem; cursor: pointer;
+  padding: .6rem 1rem; border: 0; border-bottom: 2px solid transparent;
+  background: none; color: var(--tinta-fraca);
+}
+.abas-tira button:hover { color: var(--realce); }
+.abas-tira button[aria-selected="true"] { color: var(--realce); border-bottom-color: var(--realce); font-weight: 600; }
+.aba-painel { padding: 1.2rem 1.3rem; }
+.aba-painel[hidden] { display: none; }
+.aba-painel > :last-child { margin-bottom: 0; }
+
+/* -------------------------------------------------------- exercicios */
+
+.exercicio { margin: 1.4rem 0; padding: 1.1rem 1.3rem; border: 1px solid var(--linha);
+  border-radius: 8px; background: var(--papel-caixa); }
+.exercicio > .titulo { font-family: var(--sans); font-size: .74rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--realce); margin-bottom: .55rem; }
+.exercicio details { margin-top: .9rem; border-top: 1px dashed var(--linha); padding-top: .8rem; }
+.exercicio summary { cursor: pointer; font-family: var(--sans); font-size: .84rem;
+  color: var(--realce); font-weight: 600; }
+.exercicio summary::marker { color: var(--realce); }
+.exercicio details > :not(summary) { margin-top: .8rem; }
+
+/* ------------------------------------------------------------ navega */
+
+.navega-cap { display: flex; justify-content: space-between; gap: 1rem;
+  max-width: var(--largura); margin: 4rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--linha); font-family: var(--sans); font-size: .86rem; }
+.navega-cap a { display: block; max-width: 47%; text-decoration: none; color: var(--tinta-fraca); }
+.navega-cap a:hover { color: var(--realce); }
+.navega-cap a span { display: block; font-size: .72rem; text-transform: uppercase;
+  letter-spacing: .07em; margin-bottom: .2rem; }
+.navega-cap a b { font-weight: 600; color: var(--tinta); }
+.navega-cap a:hover b { color: var(--realce); }
+.navega-cap .prox { text-align: right; margin-left: auto; }
+
+.aviso-vazio { padding: 2.5rem; border: 1px dashed var(--linha); border-radius: 10px;
+  text-align: center; color: var(--tinta-fraca); font-family: var(--sans); }
+
+/* ------------------------------------------------------------- capa */
+
+#capa .cabecalho-cap { border-bottom: 0; }
+#capa h1 { font-size: 2.6rem; }
+.ficha { font-family: var(--sans); font-size: .84rem; color: var(--tinta-fraca);
+  border-top: 1px solid var(--linha); margin-top: 2.5rem; padding-top: 1.2rem; }
+.ficha p { margin-bottom: .35rem; }
+
+/* --------------------------------------------------------- responsivo */
+
+#abre-sumario { display: none; position: fixed; z-index: 55; top: .8rem; left: .8rem;
+  font-family: var(--sans); font-size: .85rem; padding: .45rem .8rem;
+  border: 1px solid var(--linha); border-radius: 6px;
+  background: var(--papel-caixa); color: var(--tinta); cursor: pointer; }
+
+@media (max-width: 62rem) {
+  #abre-sumario { display: block; }
+  #leitura { padding: 3.6rem 1.2rem 5rem; }
+  #sumario { position: fixed; z-index: 56; left: 0; top: 0; width: 85vw; max-width: 22rem;
+    transform: translateX(-102%); transition: transform .22s ease; box-shadow: 0 0 40px rgba(0,0,0,.25); }
+  body.sumario-aberto #sumario { transform: none; }
+  .cabecalho-cap h1 { font-size: 1.6rem; }
+}
+
+/* ----------------------------------------------------------- impressao */
+
+@media print {
+  #sumario, #abre-sumario, #barra-progresso, .navega-cap, #rodape-sumario { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  #leitura { padding: 0; }
+  .capitulo { max-width: none; }
+  .capitulo[hidden] { display: block !important; }
+  .capitulo { page-break-after: always; }
+  .caixa, .exercicio, .abas { break-inside: avoid; }
+  .exercicio details[open] > :not(summary) { display: block; }
+  .aba-painel[hidden] { display: block !important; }
+  .abas-tira { display: none; }
+  a { color: #000; }
+}

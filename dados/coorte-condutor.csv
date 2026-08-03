@@ -1,0 +1,201 @@
+id,centro,grupo,idade,sexo,imc,diabetes,tabagismo,itb,area_inicial_cm2,duracao_ulcera_meses,ulcera_recidivante,adesao_compressao,tcpo2_basal,dor_eva_basal,area_4sem_cm2,reducao_area_4sem_pct,area_12sem_cm2,reducao_area_12sem_pct,dor_eva_12sem,cicatrizacao_12sem,tempo_ate_cicatrizacao_dias,evento_cicatrizacao,perda_seguimento,infeccao_ferida,dor_sitio_puncao
+P001,Centro A,Aspirado,68,Masculino,22.6,Não,Nunca fumou,1.09,1.5,15,Não,Adequada,51.0,1,0.0,100.0,0.0,100.0,0.0,Sim,12,1,Não,Não,Não
+P002,Centro B,Aspirado,50,Masculino,34.7,Sim,Fumante atual,0.97,3.9,10,Não,Inadequada,,8,3.1,20.5,,,,,80,0,Sim,Não,Não
+P003,Centro B,Controle,63,Feminino,31.7,Não,Ex-fumante,0.91,11.7,20,Não,Adequada,34.4,5,11.0,6.0,6.1,47.9,3.0,Não,84,0,Não,Sim,
+P004,Centro A,Aspirado,49,Feminino,29.9,Não,Nunca fumou,1.08,2.2,8,Sim,Adequada,37.9,5,1.9,13.6,0.0,100.0,3.0,Sim,41,1,Não,Não,Não
+P005,Centro A,Controle,70,Masculino,18.7,Não,Fumante atual,1.1,9.1,5,Não,Inadequada,32.7,7,3.9,57.1,0.0,100.0,1.0,Sim,74,1,Não,Não,
+P006,Centro C,Controle,88,Feminino,22.6,Não,Ex-fumante,0.8,8.2,5,Não,Adequada,31.0,5,9.0,-9.8,0.0,100.0,1.0,Sim,66,1,Não,Não,
+P007,Centro C,Aspirado,78,Masculino,28.7,Não,Nunca fumou,1.09,5.2,22,Sim,Adequada,38.2,3,1.9,63.5,0.0,100.0,0.0,Sim,40,1,Não,Não,Não
+P008,Centro A,Controle,70,Masculino,21.2,Não,Ex-fumante,0.97,6.5,8,Sim,Adequada,37.9,2,4.7,27.7,0.0,100.0,0.0,Sim,81,1,Não,Não,
+P009,Centro B,Aspirado,52,Masculino,33.7,Não,Ex-fumante,0.97,13.5,14,Sim,Adequada,36.2,7,0.0,100.0,0.0,100.0,4.0,Sim,18,1,Não,Não,Sim
+P010,Centro A,Controle,66,Masculino,28.9,Sim,Fumante atual,0.98,7.7,5,Sim,Inadequada,36.7,7,10.4,-35.1,3.2,58.4,6.0,Não,84,0,Não,Não,
+P011,Centro C,Controle,75,Feminino,28.7,Sim,Ex-fumante,1.11,16.7,7,Sim,Adequada,51.5,5,8.5,49.1,3.0,82.0,4.0,Não,84,0,Não,Não,
+P012,Centro C,Aspirado,61,Masculino,29.1,Não,Nunca fumou,1.13,14.3,13,Sim,Adequada,45.1,2,3.0,79.0,0.0,100.0,0.0,Sim,39,1,Não,Não,Não
+P013,Centro B,Aspirado,63,Feminino,25.0,Sim,Nunca fumou,1.04,25.3,29,Não,Inadequada,36.4,6,,,,,,,20,0,Sim,Não,Não
+P014,Centro C,Controle,43,Feminino,24.6,Não,Nunca fumou,1.08,5.8,6,Não,Adequada,,5,3.9,32.8,1.3,77.6,2.0,Não,84,0,Não,Não,
+P015,Centro B,Aspirado,53,Masculino,20.7,Sim,Nunca fumou,1.2,9.1,5,Sim,Adequada,33.9,7,4.9,46.2,1.7,81.3,5.0,Não,84,0,Não,Não,Não
+P016,Centro C,Aspirado,42,Feminino,,Não,Fumante atual,1.01,3.6,13,Sim,Inadequada,24.2,4,5.4,-50.0,2.3,36.1,3.0,Não,84,0,Não,Não,Não
+P017,Centro B,Controle,83,Feminino,31.3,Não,Nunca fumou,0.92,12.7,15,Não,Inadequada,38.9,2,3.8,70.1,0.0,100.0,0.0,Sim,34,1,Não,Não,
+P018,Centro A,Aspirado,67,Masculino,28.3,Não,Fumante atual,1.06,4.7,10,Sim,Inadequada,26.7,4,7.0,-48.9,0.0,100.0,1.0,Sim,73,1,Não,Não,Sim
+P019,Centro A,Controle,70,Masculino,28.1,Não,Nunca fumou,1.07,12.7,31,Sim,Adequada,43.5,7,4.4,65.4,0.0,100.0,5.0,Sim,48,1,Não,Não,
+P020,Centro A,Controle,60,Feminino,25.1,Não,Ex-fumante,1.0,6.5,4,Sim,Adequada,32.6,7,0.0,100.0,0.0,100.0,4.0,Sim,13,1,Não,Não,
+P021,Centro B,Controle,46,Masculino,30.6,Sim,Nunca fumou,0.99,7.0,7,Sim,Inadequada,35.1,5,10.1,-44.3,0.0,100.0,0.0,Sim,59,1,Não,Não,
+P022,Centro B,Aspirado,64,Masculino,18.1,Não,Nunca fumou,1.2,9.5,13,Sim,Adequada,45.3,4,0.9,90.5,0.0,100.0,0.0,Sim,33,1,Não,Não,Não
+P023,Centro B,Controle,55,Masculino,24.3,Sim,Nunca fumou,0.99,4.6,7,Não,Adequada,20.6,2,4.6,0.0,2.2,52.2,1.0,Não,84,0,Não,Não,
+P024,Centro A,Aspirado,51,Feminino,26.4,Não,Fumante atual,0.93,4.8,17,Não,Inadequada,28.4,8,3.7,22.9,4.4,8.3,8.0,Não,84,0,Não,Não,Não
+P025,Centro B,Controle,63,Feminino,27.1,Não,Ex-fumante,0.8,5.0,13,Sim,Adequada,35.5,5,3.4,32.0,0.3,94.0,4.0,Não,84,0,Não,Não,
+P026,Centro A,Controle,63,Feminino,30.4,Não,Nunca fumou,1.08,5.3,11,Não,Adequada,42.4,4,2.3,56.6,1.4,73.6,2.0,Não,84,0,Não,Não,
+P027,Centro A,Controle,60,Feminino,28.5,Não,Nunca fumou,1.13,12.7,72,Sim,Adequada,45.6,4,3.2,74.8,0.0,100.0,0.0,Sim,39,1,Não,Não,
+P028,Centro B,Controle,53,Feminino,30.1,Não,Nunca fumou,0.91,5.9,7,Não,Inadequada,33.4,5,6.5,-10.2,0.0,100.0,2.0,Sim,46,1,Não,Não,
+P029,Centro B,Controle,51,Feminino,35.1,Não,Ex-fumante,1.06,5.2,11,Não,Adequada,38.3,6,2.0,61.5,0.0,100.0,3.0,Sim,40,1,Não,Não,
+P030,Centro A,Controle,62,Feminino,35.7,Sim,Fumante atual,0.98,14.7,19,Não,Adequada,41.7,5,22.0,-49.7,,,,,41,0,Sim,Não,
+P031,Centro A,Controle,75,Feminino,32.4,Não,Ex-fumante,1.02,13.3,8,Não,Adequada,39.3,8,5.5,58.6,0.0,100.0,5.0,Sim,53,1,Não,Não,
+P032,Centro C,Controle,44,Feminino,35.1,Não,Ex-fumante,0.96,7.0,15,Sim,Adequada,42.0,7,4.7,32.9,0.0,100.0,4.0,Sim,63,1,Não,Não,
+P033,Centro C,Aspirado,55,Masculino,37.4,Não,Nunca fumou,1.01,50.1,24,Sim,Adequada,36.1,6,62.2,-24.2,38.5,23.2,3.0,Não,84,0,Não,Não,Sim
+P034,Centro B,Aspirado,60,Masculino,31.1,Não,Ex-fumante,1.09,3.6,15,Não,Adequada,29.8,8,0.0,100.0,0.0,100.0,5.0,Sim,12,1,Não,Não,Não
+P035,Centro A,Aspirado,60,Feminino,23.0,Não,Ex-fumante,0.97,26.4,22,Sim,Inadequada,39.9,3,21.3,19.3,12.9,51.1,2.0,Não,84,0,Não,Sim,Não
+P036,Centro C,Aspirado,55,Masculino,34.0,Não,Ex-fumante,0.95,9.6,10,Sim,Inadequada,40.0,6,8.5,11.5,3.4,64.6,5.0,Não,84,0,Não,Não,Não
+P037,Centro B,Aspirado,83,Masculino,24.8,Não,Nunca fumou,0.92,16.8,11,Não,Inadequada,41.9,7,15.7,6.5,,,,,37,0,Sim,Não,Sim
+P038,Centro B,Aspirado,66,Feminino,38.0,Não,Ex-fumante,1.11,6.3,51,Sim,Adequada,34.1,7,6.1,3.2,3.4,46.0,5.0,Não,84,0,Não,Não,Não
+P039,Centro C,Controle,51,Masculino,37.3,Não,Nunca fumou,0.94,19.0,18,Sim,Adequada,31.6,5,7.5,60.5,,,,,44,0,Sim,Não,
+P040,Centro A,Controle,41,Masculino,27.0,Sim,Nunca fumou,1.07,3.8,26,Sim,Inadequada,20.6,3,2.2,42.1,,,,,36,0,Sim,Não,
+P041,Centro B,Controle,60,Feminino,24.3,Não,Nunca fumou,0.9,14.4,8,Sim,Adequada,39.0,2,6.6,54.2,,,,,47,0,Sim,Não,
+P042,Centro A,Aspirado,78,Masculino,26.2,Não,Nunca fumou,0.82,9.6,11,Não,Inadequada,38.9,6,3.2,66.7,0.0,100.0,3.0,Sim,77,1,Não,Não,Não
+P043,Centro A,Controle,64,Masculino,29.1,Não,Nunca fumou,0.96,15.5,30,Sim,Adequada,32.3,5,18.6,-20.0,8.7,43.9,4.0,Não,84,0,Não,Não,
+P044,Centro B,Aspirado,40,Feminino,35.3,Não,Ex-fumante,1.03,5.5,14,Não,Adequada,35.4,5,5.9,-7.3,0.0,100.0,3.0,Sim,67,1,Não,Não,Sim
+P045,Centro A,Controle,47,Masculino,23.7,Não,Ex-fumante,1.11,10.9,6,Não,Adequada,38.6,6,5.5,49.5,0.0,100.0,2.0,Sim,76,1,Não,Sim,
+P046,Centro B,Controle,63,Masculino,33.5,Sim,Nunca fumou,1.08,4.4,7,Sim,Adequada,45.2,5,0.0,100.0,0.0,100.0,2.0,Sim,17,1,Não,Não,
+P047,Centro B,Aspirado,74,Masculino,19.9,Não,Ex-fumante,1.04,6.0,13,Não,Adequada,44.3,4,7.3,-21.7,0.0,100.0,0.0,Sim,48,1,Não,Não,Sim
+P048,Centro A,Controle,64,Feminino,35.0,Sim,Ex-fumante,0.8,6.6,40,Não,Adequada,36.1,7,3.2,51.5,0.0,100.0,3.0,Sim,50,1,Não,Não,
+P049,Centro B,Controle,64,Masculino,,Não,Fumante atual,1.06,5.0,19,Não,Inadequada,35.4,3,0.3,94.0,0.0,100.0,1.0,Sim,30,1,Não,Não,
+P050,Centro B,Aspirado,74,Masculino,30.3,Não,Fumante atual,0.88,5.5,8,Não,Adequada,29.5,3,0.0,100.0,0.0,100.0,1.0,Sim,12,1,Não,Não,Não
+P051,Centro B,Controle,76,Feminino,28.9,Sim,Fumante atual,0.95,3.2,13,Não,Adequada,36.6,3,4.8,-50.0,2.9,9.4,2.0,Não,84,0,Não,Não,
+P052,Centro A,Controle,55,Feminino,33.7,Não,Fumante atual,1.17,7.2,14,Sim,Adequada,28.0,5,8.8,-22.2,5.9,18.1,3.0,Não,84,0,Não,Não,
+P053,Centro B,Aspirado,67,Masculino,31.1,Sim,Fumante atual,1.1,23.4,4,Não,Inadequada,36.1,7,34.4,-47.0,10.7,54.3,5.0,Não,84,0,Não,Não,Não
+P054,Centro B,Aspirado,51,Feminino,37.2,Sim,Fumante atual,0.92,66.4,13,Sim,Inadequada,20.4,4,40.6,38.9,55.3,16.7,5.0,Não,84,0,Não,Não,Não
+P055,Centro B,Aspirado,50,Feminino,21.2,Não,Fumante atual,0.98,4.2,10,Sim,Adequada,39.7,6,2.1,50.0,0.0,100.0,1.0,Sim,39,1,Não,Não,Não
+P056,Centro B,Aspirado,68,Feminino,25.2,Não,Nunca fumou,1.08,4.5,12,Sim,Adequada,42.6,7,0.0,100.0,0.0,100.0,3.0,Sim,20,1,Não,Não,Não
+P057,Centro B,Aspirado,46,Feminino,23.2,Não,Nunca fumou,1.0,10.2,7,Sim,Adequada,31.8,9,6.0,41.2,4.0,60.8,8.0,Não,84,0,Não,Não,Não
+P058,Centro B,Controle,64,Feminino,32.7,Não,Fumante atual,0.99,11.5,17,Não,Inadequada,36.3,7,12.5,-8.7,,,,,83,0,Sim,Não,
+P059,Centro A,Controle,65,Feminino,21.6,Não,Nunca fumou,0.91,3.0,10,Sim,Adequada,,5,3.0,0.0,0.0,100.0,3.0,Sim,38,1,Não,Não,
+P060,Centro C,Aspirado,71,Feminino,40.6,Sim,Fumante atual,1.06,1.4,8,Sim,Adequada,25.1,3,0.7,50.0,0.0,100.0,0.0,Sim,43,1,Não,Não,Não
+P061,Centro B,Aspirado,49,Feminino,29.8,Sim,Fumante atual,1.07,9.6,49,Não,Adequada,29.5,1,13.3,-38.5,2.4,75.0,0.0,Não,84,0,Não,Não,Sim
+P062,Centro A,Aspirado,66,Masculino,35.0,Não,Ex-fumante,0.94,21.6,10,Não,Adequada,31.3,4,15.8,26.9,4.1,81.0,3.0,Não,84,0,Não,Não,Não
+P063,Centro B,Aspirado,61,Feminino,25.0,Não,Nunca fumou,0.83,23.0,5,Sim,Adequada,40.2,6,7.0,69.6,0.0,100.0,3.0,Sim,59,1,Não,Sim,Não
+P064,Centro A,Aspirado,78,Masculino,30.3,Não,Ex-fumante,1.18,7.9,31,Não,Adequada,55.1,5,5.2,34.2,0.0,100.0,2.0,Sim,49,1,Não,Não,Não
+P065,Centro C,Controle,54,Feminino,32.3,Não,Fumante atual,0.95,22.5,36,Sim,Adequada,34.0,9,13.6,39.6,23.8,-5.8,8.0,Não,84,0,Não,Não,
+P066,Centro C,Controle,50,Feminino,26.2,Não,Nunca fumou,1.05,7.0,7,Não,Inadequada,38.6,3,1.5,78.6,0.0,100.0,0.0,Sim,35,1,Não,Não,
+P067,Centro A,Controle,68,Masculino,28.4,Não,Fumante atual,0.94,2.8,10,Sim,Adequada,38.6,4,4.2,-50.0,1.9,32.1,2.0,Não,84,0,Não,Não,
+P068,Centro A,Aspirado,53,Masculino,36.6,Não,Ex-fumante,0.95,7.2,12,Sim,Adequada,34.3,1,0.0,100.0,0.0,100.0,0.0,Sim,26,1,Não,Não,Não
+P069,Centro B,Controle,48,Masculino,35.2,Não,Fumante atual,1.1,17.2,10,Não,Inadequada,40.1,7,18.7,-8.7,11.9,30.8,6.0,Não,84,0,Não,Não,
+P070,Centro A,Controle,72,Feminino,32.1,Não,Nunca fumou,0.99,8.8,5,Não,Adequada,25.1,4,9.8,-11.4,6.7,23.9,2.0,Não,84,0,Não,Não,
+P071,Centro B,Aspirado,67,Masculino,38.5,Não,Fumante atual,1.08,5.2,6,Não,Inadequada,32.3,2,5.0,3.8,1.3,75.0,0.0,Não,84,0,Não,Não,Não
+P072,Centro B,Controle,40,Masculino,20.4,Sim,Nunca fumou,1.09,8.3,60,Sim,Inadequada,25.0,5,6.1,26.5,7.3,12.0,3.0,Não,84,0,Não,Não,
+P073,Centro C,Controle,52,Masculino,30.7,Não,Ex-fumante,0.97,10.2,9,Não,Inadequada,24.4,8,9.3,8.8,3.0,70.6,5.0,Não,84,0,Não,Não,
+P074,Centro C,Controle,50,Masculino,27.6,Não,Fumante atual,1.04,8.8,9,Sim,Adequada,42.0,9,4.1,53.4,0.0,100.0,7.0,Sim,77,1,Não,Não,
+P075,Centro C,Aspirado,69,Masculino,35.9,Não,Ex-fumante,1.08,10.0,23,Não,Adequada,,5,0.0,100.0,0.0,100.0,4.0,Sim,23,1,Não,Não,Sim
+P076,Centro B,Controle,78,Masculino,34.5,Não,Nunca fumou,1.13,10.6,9,Sim,Adequada,50.5,7,4.0,62.3,0.0,100.0,3.0,Sim,40,1,Não,Não,
+P077,Centro A,Aspirado,85,Masculino,34.8,Sim,Fumante atual,0.99,17.7,8,Sim,Adequada,,5,25.4,-43.5,1.7,90.4,4.0,Não,84,0,Não,Não,Sim
+P078,Centro C,Controle,70,Masculino,26.7,Não,Ex-fumante,1.02,8.8,6,Sim,Adequada,37.5,5,5.4,38.6,0.0,100.0,6.0,Sim,71,1,Não,Não,
+P079,Centro A,Aspirado,50,Masculino,32.0,Não,Nunca fumou,0.93,7.1,19,Sim,Adequada,33.2,4,8.0,-12.7,0.3,95.8,2.0,Não,84,0,Não,Não,Sim
+P080,Centro A,Controle,50,Feminino,34.4,Sim,Fumante atual,1.08,10.4,15,Sim,Adequada,27.3,8,11.9,-14.4,3.8,63.5,5.0,Não,84,0,Não,Não,
+P081,Centro A,Controle,52,Feminino,35.4,Sim,Fumante atual,1.02,12.4,29,Não,Adequada,15.0,4,7.0,43.5,12.7,-2.4,2.0,Não,84,0,Não,Sim,
+P082,Centro B,Controle,67,Masculino,25.1,Não,Fumante atual,0.9,2.2,10,Não,Adequada,29.3,2,2.3,-4.5,0.0,100.0,0.0,Sim,49,1,Não,Não,
+P083,Centro B,Controle,76,Masculino,26.3,Sim,Ex-fumante,0.98,18.8,33,Não,Inadequada,30.7,3,28.2,-50.0,20.3,-8.0,3.0,Não,84,0,Não,Não,
+P084,Centro A,Controle,41,Feminino,30.5,Sim,Nunca fumou,1.0,28.4,15,Não,Adequada,28.6,4,30.3,-6.7,0.0,100.0,0.0,Sim,65,1,Não,Não,
+P085,Centro A,Aspirado,69,Feminino,35.8,Não,Ex-fumante,0.96,8.1,9,Sim,Adequada,30.3,6,0.0,100.0,0.0,100.0,0.0,Sim,24,1,Não,Não,Não
+P086,Centro B,Aspirado,72,Feminino,32.3,Não,Ex-fumante,0.95,12.6,18,Não,Adequada,35.8,4,2.5,80.2,0.0,100.0,0.0,Sim,36,1,Não,Não,Não
+P087,Centro B,Aspirado,65,Feminino,35.7,Não,Ex-fumante,0.87,4.6,17,Não,Adequada,,6,1.3,71.7,0.7,84.8,5.0,Não,84,0,Não,Não,Não
+P088,Centro B,Aspirado,88,Masculino,20.4,Não,Nunca fumou,1.02,13.2,16,Sim,Adequada,38.8,6,6.3,52.3,0.0,100.0,2.0,Sim,69,1,Não,Não,Não
+P089,Centro B,Controle,68,Masculino,28.2,Não,Nunca fumou,0.98,4.2,8,Não,Adequada,30.6,5,6.3,-50.0,0.2,95.2,3.0,Não,84,0,Não,Não,
+P090,Centro C,Aspirado,62,Feminino,31.7,Não,Nunca fumou,1.1,9.1,12,Sim,Adequada,51.9,7,4.1,54.9,0.0,100.0,5.0,Sim,36,1,Não,Não,Não
+P091,Centro C,Controle,69,Masculino,30.6,Sim,Nunca fumou,1.01,12.3,12,Sim,Adequada,36.7,4,7.5,39.0,6.4,48.0,3.0,Não,84,0,Não,Não,
+P092,Centro A,Aspirado,56,Feminino,20.7,Sim,Nunca fumou,1.09,4.4,22,Sim,Inadequada,33.9,4,2.1,52.3,2.5,43.2,2.0,Não,84,0,Não,Não,Não
+P093,Centro C,Controle,50,Masculino,34.5,Não,Nunca fumou,0.91,3.5,33,Sim,Inadequada,30.4,7,2.2,37.1,1.3,62.9,5.0,Não,84,0,Não,Não,
+P094,Centro C,Aspirado,67,Feminino,31.0,Não,Ex-fumante,1.05,6.2,24,Sim,Inadequada,32.2,5,1.4,77.4,0.0,100.0,2.0,Sim,31,1,Não,Não,Sim
+P095,Centro B,Controle,75,Masculino,27.3,Não,Ex-fumante,1.08,5.2,22,Não,Inadequada,44.3,0,0.8,84.6,0.0,100.0,0.0,Sim,31,1,Não,Não,
+P096,Centro B,Aspirado,59,Feminino,34.9,Não,Ex-fumante,1.08,6.3,29,Não,Adequada,36.5,5,3.5,44.4,0.0,100.0,3.0,Sim,36,1,Não,Não,Não
+P097,Centro B,Controle,72,Masculino,21.4,Não,Nunca fumou,0.99,3.5,31,Sim,Adequada,37.5,6,2.4,31.4,1.6,54.3,5.0,Não,84,0,Não,Não,
+P098,Centro C,Aspirado,58,Feminino,27.0,Não,Nunca fumou,0.94,17.9,10,Não,Adequada,38.8,8,9.9,44.7,0.0,100.0,3.0,Sim,50,1,Não,Não,Sim
+P099,Centro A,Aspirado,80,Feminino,33.5,Não,Nunca fumou,1.17,6.5,6,Sim,Adequada,37.6,7,0.0,100.0,0.0,100.0,4.0,Sim,17,1,Não,Não,Sim
+P100,Centro B,Controle,64,Masculino,31.1,Não,Nunca fumou,1.0,11.1,15,Sim,Inadequada,39.1,6,9.0,18.9,9.9,10.8,5.0,Não,84,0,Não,Não,
+P101,Centro C,Controle,68,Masculino,28.4,Não,Nunca fumou,0.91,2.4,38,Sim,Adequada,23.4,7,2.0,16.7,2.0,16.7,6.0,Não,84,0,Não,Não,
+P102,Centro A,Controle,70,Feminino,28.7,Não,Nunca fumou,1.0,5.1,6,Sim,Inadequada,31.2,7,3.7,27.5,2.4,52.9,7.0,Não,84,0,Não,Não,
+P103,Centro B,Aspirado,47,Masculino,28.3,Sim,Nunca fumou,1.05,26.3,7,Não,Adequada,,7,29.7,-12.9,10.6,59.7,5.0,Não,84,0,Não,Não,Sim
+P104,Centro B,Controle,60,Feminino,33.4,Não,Nunca fumou,0.95,4.1,14,Não,Inadequada,33.7,3,0.0,100.0,0.0,100.0,1.0,Sim,20,1,Não,Não,
+P105,Centro C,Aspirado,82,Feminino,28.0,Não,Ex-fumante,1.05,9.9,9,Sim,Adequada,35.7,5,0.0,100.0,0.0,100.0,3.0,Sim,13,1,Não,Não,Não
+P106,Centro A,Controle,62,Feminino,32.5,Não,Nunca fumou,1.1,38.1,27,Sim,Adequada,51.0,3,23.5,38.3,26.7,29.9,1.0,Não,84,0,Não,Não,
+P107,Centro B,Aspirado,77,Masculino,19.8,Não,Nunca fumou,1.01,7.9,14,Sim,Adequada,32.5,7,6.2,21.5,0.0,100.0,6.0,Sim,45,1,Não,Não,Não
+P108,Centro C,Controle,72,Masculino,35.1,Não,Ex-fumante,1.11,24.6,24,Sim,Adequada,40.7,4,36.9,-50.0,11.3,54.1,1.0,Não,84,0,Não,Não,
+P109,Centro B,Controle,42,Masculino,40.6,Não,Ex-fumante,1.01,4.1,16,Sim,Adequada,40.3,4,3.4,17.1,0.0,100.0,0.0,Sim,39,1,Não,Não,
+P110,Centro A,Aspirado,70,Masculino,31.7,Não,Ex-fumante,0.98,5.6,18,Não,Adequada,46.0,9,0.0,100.0,0.0,100.0,6.0,Sim,16,1,Não,Sim,Não
+P111,Centro B,Controle,50,Masculino,29.0,Não,Ex-fumante,1.16,7.6,6,Sim,Adequada,43.8,3,1.3,82.9,0.0,100.0,0.0,Sim,33,1,Não,Não,
+P112,Centro A,Controle,65,Masculino,26.9,Não,Nunca fumou,1.07,5.3,8,Não,Inadequada,43.7,5,2.1,60.4,0.0,100.0,1.0,Sim,58,1,Não,Não,
+P113,Centro B,Controle,57,Feminino,32.6,Não,Fumante atual,1.03,10.3,3,Sim,Inadequada,47.1,5,5.8,43.7,7.5,27.2,3.0,Não,84,0,Não,Não,
+P114,Centro A,Aspirado,62,Masculino,26.4,Não,Ex-fumante,0.86,2.1,8,Sim,Adequada,23.4,5,0.0,100.0,0.0,100.0,0.0,Sim,18,1,Não,Não,Sim
+P115,Centro A,Controle,61,Masculino,25.6,Sim,Fumante atual,0.89,3.6,9,Não,Adequada,24.2,7,0.2,94.4,0.0,100.0,1.0,Sim,31,1,Não,Não,
+P116,Centro A,Aspirado,65,Feminino,19.6,Não,Nunca fumou,0.87,21.2,17,Não,Adequada,32.0,6,17.3,18.4,0.0,100.0,2.0,Sim,55,1,Não,Não,Sim
+P117,Centro A,Controle,57,Feminino,30.5,Sim,Nunca fumou,1.01,8.7,6,Sim,Adequada,32.6,4,3.0,65.5,0.0,100.0,0.0,Sim,38,1,Não,Não,
+P118,Centro B,Controle,47,Masculino,28.1,Não,Fumante atual,1.02,11.5,46,Sim,Adequada,31.1,7,5.8,49.6,7.8,32.2,4.0,Não,84,0,Não,Sim,
+P119,Centro A,Aspirado,51,Feminino,28.3,Não,Nunca fumou,1.05,28.0,31,Não,Inadequada,45.3,5,19.8,29.3,1.6,94.3,2.0,Não,84,0,Não,Não,Sim
+P120,Centro B,Controle,72,Masculino,29.4,Não,Fumante atual,1.11,2.1,7,Sim,Inadequada,33.2,4,0.0,100.0,0.0,100.0,0.0,Sim,18,1,Não,Não,
+P121,Centro B,Controle,81,Masculino,26.1,Não,Ex-fumante,0.88,0.8,4,Sim,Adequada,30.4,6,0.6,25.0,0.0,100.0,2.0,Sim,47,1,Não,Não,
+P122,Centro C,Aspirado,65,Masculino,30.3,Sim,Nunca fumou,0.9,29.9,4,Sim,Inadequada,33.6,6,27.9,6.7,7.6,74.6,2.0,Não,84,0,Não,Não,Não
+P123,Centro A,Controle,71,Masculino,24.4,Não,Ex-fumante,0.94,2.8,17,Sim,Adequada,31.2,6,2.9,-3.6,,,,,82,0,Sim,Não,
+P124,Centro A,Aspirado,73,Feminino,28.9,Não,Nunca fumou,1.06,8.4,6,Não,Inadequada,31.8,4,7.6,9.5,0.5,94.0,4.0,Não,84,0,Não,Não,Não
+P125,Centro A,Aspirado,47,Feminino,28.1,Não,Fumante atual,1.04,2.3,11,Não,Adequada,27.2,5,1.0,56.5,,,,,32,0,Sim,Sim,Não
+P126,Centro A,Controle,41,Feminino,21.5,Sim,Ex-fumante,0.92,1.2,20,Não,Adequada,30.1,3,0.4,66.7,0.0,100.0,2.0,Sim,39,1,Não,Não,
+P127,Centro B,Aspirado,61,Masculino,23.8,Não,Ex-fumante,0.95,7.4,18,Sim,Adequada,42.7,7,0.2,97.3,0.0,100.0,2.0,Sim,28,1,Não,Não,Sim
+P128,Centro C,Aspirado,41,Feminino,26.7,Não,Nunca fumou,1.05,11.2,22,Não,Adequada,43.5,5,7.0,37.5,3.6,67.9,4.0,Não,84,0,Não,Não,Sim
+P129,Centro B,Controle,59,Masculino,26.8,Não,Nunca fumou,1.02,4.2,5,Não,Inadequada,40.6,5,3.2,23.8,0.0,100.0,2.0,Sim,66,1,Não,Não,
+P130,Centro B,Controle,46,Masculino,30.6,Não,Nunca fumou,1.11,1.2,21,Não,Adequada,40.4,7,0.0,100.0,0.0,100.0,6.0,Sim,22,1,Não,Não,
+P131,Centro C,Aspirado,55,Masculino,27.5,Não,Ex-fumante,0.94,9.9,22,Não,Inadequada,32.3,5,3.2,67.7,0.0,100.0,2.0,Sim,36,1,Não,Não,Não
+P132,Centro B,Aspirado,54,Masculino,29.2,Não,Fumante atual,1.01,32.6,26,Sim,Adequada,,6,29.2,10.4,15.8,51.5,6.0,Não,84,0,Não,Não,Não
+P133,Centro B,Aspirado,68,Masculino,27.5,Não,Nunca fumou,0.93,2.1,24,Sim,Adequada,27.7,4,0.0,100.0,0.0,100.0,1.0,Sim,27,1,Não,Não,Não
+P134,Centro C,Controle,55,Feminino,18.0,Não,Ex-fumante,1.12,13.9,5,Não,Adequada,40.9,6,,,,,,,23,0,Sim,Não,
+P135,Centro A,Aspirado,49,Feminino,28.8,Não,Fumante atual,1.11,9.7,2,Sim,Adequada,43.6,7,12.5,-28.9,0.0,100.0,5.0,Sim,44,1,Não,Não,Não
+P136,Centro B,Controle,63,Masculino,25.5,Sim,Nunca fumou,1.06,2.0,17,Não,Adequada,23.5,2,2.1,-5.0,0.0,100.0,0.0,Sim,83,1,Não,Não,
+P137,Centro B,Aspirado,88,Masculino,28.7,Não,Ex-fumante,1.11,16.7,41,Não,Inadequada,48.2,5,16.5,1.2,2.8,83.2,3.0,Não,84,0,Não,Não,Sim
+P138,Centro C,Aspirado,67,Masculino,25.9,Não,Fumante atual,1.14,9.0,8,Não,Adequada,23.8,5,13.5,-50.0,7.0,22.2,6.0,Não,84,0,Não,Não,Não
+P139,Centro A,Aspirado,41,Feminino,,Não,Ex-fumante,1.15,7.1,8,Sim,Adequada,,5,7.7,-8.5,0.0,100.0,2.0,Sim,69,1,Não,Não,Sim
+P140,Centro B,Aspirado,63,Feminino,29.2,Não,Nunca fumou,1.17,20.5,15,Não,Inadequada,34.0,6,17.9,12.7,0.0,100.0,3.0,Sim,71,1,Não,Não,Não
+P141,Centro B,Controle,88,Feminino,32.7,Não,Ex-fumante,0.95,8.0,29,Sim,Adequada,31.5,7,6.4,20.0,0.0,100.0,0.0,Sim,56,1,Não,Não,
+P142,Centro B,Aspirado,64,Feminino,33.0,Não,Nunca fumou,0.95,20.5,22,Sim,Inadequada,33.8,5,,,,,,,26,0,Sim,Não,Sim
+P143,Centro A,Controle,76,Feminino,26.8,Não,Nunca fumou,1.13,56.1,6,Não,Inadequada,48.2,6,16.3,70.9,0.0,100.0,4.0,Sim,35,1,Não,Não,
+P144,Centro A,Controle,74,Feminino,33.2,Não,Fumante atual,0.98,9.3,10,Sim,Adequada,27.7,6,5.0,46.2,6.2,33.3,4.0,Não,84,0,Não,Não,
+P145,Centro C,Aspirado,75,Masculino,30.5,Sim,Ex-fumante,0.86,11.0,9,Não,Adequada,23.6,7,1.8,83.6,0.0,100.0,5.0,Sim,38,1,Não,Não,Sim
+P146,Centro A,Controle,74,Masculino,24.5,Não,Nunca fumou,0.98,5.1,20,Sim,Inadequada,,7,7.6,-49.0,,,,,51,0,Sim,Não,
+P147,Centro A,Controle,65,Feminino,28.9,Não,Ex-fumante,1.11,25.0,23,Sim,Inadequada,36.0,8,22.5,10.0,27.2,-8.8,5.0,Não,84,0,Não,Não,
+P148,Centro A,Aspirado,60,Masculino,29.8,Não,Ex-fumante,0.98,3.2,7,Não,Adequada,32.6,7,1.9,40.6,0.0,100.0,4.0,Sim,45,1,Não,Não,Não
+P149,Centro A,Aspirado,59,Feminino,35.2,Não,Fumante atual,1.09,5.4,8,Não,Adequada,28.0,4,3.7,31.5,0.0,100.0,0.0,Sim,73,1,Não,Não,Não
+P150,Centro A,Aspirado,63,Feminino,27.8,Não,Ex-fumante,1.05,7.6,16,Sim,Adequada,,6,0.0,100.0,0.0,100.0,1.0,Sim,24,1,Não,Não,Sim
+P151,Centro C,Controle,67,Masculino,36.6,Não,Fumante atual,0.9,7.0,12,Sim,Adequada,31.6,7,4.1,41.4,1.8,74.3,3.0,Não,84,0,Não,Não,
+P152,Centro A,Aspirado,48,Masculino,32.9,Sim,Ex-fumante,1.06,4.7,8,Sim,Adequada,40.4,6,3.7,21.3,0.0,100.0,2.0,Sim,60,1,Não,Não,Não
+P153,Centro B,Aspirado,59,Masculino,19.7,Não,Nunca fumou,1.02,15.4,10,Sim,Inadequada,45.6,0,3.0,80.5,0.0,100.0,0.0,Sim,51,1,Não,Não,Sim
+P154,Centro A,Controle,62,Feminino,24.6,Não,Ex-fumante,0.97,6.3,21,Sim,Adequada,26.4,9,0.0,100.0,0.0,100.0,6.0,Sim,28,1,Não,Não,
+P155,Centro B,Controle,63,Feminino,32.1,Não,Nunca fumou,0.89,1.6,11,Não,Adequada,44.9,6,0.4,75.0,0.0,100.0,2.0,Sim,43,1,Não,Sim,
+P156,Centro A,Aspirado,59,Feminino,22.7,Não,Nunca fumou,1.16,19.1,12,Não,Adequada,44.0,6,0.0,100.0,0.0,100.0,3.0,Sim,25,1,Não,Não,Não
+P157,Centro C,Controle,71,Masculino,31.6,Não,Nunca fumou,0.94,29.3,8,Sim,Adequada,44.1,6,16.9,42.3,0.0,100.0,2.0,Sim,52,1,Não,Não,
+P158,Centro B,Controle,61,Masculino,35.8,Não,Ex-fumante,0.84,5.3,20,Sim,Adequada,33.0,4,3.8,28.3,0.0,100.0,1.0,Sim,82,1,Não,Sim,
+P159,Centro A,Controle,58,Masculino,28.2,Não,Nunca fumou,1.09,22.1,9,Sim,Adequada,43.3,5,11.9,46.2,0.0,100.0,0.0,Sim,48,1,Não,Não,
+P160,Centro C,Controle,48,Masculino,35.9,Sim,Nunca fumou,0.98,5.4,16,Sim,Adequada,35.9,5,1.9,64.8,0.5,90.7,3.0,Não,84,0,Não,Sim,
+P161,Centro B,Aspirado,53,Feminino,35.5,Sim,Fumante atual,1.13,3.8,15,Não,Adequada,41.8,4,0.4,89.5,0.0,100.0,2.0,Sim,32,1,Não,Não,Sim
+P162,Centro B,Controle,65,Masculino,29.1,Não,Nunca fumou,1.01,4.0,10,Sim,Inadequada,33.4,6,3.0,25.0,0.7,82.5,5.0,Não,84,0,Não,Não,
+P163,Centro A,Aspirado,63,Masculino,29.2,Não,Ex-fumante,1.02,27.3,8,Sim,Adequada,33.7,6,23.3,14.7,0.0,100.0,2.0,Sim,74,1,Não,Não,Não
+P164,Centro C,Controle,40,Feminino,30.2,Não,Ex-fumante,1.07,22.3,13,Não,Adequada,37.1,7,22.3,0.0,9.7,56.5,5.0,Não,84,0,Não,Não,
+P165,Centro A,Aspirado,72,Feminino,31.4,Não,Nunca fumou,1.03,13.5,11,Não,Adequada,46.6,6,3.2,76.3,0.0,100.0,1.0,Sim,49,1,Não,Não,Não
+P166,Centro A,Controle,54,Feminino,22.2,Não,Ex-fumante,1.03,3.7,27,Sim,Adequada,47.8,5,0.0,100.0,0.0,100.0,3.0,Sim,12,1,Não,Sim,
+P167,Centro C,Aspirado,52,Masculino,28.7,Não,Nunca fumou,1.12,14.6,7,Sim,Adequada,32.6,6,,,,,,,26,0,Sim,Não,Não
+P168,Centro A,Controle,74,Masculino,21.7,Sim,Fumante atual,0.94,3.5,23,Sim,Inadequada,32.4,7,5.2,-48.6,1.6,54.3,5.0,Não,84,0,Não,Não,
+P169,Centro A,Aspirado,75,Feminino,27.8,Não,Nunca fumou,1.07,12.8,31,Não,Adequada,38.6,7,12.2,4.7,0.0,100.0,4.0,Sim,71,1,Não,Não,Sim
+P170,Centro B,Aspirado,54,Masculino,28.4,Não,Nunca fumou,1.05,5.3,21,Sim,Adequada,36.9,5,3.0,43.4,0.0,100.0,2.0,Sim,39,1,Não,Não,Não
+P171,Centro A,Aspirado,58,Feminino,21.0,Sim,Ex-fumante,0.88,5.2,23,Sim,Adequada,33.6,6,,,,,,,17,0,Sim,Não,Não
+P172,Centro A,Controle,49,Masculino,23.6,Sim,Ex-fumante,1.12,5.4,11,Não,Adequada,47.5,5,2.9,46.3,0.0,100.0,3.0,Sim,63,1,Não,Não,
+P173,Centro B,Aspirado,71,Feminino,27.6,Não,Fumante atual,1.09,1.7,19,Sim,Adequada,40.6,9,0.0,100.0,0.0,100.0,7.0,Sim,12,1,Não,Não,Não
+P174,Centro C,Aspirado,72,Masculino,39.3,Não,Ex-fumante,1.16,2.1,19,Sim,Adequada,37.9,7,0.0,100.0,0.0,100.0,5.0,Sim,23,1,Não,Sim,Não
+P175,Centro C,Aspirado,57,Feminino,23.0,Não,Fumante atual,0.98,7.1,4,Sim,Inadequada,30.3,8,4.3,39.4,0.0,100.0,4.0,Sim,75,1,Não,Não,Sim
+P176,Centro A,Aspirado,77,Masculino,30.0,Não,Ex-fumante,0.92,3.6,11,Sim,Adequada,38.9,4,0.3,91.7,0.0,100.0,1.0,Sim,33,1,Não,Não,Sim
+P177,Centro C,Aspirado,72,Feminino,25.3,Não,Fumante atual,1.3,14.8,6,Sim,Adequada,43.2,6,9.7,34.5,0.0,100.0,3.0,Sim,65,1,Não,Não,Não
+P178,Centro A,Aspirado,61,Masculino,27.7,Não,Fumante atual,0.93,19.3,4,Não,Adequada,40.7,8,4.6,76.2,0.0,100.0,7.0,Sim,34,1,Não,Não,Não
+P179,Centro C,Aspirado,70,Masculino,33.9,Não,Fumante atual,0.95,2.5,14,Não,Adequada,42.9,3,1.2,52.0,0.0,100.0,0.0,Sim,41,1,Não,Não,Não
+P180,Centro A,Aspirado,44,Feminino,30.8,Não,Nunca fumou,1.07,2.6,19,Não,Adequada,40.6,5,0.0,100.0,0.0,100.0,3.0,Sim,18,1,Não,Não,Não
+P181,Centro B,Aspirado,59,Masculino,31.4,Sim,Fumante atual,0.98,7.0,9,Sim,Inadequada,34.0,2,0.0,100.0,0.0,100.0,0.0,Sim,25,1,Não,Sim,Não
+P182,Centro B,Controle,65,Feminino,31.6,Não,Ex-fumante,1.06,34.4,20,Não,Adequada,49.7,10,10.1,70.6,0.0,100.0,7.0,Sim,55,1,Não,Sim,
+P183,Centro C,Controle,62,Feminino,32.0,Sim,Nunca fumou,0.9,4.4,21,Não,Adequada,39.2,6,6.6,-50.0,1.4,68.2,4.0,Não,84,0,Não,Não,
+P184,Centro C,Aspirado,85,Feminino,19.5,Não,Nunca fumou,0.87,11.6,15,Sim,Adequada,28.8,5,,,,,,,26,0,Sim,Não,Sim
+P185,Centro A,Aspirado,65,Feminino,31.2,Não,Nunca fumou,0.97,2.3,10,Não,Adequada,27.6,7,1.2,47.8,0.0,100.0,3.0,Sim,52,1,Não,Não,Não
+P186,Centro B,Controle,66,Feminino,29.0,Não,Ex-fumante,1.08,4.0,22,Não,Adequada,30.4,5,1.7,57.5,0.2,95.0,6.0,Não,84,0,Não,Não,
+P187,Centro B,Aspirado,47,Masculino,31.2,Não,Nunca fumou,1.02,11.4,48,Sim,Adequada,26.5,7,10.6,7.0,8.2,28.1,7.0,Não,84,0,Não,Não,Sim
+P188,Centro A,Aspirado,60,Feminino,33.2,Não,Nunca fumou,1.13,6.6,3,Não,Adequada,42.9,5,0.0,100.0,0.0,100.0,1.0,Sim,25,1,Não,Não,Não
+P189,Centro B,Aspirado,53,Masculino,31.3,Não,Nunca fumou,1.0,11.5,23,Não,Inadequada,29.4,7,9.4,18.3,5.3,53.9,4.0,Não,84,0,Não,Não,Sim
+P190,Centro A,Controle,88,Masculino,32.6,Sim,Nunca fumou,1.04,8.7,6,Sim,Adequada,38.3,4,6.2,28.7,6.5,25.3,2.0,Não,84,0,Não,Não,
+P191,Centro A,Controle,57,Masculino,24.0,Sim,Nunca fumou,0.94,7.8,25,Não,Adequada,26.3,6,1.5,80.8,0.0,100.0,3.0,Sim,35,1,Não,Não,
+P192,Centro B,Controle,63,Feminino,31.5,Sim,Nunca fumou,0.89,7.7,28,Sim,Adequada,36.8,4,5.1,33.8,11.3,-46.8,3.0,Não,84,0,Não,Sim,
+P193,Centro B,Aspirado,75,Feminino,28.9,Não,Fumante atual,0.91,22.0,11,Sim,Adequada,37.1,6,0.0,100.0,0.0,100.0,2.0,Sim,11,1,Não,Não,Sim
+P194,Centro B,Controle,69,Feminino,29.0,Sim,Ex-fumante,0.95,7.5,10,Sim,Inadequada,32.9,5,9.2,-22.7,10.4,-38.7,5.0,Não,84,0,Não,Não,
+P195,Centro B,Aspirado,46,Masculino,35.4,Sim,Ex-fumante,1.2,15.0,14,Sim,Adequada,40.3,3,16.4,-9.3,0.0,100.0,0.0,Sim,75,1,Não,Não,Sim
+P196,Centro B,Controle,69,Masculino,27.2,Não,Fumante atual,0.9,6.4,15,Sim,Adequada,24.4,9,3.8,40.6,1.5,76.6,5.0,Não,84,0,Não,Não,
+P197,Centro C,Controle,70,Feminino,26.3,Não,Ex-fumante,0.94,8.4,12,Sim,Adequada,20.1,5,11.0,-31.0,0.0,100.0,2.0,Sim,77,1,Não,Não,
+P198,Centro A,Aspirado,60,Feminino,23.4,Não,Fumante atual,1.14,3.5,31,Sim,Adequada,34.4,5,0.0,100.0,0.0,100.0,4.0,Sim,21,1,Não,Não,Não
+P199,Centro A,Controle,67,Masculino,28.0,Não,Ex-fumante,0.96,1.6,5,Sim,Adequada,,7,0.7,56.3,0.0,100.0,4.0,Sim,43,1,Não,Não,
+P200,Centro A,Aspirado,63,Feminino,34.3,Não,Nunca fumou,1.07,5.7,10,Sim,Adequada,30.4,4,2.5,56.1,0.0,100.0,1.0,Sim,36,1,Não,Não,Não

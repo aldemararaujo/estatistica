@@ -1,0 +1,21 @@
+# Plano mestre: material de trabalho interno (cronograma, riscos, decisões).
+# Fica no computador do autor, fora do repositório público.
+PLANO.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# jamovi
+*.omv
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Rascunhos
+*.tmp
+*~

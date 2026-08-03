@@ -1,0 +1,49 @@
+A Estatística na Pesquisa Clínica: do problema clínico à decisão estatística
+Copyright (c) 2026 Aldemar Araujo Castro
+
+Esta obra está licenciada sob a Creative Commons
+Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional (CC BY-NC-SA 4.0).
+
+Você tem o direito de:
+
+  COMPARTILHAR — copiar e redistribuir o material em qualquer suporte ou
+  formato.
+
+  ADAPTAR — remixar, transformar e criar a partir do material.
+
+O licenciante não pode revogar estes direitos desde que você respeite os termos
+da licença.
+
+De acordo com os seguintes termos:
+
+  ATRIBUIÇÃO — Você deve dar o crédito apropriado, prover um link para a
+  licença e indicar se mudanças foram feitas.
+
+  NÃO COMERCIAL — Você não pode usar o material para fins comerciais.
+
+  COMPARTILHA IGUAL — Se você remixar, transformar ou criar a partir do
+  material, tem de distribuir suas contribuições sob a mesma licença que o
+  original.
+
+  SEM RESTRIÇÕES ADICIONAIS — Você não pode aplicar termos jurídicos ou
+  medidas de caráter tecnológico que restrinjam legalmente outros de fazerem
+  algo que a licença permita.
+
+O uso em ensino, em disciplinas de metodologia e em programas de pós-graduação
+está expressamente autorizado, inclusive a reprodução de capítulos para os
+alunos, desde que sem cobrança pelo material e com atribuição.
+
+Texto integral da licença:
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.pt
+
+Resumo em linguagem simples:
+https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br
+
+---
+
+AVISO SOBRE OS DADOS
+
+Os bancos de dados que acompanham esta obra (dados/coorte-condutor.csv e
+dados/coorte-observacional.csv) são SIMULADOS. Não contêm dados de pacientes
+reais e não constituem evidência sobre o tratamento de úlceras venosas. Foram
+gerados por script, com semente fixa, exclusivamente para fins didáticos.
