@@ -45,11 +45,31 @@ lista a cada versão publicada.
 | https://www.cochranelibrary.com/ | cap. 16 | ativo (responde 403 a robôs; abre no navegador) |
 | https://www.cos.io/ | cap. 16 | ativo |
 
+## Material do próprio autor e leitura de aprofundamento
+
+| Link | Onde aparece | Situação |
+|---|---|---|
+| https://aldemararaujo.github.io/amostra/ | cap. 5 | ativo (simulador de amostragem do autor) |
+| https://www.scielosp.org/article/ress/2023.v32n3/e2023431/pt/ | cap. 5 | ativo |
+| https://www.scielo.br/j/csp/a/3bsWNzMMdvYthrNCXmY9kJQ/ | cap. 5 | ativo |
+| https://www.scielo.br/j/jvb/a/Dxg84WBMPnNrVcpKMXyVfHd/ | cap. 5 | ativo |
+| https://pubmed.ncbi.nlm.nih.gov/9556634/ | cap. 5 | ativo |
+
 ## Autor
 
 | Link | Onde aparece | Situação |
 |---|---|---|
 | http://lattes.cnpq.br/2259022333178681 | capa | ativo |
+
+## Fora do livro, a conferir
+
+| Link | Onde está | Situação |
+|---|---|---|
+| https://www.revistas.usp.br/rog/article/view/69411 | post "A Arte de Selecionar", no UsinaDePesquisa | **404** |
+
+O artigo é Marotti J et al., *Amostragem em pesquisa clínica*, Rev Odontol Univ
+São Paulo. 2008;20(2):161-6. O endereço citado no post deixou de existir. Por
+isso a referência não entrou no Capítulo 5: falta um link estável.
 
 ## Histórico
 

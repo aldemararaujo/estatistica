@@ -49,6 +49,10 @@ medido. *Capítulo 12.*
 **CONSORT.** Recomendação internacional para relato de ensaios clínicos
 randomizados. *Capítulo 15.*
 
+**Cotas, amostragem por.** Técnica não probabilística em que se define quantos
+participantes de cada subgrupo entram, preenchendo cada vaga por conveniência.
+Parece estratificada e não é: falta o sorteio. *Capítulo 5.*
+
 ## D
 
 **d de Cohen.** Diferença entre duas médias expressa em desvios padrão.
@@ -118,6 +122,10 @@ censura. *Capítulo 14.*
 **Mediador.** Variável que está no caminho causal entre exposição e desfecho.
 Não deve entrar no ajuste. *Capítulo 12.*
 
+**Marco amostral.** A lista completa da população a partir da qual se sorteia.
+Sem ele não há amostragem probabilística, e em pesquisa clínica ele quase nunca
+existe. *Capítulo 5.*
+
 **Mediana.** Valor que divide a amostra ordenada ao meio. *Capítulo 8.*
 
 ## N
@@ -162,6 +170,11 @@ de prevalência diferente. *Capítulo 13.*
 *Capítulo 9.*
 
 ## S
+
+**Saturação teórica.** Critério de parada da amostragem qualitativa: o ponto a
+partir do qual novas entrevistas deixam de trazer conteúdo novo. Faz, na pesquisa
+qualitativa, o papel que o cálculo do tamanho da amostra faz na quantitativa.
+*Capítulo 5.*
 
 **Sensibilidade.** Proporção dos que têm a condição e que o teste classifica como
 positivos. *Capítulo 13.*

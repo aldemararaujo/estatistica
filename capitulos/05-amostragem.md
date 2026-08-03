@@ -53,14 +53,22 @@ descobrir os critérios depois, olhando quem deu certo.
 
 ## As técnicas de amostragem
 
+Antes de percorrê-las, uma distinção que evita confusão constante: a **técnica**
+de amostragem responde a *como* se seleciona, e é assunto deste capítulo; o
+**tamanho** da amostra responde a *quantos*, e é assunto do próximo. São decisões
+independentes, e a segunda não conserta a primeira. Uma amostra de dez mil
+pessoas mal selecionadas descreve com enorme precisão uma realidade que não
+existe.
+
 ### Probabilísticas
 
 Todo elemento da população tem probabilidade conhecida e não nula de ser
 sorteado. São as únicas que autorizam, em rigor, a inferência estatística
 clássica.
 
-- **Aleatória simples:** sorteio direto a partir de uma lista completa. Exige a
-  lista, o que em pesquisa clínica quase nunca existe.
+- **Aleatória simples:** sorteio direto a partir de uma lista completa da
+  população, o chamado marco amostral. Exige a lista, o que em pesquisa clínica
+  quase nunca existe.
 - **Sistemática:** sorteia-se o primeiro e depois se toma um a cada k. Simples e
   eficiente, e perigosa se a lista tiver periodicidade oculta.
 - **Estratificada:** divide-se a população em estratos e sorteia-se dentro de
@@ -80,10 +88,26 @@ clássica.
 - **Intencional:** o pesquisador escolhe quem julga representativo. Legítima em
   pesquisa qualitativa, indefensável em estudo quantitativo de eficácia.
 - **Bola de neve:** cada participante indica outros. Útil em populações de difícil
-  acesso, com o custo de amostrar redes sociais em vez de indivíduos.
+  acesso, como portadores de condições estigmatizadas, com o custo de amostrar
+  redes sociais em vez de indivíduos.
+- **Por cotas:** definem-se números a atingir em cada subgrupo, e a vaga de cada
+  cota é preenchida por conveniência. É a irmã não probabilística da
+  estratificada, e a diferença entre as duas está exatamente aí: a estratificada
+  **sorteia** dentro do estrato, a por cotas apenas **preenche** a vaga. A
+  composição da amostra fica parecida com a da população, sem que isso garanta
+  representatividade.
 
 Este estudo usou **amostragem consecutiva**, que é o padrão dos ensaios clínicos,
 e o registrou no protocolo.
+
+::: nota Amostragem qualitativa não se dimensiona, se satura
+Em pesquisa qualitativa, a amostragem costuma ser intencional e o critério de
+parada não é um número calculado de antemão: é a **saturação teórica**, o ponto a
+partir do qual novas entrevistas deixam de trazer conteúdo novo. O procedimento
+precisa ser descrito com o mesmo rigor de um cálculo amostral, dizendo como a
+saturação foi constatada e por quem. Não é uma versão relaxada da amostragem: é
+outra lógica, com outro critério de suficiência.
+:::
 
 ::: atencao Amostragem aleatória e randomização não são a mesma coisa
 Esta é a confusão mais comum do assunto, e ela custa caro na hora de interpretar.
@@ -242,6 +266,22 @@ julgar a quem o resultado se aplica.
 :::
 
 ::: exercicio 6
+Uma pesquisadora quer que sua amostra tenha 30% de diabéticos e recruta, na sala
+de espera, os primeiros pacientes que encontra até completar 60 diabéticos e 140
+não diabéticos. Que técnica ela usou? É a mesma coisa que amostragem
+estratificada?
+
+--- gabarito
+Ela usou amostragem **por cotas**, que é não probabilística. A composição final da
+amostra fica idêntica à que uma estratificada produziria, e é justamente isso que
+engana: a semelhança é só de aparência. Na estratificada, o participante de cada
+estrato é **sorteado**, e cada elegível tem probabilidade conhecida de entrar; na
+por cotas, a vaga é preenchida por quem estava à mão, o que reintroduz o viés de
+conveniência dentro de cada subgrupo. Quem chega cedo à sala de espera difere de
+quem chega tarde, e a cota não protege contra isso.
+:::
+
+::: exercicio 7
 Faça o exercício do jamovi descrito neste capítulo, tomando três subamostras de
 30 participantes. Anote a proporção de cicatrização de cada uma e compare com a
 do estudo completo.
@@ -257,9 +297,31 @@ tamanho da amostra antes de começar, assunto do próximo capítulo.
 
 ## Recursos
 
+- [Simulador de amostragem](https://aldemararaujo.github.io/amostra/) — mostra,
+  em tempo real, o que este capítulo argumenta: aumentar o número de
+  participantes ajuda, e não resolve uma técnica de seleção ruim.
 - [CONSORT Statement](https://www.consort-statement.org/) — o diagrama de fluxo e
   os itens sobre elegibilidade e recrutamento.
 - [STROBE Statement](https://www.strobe-statement.org/) — itens equivalentes para
   estudos observacionais.
 - [jamovi](https://www.jamovi.org/) — a função UNIF, em Data, Compute, permite a
   demonstração deste capítulo.
+
+### Para aprofundar
+
+- Szwarcwald CL et al. [Inquéritos nacionais de saúde: visão geral sobre técnicas
+  de amostragem em pesquisas brasileiras](https://www.scielosp.org/article/ress/2023.v32n3/e2023431/pt/).
+  *Epidemiol Serv Saude*. 2023;32(3). Como os grandes inquéritos brasileiros
+  combinam estratificação e conglomerados para representar um país de dimensões
+  continentais.
+- Fontanella BJB et al. [Amostragem em pesquisas qualitativas: proposta de
+  procedimentos de constatação de saturação teórica](https://www.scielo.br/j/csp/a/3bsWNzMMdvYthrNCXmY9kJQ/).
+  *Cad Saude Publica*. 2011;27(2):389-94. O critério de parada da amostragem
+  qualitativa, tratado com o rigor que ele exige.
+- Miot HA. [Tamanho da amostra em estudos clínicos e
+  experimentais](https://www.scielo.br/j/jvb/a/Dxg84WBMPnNrVcpKMXyVfHd/).
+  *J Vasc Bras*. 2011;10(4):275-8. Faz a ponte com o Capítulo 6.
+- Pablos-Mendez A et al. [Run-in periods in clinical trials: implications for the
+  selection of patients](https://pubmed.ncbi.nlm.nih.gov/9556634/). *JAMA*.
+  1998;279(3):222-5. Como os critérios de seleção iniciais "limpam" a amostra e
+  produzem resultados que não se reproduzem no paciente real.
