@@ -311,6 +311,34 @@ html[data-tema="escuro"] .marcar-lido.feito { color: #15181c; }
 .exercicio.feito .resolvido { background: var(--lido); border-color: var(--lido); color: #fff; }
 html[data-tema="escuro"] .exercicio.feito .resolvido { color: #15181c; }
 
+/* ----------------------------------------------------------- figuras */
+
+.figura { margin: 2rem 0; }
+.figura-quadro {
+  border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--papel-caixa); padding: 1.1rem;
+  overflow-x: auto;
+}
+.figura svg { display: block; width: 100%; height: auto; min-width: 30rem; }
+.figura figcaption {
+  margin-top: .7rem; font-family: var(--sans); font-size: .82rem;
+  line-height: 1.55; color: var(--tinta-fraca);
+}
+.figura figcaption b { color: var(--realce); }
+
+/* peças das figuras, para que herdem o tema */
+.fig-caixa   { fill: var(--papel); stroke: var(--linha); stroke-width: 1.5; }
+.fig-destaque{ fill: var(--realce-fraco); stroke: var(--realce); stroke-width: 1.5; }
+.fig-decisao { fill: var(--caso-fundo); stroke: var(--caso); stroke-width: 1.5; }
+.fig-folha   { fill: var(--jamovi-fundo); stroke: var(--jamovi); stroke-width: 1.5; }
+.fig-linha   { stroke: var(--tinta-fraca); stroke-width: 1.5; fill: none; }
+.fig-texto   { fill: var(--tinta); font-family: var(--sans); font-size: 13px; }
+.fig-titulo  { fill: var(--realce); font-family: var(--sans); font-size: 13px; font-weight: 700;
+               letter-spacing: .06em; text-transform: uppercase; }
+.fig-rotulo  { fill: var(--tinta-fraca); font-family: var(--sans); font-size: 11.5px; }
+.fig-forte   { font-weight: 700; }
+.fig-seta    { fill: var(--tinta-fraca); }
+
 /* ------------------------------------------------------------- quiz */
 
 .quiz {

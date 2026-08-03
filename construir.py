@@ -187,6 +187,43 @@ def render_calculadora(bloco):
     return CALCULADORAS.get(bloco["arg"].strip(), "")
 
 
+FIGURAS = RAIZ / "figuras"
+_contador_figuras = {"n": 0}
+
+
+def render_figura(bloco):
+    """Embute um SVG de figuras/ dentro do texto, com legenda numerada.
+
+    SVG inline, e nao imagem: herda as cores do tema, mantem o texto
+    pesquisavel pela busca do livro e legivel por leitor de tela, e pesa
+    poucos quilobytes.
+    """
+    nome = bloco["arg"].strip()
+    arquivo = FIGURAS / f"{nome}.svg"
+    if not arquivo.exists():
+        return (f'<p class="aviso-vazio">Figura <code>{html.escape(nome)}</code> '
+                "ainda não desenhada.</p>")
+
+    svg = arquivo.read_text(encoding="utf-8")
+    svg = re.sub(r"<\?xml.*?\?>", "", svg, flags=re.S).strip()
+    _contador_figuras["n"] += 1
+    legenda = " ".join(l.strip() for l in bloco["linhas"] if l.strip())
+
+    titulo = ""
+    m = re.search(r"<title>(.*?)</title>", svg, re.S)
+    if m:
+        titulo = m.group(1).strip()
+
+    corpo = [f'<figure class="figura" id="fig-{_contador_figuras["n"]}"'
+             f' role="img" aria-label="{html.escape(titulo or legenda)}">',
+             '<div class="figura-quadro">', svg, "</div>"]
+    if legenda:
+        corpo.append(f'<figcaption><b>Figura {_contador_figuras["n"]}.</b> '
+                     f'{para_html(legenda)[3:-4]}</figcaption>')
+    corpo.append("</figure>")
+    return "\n".join(corpo)
+
+
 NIVEIS = {"facil": "fácil", "media": "intermediária", "dificil": "difícil"}
 
 
@@ -314,6 +351,8 @@ def render(texto, prefixo="doc"):
             saida.append(render_calculadora(dado))
         elif dado["tipo"] == "quiz":
             saida.append(render_quiz(dado, prefixo))
+        elif dado["tipo"] == "figura":
+            saida.append(render_figura(dado))
         else:
             saida.append(render_caixa(dado))
     return "\n".join(saida)
@@ -511,6 +550,14 @@ def construir():
     paineis[0] = paineis[0].replace(
         "<!--NUMEROS-->", painel_numeros(paineis[1:], meta, glossario, total_palavras))
 
+    # o que aparece quando alguem manda o endereco do livro por mensagem
+    descricao = (
+        f"Livro de acesso aberto sobre estatística aplicada à pesquisa com seres "
+        f"humanos, de {livro['autor']}. "
+        f"{sum(1 for c in meta if str(c['n']).isdigit())} capítulos na ordem das "
+        f"decisões de um projeto, da dúvida clínica ao artigo submetido, com "
+        f"exercícios, questionários e os dados abertos para conferir cada número.")
+
     pagina = f"""<!DOCTYPE html>
 <html lang="pt-BR" data-tema="claro">
 <head>
@@ -518,7 +565,24 @@ def construir():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(livro["titulo"])}</title>
 <meta name="author" content="{html.escape(livro["autor"])}">
-<meta name="description" content="{html.escape(livro["titulo"])}: {html.escape(livro["subtitulo"])}">
+<meta name="description" content="{html.escape(descricao)}">
+<link rel="canonical" href="{livro["url"]}">
+
+<meta property="og:type" content="book">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="{html.escape(livro["titulo"])}">
+<meta property="og:title" content="{html.escape(livro["titulo"])}: {html.escape(livro["subtitulo"])}">
+<meta property="og:description" content="{html.escape(descricao)}">
+<meta property="og:url" content="{livro["url"]}">
+<meta property="og:image" content="{livro["url"]}compartilhar.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1006">
+<meta property="og:image:alt" content="Capa do livro {html.escape(livro["titulo"])}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html.escape(livro["titulo"])}">
+<meta name="twitter:description" content="{html.escape(descricao)}">
+<meta name="twitter:image" content="{livro["url"]}compartilhar.png">
 <style>
 {css}
 </style>

@@ -6,55 +6,18 @@ lê na poltrona.
 
 ## Fluxograma: qual teste eu uso?
 
-```
-                        Qual é o desfecho?
-                                │
-        ┌───────────────────────┴───────────────────────┐
-        ▼                                               ▼
-   CATEGÓRICO                                       NUMÉRICO
-        │                                               │
-        ▼                                               ▼
- Os grupos são pareados?                    Os grupos são pareados?
-   │              │                            │              │
-  SIM            NÃO                          SIM            NÃO
-   │              │                            │              │
-   ▼              ▼                            ▼              ▼
-McNemar     Quantos grupos?               t pareado      Quantos grupos?
-             │          │                 ou Wilcoxon     │          │
-            DOIS      TRÊS +                             DOIS      TRÊS +
-             │          │                                 │          │
-             ▼          ▼                                 ▼          ▼
-      qui-quadrado  qui-quadrado                    t de Welch    ANOVA
-      (ou Fisher,    de r x c                       ou Mann-      ou Kruskal-
-      se esperado                                   Whitney       Wallis
-      menor que 5)
-```
-
-Duas perguntas ficam fora do fluxograma porque pedem ferramenta própria:
-
-- **Tempo até um evento**, com censura: Kaplan-Meier, log-rank e Cox
-  (Capítulo 14).
-- **Ajuste por outras variáveis**: regressão linear ou logística (Capítulo 12).
+::: figura fluxo-do-teste
+Da natureza do desfecho e do pareamento dos grupos sai o teste. Repare que a
+primeira pergunta não é sobre a distribuição dos dados, e sim sobre o tipo de
+variável: quem começa pela normalidade já errou a ordem.
+:::
 
 ## Fluxograma: como descrever uma variável
 
-```
-              Que tipo de variável?
-                        │
-        ┌───────────────┴───────────────┐
-        ▼                               ▼
-  CATEGÓRICA                        NUMÉRICA
-        │                               │
-        ▼                               ▼
-   n e percentual          A distribuição é simétrica?
-   (na ordem lógica         (olhe o histograma,
-    das categorias)          não faça teste)
-                                │            │
-                               SIM          NÃO
-                                │            │
-                                ▼            ▼
-                         média e DP    mediana e quartis
-```
+::: figura como-descrever
+A decisão entre média e mediana se toma olhando a forma da distribuição, e não
+aplicando um teste de normalidade, pelas razões do Capítulo 8.
+:::
 
 ## Lista de verificação do protocolo
 

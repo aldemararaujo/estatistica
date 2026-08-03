@@ -20,6 +20,25 @@ duas construções da mesma versão podem diferir em detalhes de data e de links
 
 ---
 
+## Versão 1.2 — 03/08/2026
+
+**Figuras**
+
+- Quatro figuras em SVG substituem a arte em caracteres: o fluxograma de escolha
+  do teste e o de como descrever uma variável, no Apêndice B; o diagrama CONSORT
+  do estudo, no Capítulo 15; e o esquema das três populações, no Capítulo 5.
+- SVG embutido, e não imagem: as figuras herdam as cores do tema claro e escuro,
+  o texto delas continua encontrável pela busca do livro e legível por leitor de
+  tela, e as quatro juntas somam poucos quilobytes.
+
+**Divulgação**
+
+- Imagem de compartilhamento, criada no Canva e publicada como
+  `compartilhar.png`, com as marcações Open Graph e Twitter Card. Quem manda o
+  endereço do livro por mensagem passa a ver capa, título e descrição.
+
+---
+
 ## Versão 1.1 — 03/08/2026
 
 **Conteúdo**

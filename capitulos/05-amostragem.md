@@ -28,6 +28,11 @@ não resolve**: é julgamento clínico sobre semelhança. Nenhum intervalo de
 confiança cobre a diferença entre um ambulatório universitário de Maceió e um
 posto de saúde rural.
 
+::: figura tres-populacoes
+As três populações e os dois saltos entre elas. O primeiro salto tem solução
+técnica; o segundo, não, e é onde a maioria das conclusões exageradas nasce.
+:::
+
 ## Quem entra, quem fica de fora
 
 Antes de qualquer técnica de amostragem, a população acessível é definida pelos

@@ -5,7 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Estatística na Pesquisa Clínica</title>
 <meta name="author" content="Aldemar Araujo Castro">
-<meta name="description" content="A Estatística na Pesquisa Clínica: do problema clínico à decisão estatística">
+<meta name="description" content="Livro de acesso aberto sobre estatística aplicada à pesquisa com seres humanos, de Aldemar Araujo Castro. 16 capítulos na ordem das decisões de um projeto, da dúvida clínica ao artigo submetido, com exercícios, questionários e os dados abertos para conferir cada número.">
+<link rel="canonical" href="https://aldemararaujo.github.io/estatistica/">
+
+<meta property="og:type" content="book">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="A Estatística na Pesquisa Clínica">
+<meta property="og:title" content="A Estatística na Pesquisa Clínica: do problema clínico à decisão estatística">
+<meta property="og:description" content="Livro de acesso aberto sobre estatística aplicada à pesquisa com seres humanos, de Aldemar Araujo Castro. 16 capítulos na ordem das decisões de um projeto, da dúvida clínica ao artigo submetido, com exercícios, questionários e os dados abertos para conferir cada número.">
+<meta property="og:url" content="https://aldemararaujo.github.io/estatistica/">
+<meta property="og:image" content="https://aldemararaujo.github.io/estatistica/compartilhar.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1006">
+<meta property="og:image:alt" content="Capa do livro A Estatística na Pesquisa Clínica">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Estatística na Pesquisa Clínica">
+<meta name="twitter:description" content="Livro de acesso aberto sobre estatística aplicada à pesquisa com seres humanos, de Aldemar Araujo Castro. 16 capítulos na ordem das decisões de um projeto, da dúvida clínica ao artigo submetido, com exercícios, questionários e os dados abertos para conferir cada número.">
+<meta name="twitter:image" content="https://aldemararaujo.github.io/estatistica/compartilhar.png">
 <style>
 /* ------------------------------------------------------------------
    A Estatística na Pesquisa Clínica — folha de estilo do livro
@@ -319,6 +336,34 @@ html[data-tema="escuro"] .marcar-lido.feito { color: #15181c; }
 .exercicio.feito { border-color: var(--lido); }
 .exercicio.feito .resolvido { background: var(--lido); border-color: var(--lido); color: #fff; }
 html[data-tema="escuro"] .exercicio.feito .resolvido { color: #15181c; }
+
+/* ----------------------------------------------------------- figuras */
+
+.figura { margin: 2rem 0; }
+.figura-quadro {
+  border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--papel-caixa); padding: 1.1rem;
+  overflow-x: auto;
+}
+.figura svg { display: block; width: 100%; height: auto; min-width: 30rem; }
+.figura figcaption {
+  margin-top: .7rem; font-family: var(--sans); font-size: .82rem;
+  line-height: 1.55; color: var(--tinta-fraca);
+}
+.figura figcaption b { color: var(--realce); }
+
+/* peças das figuras, para que herdem o tema */
+.fig-caixa   { fill: var(--papel); stroke: var(--linha); stroke-width: 1.5; }
+.fig-destaque{ fill: var(--realce-fraco); stroke: var(--realce); stroke-width: 1.5; }
+.fig-decisao { fill: var(--caso-fundo); stroke: var(--caso); stroke-width: 1.5; }
+.fig-folha   { fill: var(--jamovi-fundo); stroke: var(--jamovi); stroke-width: 1.5; }
+.fig-linha   { stroke: var(--tinta-fraca); stroke-width: 1.5; fill: none; }
+.fig-texto   { fill: var(--tinta); font-family: var(--sans); font-size: 13px; }
+.fig-titulo  { fill: var(--realce); font-family: var(--sans); font-size: 13px; font-weight: 700;
+               letter-spacing: .06em; text-transform: uppercase; }
+.fig-rotulo  { fill: var(--tinta-fraca); font-family: var(--sans); font-size: 11.5px; }
+.fig-forte   { font-weight: 700; }
+.fig-seta    { fill: var(--tinta-fraca); }
 
 /* ------------------------------------------------------------- quiz */
 
@@ -685,7 +730,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   <div id="resultados-busca" hidden></div>
 
   <div id="lista-capitulos">
-  <a href="#capa" data-id="capa" data-busca="capa rosto ficha"><span class="num">•</span><span>Capa e apresentação</span></a><div class="parte">Parte I — A pergunta</div><a href="#cap-1" data-id="cap-1" data-palavras="3204" data-busca="Por que utilizar a matemática aplicada em pesquisa?"><span class="num">1</span><span class="rotulo">A pergunta antes do número</span></a><a href="#cap-2" data-id="cap-2" data-palavras="3933" data-busca="O que exatamente eu quero saber?"><span class="num">2</span><span class="rotulo">Da dúvida clínica à pergunta respondível</span></a><a href="#cap-3" data-id="cap-3" data-palavras="3223" data-busca="Que estudo responde à minha pergunta?"><span class="num">3</span><span class="rotulo">O delineamento decide tudo</span></a><div class="parte">Parte II — Antes de coletar</div><a href="#cap-4" data-id="cap-4" data-palavras="2990" data-busca="O que eu vou medir?"><span class="num">4</span><span class="rotulo">Variáveis e desfechos</span></a><a href="#cap-5" data-id="cap-5" data-palavras="3668" data-busca="Minha amostra representa quem?"><span class="num">5</span><span class="rotulo">Técnicas de amostragem</span></a><a href="#cap-6" data-id="cap-6" data-palavras="3228" data-busca="Quantos indivíduos vou precisar estudar?"><span class="num">6</span><span class="rotulo">Cálculo do tamanho da amostra</span></a><a href="#cap-7" data-id="cap-7" data-palavras="3336" data-busca="Como organizo meus dados?"><span class="num">7</span><span class="rotulo">Coleta, banco de dados e reprodutibilidade</span></a><div class="parte">Parte III — Diante dos dados</div><a href="#cap-8" data-id="cap-8" data-palavras="4150" data-busca="Como resumo meus resultados?"><span class="num">8</span><span class="rotulo">Estatística descritiva</span></a><a href="#cap-9" data-id="cap-9" data-palavras="3517" data-busca="Qual o grau de certeza do meu resultado?"><span class="num">9</span><span class="rotulo">Estimativa e incerteza</span></a><a href="#cap-10" data-id="cap-10" data-palavras="3811" data-busca="O acaso é o responsável pelos meus resultados?"><span class="num">10</span><span class="rotulo">Teste de hipótese e valor de p</span></a><a href="#cap-11" data-id="cap-11" data-palavras="3423" data-busca="Qual teste eu uso?"><span class="num">11</span><span class="rotulo">Escolhendo o teste</span></a><a href="#cap-12" data-id="cap-12" data-palavras="3464" data-busca="E as outras variáveis?"><span class="num">12</span><span class="rotulo">Além do bivariado: regressão e confundimento</span></a><a href="#cap-13" data-id="cap-13" data-palavras="3408" data-busca="Este exame serve?"><span class="num">13</span><span class="rotulo">Testes diagnósticos</span></a><a href="#cap-14" data-id="cap-14" data-palavras="3381" data-busca="Quanto tempo até o desfecho?"><span class="num">14</span><span class="rotulo">Análise de sobrevida</span></a><div class="parte">Parte IV — Depois da análise</div><a href="#cap-15" data-id="cap-15" data-palavras="3021" data-busca="Como apresento isso sem levar rejeição?"><span class="num">15</span><span class="rotulo">Relatar</span></a><a href="#cap-16" data-id="cap-16" data-palavras="2812" data-busca="E agora?"><span class="num">16</span><span class="rotulo">Considerações finais</span></a><div class="parte">Apêndices</div><a href="#cap-A" data-id="cap-A" data-palavras="1030" data-busca="Por onde começo no programa?"><span class="num">A</span><span class="rotulo">Primeiros passos no jamovi</span></a><a href="#cap-B" data-id="cap-B" data-palavras="1004" data-busca="Esqueci alguma coisa?"><span class="num">B</span><span class="rotulo">Fluxogramas e listas de verificação</span></a><a href="#cap-C" data-id="cap-C" data-palavras="1702" data-busca="O que quer dizer essa palavra?"><span class="num">C</span><span class="rotulo">Glossário</span></a><a href="#cap-D" data-id="cap-D" data-palavras="1162" data-busca="Que dados são esses?"><span class="num">D</span><span class="rotulo">O banco do caso condutor</span></a>
+  <a href="#capa" data-id="capa" data-busca="capa rosto ficha"><span class="num">•</span><span>Capa e apresentação</span></a><div class="parte">Parte I — A pergunta</div><a href="#cap-1" data-id="cap-1" data-palavras="3204" data-busca="Por que utilizar a matemática aplicada em pesquisa?"><span class="num">1</span><span class="rotulo">A pergunta antes do número</span></a><a href="#cap-2" data-id="cap-2" data-palavras="3933" data-busca="O que exatamente eu quero saber?"><span class="num">2</span><span class="rotulo">Da dúvida clínica à pergunta respondível</span></a><a href="#cap-3" data-id="cap-3" data-palavras="3223" data-busca="Que estudo responde à minha pergunta?"><span class="num">3</span><span class="rotulo">O delineamento decide tudo</span></a><div class="parte">Parte II — Antes de coletar</div><a href="#cap-4" data-id="cap-4" data-palavras="2990" data-busca="O que eu vou medir?"><span class="num">4</span><span class="rotulo">Variáveis e desfechos</span></a><a href="#cap-5" data-id="cap-5" data-palavras="3699" data-busca="Minha amostra representa quem?"><span class="num">5</span><span class="rotulo">Técnicas de amostragem</span></a><a href="#cap-6" data-id="cap-6" data-palavras="3228" data-busca="Quantos indivíduos vou precisar estudar?"><span class="num">6</span><span class="rotulo">Cálculo do tamanho da amostra</span></a><a href="#cap-7" data-id="cap-7" data-palavras="3336" data-busca="Como organizo meus dados?"><span class="num">7</span><span class="rotulo">Coleta, banco de dados e reprodutibilidade</span></a><div class="parte">Parte III — Diante dos dados</div><a href="#cap-8" data-id="cap-8" data-palavras="4150" data-busca="Como resumo meus resultados?"><span class="num">8</span><span class="rotulo">Estatística descritiva</span></a><a href="#cap-9" data-id="cap-9" data-palavras="3517" data-busca="Qual o grau de certeza do meu resultado?"><span class="num">9</span><span class="rotulo">Estimativa e incerteza</span></a><a href="#cap-10" data-id="cap-10" data-palavras="3811" data-busca="O acaso é o responsável pelos meus resultados?"><span class="num">10</span><span class="rotulo">Teste de hipótese e valor de p</span></a><a href="#cap-11" data-id="cap-11" data-palavras="3423" data-busca="Qual teste eu uso?"><span class="num">11</span><span class="rotulo">Escolhendo o teste</span></a><a href="#cap-12" data-id="cap-12" data-palavras="3464" data-busca="E as outras variáveis?"><span class="num">12</span><span class="rotulo">Além do bivariado: regressão e confundimento</span></a><a href="#cap-13" data-id="cap-13" data-palavras="3408" data-busca="Este exame serve?"><span class="num">13</span><span class="rotulo">Testes diagnósticos</span></a><a href="#cap-14" data-id="cap-14" data-palavras="3381" data-busca="Quanto tempo até o desfecho?"><span class="num">14</span><span class="rotulo">Análise de sobrevida</span></a><div class="parte">Parte IV — Depois da análise</div><a href="#cap-15" data-id="cap-15" data-palavras="2988" data-busca="Como apresento isso sem levar rejeição?"><span class="num">15</span><span class="rotulo">Relatar</span></a><a href="#cap-16" data-id="cap-16" data-palavras="2812" data-busca="E agora?"><span class="num">16</span><span class="rotulo">Considerações finais</span></a><div class="parte">Apêndices</div><a href="#cap-A" data-id="cap-A" data-palavras="1030" data-busca="Por onde começo no programa?"><span class="num">A</span><span class="rotulo">Primeiros passos no jamovi</span></a><a href="#cap-B" data-id="cap-B" data-palavras="904" data-busca="Esqueci alguma coisa?"><span class="num">B</span><span class="rotulo">Fluxogramas e listas de verificação</span></a><a href="#cap-C" data-id="cap-C" data-palavras="1702" data-busca="O que quer dizer essa palavra?"><span class="num">C</span><span class="rotulo">Glossário</span></a><a href="#cap-D" data-id="cap-D" data-palavras="1162" data-busca="Que dados são esses?"><span class="num">D</span><span class="rotulo">O banco do caso condutor</span></a>
   </div>
 
   <div id="rodape-sumario">
@@ -706,12 +751,12 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
       <input type="file" id="arquivo-progresso" accept="application/json,.json" hidden>
     </div>
     <p>Setas ou J e K mudam de capítulo. Tecla / busca. Tecla M marca como lido.</p>
-    <p class="selo-versao">Versão 1.1
+    <p class="selo-versao">Versão 1.2
        · 03/08/2026</p>
   </div>
 </nav>
 <main id="leitura">
-<article class="capitulo" id="capa" data-titulo="Capa"><header class="cabecalho-cap"><div class="etiqueta">Aldemar Araujo Castro</div><h1>A Estatística na Pesquisa Clínica</h1><p class="guia">do problema clínico à decisão estatística</p></header><div id="retomar" hidden></div><section id="livro-em-numeros" aria-label="O livro em números"><h2 class="titulo-numeros">O livro em números</h2><div class="grade-numeros"><div class="cartao"><b>20</b><span class="rotulo">capítulos e apêndices</span><span class="detalhe">16 capítulos mais 4 apêndices</span></div><div class="cartao"><b>59.467</b><span class="rotulo">palavras</span><span class="detalhe">cerca de 132 páginas impressas</span></div><div class="cartao"><b>4h57</b><span class="rotulo">de leitura</span><span class="detalhe">a 200 palavras por minuto, do começo ao fim</span></div><div class="cartao"><b>112</b><span class="rotulo">perguntas de quiz</span><span class="detalhe">em 16 questionários, com cinco alternativas cada</span></div><div class="cartao"><b>560</b><span class="rotulo">comentários de resposta</span><span class="detalhe">um para cada alternativa, certa ou errada</span></div><div class="cartao"><b>100</b><span class="rotulo">exercícios</span><span class="detalhe">todos com gabarito comentado</span></div><div class="cartao"><b>15</b><span class="rotulo">seções sobre rejeição</span><span class="detalhe">os erros que os revisores de fato devolvem</span></div><div class="cartao"><b>50</b><span class="rotulo">tabelas</span><span class="detalhe">além de fluxogramas e listas de verificação</span></div><div class="cartao"><b>3</b><span class="rotulo">calculadoras</span><span class="detalhe">tamanho de amostra, intervalos e probabilidade pós-teste</span></div><div class="cartao"><b>54</b><span class="rotulo">verbetes no glossário</span><span class="detalhe">com definição ao passar o cursor sobre o termo</span></div><div class="cartao"><b>24</b><span class="rotulo">links externos</span><span class="detalhe">verificados um a um, com data de conferência</span></div><div class="cartao"><b>500</b><span class="rotulo">participantes simulados</span><span class="detalhe">em 2 bancos de dados abertos, somando 40 variáveis</span></div></div><p class="rodape-numeros">Tudo em uma única página, que funciona sem internet e não depende de nenhum servidor. Os números acima são contados automaticamente a cada nova versão.</p></section><p>Este livro nasceu de uma constatação repetida em bancas, em comitês de ética e
+<article class="capitulo" id="capa" data-titulo="Capa"><header class="cabecalho-cap"><div class="etiqueta">Aldemar Araujo Castro</div><h1>A Estatística na Pesquisa Clínica</h1><p class="guia">do problema clínico à decisão estatística</p></header><div id="retomar" hidden></div><section id="livro-em-numeros" aria-label="O livro em números"><h2 class="titulo-numeros">O livro em números</h2><div class="grade-numeros"><div class="cartao"><b>20</b><span class="rotulo">capítulos e apêndices</span><span class="detalhe">16 capítulos mais 4 apêndices</span></div><div class="cartao"><b>59.365</b><span class="rotulo">palavras</span><span class="detalhe">cerca de 132 páginas impressas</span></div><div class="cartao"><b>4h57</b><span class="rotulo">de leitura</span><span class="detalhe">a 200 palavras por minuto, do começo ao fim</span></div><div class="cartao"><b>112</b><span class="rotulo">perguntas de quiz</span><span class="detalhe">em 16 questionários, com cinco alternativas cada</span></div><div class="cartao"><b>560</b><span class="rotulo">comentários de resposta</span><span class="detalhe">um para cada alternativa, certa ou errada</span></div><div class="cartao"><b>100</b><span class="rotulo">exercícios</span><span class="detalhe">todos com gabarito comentado</span></div><div class="cartao"><b>15</b><span class="rotulo">seções sobre rejeição</span><span class="detalhe">os erros que os revisores de fato devolvem</span></div><div class="cartao"><b>50</b><span class="rotulo">tabelas</span><span class="detalhe">além de fluxogramas e listas de verificação</span></div><div class="cartao"><b>3</b><span class="rotulo">calculadoras</span><span class="detalhe">tamanho de amostra, intervalos e probabilidade pós-teste</span></div><div class="cartao"><b>54</b><span class="rotulo">verbetes no glossário</span><span class="detalhe">com definição ao passar o cursor sobre o termo</span></div><div class="cartao"><b>24</b><span class="rotulo">links externos</span><span class="detalhe">verificados um a um, com data de conferência</span></div><div class="cartao"><b>500</b><span class="rotulo">participantes simulados</span><span class="detalhe">em 2 bancos de dados abertos, somando 40 variáveis</span></div></div><p class="rodape-numeros">Tudo em uma única página, que funciona sem internet e não depende de nenhum servidor. Os números acima são contados automaticamente a cada nova versão.</p></section><p>Este livro nasceu de uma constatação repetida em bancas, em comitês de ética e
 em pareceres de revista: o pesquisador da área da saúde não erra em estatística
 por não saber calcular. Ele erra porque decidiu errado antes de ter dados, e
 nenhuma conta feita depois conserta uma decisão tomada antes.</p>
@@ -757,7 +802,7 @@ deixa de ser recomendável e passa a ser obrigatória.</p>
 um texto revisto: é um livro novo. Da versão anterior permaneceram apenas duas
 coisas, que eram o que ela tinha de melhor: a pergunta no subtítulo de cada
 capítulo e a convicção de que estatística se ensina a partir de um problema
-clínico, nunca a partir de uma fórmula.</p></div><div class="ficha"><p>Aldemar Araujo Castro — <a href="http://lattes.cnpq.br/2259022333178681">currículo Lattes</a></p><p>Maceió, AL, 2026</p><p>ISBN: em solicitação · Licença CC BY-NC-SA 4.0</p><p>Comentários, sugestões e críticas: <a href="mailto:aldemararaujocastro@gmail.com">aldemararaujocastro@gmail.com</a></p><p class="versao">Versão 1.1 · 03/08/2026 · <a href="https://github.com/aldemararaujo/estatistica/blob/main/VERSOES.md">histórico de versões</a></p><p class="acoes-ficha"><button type="button" id="abre-citar">Como citar este livro</button></p></div></article><article class="capitulo" id="cap-1" data-titulo="A pergunta antes do número" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte I — A pergunta · Capítulo 1</div><h1>A pergunta antes do número</h1><p class="guia">Por que utilizar a matemática aplicada em pesquisa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Um cirurgião vascular acompanha uma paciente de 64 anos com úlcera venosa há
+clínico, nunca a partir de uma fórmula.</p></div><div class="ficha"><p>Aldemar Araujo Castro — <a href="http://lattes.cnpq.br/2259022333178681">currículo Lattes</a></p><p>Maceió, AL, 2026</p><p>ISBN: em solicitação · Licença CC BY-NC-SA 4.0</p><p>Comentários, sugestões e críticas: <a href="mailto:aldemararaujocastro@gmail.com">aldemararaujocastro@gmail.com</a></p><p class="versao">Versão 1.2 · 03/08/2026 · <a href="https://github.com/aldemararaujo/estatistica/blob/main/VERSOES.md">histórico de versões</a></p><p class="acoes-ficha"><button type="button" id="abre-citar">Como citar este livro</button></p></div></article><article class="capitulo" id="cap-1" data-titulo="A pergunta antes do número" hidden><header class="cabecalho-cap"><div class="etiqueta">Parte I — A pergunta · Capítulo 1</div><h1>A pergunta antes do número</h1><p class="guia">Por que utilizar a matemática aplicada em pesquisa?</p></header><div class="caixa caso"><div class="titulo">O caso</div><p>Um cirurgião vascular acompanha uma paciente de 64 anos com úlcera venosa há
 catorze meses. Ele já tentou tudo o que sabe. Leu sobre uma terapia nova, viu
 relatos favoráveis, e precisa decidir se oferece aquilo a ela. A pergunta que ele
 tem diante de si não é estatística: é clínica. A estatística entra porque é a
@@ -1881,6 +1926,64 @@ resolve. O segundo, da população acessível para a população-alvo, <strong>a
 não resolve</strong>: é julgamento clínico sobre semelhança. Nenhum intervalo de
 confiança cobre a diferença entre um ambulatório universitário de Maceió e um
 posto de saúde rural.</p>
+<figure class="figura" id="fig-1" role="img" aria-label="As três populações de um estudo: a população-alvo contém a população acessível, que contém a amostra, e os dois saltos entre elas">
+<div class="figura-quadro">
+<svg viewBox="0 0 820 430" xmlns="http://www.w3.org/2000/svg">
+  <title>As três populações de um estudo: a população-alvo contém a população acessível, que contém a amostra, e os dois saltos entre elas</title>
+
+  <defs>
+    <marker id="seta-p" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="fig-seta"/>
+    </marker>
+  </defs>
+
+  <!-- caixas aninhadas -->
+  <rect x="20" y="20" width="470" height="330" rx="14" class="fig-caixa"/>
+  <text x="42" y="48" class="fig-titulo">População-alvo</text>
+  <text x="42" y="70" class="fig-rotulo">Todos sobre quem se quer concluir:</text>
+  <text x="42" y="88" class="fig-rotulo">adultos com úlcera venosa ativa, no Brasil e fora dele</text>
+
+  <rect x="52" y="106" width="406" height="216" rx="12" class="fig-decisao"/>
+  <text x="74" y="134" class="fig-titulo">População acessível</text>
+  <text x="74" y="156" class="fig-rotulo">Os que o pesquisador poderia alcançar:</text>
+  <text x="74" y="174" class="fig-rotulo">atendidos nos três ambulatórios, no período do estudo</text>
+
+  <rect x="84" y="192" width="342" height="112" rx="10" class="fig-folha"/>
+  <text x="106" y="220" class="fig-titulo">Amostra</text>
+  <text x="106" y="242" class="fig-rotulo">Os que efetivamente entraram:</text>
+  <text x="106" y="266" class="fig-texto fig-forte">200 participantes randomizados</text>
+  <text x="106" y="288" class="fig-rotulo">de 246 avaliados para elegibilidade</text>
+
+  <!-- os dois saltos -->
+  <path d="M255,304 L255,192" class="fig-linha" marker-end="url(#seta-p)"/>
+  <path d="M530,250 L560,250" class="fig-linha" marker-end="url(#seta-p)"/>
+  <path d="M530,120 L560,120" class="fig-linha" marker-end="url(#seta-p)"/>
+  <path d="M490,250 L530,250 M490,120 L530,120" class="fig-linha"/>
+
+  <rect x="560" y="86" width="240" height="96" rx="10" class="fig-destaque"/>
+  <text x="578" y="112" class="fig-texto fig-forte">Segundo salto</text>
+  <text x="578" y="134" class="fig-rotulo">Da acessível para a alvo.</text>
+  <text x="578" y="152" class="fig-rotulo">A estatística NÃO resolve:</text>
+  <text x="578" y="170" class="fig-rotulo">é julgamento clínico de semelhança.</text>
+
+  <rect x="560" y="216" width="240" height="96" rx="10" class="fig-caixa"/>
+  <text x="578" y="242" class="fig-texto fig-forte">Primeiro salto</text>
+  <text x="578" y="264" class="fig-rotulo">Da amostra para a acessível.</text>
+  <text x="578" y="282" class="fig-rotulo">Problema de amostragem e de</text>
+  <text x="578" y="300" class="fig-rotulo">tamanho: a estatística resolve.</text>
+
+  <line x1="20" y1="372" x2="800" y2="372" class="fig-linha"/>
+  <text x="20" y="396" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Randomização</tspan> atua dentro da amostra, decidindo quem vai para cada grupo: protege a validade interna.
+  </text>
+  <text x="20" y="416" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Amostragem</tspan> decide quem entra na amostra: protege a validade externa. Este estudo tem a primeira, e não a segunda.
+  </text>
+</svg>
+</div>
+<figcaption><b>Figura 1.</b> As três populações e os dois saltos entre elas. O primeiro salto tem solução técnica; o segundo, não, e é onde a maioria das conclusões exageradas nasce.</figcaption>
+</figure>
 <h2 id="cap-5-quem-entra-quem-fica-de-fora">Quem entra, quem fica de fora<a class="ancora" href="#cap-5-quem-entra-quem-fica-de-fora" aria-label="Link para esta seção">#</a></h2>
 <p>Antes de qualquer técnica de amostragem, a população acessível é definida pelos
 critérios de elegibilidade. São eles, e não a técnica, que decidem a quem o
@@ -5058,30 +5161,89 @@ dado, não na véspera da submissão.</p>
 <h2 id="cap-15-o-diagrama-de-fluxo">O diagrama de fluxo<a class="ancora" href="#cap-15-o-diagrama-de-fluxo" aria-label="Link para esta seção">#</a></h2>
 <p>O CONSORT começa por uma figura, e ela é a primeira coisa que um revisor
 experiente procura. A do caso condutor:</p>
-<pre><code>             Avaliados para elegibilidade (n = 246)
-                          │
-                          ├── Excluídos (n = 46)
-                          │     • ITB &lt; 0,80 (n = 19)
-                          │     • Úlcera não venosa (n = 12)
-                          │     • Recusaram participar (n = 9)
-                          │     • Outros critérios (n = 6)
-                          ▼
-                  Randomizados (n = 200)
-                          │
-        ┌─────────────────┴─────────────────┐
-        ▼                                   ▼
-  Aspirado (n = 100)                 Controle (n = 100)
-  Receberam o alocado: 100           Receberam o alocado: 100
-        │                                   │
-  Perdas de seguimento: 8            Perdas de seguimento: 8
-        │                                   │
-        ▼                                   ▼
-  Analisados: 92                     Analisados: 92
-</code></pre>
-<p>O diagrama responde, de uma vez, a quem foi excluído e por quê, se houve
-desequilíbrio de perdas e sobre quantas pessoas cada número foi calculado. Note
-que os 246 avaliados dão a medida de quão selecionada é a amostra, tema do
-Capítulo 5.</p>
+<figure class="figura" id="fig-2" role="img" aria-label="Diagrama de fluxo dos participantes do estudo, dos 246 avaliados para elegibilidade aos 92 analisados em cada grupo">
+<div class="figura-quadro">
+<svg viewBox="0 0 780 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Diagrama de fluxo dos participantes do estudo, dos 246 avaliados para elegibilidade aos 92 analisados em cada grupo</title>
+
+  <defs>
+    <marker id="seta-c" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="fig-seta"/>
+    </marker>
+  </defs>
+
+  <!-- avaliados -->
+  <rect x="215" y="14" width="350" height="46" rx="8" class="fig-destaque"/>
+  <text x="390" y="43" text-anchor="middle" class="fig-texto fig-forte">
+    Avaliados para elegibilidade (n = 246)
+  </text>
+
+  <!-- excluídos, à direita -->
+  <path d="M390,60 L390,96 M390,96 L470,96" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="470" y="70" width="296" height="104" rx="8" class="fig-caixa"/>
+  <text x="486" y="92" class="fig-texto fig-forte">Excluídos (n = 46)</text>
+  <text x="486" y="114" class="fig-rotulo">Índice tornozelo-braquial &lt; 0,80: 19</text>
+  <text x="486" y="132" class="fig-rotulo">Úlcera de etiologia não venosa: 12</text>
+  <text x="486" y="150" class="fig-rotulo">Recusaram participar: 9</text>
+  <text x="486" y="168" class="fig-rotulo">Outros critérios: 6</text>
+
+  <!-- randomizados -->
+  <path d="M390,60 L390,190" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="255" y="192" width="270" height="46" rx="8" class="fig-destaque"/>
+  <text x="390" y="221" text-anchor="middle" class="fig-texto fig-forte">
+    Randomizados (n = 200)
+  </text>
+
+  <!-- bifurcação -->
+  <path d="M390,238 L390,266 M195,266 L585,266 M195,266 L195,290 M585,266 L585,290"
+        class="fig-linha"/>
+  <path d="M195,282 L195,290 M585,282 L585,290" class="fig-linha" marker-end="url(#seta-c)"/>
+
+  <!-- coluna esquerda -->
+  <rect x="40" y="290" width="310" height="44" rx="8" class="fig-decisao"/>
+  <text x="195" y="318" text-anchor="middle" class="fig-texto fig-forte">
+    Aspirado + compressão (n = 100)
+  </text>
+  <path d="M195,334 L195,362" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="40" y="364" width="310" height="40" rx="8" class="fig-caixa"/>
+  <text x="195" y="389" text-anchor="middle" class="fig-texto">Receberam o alocado: 100</text>
+  <path d="M195,404 L195,432" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="40" y="434" width="310" height="40" rx="8" class="fig-caixa"/>
+  <text x="195" y="459" text-anchor="middle" class="fig-texto">Perdas de seguimento: 8</text>
+  <path d="M195,474 L195,502" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="40" y="504" width="310" height="44" rx="8" class="fig-folha"/>
+  <text x="195" y="532" text-anchor="middle" class="fig-texto fig-forte">Analisados: 92</text>
+
+  <!-- coluna direita -->
+  <rect x="430" y="290" width="310" height="44" rx="8" class="fig-decisao"/>
+  <text x="585" y="318" text-anchor="middle" class="fig-texto fig-forte">
+    Compressão isolada (n = 100)
+  </text>
+  <path d="M585,334 L585,362" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="430" y="364" width="310" height="40" rx="8" class="fig-caixa"/>
+  <text x="585" y="389" text-anchor="middle" class="fig-texto">Receberam o alocado: 100</text>
+  <path d="M585,404 L585,432" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="430" y="434" width="310" height="40" rx="8" class="fig-caixa"/>
+  <text x="585" y="459" text-anchor="middle" class="fig-texto">Perdas de seguimento: 8</text>
+  <path d="M585,474 L585,502" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="430" y="504" width="310" height="44" rx="8" class="fig-folha"/>
+  <text x="585" y="532" text-anchor="middle" class="fig-texto fig-forte">Analisados: 92</text>
+
+  <!-- nota lateral -->
+  <text x="40" y="578" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Por que os avaliados importam:</tspan>
+    a razão entre 246 e 200 mostra o quanto a amostra foi filtrada, e a quem o resultado se aplica.
+  </text>
+</svg>
+</div>
+<figcaption><b>Figura 2.</b> O diagrama de fluxo do caso condutor. Ele responde de uma vez a quem foi excluído e por quê, se houve desequilíbrio de perdas entre os grupos e sobre quantas pessoas cada número do artigo foi calculado.</figcaption>
+</figure>
+<p>Os 246 avaliados dão a medida de quão selecionada é a amostra, tema do
+Capítulo 5, e é por isso que eles precisam aparecer: um estudo que avaliou 210
+para incluir 200 recrutou quase todo mundo que apareceu, enquanto outro que
+avaliou 2.000 para incluir 200 aplicou um filtro pesado, e o leitor precisa saber
+qual foi.</p>
 <h2 id="cap-15-o-que-vai-em-cada-secao">O que vai em cada seção<a class="ancora" href="#cap-15-o-que-vai-em-cada-secao" aria-label="Link para esta seção">#</a></h2>
 <p><strong>Introdução.</strong> Três parágrafos bastam: o que se sabe, o que não se sabe e a
 pergunta do estudo, esta última em uma frase, no fim, como o Capítulo 2 propôs.
@@ -5651,51 +5813,139 @@ uma boa prática antes de qualquer análise filtrada.</p></details>
 capítulos. É a parte que se consulta com o projeto aberto ao lado, não a que se
 lê na poltrona.</p></div>
 <h2 id="cap-B-fluxograma-qual-teste-eu-uso">Fluxograma: qual teste eu uso?<a class="ancora" href="#cap-B-fluxograma-qual-teste-eu-uso" aria-label="Link para esta seção">#</a></h2>
-<pre><code>                        Qual é o desfecho?
-                                │
-        ┌───────────────────────┴───────────────────────┐
-        ▼                                               ▼
-   CATEGÓRICO                                       NUMÉRICO
-        │                                               │
-        ▼                                               ▼
- Os grupos são pareados?                    Os grupos são pareados?
-   │              │                            │              │
-  SIM            NÃO                          SIM            NÃO
-   │              │                            │              │
-   ▼              ▼                            ▼              ▼
-McNemar     Quantos grupos?               t pareado      Quantos grupos?
-             │          │                 ou Wilcoxon     │          │
-            DOIS      TRÊS +                             DOIS      TRÊS +
-             │          │                                 │          │
-             ▼          ▼                                 ▼          ▼
-      qui-quadrado  qui-quadrado                    t de Welch    ANOVA
-      (ou Fisher,    de r x c                       ou Mann-      ou Kruskal-
-      se esperado                                   Whitney       Wallis
-      menor que 5)
-</code></pre>
-<p>Duas perguntas ficam fora do fluxograma porque pedem ferramenta própria:</p>
-<ul>
-<li><strong>Tempo até um evento</strong>, com censura: Kaplan-Meier, log-rank e Cox
-  (Capítulo 14).</li>
-<li><strong>Ajuste por outras variáveis</strong>: regressão linear ou logística (Capítulo 12).</li>
-</ul>
+<figure class="figura" id="fig-3" role="img" aria-label="Fluxograma para escolher o teste estatístico conforme o tipo de desfecho e o pareamento dos grupos">
+<div class="figura-quadro">
+<svg viewBox="0 0 860 540" xmlns="http://www.w3.org/2000/svg">
+  <title>Fluxograma para escolher o teste estatístico conforme o tipo de desfecho e o pareamento dos grupos</title>
+
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="fig-seta"/>
+    </marker>
+  </defs>
+
+  <!-- pergunta inicial -->
+  <rect x="310" y="14" width="240" height="46" rx="8" class="fig-destaque"/>
+  <text x="430" y="43" text-anchor="middle" class="fig-texto fig-forte">Qual é o desfecho?</text>
+
+  <!-- conectores para os dois ramos -->
+  <path d="M430,60 L430,84 M215,84 L645,84 M215,84 L215,104 M645,84 L645,104"
+        class="fig-linha" marker-end="url(#seta)"/>
+  <path d="M430,60 L430,84 M215,84 L645,84" class="fig-linha"/>
+
+  <!-- tipo de desfecho -->
+  <rect x="125" y="104" width="180" height="40" rx="8" class="fig-decisao"/>
+  <text x="215" y="129" text-anchor="middle" class="fig-texto fig-forte">Categórico</text>
+  <rect x="555" y="104" width="180" height="40" rx="8" class="fig-decisao"/>
+  <text x="645" y="129" text-anchor="middle" class="fig-texto fig-forte">Numérico</text>
+
+  <path d="M215,144 L215,172 M645,144 L645,172" class="fig-linha" marker-end="url(#seta)"/>
+
+  <!-- ================= coluna esquerda: categórico ================= -->
+  <g>
+    <rect x="20" y="176" width="390" height="262" rx="10" class="fig-caixa"/>
+
+    <rect x="36" y="194" width="358" height="62" rx="7" class="fig-folha"/>
+    <text x="52" y="216" class="fig-rotulo">Mesma pessoa, dois momentos</text>
+    <text x="52" y="238" class="fig-texto fig-forte">McNemar</text>
+
+    <rect x="36" y="268" width="358" height="70" rx="7" class="fig-folha"/>
+    <text x="52" y="290" class="fig-rotulo">Grupos independentes, dois grupos</text>
+    <text x="52" y="312" class="fig-texto fig-forte">Qui-quadrado</text>
+    <text x="52" y="330" class="fig-rotulo">Fisher, se algum esperado for menor que 5</text>
+
+    <rect x="36" y="350" width="358" height="62" rx="7" class="fig-folha"/>
+    <text x="52" y="372" class="fig-rotulo">Grupos independentes, três ou mais</text>
+    <text x="52" y="394" class="fig-texto fig-forte">Qui-quadrado de r × c</text>
+  </g>
+
+  <!-- ================= coluna direita: numérico ================= -->
+  <g>
+    <rect x="450" y="176" width="390" height="262" rx="10" class="fig-caixa"/>
+
+    <rect x="466" y="194" width="358" height="62" rx="7" class="fig-folha"/>
+    <text x="482" y="216" class="fig-rotulo">Mesma pessoa, dois momentos</text>
+    <text x="482" y="238" class="fig-texto fig-forte">t pareado <tspan class="fig-rotulo">ou</tspan> Wilcoxon</text>
+
+    <rect x="466" y="268" width="358" height="70" rx="7" class="fig-folha"/>
+    <text x="482" y="290" class="fig-rotulo">Grupos independentes, dois grupos</text>
+    <text x="482" y="312" class="fig-texto fig-forte">t de Welch <tspan class="fig-rotulo">ou</tspan> Mann-Whitney</text>
+    <text x="482" y="330" class="fig-rotulo">Welch dispensa supor variâncias iguais</text>
+
+    <rect x="466" y="350" width="358" height="62" rx="7" class="fig-folha"/>
+    <text x="482" y="372" class="fig-rotulo">Grupos independentes, três ou mais</text>
+    <text x="482" y="394" class="fig-texto fig-forte">ANOVA <tspan class="fig-rotulo">ou</tspan> Kruskal-Wallis</text>
+  </g>
+
+  <!-- rodapé: o que fica fora do fluxograma -->
+  <line x1="20" y1="462" x2="840" y2="462" class="fig-linha"/>
+  <text x="20" y="486" class="fig-titulo">Fora deste fluxograma</text>
+  <text x="20" y="508" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Tempo até um evento, com censura:</tspan>
+    Kaplan-Meier, log-rank e Cox (Capítulo 14)
+  </text>
+  <text x="20" y="528" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Ajuste por outras variáveis:</tspan>
+    regressão linear ou logística (Capítulo 12)
+  </text>
+</svg>
+</div>
+<figcaption><b>Figura 3.</b> Da natureza do desfecho e do pareamento dos grupos sai o teste. Repare que a primeira pergunta não é sobre a distribuição dos dados, e sim sobre o tipo de variável: quem começa pela normalidade já errou a ordem.</figcaption>
+</figure>
 <h2 id="cap-B-fluxograma-como-descrever-uma-variavel">Fluxograma: como descrever uma variável<a class="ancora" href="#cap-B-fluxograma-como-descrever-uma-variavel" aria-label="Link para esta seção">#</a></h2>
-<pre><code>              Que tipo de variável?
-                        │
-        ┌───────────────┴───────────────┐
-        ▼                               ▼
-  CATEGÓRICA                        NUMÉRICA
-        │                               │
-        ▼                               ▼
-   n e percentual          A distribuição é simétrica?
-   (na ordem lógica         (olhe o histograma,
-    das categorias)          não faça teste)
-                                │            │
-                               SIM          NÃO
-                                │            │
-                                ▼            ▼
-                         média e DP    mediana e quartis
-</code></pre>
+<figure class="figura" id="fig-4" role="img" aria-label="Como resumir uma variável conforme o tipo e a forma da distribuição">
+<div class="figura-quadro">
+<svg viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg">
+  <title>Como resumir uma variável conforme o tipo e a forma da distribuição</title>
+
+  <defs>
+    <marker id="seta-d" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="fig-seta"/>
+    </marker>
+  </defs>
+
+  <rect x="290" y="14" width="240" height="44" rx="8" class="fig-destaque"/>
+  <text x="410" y="42" text-anchor="middle" class="fig-texto fig-forte">Que tipo de variável?</text>
+
+  <path d="M410,58 L410,82 M205,82 L615,82" class="fig-linha"/>
+  <path d="M205,82 L205,104 M615,82 L615,104" class="fig-linha" marker-end="url(#seta-d)"/>
+
+  <rect x="115" y="106" width="180" height="40" rx="8" class="fig-decisao"/>
+  <text x="205" y="131" text-anchor="middle" class="fig-texto fig-forte">Categórica</text>
+
+  <rect x="525" y="106" width="180" height="40" rx="8" class="fig-decisao"/>
+  <text x="615" y="131" text-anchor="middle" class="fig-texto fig-forte">Numérica</text>
+
+  <!-- ramo categórico: direto à folha -->
+  <path d="M205,146 L205,186" class="fig-linha" marker-end="url(#seta-d)"/>
+  <rect x="40" y="188" width="330" height="66" rx="8" class="fig-folha"/>
+  <text x="205" y="214" text-anchor="middle" class="fig-texto fig-forte">n e percentual</text>
+  <text x="205" y="236" text-anchor="middle" class="fig-rotulo">na ordem lógica das categorias</text>
+
+  <!-- ramo numérico: decisão pela forma -->
+  <path d="M615,146 L615,168" class="fig-linha" marker-end="url(#seta-d)"/>
+  <rect x="430" y="170" width="370" height="52" rx="8" class="fig-caixa"/>
+  <text x="615" y="192" text-anchor="middle" class="fig-texto fig-forte">A distribuição é simétrica?</text>
+  <text x="615" y="212" text-anchor="middle" class="fig-rotulo">olhe o histograma; não faça teste de normalidade</text>
+
+  <path d="M615,222 L615,240 M505,240 L725,240" class="fig-linha"/>
+  <path d="M505,240 L505,262 M725,240 L725,262" class="fig-linha" marker-end="url(#seta-d)"/>
+  <text x="497" y="256" text-anchor="end" class="fig-rotulo">sim</text>
+  <text x="733" y="256" class="fig-rotulo">não</text>
+
+  <rect x="400" y="264" width="200" height="52" rx="8" class="fig-folha"/>
+  <text x="500" y="286" text-anchor="middle" class="fig-texto fig-forte">média</text>
+  <text x="500" y="306" text-anchor="middle" class="fig-rotulo">e desvio padrão</text>
+
+  <rect x="620" y="264" width="200" height="52" rx="8" class="fig-folha"/>
+  <text x="720" y="286" text-anchor="middle" class="fig-texto fig-forte">mediana</text>
+  <text x="720" y="306" text-anchor="middle" class="fig-rotulo">e quartis</text>
+</svg>
+</div>
+<figcaption><b>Figura 4.</b> A decisão entre média e mediana se toma olhando a forma da distribuição, e não aplicando um teste de normalidade, pelas razões do Capítulo 8.</figcaption>
+</figure>
 <h2 id="cap-B-lista-de-verificacao-do-protocolo">Lista de verificação do protocolo<a class="ancora" href="#cap-B-lista-de-verificacao-do-protocolo" aria-label="Link para esta seção">#</a></h2>
 <p>Antes de submeter ao comitê de ética:</p>
 <ul>
@@ -6458,8 +6708,8 @@ comum descrito no Capítulo 15.</p></details>
 
 <script>
 var LIVRO_TITULO = "A Estat\u00edstica na Pesquisa Cl\u00ednica";
-var LIVRO = {"titulo": "A Estatística na Pesquisa Clínica", "subtitulo": "do problema clínico à decisão estatística", "autor": "Aldemar Araujo Castro", "local": "Maceió, AL", "ano": "2026", "url": "https://aldemararaujo.github.io/estatistica/", "repositorio": "https://github.com/aldemararaujo/estatistica", "licenca": "CC BY-NC-SA 4.0", "isbn": "em solicitação", "versao": "1.1"};
-var LIVRO_CAPS = [{"id": "cap-1", "n": "1", "titulo": "A pergunta antes do número", "palavras": 3204, "parte": "Parte I — A pergunta", "exercicios": 5}, {"id": "cap-2", "n": "2", "titulo": "Da dúvida clínica à pergunta respondível", "palavras": 3933, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-3", "n": "3", "titulo": "O delineamento decide tudo", "palavras": 3223, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-4", "n": "4", "titulo": "Variáveis e desfechos", "palavras": 2990, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-5", "n": "5", "titulo": "Técnicas de amostragem", "palavras": 3668, "parte": "Parte II — Antes de coletar", "exercicios": 7}, {"id": "cap-6", "n": "6", "titulo": "Cálculo do tamanho da amostra", "palavras": 3228, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-7", "n": "7", "titulo": "Coleta, banco de dados e reprodutibilidade", "palavras": 3336, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-8", "n": "8", "titulo": "Estatística descritiva", "palavras": 4150, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-9", "n": "9", "titulo": "Estimativa e incerteza", "palavras": 3517, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-10", "n": "10", "titulo": "Teste de hipótese e valor de p", "palavras": 3811, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-11", "n": "11", "titulo": "Escolhendo o teste", "palavras": 3423, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-12", "n": "12", "titulo": "Além do bivariado: regressão e confundimento", "palavras": 3464, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-13", "n": "13", "titulo": "Testes diagnósticos", "palavras": 3408, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-14", "n": "14", "titulo": "Análise de sobrevida", "palavras": 3381, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-15", "n": "15", "titulo": "Relatar", "palavras": 3021, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-16", "n": "16", "titulo": "Considerações finais", "palavras": 2812, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-A", "n": "A", "titulo": "Primeiros passos no jamovi", "palavras": 1030, "parte": "Apêndices", "exercicios": 2}, {"id": "cap-B", "n": "B", "titulo": "Fluxogramas e listas de verificação", "palavras": 1004, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-C", "n": "C", "titulo": "Glossário", "palavras": 1702, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-D", "n": "D", "titulo": "O banco do caso condutor", "palavras": 1162, "parte": "Apêndices", "exercicios": 2}];
+var LIVRO = {"titulo": "A Estatística na Pesquisa Clínica", "subtitulo": "do problema clínico à decisão estatística", "autor": "Aldemar Araujo Castro", "local": "Maceió, AL", "ano": "2026", "url": "https://aldemararaujo.github.io/estatistica/", "repositorio": "https://github.com/aldemararaujo/estatistica", "licenca": "CC BY-NC-SA 4.0", "isbn": "em solicitação", "versao": "1.2"};
+var LIVRO_CAPS = [{"id": "cap-1", "n": "1", "titulo": "A pergunta antes do número", "palavras": 3204, "parte": "Parte I — A pergunta", "exercicios": 5}, {"id": "cap-2", "n": "2", "titulo": "Da dúvida clínica à pergunta respondível", "palavras": 3933, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-3", "n": "3", "titulo": "O delineamento decide tudo", "palavras": 3223, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-4", "n": "4", "titulo": "Variáveis e desfechos", "palavras": 2990, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-5", "n": "5", "titulo": "Técnicas de amostragem", "palavras": 3699, "parte": "Parte II — Antes de coletar", "exercicios": 7}, {"id": "cap-6", "n": "6", "titulo": "Cálculo do tamanho da amostra", "palavras": 3228, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-7", "n": "7", "titulo": "Coleta, banco de dados e reprodutibilidade", "palavras": 3336, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-8", "n": "8", "titulo": "Estatística descritiva", "palavras": 4150, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-9", "n": "9", "titulo": "Estimativa e incerteza", "palavras": 3517, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-10", "n": "10", "titulo": "Teste de hipótese e valor de p", "palavras": 3811, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-11", "n": "11", "titulo": "Escolhendo o teste", "palavras": 3423, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-12", "n": "12", "titulo": "Além do bivariado: regressão e confundimento", "palavras": 3464, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-13", "n": "13", "titulo": "Testes diagnósticos", "palavras": 3408, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-14", "n": "14", "titulo": "Análise de sobrevida", "palavras": 3381, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-15", "n": "15", "titulo": "Relatar", "palavras": 2988, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-16", "n": "16", "titulo": "Considerações finais", "palavras": 2812, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-A", "n": "A", "titulo": "Primeiros passos no jamovi", "palavras": 1030, "parte": "Apêndices", "exercicios": 2}, {"id": "cap-B", "n": "B", "titulo": "Fluxogramas e listas de verificação", "palavras": 904, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-C", "n": "C", "titulo": "Glossário", "palavras": 1702, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-D", "n": "D", "titulo": "O banco do caso condutor", "palavras": 1162, "parte": "Apêndices", "exercicios": 2}];
 var GLOSSARIO = {"em inglês**": "Probabilidade que se aceita de concluir que há efeito quando não há, o erro tipo I. Convencionalmente 5%. <em>Capítulos 6 e 10.</em>", "Amostragem consecutiva": "Incluir todos os elegíveis, na ordem em que aparecem, até completar o tamanho previsto. É a melhor das técnicas não probabilísticas. <em>Capítulo 5.</em>", "Análise por intenção de tratar": "Analisar cada participante no grupo em que foi alocado, independentemente do que recebeu. <em>Capítulos 7 e 15.</em>", "Área sob a curva ROC": "Resumo da capacidade de discriminação de um teste, entre 0,5, que é o acaso, e 1,0, que é a separação perfeita. ROC vem de <em>receiver operating characteristic</em>. <em>Capítulo 13.</em>", "Bloco permutado": "Técnica de randomização que mantém os grupos com tamanhos parecidos ao longo do recrutamento. <em>Capítulo 3.</em>", "Censura": "Situação em que se sabe apenas que o evento não ocorreu até certo momento. <em>Capítulo 14.</em>", "Cegamento": "Manter desconhecida a alocação, para paciente, profissional, avaliador ou analista. Não é tudo ou nada: pergunte sempre quem foi cegado. <em>Capítulo 3.</em>", "Confundimento": "Distorção causada por uma variável associada tanto à exposição quanto ao desfecho, e que não está no caminho causal entre elas. <em>Capítulo 12.</em>", "Confundimento por indicação": "Confundimento típico dos estudos observacionais de tratamento: quem recebe a intervenção é quem tem pior prognóstico. <em>Capítulos 3 e 12.</em>", "Confundimento residual": "O que sobra depois do ajuste, por conta do que não foi medido. <em>Capítulo 12.</em>", "CONSORT": "Recomendação internacional para relato de ensaios clínicos randomizados. <em>Capítulo 15.</em>", "Cotas": "Técnica não probabilística em que se define quantos participantes de cada subgrupo entram, preenchendo cada vaga por conveniência. Parece estratificada e não é: falta o sorteio. <em>Capítulo 5.</em>", "d de Cohen": "Diferença entre duas médias expressa em desvios padrão. <em>Capítulo 9.</em>", "Desfecho composto": "Reunião de vários eventos em um único desfecho. <em>Capítulo 4.</em>", "Desfecho primário": "O desfecho que define a conclusão do estudo e o cálculo do tamanho da amostra. É um só. <em>Capítulo 4.</em>", "Desfecho substituto": "Desfecho medido no lugar do que interessa, por ser mais rápido ou fácil. <em>Capítulo 4.</em>", "Desvio padrão": "Medida de dispersão dos dados em torno da média. Descreve os participantes. <em>Capítulo 8.</em>", "Dicotomizar": "Transformar variável contínua em duas categorias. Perde informação e poder. <em>Capítulo 4.</em>", "Efeito teto": "Situação em que boa parte da amostra atinge o limite superior da escala, que deixa de discriminar. <em>Capítulos 8 e 4.</em>", "Equipoise": "Palavra inglesa, sem tradução consagrada, que este livro grafa em itálico no corpo do texto. Incerteza genuína sobre qual braço é superior, condição ética para randomizar. <em>Capítulo 2.</em>", "Erro padrão": "Medida da precisão com que um parâmetro foi estimado. Encolhe com o tamanho da amostra. Não confundir com desvio padrão. <em>Capítulos 8 e 9.</em>", "Especificidade": "Proporção dos que não têm a condição e que o teste classifica como negativos. <em>Capítulo 13.</em>", "FINER": "Filtro de cinco critérios para julgar uma pergunta de pesquisa, do inglês <em>feasible, interesting, novel, ethical, relevant</em>: exequível, interessante, nova, ética e relevante. <em>Capítulo 2.</em>", "Hipótese nula": "A hipótese de ausência de efeito, que o teste estatístico supõe verdadeira para calcular o valor de p. <em>Capítulo 10.</em>", "Intervalo de confiança": "Faixa de valores compatíveis com os dados observados. Sua largura mede a incerteza que restou. <em>Capítulo 9.</em>", "Intervalo interquartil": "Distância entre o primeiro e o terceiro quartil. Acompanha a mediana. <em>Capítulo 8.</em>", "Kaplan-Meier": "Método de estimar a curva de tempo até o evento na presença de censura. <em>Capítulo 14.</em>", "Log-rank": "Teste que compara duas ou mais curvas de sobrevida. <em>Capítulo 14.</em>", "McNemar": "Teste para proporções pareadas, que usa apenas os discordantes. <em>Capítulo 11.</em>", "Mediador": "Variável que está no caminho causal entre exposição e desfecho. Não deve entrar no ajuste. <em>Capítulo 12.</em>", "Marco amostral": "A lista completa da população a partir da qual se sorteia. Sem ele não há amostragem probabilística, e em pesquisa clínica ele quase nunca existe. <em>Capítulo 5.</em>", "Mediana": "Valor que divide a amostra ordenada ao meio. <em>Capítulo 8.</em>", "Número necessário para tratar": "Inverso da diferença absoluta de risco: quantos pacientes é preciso tratar para produzir um desfecho favorável adicional. <em>Capítulo 9.</em>", "Poder": "Probabilidade de detectar um efeito, se ele existir. Calcula-se antes. <em>Capítulo 6.</em>", "Poder observado": "Poder recalculado a partir do efeito observado. Não informa nada além do valor de p. <em>Capítulo 10.</em>", "Qui-quadrado": "Teste que compara frequências observadas com as esperadas sob a hipótese de ausência de associação. <em>Capítulo 10.</em>", "Randomização": "Sorteio que define quem vai para qual grupo, entre os já incluídos. Protege a validade interna. Não confundir com amostragem aleatória. <em>Capítulos 3 e 5.</em>", "Razão de chances": "Razão entre as chances de desfecho nos dois grupos. É o que a regressão logística estima. <em>Capítulos 9 e 12.</em>", "Razão de riscos": "Razão entre taxas instantâneas de ocorrência do evento. É o que o modelo de Cox estima. Não é risco relativo. <em>Capítulo 14.</em>", "Razão de verossimilhança": "Quanto um resultado de teste é mais provável em quem tem a condição do que em quem não tem. Permite levar o teste para populações de prevalência diferente. <em>Capítulo 13.</em>", "Risco relativo": "Razão entre as proporções de desfecho nos dois grupos. <em>Capítulo 9.</em>", "Saturação teórica": "Critério de parada da amostragem qualitativa: o ponto a partir do qual novas entrevistas deixam de trazer conteúdo novo. Faz, na pesquisa qualitativa, o papel que o cálculo do tamanho da amostra faz na quantitativa. <em>Capítulo 5.</em>", "Sensibilidade": "Proporção dos que têm a condição e que o teste classifica como positivos. <em>Capítulo 13.</em>", "Sigilo de alocação": "Impedir que quem recruta conheça a próxima alocação. Diferente de cegamento, e ainda mais importante. <em>Capítulo 3.</em>", "STROBE": "Recomendação para relato de estudos observacionais. <em>Capítulo 15.</em>", "Validade externa": "Possibilidade de generalizar o resultado para outras populações. <em>Capítulo 5.</em>", "Validade interna": "Confiança de que a diferença observada se deve à intervenção e não a viés. <em>Capítulos 3 e 5.</em>", "Valor de p": "Probabilidade de observar um resultado tão extremo quanto o observado, supondo verdadeira a hipótese nula. Não é a probabilidade de a hipótese ser verdadeira. <em>Capítulo 10.</em>", "Valor preditivo": "Proporção de acertos entre os que o teste classificou como positivos, ou como negativos. Depende da prevalência. <em>Capítulo 13.</em>", "Viés de aferição": "Distorção na medida do desfecho. <em>Capítulo 3.</em>", "Viés de atrito": "Distorção causada por perdas de seguimento. <em>Capítulos 3 e 7.</em>", "Viés de publicação": "Tendência de estudos positivos serem publicados mais que os negativos. <em>Capítulos 2 e 16.</em>", "Viés de seleção": "Distorção na definição de quem entra no estudo ou em cada grupo. <em>Capítulos 3 e 5.</em>", "Wilson": "Método de calcular intervalo de confiança de proporção que não produz limites impossíveis. Preferível ao de Wald. <em>Capítulo 9.</em>"};
 var PALAVRAS_POR_MINUTO = 200;
 /* ------------------------------------------------------------------

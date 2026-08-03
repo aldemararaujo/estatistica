@@ -1,0 +1,47 @@
+<svg viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg">
+  <title>Como resumir uma variável conforme o tipo e a forma da distribuição</title>
+
+  <defs>
+    <marker id="seta-d" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="fig-seta"/>
+    </marker>
+  </defs>
+
+  <rect x="290" y="14" width="240" height="44" rx="8" class="fig-destaque"/>
+  <text x="410" y="42" text-anchor="middle" class="fig-texto fig-forte">Que tipo de variável?</text>
+
+  <path d="M410,58 L410,82 M205,82 L615,82" class="fig-linha"/>
+  <path d="M205,82 L205,104 M615,82 L615,104" class="fig-linha" marker-end="url(#seta-d)"/>
+
+  <rect x="115" y="106" width="180" height="40" rx="8" class="fig-decisao"/>
+  <text x="205" y="131" text-anchor="middle" class="fig-texto fig-forte">Categórica</text>
+
+  <rect x="525" y="106" width="180" height="40" rx="8" class="fig-decisao"/>
+  <text x="615" y="131" text-anchor="middle" class="fig-texto fig-forte">Numérica</text>
+
+  <!-- ramo categórico: direto à folha -->
+  <path d="M205,146 L205,186" class="fig-linha" marker-end="url(#seta-d)"/>
+  <rect x="40" y="188" width="330" height="66" rx="8" class="fig-folha"/>
+  <text x="205" y="214" text-anchor="middle" class="fig-texto fig-forte">n e percentual</text>
+  <text x="205" y="236" text-anchor="middle" class="fig-rotulo">na ordem lógica das categorias</text>
+
+  <!-- ramo numérico: decisão pela forma -->
+  <path d="M615,146 L615,168" class="fig-linha" marker-end="url(#seta-d)"/>
+  <rect x="430" y="170" width="370" height="52" rx="8" class="fig-caixa"/>
+  <text x="615" y="192" text-anchor="middle" class="fig-texto fig-forte">A distribuição é simétrica?</text>
+  <text x="615" y="212" text-anchor="middle" class="fig-rotulo">olhe o histograma; não faça teste de normalidade</text>
+
+  <path d="M615,222 L615,240 M505,240 L725,240" class="fig-linha"/>
+  <path d="M505,240 L505,262 M725,240 L725,262" class="fig-linha" marker-end="url(#seta-d)"/>
+  <text x="497" y="256" text-anchor="end" class="fig-rotulo">sim</text>
+  <text x="733" y="256" class="fig-rotulo">não</text>
+
+  <rect x="400" y="264" width="200" height="52" rx="8" class="fig-folha"/>
+  <text x="500" y="286" text-anchor="middle" class="fig-texto fig-forte">média</text>
+  <text x="500" y="306" text-anchor="middle" class="fig-rotulo">e desvio padrão</text>
+
+  <rect x="620" y="264" width="200" height="52" rx="8" class="fig-folha"/>
+  <text x="720" y="286" text-anchor="middle" class="fig-texto fig-forte">mediana</text>
+  <text x="720" y="306" text-anchor="middle" class="fig-rotulo">e quartis</text>
+</svg>

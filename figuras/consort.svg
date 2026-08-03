@@ -1,0 +1,73 @@
+<svg viewBox="0 0 780 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Diagrama de fluxo dos participantes do estudo, dos 246 avaliados para elegibilidade aos 92 analisados em cada grupo</title>
+
+  <defs>
+    <marker id="seta-c" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="fig-seta"/>
+    </marker>
+  </defs>
+
+  <!-- avaliados -->
+  <rect x="215" y="14" width="350" height="46" rx="8" class="fig-destaque"/>
+  <text x="390" y="43" text-anchor="middle" class="fig-texto fig-forte">
+    Avaliados para elegibilidade (n = 246)
+  </text>
+
+  <!-- excluídos, à direita -->
+  <path d="M390,60 L390,96 M390,96 L470,96" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="470" y="70" width="296" height="104" rx="8" class="fig-caixa"/>
+  <text x="486" y="92" class="fig-texto fig-forte">Excluídos (n = 46)</text>
+  <text x="486" y="114" class="fig-rotulo">Índice tornozelo-braquial &lt; 0,80: 19</text>
+  <text x="486" y="132" class="fig-rotulo">Úlcera de etiologia não venosa: 12</text>
+  <text x="486" y="150" class="fig-rotulo">Recusaram participar: 9</text>
+  <text x="486" y="168" class="fig-rotulo">Outros critérios: 6</text>
+
+  <!-- randomizados -->
+  <path d="M390,60 L390,190" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="255" y="192" width="270" height="46" rx="8" class="fig-destaque"/>
+  <text x="390" y="221" text-anchor="middle" class="fig-texto fig-forte">
+    Randomizados (n = 200)
+  </text>
+
+  <!-- bifurcação -->
+  <path d="M390,238 L390,266 M195,266 L585,266 M195,266 L195,290 M585,266 L585,290"
+        class="fig-linha"/>
+  <path d="M195,282 L195,290 M585,282 L585,290" class="fig-linha" marker-end="url(#seta-c)"/>
+
+  <!-- coluna esquerda -->
+  <rect x="40" y="290" width="310" height="44" rx="8" class="fig-decisao"/>
+  <text x="195" y="318" text-anchor="middle" class="fig-texto fig-forte">
+    Aspirado + compressão (n = 100)
+  </text>
+  <path d="M195,334 L195,362" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="40" y="364" width="310" height="40" rx="8" class="fig-caixa"/>
+  <text x="195" y="389" text-anchor="middle" class="fig-texto">Receberam o alocado: 100</text>
+  <path d="M195,404 L195,432" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="40" y="434" width="310" height="40" rx="8" class="fig-caixa"/>
+  <text x="195" y="459" text-anchor="middle" class="fig-texto">Perdas de seguimento: 8</text>
+  <path d="M195,474 L195,502" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="40" y="504" width="310" height="44" rx="8" class="fig-folha"/>
+  <text x="195" y="532" text-anchor="middle" class="fig-texto fig-forte">Analisados: 92</text>
+
+  <!-- coluna direita -->
+  <rect x="430" y="290" width="310" height="44" rx="8" class="fig-decisao"/>
+  <text x="585" y="318" text-anchor="middle" class="fig-texto fig-forte">
+    Compressão isolada (n = 100)
+  </text>
+  <path d="M585,334 L585,362" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="430" y="364" width="310" height="40" rx="8" class="fig-caixa"/>
+  <text x="585" y="389" text-anchor="middle" class="fig-texto">Receberam o alocado: 100</text>
+  <path d="M585,404 L585,432" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="430" y="434" width="310" height="40" rx="8" class="fig-caixa"/>
+  <text x="585" y="459" text-anchor="middle" class="fig-texto">Perdas de seguimento: 8</text>
+  <path d="M585,474 L585,502" class="fig-linha" marker-end="url(#seta-c)"/>
+  <rect x="430" y="504" width="310" height="44" rx="8" class="fig-folha"/>
+  <text x="585" y="532" text-anchor="middle" class="fig-texto fig-forte">Analisados: 92</text>
+
+  <!-- nota lateral -->
+  <text x="40" y="578" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Por que os avaliados importam:</tspan>
+    a razão entre 246 e 200 mostra o quanto a amostra foi filtrada, e a quem o resultado se aplica.
+  </text>
+</svg>

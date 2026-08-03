@@ -36,32 +36,17 @@ dado, não na véspera da submissão.
 O CONSORT começa por uma figura, e ela é a primeira coisa que um revisor
 experiente procura. A do caso condutor:
 
-```
-             Avaliados para elegibilidade (n = 246)
-                          │
-                          ├── Excluídos (n = 46)
-                          │     • ITB < 0,80 (n = 19)
-                          │     • Úlcera não venosa (n = 12)
-                          │     • Recusaram participar (n = 9)
-                          │     • Outros critérios (n = 6)
-                          ▼
-                  Randomizados (n = 200)
-                          │
-        ┌─────────────────┴─────────────────┐
-        ▼                                   ▼
-  Aspirado (n = 100)                 Controle (n = 100)
-  Receberam o alocado: 100           Receberam o alocado: 100
-        │                                   │
-  Perdas de seguimento: 8            Perdas de seguimento: 8
-        │                                   │
-        ▼                                   ▼
-  Analisados: 92                     Analisados: 92
-```
+::: figura consort
+O diagrama de fluxo do caso condutor. Ele responde de uma vez a quem foi
+excluído e por quê, se houve desequilíbrio de perdas entre os grupos e sobre
+quantas pessoas cada número do artigo foi calculado.
+:::
 
-O diagrama responde, de uma vez, a quem foi excluído e por quê, se houve
-desequilíbrio de perdas e sobre quantas pessoas cada número foi calculado. Note
-que os 246 avaliados dão a medida de quão selecionada é a amostra, tema do
-Capítulo 5.
+Os 246 avaliados dão a medida de quão selecionada é a amostra, tema do
+Capítulo 5, e é por isso que eles precisam aparecer: um estudo que avaliou 210
+para incluir 200 recrutou quase todo mundo que apareceu, enquanto outro que
+avaliou 2.000 para incluir 200 aplicou um filtro pesado, e o leitor precisa saber
+qual foi.
 
 ## O que vai em cada seção
 

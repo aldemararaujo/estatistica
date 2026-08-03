@@ -1,0 +1,53 @@
+<svg viewBox="0 0 820 430" xmlns="http://www.w3.org/2000/svg">
+  <title>As três populações de um estudo: a população-alvo contém a população acessível, que contém a amostra, e os dois saltos entre elas</title>
+
+  <defs>
+    <marker id="seta-p" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="fig-seta"/>
+    </marker>
+  </defs>
+
+  <!-- caixas aninhadas -->
+  <rect x="20" y="20" width="470" height="330" rx="14" class="fig-caixa"/>
+  <text x="42" y="48" class="fig-titulo">População-alvo</text>
+  <text x="42" y="70" class="fig-rotulo">Todos sobre quem se quer concluir:</text>
+  <text x="42" y="88" class="fig-rotulo">adultos com úlcera venosa ativa, no Brasil e fora dele</text>
+
+  <rect x="52" y="106" width="406" height="216" rx="12" class="fig-decisao"/>
+  <text x="74" y="134" class="fig-titulo">População acessível</text>
+  <text x="74" y="156" class="fig-rotulo">Os que o pesquisador poderia alcançar:</text>
+  <text x="74" y="174" class="fig-rotulo">atendidos nos três ambulatórios, no período do estudo</text>
+
+  <rect x="84" y="192" width="342" height="112" rx="10" class="fig-folha"/>
+  <text x="106" y="220" class="fig-titulo">Amostra</text>
+  <text x="106" y="242" class="fig-rotulo">Os que efetivamente entraram:</text>
+  <text x="106" y="266" class="fig-texto fig-forte">200 participantes randomizados</text>
+  <text x="106" y="288" class="fig-rotulo">de 246 avaliados para elegibilidade</text>
+
+  <!-- os dois saltos -->
+  <path d="M255,304 L255,192" class="fig-linha" marker-end="url(#seta-p)"/>
+  <path d="M530,250 L560,250" class="fig-linha" marker-end="url(#seta-p)"/>
+  <path d="M530,120 L560,120" class="fig-linha" marker-end="url(#seta-p)"/>
+  <path d="M490,250 L530,250 M490,120 L530,120" class="fig-linha"/>
+
+  <rect x="560" y="86" width="240" height="96" rx="10" class="fig-destaque"/>
+  <text x="578" y="112" class="fig-texto fig-forte">Segundo salto</text>
+  <text x="578" y="134" class="fig-rotulo">Da acessível para a alvo.</text>
+  <text x="578" y="152" class="fig-rotulo">A estatística NÃO resolve:</text>
+  <text x="578" y="170" class="fig-rotulo">é julgamento clínico de semelhança.</text>
+
+  <rect x="560" y="216" width="240" height="96" rx="10" class="fig-caixa"/>
+  <text x="578" y="242" class="fig-texto fig-forte">Primeiro salto</text>
+  <text x="578" y="264" class="fig-rotulo">Da amostra para a acessível.</text>
+  <text x="578" y="282" class="fig-rotulo">Problema de amostragem e de</text>
+  <text x="578" y="300" class="fig-rotulo">tamanho: a estatística resolve.</text>
+
+  <line x1="20" y1="372" x2="800" y2="372" class="fig-linha"/>
+  <text x="20" y="396" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Randomização</tspan> atua dentro da amostra, decidindo quem vai para cada grupo: protege a validade interna.
+  </text>
+  <text x="20" y="416" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Amostragem</tspan> decide quem entra na amostra: protege a validade externa. Este estudo tem a primeira, e não a segunda.
+  </text>
+</svg>

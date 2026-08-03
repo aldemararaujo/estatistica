@@ -1,0 +1,75 @@
+<svg viewBox="0 0 860 540" xmlns="http://www.w3.org/2000/svg">
+  <title>Fluxograma para escolher o teste estatístico conforme o tipo de desfecho e o pareamento dos grupos</title>
+
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="fig-seta"/>
+    </marker>
+  </defs>
+
+  <!-- pergunta inicial -->
+  <rect x="310" y="14" width="240" height="46" rx="8" class="fig-destaque"/>
+  <text x="430" y="43" text-anchor="middle" class="fig-texto fig-forte">Qual é o desfecho?</text>
+
+  <!-- conectores para os dois ramos -->
+  <path d="M430,60 L430,84 M215,84 L645,84 M215,84 L215,104 M645,84 L645,104"
+        class="fig-linha" marker-end="url(#seta)"/>
+  <path d="M430,60 L430,84 M215,84 L645,84" class="fig-linha"/>
+
+  <!-- tipo de desfecho -->
+  <rect x="125" y="104" width="180" height="40" rx="8" class="fig-decisao"/>
+  <text x="215" y="129" text-anchor="middle" class="fig-texto fig-forte">Categórico</text>
+  <rect x="555" y="104" width="180" height="40" rx="8" class="fig-decisao"/>
+  <text x="645" y="129" text-anchor="middle" class="fig-texto fig-forte">Numérico</text>
+
+  <path d="M215,144 L215,172 M645,144 L645,172" class="fig-linha" marker-end="url(#seta)"/>
+
+  <!-- ================= coluna esquerda: categórico ================= -->
+  <g>
+    <rect x="20" y="176" width="390" height="262" rx="10" class="fig-caixa"/>
+
+    <rect x="36" y="194" width="358" height="62" rx="7" class="fig-folha"/>
+    <text x="52" y="216" class="fig-rotulo">Mesma pessoa, dois momentos</text>
+    <text x="52" y="238" class="fig-texto fig-forte">McNemar</text>
+
+    <rect x="36" y="268" width="358" height="70" rx="7" class="fig-folha"/>
+    <text x="52" y="290" class="fig-rotulo">Grupos independentes, dois grupos</text>
+    <text x="52" y="312" class="fig-texto fig-forte">Qui-quadrado</text>
+    <text x="52" y="330" class="fig-rotulo">Fisher, se algum esperado for menor que 5</text>
+
+    <rect x="36" y="350" width="358" height="62" rx="7" class="fig-folha"/>
+    <text x="52" y="372" class="fig-rotulo">Grupos independentes, três ou mais</text>
+    <text x="52" y="394" class="fig-texto fig-forte">Qui-quadrado de r × c</text>
+  </g>
+
+  <!-- ================= coluna direita: numérico ================= -->
+  <g>
+    <rect x="450" y="176" width="390" height="262" rx="10" class="fig-caixa"/>
+
+    <rect x="466" y="194" width="358" height="62" rx="7" class="fig-folha"/>
+    <text x="482" y="216" class="fig-rotulo">Mesma pessoa, dois momentos</text>
+    <text x="482" y="238" class="fig-texto fig-forte">t pareado <tspan class="fig-rotulo">ou</tspan> Wilcoxon</text>
+
+    <rect x="466" y="268" width="358" height="70" rx="7" class="fig-folha"/>
+    <text x="482" y="290" class="fig-rotulo">Grupos independentes, dois grupos</text>
+    <text x="482" y="312" class="fig-texto fig-forte">t de Welch <tspan class="fig-rotulo">ou</tspan> Mann-Whitney</text>
+    <text x="482" y="330" class="fig-rotulo">Welch dispensa supor variâncias iguais</text>
+
+    <rect x="466" y="350" width="358" height="62" rx="7" class="fig-folha"/>
+    <text x="482" y="372" class="fig-rotulo">Grupos independentes, três ou mais</text>
+    <text x="482" y="394" class="fig-texto fig-forte">ANOVA <tspan class="fig-rotulo">ou</tspan> Kruskal-Wallis</text>
+  </g>
+
+  <!-- rodapé: o que fica fora do fluxograma -->
+  <line x1="20" y1="462" x2="840" y2="462" class="fig-linha"/>
+  <text x="20" y="486" class="fig-titulo">Fora deste fluxograma</text>
+  <text x="20" y="508" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Tempo até um evento, com censura:</tspan>
+    Kaplan-Meier, log-rank e Cox (Capítulo 14)
+  </text>
+  <text x="20" y="528" class="fig-rotulo">
+    <tspan class="fig-texto fig-forte">Ajuste por outras variáveis:</tspan>
+    regressão linear ou logística (Capítulo 12)
+  </text>
+</svg>
