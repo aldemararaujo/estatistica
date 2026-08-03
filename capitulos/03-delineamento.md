@@ -1,6 +1,7 @@
 ::: caso
-A pergunta está pronta: o aspirado de medula óssea aumenta a cicatrização de
-úlceras venosas em doze semanas? Restam duas maneiras de respondê-la. A primeira
+A pergunta está pronta: qual a diferença de proporção de úlceras cicatrizadas
+entre quem recebeu o aspirado de medula óssea e quem recebeu apenas terapia
+compressiva? Restam duas maneiras de respondê-la. A primeira
 é observar o que já acontece: identificar quem recebeu o tratamento, quem não
 recebeu, e comparar. A segunda é sortear. A diferença entre elas parece
 burocrática e é a diferença entre acertar e errar o sinal do efeito.

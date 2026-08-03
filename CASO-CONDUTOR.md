@@ -23,15 +23,25 @@ supervisionada que esses pacientes recebem junto?
 
 | Componente | Conteúdo |
 |---|---|
+| **O** | A diferença de proporção de úlceras completamente cicatrizadas (aferida em 12 semanas, conforme a definição operacional adiante) |
 | **P** | Adultos com úlcera venosa ativa de membro inferior (CEAP C6), com 4 semanas ou mais de duração, área entre 1 e 50 cm², índice tornozelo-braquial ≥ 0,80 |
 | **I** | Aspirado de medula óssea autólogo aplicado no leito e nas bordas da úlcera, em sessão única, associado à terapia compressiva inelástica |
 | **C** | Terapia compressiva inelástica isolada, com o mesmo protocolo de curativos |
-| **O** | Cicatrização completa da úlcera em 12 semanas |
 
-**Pergunta:** em adultos com úlcera venosa ativa de membro inferior, o aspirado
-de medula óssea autólogo associado à terapia compressiva, comparado à terapia
-compressiva isolada, aumenta a proporção de úlceras completamente cicatrizadas
-em 12 semanas?
+**Pergunta:** qual a diferença de proporção de úlceras completamente cicatrizadas
+em adultos com úlcera venosa ativa de membro inferior que utilizaram o aspirado
+de medula óssea autólogo associado à terapia compressiva comparado à terapia
+compressiva isolada?
+
+A pergunta é de **estimação**, não de teste: ela pede um número com margem de
+erro, e não um sim ou um não. Essa escolha percorre o livro inteiro. É por isso
+que o desfecho primário é relatado como diferença absoluta de risco com intervalo
+de confiança, e não como "houve diferença significativa".
+
+**Objetivo geral:** estimar a diferença de proporção de úlceras completamente
+cicatrizadas em 12 semanas entre os dois grupos.
+
+**Hipótese nula:** a diferença de proporção é zero.
 
 ## 3. Delineamento
 

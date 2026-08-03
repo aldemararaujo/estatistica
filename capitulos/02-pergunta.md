@@ -50,27 +50,69 @@ Aprovada nos cinco testes, a pergunta ganha forma. O PICO é o esqueleto:
 
 | Componente | O que responde | No caso condutor |
 |---|---|---|
-| **P** | Em quem? | adultos com úlcera venosa ativa, CEAP C6, com 4 semanas ou mais, área de 1 a 50 cm², índice tornozelo-braquial ≥ 0,80 |
-| **I** | O que se faz? | aspirado de medula óssea autólogo em sessão única, associado à compressão inelástica |
-| **C** | Comparado com o quê? | compressão inelástica isolada, mesmo protocolo de curativos |
-| **O** | Medido como? | cicatrização completa em 12 semanas |
+| **O** | Medido como? | a diferença de proporção de úlceras completamente cicatrizadas |
+| **P** | Em quem? | adultos com úlcera venosa ativa de membro inferior |
+| **I** | O que se faz? | aspirado de medula óssea autólogo associado à terapia compressiva |
+| **C** | Comparado com o quê? | terapia compressiva isolada |
+
+A sigla se chama PICO, e a tabela acima começa pelo O de propósito: **é o
+desfecho que decide todo o resto**. Definido o desfecho, sabe-se o que medir, com
+que teste analisar e quantos participantes serão necessários. Muitos
+pesquisadores preenchem o P primeiro, porque é o mais fácil, e descobrem tarde
+demais que o desfecho escolhido não responde à dúvida que os trouxe até ali.
 
 Montada a estrutura, a pergunta se escreve sozinha:
 
-> Em adultos com úlcera venosa ativa de membro inferior, o aspirado de medula
-> óssea autólogo associado à terapia compressiva, comparado à terapia compressiva
-> isolada, aumenta a proporção de úlceras completamente cicatrizadas em doze
-> semanas?
+> Qual a diferença de proporção de úlceras completamente cicatrizadas em adultos
+> com úlcera venosa ativa de membro inferior que utilizaram o aspirado de medula
+> óssea autólogo associado à terapia compressiva comparado à terapia compressiva
+> isolada?
 
-Repare no que se ganhou. A população está definida com critérios verificáveis. A
-intervenção tem dose e via. **O comparador existe**, o que é a diferença entre
-um ensaio e uma série de casos. O desfecho tem prazo e definição. Dessa frase
-saem, sem nenhuma decisão adicional, o delineamento do Capítulo 3, o desfecho do
-Capítulo 4 e o cálculo amostral do Capítulo 6.
+Repare no que se ganhou. A população está definida. A intervenção está descrita.
+**O comparador existe**, o que é a diferença entre um ensaio e uma série de
+casos. E o desfecho não é apenas "cicatrização": é a **diferença de proporção**
+de cicatrização entre os dois grupos.
+
+::: atencao Pergunte "quanto", não "se"
+Compare as duas versões da mesma pergunta:
+
+> **"O aspirado aumenta a proporção de cicatrização?"**
+> **"Qual a diferença de proporção de cicatrização?"**
+
+A primeira admite duas respostas, sim e não, e é exatamente o convite que leva o
+pesquisador a procurar um valor de p e parar por ali. A segunda só pode ser
+respondida com um número e uma margem de erro: 17,4 pontos percentuais, com
+intervalo de 3,6 a 31,2.
+
+Não é preciosismo de redação. A pergunta escrita como "se" produz artigos que
+concluem "houve diferença significativa" e não dizem de quanto; a pergunta
+escrita como "quanto" torna essa omissão impossível. Os Capítulos 9 e 10 tratam
+das consequências dessa escolha, e elas começam aqui, na primeira frase do
+projeto.
+:::
+
+### O que ainda falta nessa pergunta
+
+Uma coisa: **o prazo**. Cicatrização completa medida quando? Em quatro semanas o
+resultado é um; em seis meses, outro, porque quase toda úlcera venosa acaba
+fechando se esperarmos o suficiente.
+
+A pergunta acima está correta e é a que se escreve no projeto e no artigo. O
+prazo entra na **definição operacional do desfecho**, que é assunto do Capítulo
+4, e neste estudo é de doze semanas. Quem prefere carregar o prazo na própria
+pergunta usa a variante PICOT, e obtém:
+
+> Qual a diferença de proporção de úlceras completamente cicatrizadas **em doze
+> semanas** em adultos com úlcera venosa ativa de membro inferior que utilizaram
+> o aspirado de medula óssea autólogo associado à terapia compressiva comparado à
+> terapia compressiva isolada?
+
+As duas formas são aceitáveis. O que não é aceitável é o prazo não existir em
+lugar nenhum, porque sem ele não há como calcular o tamanho da amostra no
+Capítulo 6 nem saber quando marcar a consulta de avaliação.
 
 ::: nota Variantes do PICO
-**PICOT** acrescenta o tempo (*time*), quando o prazo é parte essencial da
-pergunta, como aqui.
+**PICOT** acrescenta o tempo (*time*), como na segunda versão acima.
 **PECO** troca intervenção por exposição (*exposure*), e serve a estudos
 observacionais: o "E" seria, por exemplo, tabagismo ou obesidade.
 **PIRO**, com *risk*, aparece em estudos de prognóstico.
@@ -114,13 +156,20 @@ que dá negativo **não** se transforma em estudo de não inferioridade bem-suce
 Formulada a pergunta, três textos do projeto se escrevem quase por decalque.
 
 **Objetivo geral.** Um verbo no infinitivo, um desfecho, uma população:
-*comparar a proporção de cicatrização completa em doze semanas entre pacientes
-com úlcera venosa tratados com aspirado de medula óssea associado à terapia
-compressiva e pacientes tratados apenas com terapia compressiva.*
+*estimar a diferença de proporção de úlceras completamente cicatrizadas em doze
+semanas entre adultos com úlcera venosa ativa de membro inferior tratados com
+aspirado de medula óssea autólogo associado à terapia compressiva e aqueles
+tratados com terapia compressiva isolada.*
 
-**Hipótese.** A hipótese nula é a de que não há diferença entre os grupos, e é
-ela que o teste do Capítulo 10 avalia. A alternativa, no caso, é a de que o
-aspirado aumenta a cicatrização.
+Note o verbo. **Estimar**, e não verificar, avaliar ou determinar: ele nasce da
+pergunta escrita como "quanto" e anuncia, já no objetivo, que a resposta será um
+número com margem de erro. "Verificar se há diferença" seria coerente com a
+pergunta escrita como "se", e o Capítulo 10 explica por que isso empobrece o
+estudo.
+
+**Hipótese.** A hipótese nula é a de que a diferença de proporção é zero, e é ela
+que o teste do Capítulo 10 avalia. A alternativa, no caso, é a de que existe
+diferença, com o aspirado favorecendo a cicatrização.
 
 **Título.** Deve conter população, intervenção, comparador, desfecho e
 delineamento: *Aspirado de medula óssea autólogo associado à terapia compressiva
@@ -159,10 +208,12 @@ tornozelo-braquial ≥ 0,80. I: bota de Unna, trocada semanalmente. C: faixa
 elástica de compressão inelástica, com o mesmo protocolo de curativos e a mesma
 frequência de troca. O: proporção de cicatrização completa em doze semanas.
 
-Pergunta: em adultos com úlcera venosa ativa, a bota de Unna, comparada à faixa
-elástica, aumenta a proporção de cicatrização completa em doze semanas? Note que
-foi preciso decidir a frequência de troca nos dois braços: sem isso, uma
-diferença poderia vir do cuidado, e não do dispositivo.
+Pergunta: qual a diferença de proporção de cicatrização completa em doze semanas
+em adultos com úlcera venosa ativa que utilizaram bota de Unna comparado à faixa
+elástica? Escrita como "qual a diferença", e não como "a bota de Unna é melhor",
+ela já obriga a resposta a ser um número com margem de erro. Note também que foi
+preciso decidir a frequência de troca nos dois braços: sem isso, uma diferença
+poderia vir do cuidado, e não do dispositivo.
 :::
 
 ::: exercicio 2
@@ -209,12 +260,12 @@ Escreva o objetivo geral, a hipótese nula e o título de um estudo que compare
 duas doses de aspirado de medula óssea em úlcera venosa.
 
 --- gabarito
-Objetivo geral: comparar a proporção de cicatrização completa em doze semanas
-entre pacientes com úlcera venosa tratados com dose alta e dose baixa de aspirado
-de medula óssea autólogo, ambos associados à terapia compressiva.
+Objetivo geral: estimar a diferença de proporção de cicatrização completa em doze
+semanas entre pacientes com úlcera venosa tratados com dose alta e dose baixa de
+aspirado de medula óssea autólogo, ambos associados à terapia compressiva.
 
-Hipótese nula: não há diferença entre as duas doses quanto à proporção de
-cicatrização em doze semanas.
+Hipótese nula: a diferença de proporção de cicatrização em doze semanas entre as
+duas doses é zero.
 
 Título: Dose alta versus dose baixa de aspirado de medula óssea autólogo na
 cicatrização de úlceras venosas: ensaio clínico randomizado. Repare que, sem
