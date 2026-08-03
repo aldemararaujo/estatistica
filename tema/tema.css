@@ -667,6 +667,20 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   border: 1px solid var(--linha); border-radius: 6px;
   background: var(--papel-caixa); color: var(--tinta); cursor: pointer; }
 
+/* botão de fechar: existe apenas quando o índice vira painel sobreposto */
+#fecha-sumario { display: none; }
+@media (max-width: 62rem) {
+  #fecha-sumario {
+    display: flex; align-items: center; gap: .4rem;
+    margin: 0 0 1rem auto; cursor: pointer;
+    font-family: var(--sans); font-size: .84rem;
+    padding: .5rem .9rem; border-radius: 6px;
+    border: 1px solid var(--linha); background: var(--papel); color: var(--tinta);
+  }
+  #fecha-sumario span { font-size: 1.1rem; line-height: 1; }
+  #fecha-sumario:hover { border-color: var(--realce); color: var(--realce); }
+}
+
 @media (max-width: 62rem) {
   #abre-sumario { display: block; }
   #leitura { padding: 3.6rem 1.2rem 5rem; }

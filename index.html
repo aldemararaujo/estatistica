@@ -693,6 +693,20 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   border: 1px solid var(--linha); border-radius: 6px;
   background: var(--papel-caixa); color: var(--tinta); cursor: pointer; }
 
+/* botão de fechar: existe apenas quando o índice vira painel sobreposto */
+#fecha-sumario { display: none; }
+@media (max-width: 62rem) {
+  #fecha-sumario {
+    display: flex; align-items: center; gap: .4rem;
+    margin: 0 0 1rem auto; cursor: pointer;
+    font-family: var(--sans); font-size: .84rem;
+    padding: .5rem .9rem; border-radius: 6px;
+    border: 1px solid var(--linha); background: var(--papel); color: var(--tinta);
+  }
+  #fecha-sumario span { font-size: 1.1rem; line-height: 1; }
+  #fecha-sumario:hover { border-color: var(--realce); color: var(--realce); }
+}
+
 @media (max-width: 62rem) {
   #abre-sumario { display: block; }
   #leitura { padding: 3.6rem 1.2rem 5rem; }
@@ -729,9 +743,12 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 <body>
 <div id="barra-progresso"></div>
 <a class="pular" href="#leitura">Pular para o conteúdo</a>
-<button id="abre-sumario" type="button">Sumário</button>
+<button id="abre-sumario" type="button" aria-expanded="false" aria-controls="sumario">Índice</button>
 <div id="leiaute">
 <nav id="sumario">
+  <button id="fecha-sumario" type="button" aria-label="Fechar o índice">
+    <span aria-hidden="true">&times;</span> Fechar
+  </button>
   <div class="marca">
     <b>A Estatística na Pesquisa Clínica</b>
     <span>do problema clínico à decisão estatística</span>
@@ -7327,7 +7344,7 @@ var PALAVRAS_POR_MINUTO = 200;
 
     document.title = (cap.getAttribute("data-titulo") || "") + " — " + LIVRO_TITULO;
     guarda(CHAVE_ULTIMO, cap.id);
-    corpo.classList.remove("sumario-aberto");
+    abreIndice(false);
 
     if (rolarPara !== false) {
       if (alvo && alvo !== cap) {
@@ -7431,7 +7448,7 @@ var PALAVRAS_POR_MINUTO = 200;
                        "<em>" + a.trecho.replace(/[<>&]/g, " ") + "</em>";
       link.addEventListener("click", function () {
         termoAtivo = termo;
-        corpo.classList.remove("sumario-aberto");
+        abreIndice(false);
       });
       resultados.appendChild(link);
     });
@@ -7785,9 +7802,33 @@ var PALAVRAS_POR_MINUTO = 200;
   }
 
   var btnSumario = document.getElementById("abre-sumario");
-  if (btnSumario) {
-    btnSumario.addEventListener("click", function () { corpo.classList.toggle("sumario-aberto"); });
+  var btnFecha = document.getElementById("fecha-sumario");
+
+  /* moverFoco só quando a ação partiu do usuário: navegar entre capítulos
+     também fecha o painel, e ali roubar o foco atrapalharia a leitura. */
+  function abreIndice(abrir, moverFoco) {
+    corpo.classList.toggle("sumario-aberto", abrir);
+    if (btnSumario) { btnSumario.setAttribute("aria-expanded", String(abrir)); }
+    if (!moverFoco) { return; }
+    if (abrir && btnFecha) { btnFecha.focus(); }
+    else if (!abrir && btnSumario) { btnSumario.focus(); }
   }
+
+  if (btnSumario) {
+    btnSumario.addEventListener("click", function () {
+      abreIndice(!corpo.classList.contains("sumario-aberto"), true);
+    });
+  }
+  if (btnFecha) {
+    btnFecha.addEventListener("click", function () { abreIndice(false, true); });
+  }
+  // clicar fora do painel também fecha
+  document.addEventListener("click", function (ev) {
+    if (!corpo.classList.contains("sumario-aberto")) { return; }
+    var dentro = ev.target.closest && ev.target.closest("#sumario");
+    var noBotao = ev.target.closest && ev.target.closest("#abre-sumario");
+    if (!dentro && !noBotao) { abreIndice(false); }
+  });
   var btnImprimir = document.getElementById("imprime-tudo");
   if (btnImprimir) { btnImprimir.addEventListener("click", function () { window.print(); }); }
 
@@ -7803,7 +7844,7 @@ var PALAVRAS_POR_MINUTO = 200;
       if (atual > 0) { location.hash = capitulos[atual - 1].id; }
     } else if (ev.key === "/") {
       ev.preventDefault();
-      corpo.classList.add("sumario-aberto");
+      abreIndice(true);
       if (busca) { busca.focus(); }
     } else if (ev.key === "m" || ev.key === "M") {
       var cap = capitulos[atual];

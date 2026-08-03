@@ -609,9 +609,12 @@ def construir():
 <body>
 <div id="barra-progresso"></div>
 <a class="pular" href="#leitura">Pular para o conteúdo</a>
-<button id="abre-sumario" type="button">Sumário</button>
+<button id="abre-sumario" type="button" aria-expanded="false" aria-controls="sumario">Índice</button>
 <div id="leiaute">
 <nav id="sumario">
+  <button id="fecha-sumario" type="button" aria-label="Fechar o índice">
+    <span aria-hidden="true">&times;</span> Fechar
+  </button>
   <div class="marca">
     <b>{html.escape(livro["titulo"])}</b>
     <span>{html.escape(livro["subtitulo"])}</span>

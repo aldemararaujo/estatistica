@@ -594,7 +594,7 @@
 
     document.title = (cap.getAttribute("data-titulo") || "") + " — " + LIVRO_TITULO;
     guarda(CHAVE_ULTIMO, cap.id);
-    corpo.classList.remove("sumario-aberto");
+    abreIndice(false);
 
     if (rolarPara !== false) {
       if (alvo && alvo !== cap) {
@@ -698,7 +698,7 @@
                        "<em>" + a.trecho.replace(/[<>&]/g, " ") + "</em>";
       link.addEventListener("click", function () {
         termoAtivo = termo;
-        corpo.classList.remove("sumario-aberto");
+        abreIndice(false);
       });
       resultados.appendChild(link);
     });
@@ -1052,9 +1052,33 @@
   }
 
   var btnSumario = document.getElementById("abre-sumario");
-  if (btnSumario) {
-    btnSumario.addEventListener("click", function () { corpo.classList.toggle("sumario-aberto"); });
+  var btnFecha = document.getElementById("fecha-sumario");
+
+  /* moverFoco só quando a ação partiu do usuário: navegar entre capítulos
+     também fecha o painel, e ali roubar o foco atrapalharia a leitura. */
+  function abreIndice(abrir, moverFoco) {
+    corpo.classList.toggle("sumario-aberto", abrir);
+    if (btnSumario) { btnSumario.setAttribute("aria-expanded", String(abrir)); }
+    if (!moverFoco) { return; }
+    if (abrir && btnFecha) { btnFecha.focus(); }
+    else if (!abrir && btnSumario) { btnSumario.focus(); }
   }
+
+  if (btnSumario) {
+    btnSumario.addEventListener("click", function () {
+      abreIndice(!corpo.classList.contains("sumario-aberto"), true);
+    });
+  }
+  if (btnFecha) {
+    btnFecha.addEventListener("click", function () { abreIndice(false, true); });
+  }
+  // clicar fora do painel também fecha
+  document.addEventListener("click", function (ev) {
+    if (!corpo.classList.contains("sumario-aberto")) { return; }
+    var dentro = ev.target.closest && ev.target.closest("#sumario");
+    var noBotao = ev.target.closest && ev.target.closest("#abre-sumario");
+    if (!dentro && !noBotao) { abreIndice(false); }
+  });
   var btnImprimir = document.getElementById("imprime-tudo");
   if (btnImprimir) { btnImprimir.addEventListener("click", function () { window.print(); }); }
 
@@ -1070,7 +1094,7 @@
       if (atual > 0) { location.hash = capitulos[atual - 1].id; }
     } else if (ev.key === "/") {
       ev.preventDefault();
-      corpo.classList.add("sumario-aberto");
+      abreIndice(true);
       if (busca) { busca.focus(); }
     } else if (ev.key === "m" || ev.key === "M") {
       var cap = capitulos[atual];
