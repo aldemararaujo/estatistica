@@ -264,6 +264,17 @@ as curvas com diferenças de cicatrização em momentos definidos, ou usar model
 que admitam efeito dependente do tempo.
 :::
 
+::: agora
+1. Verifique se a sua ficha de coleta registra a **data** do evento, e não apenas
+   se ele ocorreu. Se registrar, você tem um desfecho de tempo até evento e
+   deveria usá-lo: ganha poder sem aumentar a amostra.
+2. Confira se o seu banco tem as duas colunas inseparáveis, tempo e status, e se
+   quem digita entendeu a diferença entre censurado e sem evento.
+3. Escreva no plano de análise como a suposição de riscos proporcionais será
+   verificada. Decidir isso depois de ver as curvas é escolher o método pelo
+   resultado.
+:::
+
 ## Recursos
 
 - [CONSORT Statement](https://www.consort-statement.org/) — orientações sobre

@@ -129,7 +129,7 @@ de confiança está admitindo o tamanho de sua ignorância.
 Essa disposição de admitir vale mais do que qualquer teste deste livro. Os testes
 mudam; a disposição, não.
 
-::: jamovi Mãos à obra
+::: agora
 Uma última tarefa, e ela não é de análise:
 
 1. Pegue o seu projeto, aquele que está em andamento ou na gaveta.

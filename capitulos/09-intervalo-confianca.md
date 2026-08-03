@@ -275,6 +275,16 @@ raiz de 92 é cerca de 2,1. O estudo maior não encontraria um efeito diferente:
 saberia com mais precisão qual é o efeito.
 :::
 
+::: agora
+1. Percorra o seu manuscrito e verifique se **todo** resultado principal tem
+   estimativa e intervalo de confiança. Onde só houver valor de p, acrescente.
+2. Se o seu desfecho é binário, calcule a diferença absoluta e o número
+   necessário para tratar na calculadora deste capítulo, e apresente os dois.
+3. Leia o limite inferior do intervalo do seu desfecho primário e pergunte: se o
+   efeito verdadeiro fosse exatamente esse, eu ainda recomendaria o tratamento?
+   A resposta é o que deve estar na sua conclusão.
+:::
+
 ## Recursos
 
 - [CONSORT Statement](https://www.consort-statement.org/) — item 17b, sobre

@@ -273,6 +273,17 @@ O paciente saiu de uma dúvida genuína para uma expectativa francamente favorá
 e é isso que se espera de um teste útil.
 :::
 
+::: agora
+1. Verifique de onde veio o seu ponto de corte. Se ele foi escolhido nos seus
+   próprios dados, diga isso no texto e trate o resultado como exploratório.
+2. Calcule as razões de verossimilhança do seu teste e leve-as para a
+   prevalência do **seu** serviço, usando a calculadora deste capítulo. Os
+   valores preditivos do artigo que você leu não valem no seu ambulatório.
+3. Confirme que quem interpretou o teste índice desconhecia o padrão de
+   referência. Se não desconhecia, a acurácia que você mediu está inflada e isso
+   precisa constar das limitações.
+:::
+
 ## Recursos
 
 - [STARD 2015](https://www.equator-network.org/reporting-guidelines/stard/) — a

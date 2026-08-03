@@ -29,6 +29,15 @@ Todas as análises são executadas no **jamovi**, que é gratuito, funciona por
 cliques e não exige programação. A escolha é deliberada: um livro que dependesse
 de programa pago excluiria justamente o leitor que ele pretende alcançar.
 
+Cada capítulo termina com duas seções que valem uma explicação. A primeira,
+**"Aqui é onde o artigo é rejeitado"**, reúne as frases que um artigo recebe de
+volta quando é submetido a um periódico: quando você envia um manuscrito, a
+revista o encaminha a dois ou três pesquisadores da área, que o leem no anonimato
+e escrevem um parecer recomendando aceitar, corrigir ou recusar. É a revisão por
+pares, e as frases reunidas ali são as que mais aparecem nesses pareceres. A
+segunda, **"O que fazer agora, no seu projeto"**, é uma lista curta de ações para
+aplicar ao seu próprio estudo, e não ao estudo deste livro.
+
 ## Para quem é
 
 Para o pós-graduando, o residente e o profissional de saúde que precisa planejar,

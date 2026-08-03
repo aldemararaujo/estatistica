@@ -146,20 +146,7 @@ registro prévio em plataforma pública e consentimento livre e esclarecido, tem
 do Capítulo 2.
 :::
 
-::: jamovi Mãos à obra
-Antes de seguir para o Capítulo 2, faça três coisas:
-
-1. **Instale o jamovi** a partir de jamovi.org. São poucos minutos e não requer
-   licença.
-2. **Baixe o banco do estudo**, `coorte-condutor.csv`, e abra-o no jamovi. Não
-   analise nada ainda: apenas olhe as colunas e leia o dicionário de variáveis.
-3. **Escreva em uma folha a sua própria pergunta de pesquisa**, do jeito que ela
-   está hoje na sua cabeça, com todas as imprecisões. Guarde essa folha. Ao fim do
-   Capítulo 2, você vai reescrevê-la, e a comparação entre as duas versões é o
-   melhor indicador de que o livro está funcionando.
-:::
-
-::: revisor
+::: revisor Aqui é onde o projeto naufraga
 Os erros deste capítulo não aparecem em uma seção de métodos: aparecem na história
 inteira do projeto.
 
@@ -240,6 +227,19 @@ Não há gabarito. Ao fim do Capítulo 2, releia o que escreveu e verifique se a
 frase original dizia em quem, o que, comparado com o quê, medido como e em quanto
 tempo. Na esmagadora maioria dos casos, faltam pelo menos dois desses elementos, e
 é exatamente essa falta que o próximo capítulo corrige.
+:::
+
+::: agora
+1. **Escreva a sua pergunta de pesquisa em uma folha**, do jeito impreciso que ela
+   está hoje na sua cabeça, e guarde. Ao fim do Capítulo 2 você vai reescrevê-la,
+   e a distância entre as duas versões é o melhor indicador de que o livro está
+   funcionando.
+2. **Instale o jamovi** a partir de jamovi.org e abra o banco do livro,
+   `coorte-condutor.csv`. Não analise nada ainda: olhe as colunas e leia o
+   dicionário de variáveis.
+3. **Pegue o cronograma do seu projeto** e conte quantas semanas estão reservadas
+   para decisões metodológicas **antes** da coleta. Se forem zero, o problema já
+   começou, e ainda dá tempo de corrigir.
 :::
 
 ## Recursos

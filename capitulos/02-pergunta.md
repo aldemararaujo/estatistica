@@ -126,25 +126,6 @@ aspirado aumenta a cicatrização.
 delineamento: *Aspirado de medula óssea autólogo associado à terapia compressiva
 na cicatrização de úlceras venosas: ensaio clínico randomizado.*
 
-::: jamovi Mãos à obra
-Este capítulo não tem análise, e sim tarefas. Faça as quatro antes de escrever
-qualquer outra linha do projeto:
-
-1. **Escreva seu PICO em uma tabela de quatro linhas.** Se algum componente não
-   couber em uma frase objetiva, ele ainda não está definido.
-2. **Busque a literatura.** No mínimo PubMed, Biblioteca Cochrane e LILACS, com
-   os termos de cada componente do PICO. Registre a data e a estratégia: isso vai
-   para a introdução do projeto.
-3. **Verifique se alguém já está fazendo.** Consulte os registros de ensaios
-   clínicos, o ReBEC no Brasil e o ClinicalTrials.gov, procurando estudos em
-   andamento com a mesma pergunta.
-4. **Prepare a submissão ética.** No Brasil, o projeto vai à Plataforma Brasil,
-   é analisado pelo Comitê de Ética em Pesquisa da instituição e, em algumas
-   situações, pela CONEP. O termo de consentimento livre e esclarecido precisa
-   ser escrito em linguagem acessível, e ensaios clínicos devem ser registrados
-   **antes** de incluir o primeiro participante.
-:::
-
 ::: revisor
 **"A pergunta de pesquisa não está explicitada."** Ela deve aparecer ao final da
 introdução, em uma frase, e não ficar subentendida.
@@ -252,6 +233,24 @@ aferição. Uma versão adequada seria "variação do escore total do questioná
 específico para úlcera venosa entre a inclusão e a décima segunda semana". Sem o
 instrumento e sem o prazo, não há como calcular tamanho de amostra nem escolher o
 teste, e dois avaliadores mediriam coisas diferentes.
+:::
+
+::: agora
+1. **Escreva o seu PICO em uma tabela de quatro linhas.** Se algum componente não
+   couber em uma frase objetiva, ele ainda não está definido.
+2. **Compare essa tabela com a folha que você guardou no Capítulo 1.** A distância
+   entre as duas é o que este capítulo lhe deu.
+3. **Busque a literatura**, no mínimo em PubMed, Biblioteca Cochrane e LILACS,
+   com os termos de cada componente do PICO. Anote a data e a estratégia: elas
+   vão para a introdução do projeto e para a resposta ao parecerista que
+   perguntar se alguém já respondeu isso.
+4. **Verifique se alguém já está fazendo o seu estudo**, consultando o ReBEC e o
+   ClinicalTrials.gov. Se o seu for um ensaio clínico, registre-o **antes** de
+   incluir o primeiro participante.
+5. **Prepare a submissão ética.** No Brasil, o projeto vai à Plataforma Brasil e é
+   analisado pelo Comitê de Ética em Pesquisa da instituição e, em algumas
+   situações, pela CONEP. O termo de consentimento precisa estar em linguagem que
+   o participante entenda, e não na sua.
 :::
 
 ## Recursos

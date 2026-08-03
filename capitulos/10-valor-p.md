@@ -259,6 +259,17 @@ chama de troca de desfecho, e é a razão de o registro prévio do protocolo
 existir.
 :::
 
+::: agora
+1. Procure no seu texto toda frase do tipo "não houve diferença" e acrescente o
+   intervalo de confiança ao lado. Depois releia: em boa parte dos casos a frase
+   terá de virar "o estudo não teve tamanho para decidir".
+2. Se houver cálculo de poder feito depois da coleta, com o efeito observado,
+   apague. Ele não informa nada além do que o valor de p já informou.
+3. Conte quantos desfechos você pretende testar e circule **um**. Esse é o
+   primário. Os demais entram no texto como exploratórios, e a conclusão não se
+   apoia neles.
+:::
+
 ## Recursos
 
 - [ASA Statement on p-Values and Statistical Significance](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108)

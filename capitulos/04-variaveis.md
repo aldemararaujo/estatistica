@@ -243,6 +243,17 @@ tabela que vai para o artigo. O exercício mostra que boa parte do trabalho
 estatístico é organização, não cálculo.
 :::
 
+::: agora
+1. Escreva a definição operacional do seu desfecho primário e peça a um colega
+   que a aplique a três pacientes sem falar com você. Se ele classificar
+   diferente, a definição ainda não está pronta.
+2. Liste todas as variáveis da sua ficha de coleta e escreva, ao lado de cada
+   uma, o tipo e a função. As que não tiverem função devem sair da ficha.
+3. Confira se alguma variável que você pretende usar no ajuste é medida **depois**
+   da intervenção. Se for, ela é candidata a mediadora e não entra no modelo
+   principal.
+:::
+
 ## Recursos
 
 - [CONSORT Statement](https://www.consort-statement.org/) — item 6a, sobre

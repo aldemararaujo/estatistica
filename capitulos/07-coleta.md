@@ -282,6 +282,19 @@ descritas adiante. O banco anonimizado está disponível mediante solicitação 
 autor correspondente."
 :::
 
+::: agora
+1. Escreva o dicionário de variáveis do seu estudo **antes** da primeira coleta.
+   Uma tarde agora poupa semanas depois, e obriga decisões de codificação
+   enquanto ainda dá tempo de mudar a ficha.
+2. Defina onde ficam a identificação dos participantes e os dados de pesquisa,
+   em arquivos separados, e quem guarda a chave que liga os dois.
+3. Estabeleça três cópias de segurança, sendo uma fora do prédio, e teste a
+   restauração de uma delas hoje.
+4. Se ainda não coletou nada, avalie usar um sistema eletrônico de captura. A
+   configuração custa alguns dias e elimina a etapa de digitação, que é onde os
+   erros nascem.
+:::
+
 ## Recursos
 
 - [REDCap](https://projectredcap.org/) — sistema gratuito de captura de dados de

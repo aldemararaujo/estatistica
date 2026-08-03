@@ -34,7 +34,8 @@ EXTENSOES = ["tables", "fenced_code", "attr_list", "footnotes", "sane_lists", "a
 TITULOS_PADRAO = {
     "caso": "O caso",
     "jamovi": "Mãos ao jamovi",
-    "revisor": "O que o revisor devolve",
+    "revisor": "Aqui é onde o artigo é rejeitado",
+    "agora": "O que fazer agora, no seu projeto",
     "nota": "Nota",
     "atencao": "Atenção",
 }

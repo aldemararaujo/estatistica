@@ -417,6 +417,12 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .caixa.revisor > .titulo { color: var(--revisor); }
 .caixa.atencao { border-color: var(--realce);  background: var(--realce-fraco); }
 .caixa.atencao > .titulo { color: var(--realce); }
+.caixa.agora    { border-color: var(--lido); background: var(--jamovi-fundo);
+                  border-left-width: 6px; }
+.caixa.agora    > .titulo { color: var(--jamovi); }
+.caixa.agora ol { margin: 0; padding-left: 1.3rem; }
+.caixa.agora li { margin-bottom: .5rem; }
+.caixa.agora li:last-child { margin-bottom: 0; }
 .caixa.nota    { border-color: var(--tinta-fraca); }
 .caixa.nota    > .titulo { color: var(--tinta-fraca); }
 

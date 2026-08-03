@@ -257,6 +257,19 @@ começo e vai se achatando, de modo que aumentar de 40 para 90 pacientes muda
 muito, e de 150 para 200 muda pouco. É essa curva que ajuda a decidir onde parar.
 :::
 
+::: agora
+1. Refaça o cálculo do seu estudo na calculadora deste capítulo e anote os quatro
+   ingredientes por escrito, com a fonte de cada um.
+2. Olhe para a menor diferença clinicamente relevante que você escolheu e
+   pergunte-se, com honestidade, se é a menor que mudaria conduta ou se é a
+   maior que cabe no seu orçamento. Se for a segunda, o estudo nasce condenado.
+3. Se a sua amostra é a que existe, inverta a conta e escreva no protocolo qual
+   diferença você consegue detectar. Depois decida se vale a pena fazer o estudo
+   assim.
+4. Some as perdas previstas ao número final, com a taxa de perdas do seu próprio
+   serviço, não a de um artigo estrangeiro.
+:::
+
 ## Recursos
 
 - [jamovi library](https://library.jamovi.org/) — onde se instala o

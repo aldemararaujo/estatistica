@@ -285,6 +285,19 @@ basais que prevejam o desfecho, como área, duração, índice tornozelo-braquia
 comorbidades.
 :::
 
+::: agora
+1. Liste as covariáveis do seu ajuste e escreva, ao lado de cada uma, **quando**
+   ela foi medida. Toda variável medida depois da intervenção sai do modelo
+   principal.
+2. Conte os eventos do seu desfecho e divida por dez. Esse é o número máximo de
+   variáveis que o seu modelo comporta. Se o seu modelo tem mais, corte.
+3. Se o seu estudo é observacional, escreva agora, com todas as letras, o
+   parágrafo sobre confundimento residual. Ele será cobrado, e escrevê-lo antes
+   evita que a discussão prometa causalidade que o desenho não sustenta.
+4. Apresente o efeito bruto e o ajustado lado a lado. A diferença entre os dois é
+   informação, não constrangimento.
+:::
+
 ## Recursos
 
 - [STROBE Statement](https://www.strobe-statement.org/) — a recomendação para

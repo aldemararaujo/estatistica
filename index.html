@@ -426,6 +426,12 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .caixa.revisor > .titulo { color: var(--revisor); }
 .caixa.atencao { border-color: var(--realce);  background: var(--realce-fraco); }
 .caixa.atencao > .titulo { color: var(--realce); }
+.caixa.agora    { border-color: var(--lido); background: var(--jamovi-fundo);
+                  border-left-width: 6px; }
+.caixa.agora    > .titulo { color: var(--jamovi); }
+.caixa.agora ol { margin: 0; padding-left: 1.3rem; }
+.caixa.agora li { margin-bottom: .5rem; }
+.caixa.agora li:last-child { margin-bottom: 0; }
 .caixa.nota    { border-color: var(--tinta-fraca); }
 .caixa.nota    > .titulo { color: var(--tinta-fraca); }
 
@@ -544,7 +550,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   <div id="resultados-busca" hidden></div>
 
   <div id="lista-capitulos">
-  <a href="#capa" data-id="capa" data-busca="capa rosto ficha"><span class="num">•</span><span>Capa e apresentação</span></a><div class="parte">Parte I — A pergunta</div><a href="#cap-1" data-id="cap-1" data-palavras="1942" data-busca="Por que utilizar a matemática aplicada em pesquisa?"><span class="num">1</span><span class="rotulo">A pergunta antes do número</span></a><a href="#cap-2" data-id="cap-2" data-palavras="2008" data-busca="O que exatamente eu quero saber?"><span class="num">2</span><span class="rotulo">Da dúvida clínica à pergunta respondível</span></a><a href="#cap-3" data-id="cap-3" data-palavras="2092" data-busca="Que estudo responde à minha pergunta?"><span class="num">3</span><span class="rotulo">O delineamento decide tudo</span></a><div class="parte">Parte II — Antes de coletar</div><a href="#cap-4" data-id="cap-4" data-palavras="1876" data-busca="O que eu vou medir?"><span class="num">4</span><span class="rotulo">Variáveis e desfechos</span></a><a href="#cap-5" data-id="cap-5" data-palavras="2449" data-busca="Minha amostra representa quem?"><span class="num">5</span><span class="rotulo">Técnicas de amostragem</span></a><a href="#cap-6" data-id="cap-6" data-palavras="1984" data-busca="Quantos indivíduos vou precisar estudar?"><span class="num">6</span><span class="rotulo">Cálculo do tamanho da amostra</span></a><a href="#cap-7" data-id="cap-7" data-palavras="2182" data-busca="Como organizo meus dados?"><span class="num">7</span><span class="rotulo">Coleta, banco de dados e reprodutibilidade</span></a><div class="parte">Parte III — Diante dos dados</div><a href="#cap-8" data-id="cap-8" data-palavras="2888" data-busca="Como resumo meus resultados?"><span class="num">8</span><span class="rotulo">Estatística descritiva</span></a><a href="#cap-9" data-id="cap-9" data-palavras="2301" data-busca="Qual o grau de certeza do meu resultado?"><span class="num">9</span><span class="rotulo">Estimativa e incerteza</span></a><a href="#cap-10" data-id="cap-10" data-palavras="2211" data-busca="O acaso é o responsável pelos meus resultados?"><span class="num">10</span><span class="rotulo">Teste de hipótese e valor de p</span></a><a href="#cap-11" data-id="cap-11" data-palavras="2240" data-busca="Qual teste eu uso?"><span class="num">11</span><span class="rotulo">Escolhendo o teste</span></a><a href="#cap-12" data-id="cap-12" data-palavras="2279" data-busca="E as outras variáveis?"><span class="num">12</span><span class="rotulo">Além do bivariado: regressão e confundimento</span></a><a href="#cap-13" data-id="cap-13" data-palavras="2208" data-busca="Este exame serve?"><span class="num">13</span><span class="rotulo">Testes diagnósticos</span></a><a href="#cap-14" data-id="cap-14" data-palavras="2247" data-busca="Quanto tempo até o desfecho?"><span class="num">14</span><span class="rotulo">Análise de sobrevida</span></a><div class="parte">Parte IV — Depois da análise</div><a href="#cap-15" data-id="cap-15" data-palavras="1943" data-busca="Como apresento isso sem levar rejeição?"><span class="num">15</span><span class="rotulo">Relatar</span></a><a href="#cap-16" data-id="cap-16" data-palavras="1815" data-busca="E agora?"><span class="num">16</span><span class="rotulo">Considerações finais</span></a><div class="parte">Apêndices</div><a href="#cap-A" data-id="cap-A" data-palavras="1028" data-busca="Por onde começo no programa?"><span class="num">A</span><span class="rotulo">Primeiros passos no jamovi</span></a><a href="#cap-B" data-id="cap-B" data-palavras="998" data-busca="Esqueci alguma coisa?"><span class="num">B</span><span class="rotulo">Fluxogramas e checklists</span></a><a href="#cap-C" data-id="cap-C" data-palavras="1163" data-busca="O que quer dizer essa palavra?"><span class="num">C</span><span class="rotulo">Glossário</span></a><a href="#cap-D" data-id="cap-D" data-palavras="1162" data-busca="Que dados são esses?"><span class="num">D</span><span class="rotulo">O banco do caso condutor</span></a>
+  <a href="#capa" data-id="capa" data-busca="capa rosto ficha"><span class="num">•</span><span>Capa e apresentação</span></a><div class="parte">Parte I — A pergunta</div><a href="#cap-1" data-id="cap-1" data-palavras="1950" data-busca="Por que utilizar a matemática aplicada em pesquisa?"><span class="num">1</span><span class="rotulo">A pergunta antes do número</span></a><a href="#cap-2" data-id="cap-2" data-palavras="2020" data-busca="O que exatamente eu quero saber?"><span class="num">2</span><span class="rotulo">Da dúvida clínica à pergunta respondível</span></a><a href="#cap-3" data-id="cap-3" data-palavras="2111" data-busca="Que estudo responde à minha pergunta?"><span class="num">3</span><span class="rotulo">O delineamento decide tudo</span></a><div class="parte">Parte II — Antes de coletar</div><a href="#cap-4" data-id="cap-4" data-palavras="1973" data-busca="O que eu vou medir?"><span class="num">4</span><span class="rotulo">Variáveis e desfechos</span></a><a href="#cap-5" data-id="cap-5" data-palavras="2539" data-busca="Minha amostra representa quem?"><span class="num">5</span><span class="rotulo">Técnicas de amostragem</span></a><a href="#cap-6" data-id="cap-6" data-palavras="2105" data-busca="Quantos indivíduos vou precisar estudar?"><span class="num">6</span><span class="rotulo">Cálculo do tamanho da amostra</span></a><a href="#cap-7" data-id="cap-7" data-palavras="2291" data-busca="Como organizo meus dados?"><span class="num">7</span><span class="rotulo">Coleta, banco de dados e reprodutibilidade</span></a><div class="parte">Parte III — Diante dos dados</div><a href="#cap-8" data-id="cap-8" data-palavras="2980" data-busca="Como resumo meus resultados?"><span class="num">8</span><span class="rotulo">Estatística descritiva</span></a><a href="#cap-9" data-id="cap-9" data-palavras="2388" data-busca="Qual o grau de certeza do meu resultado?"><span class="num">9</span><span class="rotulo">Estimativa e incerteza</span></a><a href="#cap-10" data-id="cap-10" data-palavras="2309" data-busca="O acaso é o responsável pelos meus resultados?"><span class="num">10</span><span class="rotulo">Teste de hipótese e valor de p</span></a><a href="#cap-11" data-id="cap-11" data-palavras="2343" data-busca="Qual teste eu uso?"><span class="num">11</span><span class="rotulo">Escolhendo o teste</span></a><a href="#cap-12" data-id="cap-12" data-palavras="2395" data-busca="E as outras variáveis?"><span class="num">12</span><span class="rotulo">Além do bivariado: regressão e confundimento</span></a><a href="#cap-13" data-id="cap-13" data-palavras="2303" data-busca="Este exame serve?"><span class="num">13</span><span class="rotulo">Testes diagnósticos</span></a><a href="#cap-14" data-id="cap-14" data-palavras="2341" data-busca="Quanto tempo até o desfecho?"><span class="num">14</span><span class="rotulo">Análise de sobrevida</span></a><div class="parte">Parte IV — Depois da análise</div><a href="#cap-15" data-id="cap-15" data-palavras="1966" data-busca="Como apresento isso sem levar rejeição?"><span class="num">15</span><span class="rotulo">Relatar</span></a><a href="#cap-16" data-id="cap-16" data-palavras="1812" data-busca="E agora?"><span class="num">16</span><span class="rotulo">Considerações finais</span></a><div class="parte">Apêndices</div><a href="#cap-A" data-id="cap-A" data-palavras="1028" data-busca="Por onde começo no programa?"><span class="num">A</span><span class="rotulo">Primeiros passos no jamovi</span></a><a href="#cap-B" data-id="cap-B" data-palavras="998" data-busca="Esqueci alguma coisa?"><span class="num">B</span><span class="rotulo">Fluxogramas e checklists</span></a><a href="#cap-C" data-id="cap-C" data-palavras="1163" data-busca="O que quer dizer essa palavra?"><span class="num">C</span><span class="rotulo">Glossário</span></a><a href="#cap-D" data-id="cap-D" data-palavras="1162" data-busca="Que dados são esses?"><span class="num">D</span><span class="rotulo">O banco do caso condutor</span></a>
   </div>
 
   <div id="rodape-sumario">
@@ -593,6 +599,14 @@ quiser conferir.</p>
 <p>Todas as análises são executadas no <strong>jamovi</strong>, que é gratuito, funciona por
 cliques e não exige programação. A escolha é deliberada: um livro que dependesse
 de programa pago excluiria justamente o leitor que ele pretende alcançar.</p>
+<p>Cada capítulo termina com duas seções que valem uma explicação. A primeira,
+<strong>"Aqui é onde o artigo é rejeitado"</strong>, reúne as frases que um artigo recebe de
+volta quando é submetido a um periódico: quando você envia um manuscrito, a
+revista o encaminha a dois ou três pesquisadores da área, que o leem no anonimato
+e escrevem um parecer recomendando aceitar, corrigir ou recusar. É a revisão por
+pares, e as frases reunidas ali são as que mais aparecem nesses pareceres. A
+segunda, <strong>"O que fazer agora, no seu projeto"</strong>, é uma lista curta de ações para
+aplicar ao seu próprio estudo, e não ao estudo deste livro.</p>
 <h2>Para quem é</h2>
 <p>Para o pós-graduando, o residente e o profissional de saúde que precisa planejar,
 executar e publicar um estudo próprio, e que não tem, nem terá, formação
@@ -739,18 +753,7 @@ decisões que ele obriga a tomar são as mesmas de qualquer estudo real. Um estu
 verdadeiro dessa natureza exigiria aprovação em Comitê de Ética em Pesquisa,
 registro prévio em plataforma pública e consentimento livre e esclarecido, temas
 do Capítulo 2.</p></div>
-<div class="caixa jamovi"><div class="titulo">Mãos à obra</div><p>Antes de seguir para o Capítulo 2, faça três coisas:</p>
-<ol>
-<li><strong>Instale o jamovi</strong> a partir de jamovi.org. São poucos minutos e não requer
-   licença.</li>
-<li><strong>Baixe o banco do estudo</strong>, <code>coorte-condutor.csv</code>, e abra-o no jamovi. Não
-   analise nada ainda: apenas olhe as colunas e leia o dicionário de variáveis.</li>
-<li><strong>Escreva em uma folha a sua própria pergunta de pesquisa</strong>, do jeito que ela
-   está hoje na sua cabeça, com todas as imprecisões. Guarde essa folha. Ao fim do
-   Capítulo 2, você vai reescrevê-la, e a comparação entre as duas versões é o
-   melhor indicador de que o livro está funcionando.</li>
-</ol></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p>Os erros deste capítulo não aparecem em uma seção de métodos: aparecem na história
+<div class="caixa revisor"><div class="titulo">Aqui é onde o projeto naufraga</div><p>Os erros deste capítulo não aparecem em uma seção de métodos: aparecem na história
 inteira do projeto.</p>
 <p><strong>"O estatístico foi consultado após o término da coleta."</strong> Ele fará o que puder,
 e o que puder será pouco.</p>
@@ -810,6 +813,18 @@ frase original dizia em quem, o que, comparado com o quê, medido como e em quan
 tempo. Na esmagadora maioria dos casos, faltam pelo menos dois desses elementos, e
 é exatamente essa falta que o próximo capítulo corrige.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li><strong>Escreva a sua pergunta de pesquisa em uma folha</strong>, do jeito impreciso que ela
+   está hoje na sua cabeça, e guarde. Ao fim do Capítulo 2 você vai reescrevê-la,
+   e a distância entre as duas versões é o melhor indicador de que o livro está
+   funcionando.</li>
+<li><strong>Instale o jamovi</strong> a partir de jamovi.org e abra o banco do livro,
+   <code>coorte-condutor.csv</code>. Não analise nada ainda: olhe as colunas e leia o
+   dicionário de variáveis.</li>
+<li><strong>Pegue o cronograma do seu projeto</strong> e conte quantas semanas estão reservadas
+   para decisões metodológicas <strong>antes</strong> da coleta. Se forem zero, o problema já
+   começou, e ainda dá tempo de corrigir.</li>
+</ol></div>
 <h2 id="cap-1-recursos">Recursos<a class="ancora" href="#cap-1-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.jamovi.org/">jamovi</a> — o programa usado no livro.</li>
@@ -936,24 +951,7 @@ aspirado aumenta a cicatrização.</p>
 <p><strong>Título.</strong> Deve conter população, intervenção, comparador, desfecho e
 delineamento: <em>Aspirado de medula óssea autólogo associado à terapia compressiva
 na cicatrização de úlceras venosas: ensaio clínico randomizado.</em></p>
-<div class="caixa jamovi"><div class="titulo">Mãos à obra</div><p>Este capítulo não tem análise, e sim tarefas. Faça as quatro antes de escrever
-qualquer outra linha do projeto:</p>
-<ol>
-<li><strong>Escreva seu PICO em uma tabela de quatro linhas.</strong> Se algum componente não
-   couber em uma frase objetiva, ele ainda não está definido.</li>
-<li><strong>Busque a literatura.</strong> No mínimo PubMed, Biblioteca Cochrane e LILACS, com
-   os termos de cada componente do PICO. Registre a data e a estratégia: isso vai
-   para a introdução do projeto.</li>
-<li><strong>Verifique se alguém já está fazendo.</strong> Consulte os registros de ensaios
-   clínicos, o ReBEC no Brasil e o ClinicalTrials.gov, procurando estudos em
-   andamento com a mesma pergunta.</li>
-<li><strong>Prepare a submissão ética.</strong> No Brasil, o projeto vai à Plataforma Brasil,
-   é analisado pelo Comitê de Ética em Pesquisa da instituição e, em algumas
-   situações, pela CONEP. O termo de consentimento livre e esclarecido precisa
-   ser escrito em linguagem acessível, e ensaios clínicos devem ser registrados
-   <strong>antes</strong> de incluir o primeiro participante.</li>
-</ol></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"A pergunta de pesquisa não está explicitada."</strong> Ela deve aparecer ao final da
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"A pergunta de pesquisa não está explicitada."</strong> Ela deve aparecer ao final da
 introdução, em uma frase, e não ficar subentendida.</p>
 <p><strong>"O objetivo não corresponde ao desfecho analisado."</strong> Incoerência entre
 objetivo, desfecho primário e conclusão é motivo frequente de rejeição.</p>
@@ -1032,6 +1030,23 @@ específico para úlcera venosa entre a inclusão e a décima segunda semana". S
 instrumento e sem o prazo, não há como calcular tamanho de amostra nem escolher o
 teste, e dois avaliadores mediriam coisas diferentes.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li><strong>Escreva o seu PICO em uma tabela de quatro linhas.</strong> Se algum componente não
+   couber em uma frase objetiva, ele ainda não está definido.</li>
+<li><strong>Compare essa tabela com a folha que você guardou no Capítulo 1.</strong> A distância
+   entre as duas é o que este capítulo lhe deu.</li>
+<li><strong>Busque a literatura</strong>, no mínimo em PubMed, Biblioteca Cochrane e LILACS,
+   com os termos de cada componente do PICO. Anote a data e a estratégia: elas
+   vão para a introdução do projeto e para a resposta ao parecerista que
+   perguntar se alguém já respondeu isso.</li>
+<li><strong>Verifique se alguém já está fazendo o seu estudo</strong>, consultando o ReBEC e o
+   ClinicalTrials.gov. Se o seu for um ensaio clínico, registre-o <strong>antes</strong> de
+   incluir o primeiro participante.</li>
+<li><strong>Prepare a submissão ética.</strong> No Brasil, o projeto vai à Plataforma Brasil e é
+   analisado pelo Comitê de Ética em Pesquisa da instituição e, em algumas
+   situações, pela CONEP. O termo de consentimento precisa estar em linguagem que
+   o participante entenda, e não na sua.</li>
+</ol></div>
 <h2 id="cap-2-recursos">Recursos<a class="ancora" href="#cap-2-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://plataformabrasil.saude.gov.br/">Plataforma Brasil</a> — submissão de
@@ -1205,23 +1220,7 @@ análise. É por isso que este capítulo antecede todos os de estatística.</p>
 <p>Nesses casos a coorte é o melhor disponível, e o que se exige dela é honestidade:
 medir os confundidores conhecidos, ajustar como o Capítulo 12 ensina, discutir o
 confundimento residual e escrever "associação", não "causa".</p>
-<div class="caixa jamovi"><div class="titulo">Mãos à obra</div><p>Também aqui a tarefa não é estatística, e sim documental:</p>
-<ol>
-<li><strong>Escreva o delineamento em uma frase completa</strong>, com todos os adjetivos que
-   ele merece: "ensaio clínico randomizado, paralelo, 1:1, multicêntrico, com
-   avaliador de desfecho cego". Cada adjetivo dessa frase é um item que o revisor
-   vai procurar.</li>
-<li><strong>Descreva a geração da sequência aleatória e o sigilo da alocação</strong>
-   separadamente. São dois itens distintos do CONSORT e quase sempre aparecem
-   fundidos em uma frase vaga.</li>
-<li><strong>Liste quem foi cegado</strong>, papel por papel, e diga o que se fez quando o
-   cegamento era impossível.</li>
-<li><strong>Baixe o checklist CONSORT</strong> e responda a ele antes de coletar o primeiro
-   dado. Ele foi feito para relatar, e usá-lo como roteiro de planejamento é a
-   melhor maneira de não descobrir uma falha estrutural quando não houver mais
-   conserto.</li>
-</ol></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"O delineamento não está declarado no título nem no resumo."</strong> Uma palavra
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"O delineamento não está declarado no título nem no resumo."</strong> Uma palavra
 resolve: randomizado, coorte, transversal.</p>
 <p><strong>"Não está descrito como a sequência de randomização foi gerada."</strong> "Os
 pacientes foram randomizados" não basta. Diga o método, o tamanho dos blocos e a
@@ -1301,6 +1300,22 @@ precisa levar em conta essa correlação intraconglomerado, e o cálculo do tama
 da amostra exige inflar o número de participantes pelo efeito de delineamento.
 Ignorar isso produz intervalos de confiança falsamente estreitos.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Escreva o delineamento do seu estudo em uma frase, com todos os adjetivos que
+   ele merece. Essa frase vai para o título e para o resumo.</li>
+<li>Se o seu estudo for observacional e comparar tratamentos, liste por escrito
+   quem recebe cada um na prática e por quê. Essa lista é o seu confundimento por
+   indicação, e ela precisa aparecer nas limitações.</li>
+<li>Se for randomizado, descreva em parágrafos separados a geração da sequência e
+   o sigilo da alocação. São dois itens distintos e quase sempre aparecem
+   fundidos em uma frase vaga.</li>
+<li>Liste quem será cegado, papel por papel, e o que você fará onde o cegamento
+   for impossível.</li>
+<li><strong>Baixe o checklist da recomendação de relato do seu delineamento e responda a
+   ele antes de coletar o primeiro dado.</strong> Ele foi feito para relatar, e usá-lo
+   como roteiro de planejamento é a melhor maneira de não descobrir uma falha
+   estrutural quando não houver mais conserto.</li>
+</ol></div>
 <h2 id="cap-3-recursos">Recursos<a class="ancora" href="#cap-3-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — o checklist e o
@@ -1505,7 +1520,7 @@ variável a mais é um convite à análise exploratória que ninguém pediu.</p>
 </ol>
 <p>Nenhuma análise deste livro funciona corretamente se os tipos estiverem errados,
 e o jamovi não avisa: ele simplesmente entrega um resultado sem sentido.</p></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"O desfecho primário não está claramente definido."</strong> Nome, momento da
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"O desfecho primário não está claramente definido."</strong> Nome, momento da
 aferição, critério e quem afere.</p>
 <p><strong>"O artigo apresenta cinco desfechos primários."</strong> Então não há desfecho
 primário. Escolha um e reclassifique os demais.</p>
@@ -1575,6 +1590,16 @@ Fumante atual. Os números são idênticos; o que muda é a legibilidade, e é e
 tabela que vai para o artigo. O exercício mostra que boa parte do trabalho
 estatístico é organização, não cálculo.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Escreva a definição operacional do seu desfecho primário e peça a um colega
+   que a aplique a três pacientes sem falar com você. Se ele classificar
+   diferente, a definição ainda não está pronta.</li>
+<li>Liste todas as variáveis da sua ficha de coleta e escreva, ao lado de cada
+   uma, o tipo e a função. As que não tiverem função devem sair da ficha.</li>
+<li>Confira se alguma variável que você pretende usar no ajuste é medida <strong>depois</strong>
+   da intervenção. Se for, ela é candidata a mediadora e não entra no modelo
+   principal.</li>
+</ol></div>
 <h2 id="cap-4-recursos">Recursos<a class="ancora" href="#cap-4-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — item 6a, sobre
@@ -1746,7 +1771,7 @@ mais que muita teoria:</p>
 <p>Você verá a estimativa oscilar bastante de uma repetição para outra. Essa
 oscilação é exatamente o que o intervalo de confiança do Capítulo 9 mede, e ver
 com os próprios olhos costuma ensinar mais do que a fórmula.</p></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Não está descrito como os participantes foram recrutados."</strong> Diga o local, o
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Não está descrito como os participantes foram recrutados."</strong> Diga o local, o
 período, o método de amostragem e quem convidou.</p>
 <p><strong>"O número de pacientes avaliados para elegibilidade não é informado."</strong> Sem
 ele, não há como julgar viés de seleção. É o primeiro quadro do diagrama
@@ -1834,6 +1859,16 @@ entre os grupos. Essa é a variabilidade amostral, é ela que o intervalo de
 confiança quantifica, e é também o argumento mais concreto a favor de calcular o
 tamanho da amostra antes de começar, assunto do próximo capítulo.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Escreva seus critérios de inclusão e exclusão em duas colunas e, ao lado de
+   cada exclusão, anote que parcela de pacientes reais você está deixando de
+   fora. Essa anotação é o rascunho das suas limitações.</li>
+<li>Descreva o recrutamento com local, período e técnica de amostragem, usando o
+   nome correto da técnica.</li>
+<li>Combine, desde já, o registro do número de pacientes <strong>avaliados para
+   elegibilidade</strong> e dos motivos de exclusão. Esse número não existe no banco e
+   se perde para sempre se ninguém anotar na hora.</li>
+</ol></div>
 <h2 id="cap-5-recursos">Recursos<a class="ancora" href="#cap-5-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://aldemararaujo.github.io/amostra/">Simulador de amostragem</a> — mostra,
@@ -2031,7 +2066,7 @@ este livro tenta evitar.</p></div>
    poder varia conforme o tamanho da amostra, e é a figura mais útil para discutir
    viabilidade com um orientador ou com um financiador.</li>
 </ol></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Não há cálculo do tamanho da amostra."</strong> Devolução automática em qualquer
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Não há cálculo do tamanho da amostra."</strong> Devolução automática em qualquer
 revista clínica, e reprovação garantida no comitê de ética.</p>
 <p><strong>"O cálculo não informa a diferença considerada clinicamente relevante nem sua
 origem."</strong> Cite a fonte: literatura, piloto, consenso de especialistas.</p>
@@ -2102,6 +2137,18 @@ por grupo. O formato importa mais que os números: o ganho de poder é acentuado
 começo e vai se achatando, de modo que aumentar de 40 para 90 pacientes muda
 muito, e de 150 para 200 muda pouco. É essa curva que ajuda a decidir onde parar.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Refaça o cálculo do seu estudo na calculadora deste capítulo e anote os quatro
+   ingredientes por escrito, com a fonte de cada um.</li>
+<li>Olhe para a menor diferença clinicamente relevante que você escolheu e
+   pergunte-se, com honestidade, se é a menor que mudaria conduta ou se é a
+   maior que cabe no seu orçamento. Se for a segunda, o estudo nasce condenado.</li>
+<li>Se a sua amostra é a que existe, inverta a conta e escreva no protocolo qual
+   diferença você consegue detectar. Depois decida se vale a pena fazer o estudo
+   assim.</li>
+<li>Some as perdas previstas ao número final, com a taxa de perdas do seu próprio
+   serviço, não a de um artigo estrangeiro.</li>
+</ol></div>
 <h2 id="cap-6-recursos">Recursos<a class="ancora" href="#cap-6-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://library.jamovi.org/">jamovi library</a> — onde se instala o
@@ -2291,7 +2338,7 @@ como idade acima de noventa anos ou doenças de baixa prevalência.</p></div>
    juntos, e é o que permite reabrir o estudo meses depois e ver exatamente o que
    foi feito, o que é a versão jamovi da reprodutibilidade.</li>
 </ol></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Não está descrito como os dados foram coletados e conferidos."</strong> Um parágrafo
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Não está descrito como os dados foram coletados e conferidos."</strong> Um parágrafo
 nos métodos: instrumento, quem preencheu, como foi digitado, que validações
 houve.</p>
 <p><strong>"Não há informação sobre dados faltantes."</strong> Quantos, em quais variáveis, e
@@ -2370,6 +2417,18 @@ análise foi conduzida por intenção de tratar, com análises de sensibilidade
 descritas adiante. O banco anonimizado está disponível mediante solicitação ao
 autor correspondente."</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Escreva o dicionário de variáveis do seu estudo <strong>antes</strong> da primeira coleta.
+   Uma tarde agora poupa semanas depois, e obriga decisões de codificação
+   enquanto ainda dá tempo de mudar a ficha.</li>
+<li>Defina onde ficam a identificação dos participantes e os dados de pesquisa,
+   em arquivos separados, e quem guarda a chave que liga os dois.</li>
+<li>Estabeleça três cópias de segurança, sendo uma fora do prédio, e teste a
+   restauração de uma delas hoje.</li>
+<li>Se ainda não coletou nada, avalie usar um sistema eletrônico de captura. A
+   configuração custa alguns dias e elimina a etapa de digitação, que é onde os
+   erros nascem.</li>
+</ol></div>
 <h2 id="cap-7-recursos">Recursos<a class="ancora" href="#cap-7-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://projectredcap.org/">REDCap</a> — sistema gratuito de captura de dados de
@@ -2659,7 +2718,7 @@ teste, recupera uma informação que a própria escala destruiu.</p>
 controle: −1,8%, um valor negativo, porque um quarto daqueles participantes
 tinha, em quatro semanas, úlcera do mesmo tamanho ou maior do que no início.
 Esse é o tipo de fato clínico que uma média de 30,6% nunca teria revelado.</p>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Os autores relatam média e desvio padrão para variáveis claramente
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Os autores relatam média e desvio padrão para variáveis claramente
 assimétricas."</strong> É a devolutiva mais comum de todas. Área de ferida, duração de
 doença, tempo de internação, custo e contagem de células são quase sempre
 assimétricos à direita. Descreva com mediana e quartis.</p>
@@ -2753,6 +2812,16 @@ o mais provável é que o jamovi tenha classificado a variável com o tipo errad
 importação, ou que a análise esteja incluindo os participantes com dado ausente
 de maneira diferente da usada aqui.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Monte a Tabela 1 do seu estudo, mesmo que com os dados parciais que você já
+   tem. Ela revela cedo quais variáveis faltam na ficha de coleta.</li>
+<li>Para cada variável contínua, olhe o histograma e decida entre média e mediana.
+   Anote a decisão: o revisor vai perguntar, e "porque o Shapiro deu 0,03" não é
+   resposta.</li>
+<li>Se a sua Tabela 1 tem coluna de valor de p e o estudo é randomizado, apague a
+   coluna agora.</li>
+<li>Escreva, em cada tabela, o que está entre parênteses.</li>
+</ol></div>
 <h2 id="cap-8-recursos">Recursos<a class="ancora" href="#cap-8-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — a recomendação para
@@ -2959,7 +3028,7 @@ nunca ultrapassa os limites lógicos de zero e um.</p>
 <p>A diferença entre os dois métodos é pequena quando a proporção está perto de
 50% e o estudo é grande, e é grande justamente nas situações em que mais
 importa: eventos raros e amostras pequenas. Use Wilson e esqueça Wald.</p></div></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Os autores relatam apenas o valor de p."</strong> É a devolutiva mais frequente das
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Os autores relatam apenas o valor de p."</strong> É a devolutiva mais frequente das
 revistas clínicas desde a década de 1990, e continua sendo necessária. Todo
 resultado principal precisa de estimativa e intervalo. O p vem depois, se vier.</p>
 <p><strong>"O intervalo de confiança do desfecho primário não está informado."</strong> Repare
@@ -3045,6 +3114,15 @@ melhora com a raiz quadrada do tamanho da amostra e a raiz de 400 dividida pela
 raiz de 92 é cerca de 2,1. O estudo maior não encontraria um efeito diferente:
 saberia com mais precisão qual é o efeito.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Percorra o seu manuscrito e verifique se <strong>todo</strong> resultado principal tem
+   estimativa e intervalo de confiança. Onde só houver valor de p, acrescente.</li>
+<li>Se o seu desfecho é binário, calcule a diferença absoluta e o número
+   necessário para tratar na calculadora deste capítulo, e apresente os dois.</li>
+<li>Leia o limite inferior do intervalo do seu desfecho primário e pergunte: se o
+   efeito verdadeiro fosse exatamente esse, eu ainda recomendaria o tratamento?
+   A resposta é o que deve estar na sua conclusão.</li>
+</ol></div>
 <h2 id="cap-9-recursos">Recursos<a class="ancora" href="#cap-9-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — item 17b, sobre
@@ -3238,7 +3316,7 @@ hipóteses e não sustentam conclusão. Quando é mesmo necessário testar vári
 desfechos com igual peso, existem correções, e a de Bonferroni, que divide o
 limiar pelo número de testes, é a mais simples e a mais conservadora. Ela não
 substitui, porém, a disciplina de decidir antes o que importa.</p>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Os autores afirmam que o valor de p indica a probabilidade de a hipótese nula
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Os autores afirmam que o valor de p indica a probabilidade de a hipótese nula
 ser verdadeira."</strong> Reescreva. O p é a probabilidade dos dados sob a hipótese
 nula, não o contrário.</p>
 <p><strong>"O estudo conclui ausência de efeito a partir de p = 0,21."</strong> Sem o intervalo
@@ -3311,6 +3389,16 @@ secundário, com o primário escondido na discussão, é a prática que o CONSOR
 chama de troca de desfecho, e é a razão de o registro prévio do protocolo
 existir.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Procure no seu texto toda frase do tipo "não houve diferença" e acrescente o
+   intervalo de confiança ao lado. Depois releia: em boa parte dos casos a frase
+   terá de virar "o estudo não teve tamanho para decidir".</li>
+<li>Se houver cálculo de poder feito depois da coleta, com o efeito observado,
+   apague. Ele não informa nada além do que o valor de p já informou.</li>
+<li>Conte quantos desfechos você pretende testar e circule <strong>um</strong>. Esse é o
+   primário. Os demais entram no texto como exploratórios, e a conclusão não se
+   apoia neles.</li>
+</ol></div>
 <h2 id="cap-10-recursos">Recursos<a class="ancora" href="#cap-10-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108">ASA Statement on p-Values and Statistical Significance</a>
@@ -3513,7 +3601,7 @@ de p e sem a diferença de médias em pontos percentuais, que é o que o clínic
 entende. Por isso este livro sugere relatar o intervalo de confiança da diferença
 mesmo quando o valor de p vem do teste por postos: o leitor precisa do tamanho do
 efeito, e ele não está no U de Mann-Whitney.</p></div></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Não está descrito qual teste foi usado para cada desfecho."</strong> A seção de
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Não está descrito qual teste foi usado para cada desfecho."</strong> A seção de
 métodos precisa dizer, desfecho a desfecho, qual teste e por quê. Uma frase
 genérica do tipo "os dados foram analisados no programa X" não passa.</p>
 <p><strong>"Os autores usaram teste de amostras independentes em medidas repetidas."</strong>
@@ -3594,6 +3682,17 @@ o tabagismo tem três categorias.
 aproximadamente simétrico e a redução de área tem cauda, então relate Spearman ou
 os dois coeficientes.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Faça uma tabela de duas colunas com todos os seus desfechos e, ao lado de cada
+   um, o teste que você vai usar. Essa tabela é o rascunho do seu plano de
+   análise, e ela precisa existir antes da coleta terminar.</li>
+<li>Verifique se algum desfecho medido duas vezes na mesma pessoa está sendo
+   tratado como se fossem dois grupos independentes. É o erro que mais custa
+   poder estatístico.</li>
+<li>Escreva o parágrafo de métodos estatísticos do seu artigo agora, com base
+   nessa tabela. Escrever depois dos resultados é como a troca de teste acontece
+   sem que ninguém perceba.</li>
+</ol></div>
 <h2 id="cap-11-recursos">Recursos<a class="ancora" href="#cap-11-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.jamovi.org/">jamovi</a> — todos os testes deste capítulo estão nos
@@ -3872,7 +3971,7 @@ resultado frágil, e é assim que ele deve ser descrito.</p>
    <code>reducao_area_4sem_pct</code> como dependente. Marque <strong>Estimate</strong> e <strong>Confidence
    interval</strong> em Model Coefficients.</li>
 </ol></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Os autores ajustaram por variáveis medidas após a intervenção."</strong> É o erro do
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Os autores ajustaram por variáveis medidas após a intervenção."</strong> É o erro do
 mediador. Em ensaio clínico, o modelo de ajuste só admite variáveis basais, e
 elas precisam estar pré-especificadas no protocolo.</p>
 <p><strong>"O modelo inclui quinze variáveis para vinte e dois eventos."</strong> Sobreajuste.
@@ -3953,6 +4052,18 @@ a terceira condição de confundimento. O ajuste deve incluir características
 basais que prevejam o desfecho, como área, duração, índice tornozelo-braquial e
 comorbidades.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Liste as covariáveis do seu ajuste e escreva, ao lado de cada uma, <strong>quando</strong>
+   ela foi medida. Toda variável medida depois da intervenção sai do modelo
+   principal.</li>
+<li>Conte os eventos do seu desfecho e divida por dez. Esse é o número máximo de
+   variáveis que o seu modelo comporta. Se o seu modelo tem mais, corte.</li>
+<li>Se o seu estudo é observacional, escreva agora, com todas as letras, o
+   parágrafo sobre confundimento residual. Ele será cobrado, e escrevê-lo antes
+   evita que a discussão prometa causalidade que o desenho não sustenta.</li>
+<li>Apresente o efeito bruto e o ajustado lado a lado. A diferença entre os dois é
+   informação, não constrangimento.</li>
+</ol></div>
 <h2 id="cap-12-recursos">Recursos<a class="ancora" href="#cap-12-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.strobe-statement.org/">STROBE Statement</a> — a recomendação para
@@ -4214,7 +4325,7 @@ resolve, e publicá-lo escolhendo o corte de melhor aparência seria desonesto.<
    positivo e um falso negativo como igualmente ruins, e na clínica eles quase
    nunca são.</li>
 </ol></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"O padrão de referência não está descrito."</strong> Sem ele, nenhuma medida de
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"O padrão de referência não está descrito."</strong> Sem ele, nenhuma medida de
 acurácia significa coisa alguma. Descreva quem aplicou, quando e com que
 critério.</p>
 <p><strong>"O avaliador do teste índice conhecia o desfecho."</strong> É viés de revisão, e
@@ -4295,6 +4406,16 @@ Convertida de volta, a probabilidade é 5,9 dividido por 6,9, ou cerca de 86%.
 O paciente saiu de uma dúvida genuína para uma expectativa francamente favorável,
 e é isso que se espera de um teste útil.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Verifique de onde veio o seu ponto de corte. Se ele foi escolhido nos seus
+   próprios dados, diga isso no texto e trate o resultado como exploratório.</li>
+<li>Calcule as razões de verossimilhança do seu teste e leve-as para a
+   prevalência do <strong>seu</strong> serviço, usando a calculadora deste capítulo. Os
+   valores preditivos do artigo que você leu não valem no seu ambulatório.</li>
+<li>Confirme que quem interpretou o teste índice desconhecia o padrão de
+   referência. Se não desconhecia, a acurácia que você mediu está inflada e isso
+   precisa constar das limitações.</li>
+</ol></div>
 <h2 id="cap-13-recursos">Recursos<a class="ancora" href="#cap-13-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.equator-network.org/reporting-guidelines/stard/">STARD 2015</a> — a
@@ -4510,7 +4631,7 @@ avaliados no mesmo instante; e quando a data do evento é imprecisa. Uma data de
 cicatrização anotada como "entre a consulta de quatro e a de oito semanas" é
 dado intervalar, e forçá-la em uma análise de sobrevida comum introduz um erro
 que ninguém enxerga depois.</p></div></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"Os autores calcularam a média do tempo até o evento incluindo os
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"Os autores calcularam a média do tempo até o evento incluindo os
 censurados."</strong> Sem sentido. Use Kaplan-Meier e relate a mediana.</p>
 <p><strong>"Os pacientes censurados foram excluídos da análise."</strong> Isso enviesa o
 resultado, e para o lado otimista, porque exclui preferencialmente quem demora
@@ -4586,6 +4707,16 @@ enganosa. A conduta é abandonar a razão de riscos como medida principal e rela
 as curvas com diferenças de cicatrização em momentos definidos, ou usar modelos
 que admitam efeito dependente do tempo.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Verifique se a sua ficha de coleta registra a <strong>data</strong> do evento, e não apenas
+   se ele ocorreu. Se registrar, você tem um desfecho de tempo até evento e
+   deveria usá-lo: ganha poder sem aumentar a amostra.</li>
+<li>Confira se o seu banco tem as duas colunas inseparáveis, tempo e status, e se
+   quem digita entendeu a diferença entre censurado e sem evento.</li>
+<li>Escreva no plano de análise como a suposição de riscos proporcionais será
+   verificada. Decidir isso depois de ver as curvas é escolher o método pelo
+   resultado.</li>
+</ol></div>
 <h2 id="cap-14-recursos">Recursos<a class="ancora" href="#cap-14-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — orientações sobre
@@ -4762,21 +4893,7 @@ necessária antes de recomendar a incorporação."</p>
 <p>A segunda versão diz exatamente o que o estudo encontrou, informa a população à
 qual se aplica, reconhece a imprecisão e não vende o que não foi comprado. É essa
 que passa na revisão.</p>
-<div class="caixa jamovi"><div class="titulo">Mãos à obra</div><ol>
-<li><strong>Baixe o checklist CONSORT</strong> e responda item por item, anotando a página em
-   que cada um aparece no seu manuscrito. Muitas revistas exigem o checklist
-   preenchido no momento da submissão.</li>
-<li><strong>Confira cada número do texto contra a saída do programa.</strong> O erro mais
-   comum de todos é uma tabela que não bate com o texto, geralmente porque o
-   texto ficou de uma versão anterior da análise. No jamovi, salve o arquivo
-   <code>.omv</code> com todas as análises finais, e gere as tabelas a partir dele.</li>
-<li><strong>Verifique os denominadores.</strong> Todo percentual precisa dizer sobre quantos
-   casos foi calculado, e neste estudo os denominadores mudam conforme a
-   variável, por causa dos faltantes.</li>
-<li><strong>Leia o artigo do fim para o começo.</strong> A conclusão do resumo é o que mais
-   gente vai ler, e é onde o exagero costuma se esconder.</li>
-</ol></div>
-<div class="caixa revisor"><div class="titulo">O que o revisor devolve</div><p><strong>"O checklist CONSORT não foi submetido."</strong> Devolução administrativa antes
+<div class="caixa revisor"><div class="titulo">Aqui é onde o artigo é rejeitado</div><p><strong>"O checklist CONSORT não foi submetido."</strong> Devolução administrativa antes
 mesmo da revisão científica.</p>
 <p><strong>"O diagrama de fluxo está ausente ou incompleto."</strong> Precisa incluir os
 avaliados para elegibilidade e os motivos de exclusão.</p>
@@ -4850,6 +4967,22 @@ ponto do exercício é a conferência: cada valor precisa bater exatamente com o
 capítulo de origem, e a maneira segura de garantir isso é gerar todos os números
 de um único script, como o <code>analises-do-livro.py</code> faz nesta obra.</p></details>
 </div>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><ol>
+<li>Baixe o checklist da recomendação correspondente ao seu delineamento e
+   responda item por item, anotando a página do seu manuscrito. Muitas revistas
+   exigem o checklist preenchido na submissão.</li>
+<li>Confira cada número do texto contra a saída do programa. O erro mais comum de
+   todos é uma tabela que não bate com o parágrafo, porque o parágrafo ficou de
+   uma versão anterior da análise.</li>
+<li>Releia a conclusão do seu resumo ao lado do intervalo de confiança do desfecho
+   primário. Se o verbo for mais forte que o intervalo permite, troque o verbo.</li>
+<li>Verifique os denominadores: todo percentual precisa dizer sobre quantos casos
+   foi calculado, e eles mudam de tabela para tabela quando há dados faltantes.</li>
+<li>Escreva três limitações verdadeiras. Se a lista tiver apenas limitações
+   decorativas, o revisor vai desconfiar do resto do artigo.</li>
+<li>Leia o artigo do fim para o começo. A conclusão do resumo é o que mais gente
+   vai ler, e é onde o exagero costuma se esconder.</li>
+</ol></div>
 <h2 id="cap-15-recursos">Recursos<a class="ancora" href="#cap-15-recursos" aria-label="Link para esta seção">#</a></h2>
 <ul>
 <li><a href="https://www.consort-statement.org/">CONSORT Statement</a> — checklist e diagrama.</li>
@@ -4962,7 +5095,7 @@ admitindo que sua impressão clínica pode estar errada. Quem publica o interval
 de confiança está admitindo o tamanho de sua ignorância.</p>
 <p>Essa disposição de admitir vale mais do que qualquer teste deste livro. Os testes
 mudam; a disposição, não.</p>
-<div class="caixa jamovi"><div class="titulo">Mãos à obra</div><p>Uma última tarefa, e ela não é de análise:</p>
+<div class="caixa agora"><div class="titulo">O que fazer agora, no seu projeto</div><p>Uma última tarefa, e ela não é de análise:</p>
 <ol>
 <li>Pegue o seu projeto, aquele que está em andamento ou na gaveta.</li>
 <li>Percorra a lista de dez itens deste capítulo, marcando o que já está resolvido
@@ -5852,7 +5985,7 @@ comum descrito no Capítulo 15.</p></details>
 <script>
 var LIVRO_TITULO = "A Estat\u00edstica na Pesquisa Cl\u00ednica";
 var LIVRO = {"titulo": "A Estatística na Pesquisa Clínica", "subtitulo": "do problema clínico à decisão estatística", "autor": "Aldemar Araujo Castro", "local": "Maceió, AL", "ano": "2026", "url": "https://aldemararaujo.github.io/estatistica/", "repositorio": "https://github.com/aldemararaujo/estatistica", "licenca": "CC BY-NC-SA 4.0", "isbn": "em solicitação"};
-var LIVRO_CAPS = [{"id": "cap-1", "n": "1", "titulo": "A pergunta antes do número", "palavras": 1942, "parte": "Parte I — A pergunta", "exercicios": 5}, {"id": "cap-2", "n": "2", "titulo": "Da dúvida clínica à pergunta respondível", "palavras": 2008, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-3", "n": "3", "titulo": "O delineamento decide tudo", "palavras": 2092, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-4", "n": "4", "titulo": "Variáveis e desfechos", "palavras": 1876, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-5", "n": "5", "titulo": "Técnicas de amostragem", "palavras": 2449, "parte": "Parte II — Antes de coletar", "exercicios": 7}, {"id": "cap-6", "n": "6", "titulo": "Cálculo do tamanho da amostra", "palavras": 1984, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-7", "n": "7", "titulo": "Coleta, banco de dados e reprodutibilidade", "palavras": 2182, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-8", "n": "8", "titulo": "Estatística descritiva", "palavras": 2888, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-9", "n": "9", "titulo": "Estimativa e incerteza", "palavras": 2301, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-10", "n": "10", "titulo": "Teste de hipótese e valor de p", "palavras": 2211, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-11", "n": "11", "titulo": "Escolhendo o teste", "palavras": 2240, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-12", "n": "12", "titulo": "Além do bivariado: regressão e confundimento", "palavras": 2279, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-13", "n": "13", "titulo": "Testes diagnósticos", "palavras": 2208, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-14", "n": "14", "titulo": "Análise de sobrevida", "palavras": 2247, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-15", "n": "15", "titulo": "Relatar", "palavras": 1943, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-16", "n": "16", "titulo": "Considerações finais", "palavras": 1815, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-A", "n": "A", "titulo": "Primeiros passos no jamovi", "palavras": 1028, "parte": "Apêndices", "exercicios": 2}, {"id": "cap-B", "n": "B", "titulo": "Fluxogramas e checklists", "palavras": 998, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-C", "n": "C", "titulo": "Glossário", "palavras": 1163, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-D", "n": "D", "titulo": "O banco do caso condutor", "palavras": 1162, "parte": "Apêndices", "exercicios": 2}];
+var LIVRO_CAPS = [{"id": "cap-1", "n": "1", "titulo": "A pergunta antes do número", "palavras": 1950, "parte": "Parte I — A pergunta", "exercicios": 5}, {"id": "cap-2", "n": "2", "titulo": "Da dúvida clínica à pergunta respondível", "palavras": 2020, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-3", "n": "3", "titulo": "O delineamento decide tudo", "palavras": 2111, "parte": "Parte I — A pergunta", "exercicios": 6}, {"id": "cap-4", "n": "4", "titulo": "Variáveis e desfechos", "palavras": 1973, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-5", "n": "5", "titulo": "Técnicas de amostragem", "palavras": 2539, "parte": "Parte II — Antes de coletar", "exercicios": 7}, {"id": "cap-6", "n": "6", "titulo": "Cálculo do tamanho da amostra", "palavras": 2105, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-7", "n": "7", "titulo": "Coleta, banco de dados e reprodutibilidade", "palavras": 2291, "parte": "Parte II — Antes de coletar", "exercicios": 6}, {"id": "cap-8", "n": "8", "titulo": "Estatística descritiva", "palavras": 2980, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-9", "n": "9", "titulo": "Estimativa e incerteza", "palavras": 2388, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-10", "n": "10", "titulo": "Teste de hipótese e valor de p", "palavras": 2309, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-11", "n": "11", "titulo": "Escolhendo o teste", "palavras": 2343, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-12", "n": "12", "titulo": "Além do bivariado: regressão e confundimento", "palavras": 2395, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-13", "n": "13", "titulo": "Testes diagnósticos", "palavras": 2303, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-14", "n": "14", "titulo": "Análise de sobrevida", "palavras": 2341, "parte": "Parte III — Diante dos dados", "exercicios": 6}, {"id": "cap-15", "n": "15", "titulo": "Relatar", "palavras": 1966, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-16", "n": "16", "titulo": "Considerações finais", "palavras": 1812, "parte": "Parte IV — Depois da análise", "exercicios": 6}, {"id": "cap-A", "n": "A", "titulo": "Primeiros passos no jamovi", "palavras": 1028, "parte": "Apêndices", "exercicios": 2}, {"id": "cap-B", "n": "B", "titulo": "Fluxogramas e checklists", "palavras": 998, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-C", "n": "C", "titulo": "Glossário", "palavras": 1163, "parte": "Apêndices", "exercicios": 0}, {"id": "cap-D", "n": "D", "titulo": "O banco do caso condutor", "palavras": 1162, "parte": "Apêndices", "exercicios": 2}];
 var GLOSSARIO = {"Amostragem consecutiva": "Incluir todos os elegíveis, na ordem em que aparecem, até completar o tamanho previsto. É a melhor das técnicas não probabilísticas. Capítulo 5.", "Análise por intenção de tratar": "Analisar cada participante no grupo em que foi alocado, independentemente do que recebeu. Capítulos 7 e 15.", "Área sob a curva ROC": "Resumo da capacidade de discriminação de um teste, entre 0,5, que é o acaso, e 1,0, que é a separação perfeita. Capítulo 13.", "Bloco permutado": "Técnica de randomização que mantém os grupos com tamanhos parecidos ao longo do recrutamento. Capítulo 3.", "Censura": "Situação em que se sabe apenas que o evento não ocorreu até certo momento. Capítulo 14.", "Cegamento": "Manter desconhecida a alocação, para paciente, profissional, avaliador ou analista. Não é tudo ou nada: pergunte sempre quem foi cegado. Capítulo 3.", "Confundimento": "Distorção causada por uma variável associada tanto à exposição quanto ao desfecho, e que não está no caminho causal entre elas. Capítulo 12.", "Confundimento por indicação": "Confundimento típico dos estudos observacionais de tratamento: quem recebe a intervenção é quem tem pior prognóstico. Capítulos 3 e 12.", "Confundimento residual": "O que sobra depois do ajuste, por conta do que não foi medido. Capítulo 12.", "CONSORT": "Recomendação internacional para relato de ensaios clínicos randomizados. Capítulo 15.", "Cotas": "Técnica não probabilística em que se define quantos participantes de cada subgrupo entram, preenchendo cada vaga por conveniência. Parece estratificada e não é: falta o sorteio. Capítulo 5.", "d de Cohen": "Diferença entre duas médias expressa em desvios padrão. Capítulo 9.", "Desfecho composto": "Reunião de vários eventos em um único desfecho. Capítulo 4.", "Desfecho primário": "O desfecho que define a conclusão do estudo e o cálculo do tamanho da amostra. É um só. Capítulo 4.", "Desfecho substituto": "Desfecho medido no lugar do que interessa, por ser mais rápido ou fácil. Capítulo 4.", "Desvio padrão": "Medida de dispersão dos dados em torno da média. Descreve os participantes. Capítulo 8.", "Dicotomizar": "Transformar variável contínua em duas categorias. Perde informação e poder. Capítulo 4.", "Efeito teto": "Situação em que boa parte da amostra atinge o limite superior da escala, que deixa de discriminar. Capítulos 8 e 4.", "Equipoise": "Incerteza genuína sobre qual braço é superior, condição ética para randomizar. Capítulo 2.", "Erro padrão": "Medida da precisão com que um parâmetro foi estimado. Encolhe com o tamanho da amostra. Não confundir com desvio padrão. Capítulos 8 e 9.", "Especificidade": "Proporção dos que não têm a condição e que o teste classifica como negativos. Capítulo 13.", "FINER": "Filtro de cinco critérios para julgar uma pergunta de pesquisa: exequível, interessante, nova, ética e relevante. Capítulo 2.", "Hipótese nula": "A hipótese de ausência de efeito, que o teste estatístico supõe verdadeira para calcular o valor de p. Capítulo 10.", "Intervalo de confiança": "Faixa de valores compatíveis com os dados observados. Sua largura mede a incerteza que restou. Capítulo 9.", "Intervalo interquartil": "Distância entre o primeiro e o terceiro quartil. Acompanha a mediana. Capítulo 8.", "Kaplan-Meier": "Método de estimar a curva de tempo até o evento na presença de censura. Capítulo 14.", "Log-rank": "Teste que compara duas ou mais curvas de sobrevida. Capítulo 14.", "McNemar": "Teste para proporções pareadas, que usa apenas os discordantes. Capítulo 11.", "Mediador": "Variável que está no caminho causal entre exposição e desfecho. Não deve entrar no ajuste. Capítulo 12.", "Marco amostral": "A lista completa da população a partir da qual se sorteia. Sem ele não há amostragem probabilística, e em pesquisa clínica ele quase nunca existe. Capítulo 5.", "Mediana": "Valor que divide a amostra ordenada ao meio. Capítulo 8.", "Número necessário para tratar": "Inverso da diferença absoluta de risco: quantos pacientes é preciso tratar para produzir um desfecho favorável adicional. Capítulo 9.", "Poder": "Probabilidade de detectar um efeito, se ele existir. Calcula-se antes. Capítulo 6.", "Poder observado": "Poder recalculado a partir do efeito observado. Não informa nada além do valor de p. Capítulo 10.", "Qui-quadrado": "Teste que compara frequências observadas com as esperadas sob a hipótese de ausência de associação. Capítulo 10.", "Randomização": "Sorteio que define quem vai para qual grupo, entre os já incluídos. Protege a validade interna. Não confundir com amostragem aleatória. Capítulos 3 e 5.", "Razão de chances": "Razão entre as chances de desfecho nos dois grupos. É o que a regressão logística estima. Capítulos 9 e 12.", "Razão de riscos": "Razão entre taxas instantâneas de ocorrência do evento. É o que o modelo de Cox estima. Não é risco relativo. Capítulo 14.", "Razão de verossimilhança": "Quanto um resultado de teste é mais provável em quem tem a condição do que em quem não tem. Permite levar o teste para populações de prevalência diferente. Capítulo 13.", "Risco relativo": "Razão entre as proporções de desfecho nos dois grupos. Capítulo 9.", "Saturação teórica": "Critério de parada da amostragem qualitativa: o ponto a partir do qual novas entrevistas deixam de trazer conteúdo novo. Faz, na pesquisa qualitativa, o papel que o cálculo do tamanho da amostra faz na quantitativa. Capítulo 5.", "Sensibilidade": "Proporção dos que têm a condição e que o teste classifica como positivos. Capítulo 13.", "Sigilo de alocação": "Impedir que quem recruta conheça a próxima alocação. Diferente de cegamento, e ainda mais importante. Capítulo 3.", "STROBE": "Recomendação para relato de estudos observacionais. Capítulo 15.", "Validade externa": "Possibilidade de generalizar o resultado para outras populações. Capítulo 5.", "Validade interna": "Confiança de que a diferença observada se deve à intervenção e não a viés. Capítulos 3 e 5.", "Valor de p": "Probabilidade de observar um resultado tão extremo quanto o observado, supondo verdadeira a hipótese nula. Não é a probabilidade de a hipótese ser verdadeira. Capítulo 10.", "Valor preditivo": "Proporção de acertos entre os que o teste classificou como positivos, ou como negativos. Depende da prevalência. Capítulo 13.", "Viés de aferição": "Distorção na medida do desfecho. Capítulo 3.", "Viés de atrito": "Distorção causada por perdas de seguimento. Capítulos 3 e 7.", "Viés de publicação": "Tendência de estudos positivos serem publicados mais que os negativos. Capítulos 2 e 16.", "Viés de seleção": "Distorção na definição de quem entra no estudo ou em cada grupo. Capítulos 3 e 5.", "Wilson": "Método de calcular intervalo de confiança de proporção que não produz limites impossíveis. Preferível ao de Wald. Capítulo 9."};
 var PALAVRAS_POR_MINUTO = 200;
 /* ------------------------------------------------------------------

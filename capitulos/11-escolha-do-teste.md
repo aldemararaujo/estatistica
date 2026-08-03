@@ -259,6 +259,18 @@ aproximadamente simétrico e a redução de área tem cauda, então relate Spear
 os dois coeficientes.
 :::
 
+::: agora
+1. Faça uma tabela de duas colunas com todos os seus desfechos e, ao lado de cada
+   um, o teste que você vai usar. Essa tabela é o rascunho do seu plano de
+   análise, e ela precisa existir antes da coleta terminar.
+2. Verifique se algum desfecho medido duas vezes na mesma pessoa está sendo
+   tratado como se fossem dois grupos independentes. É o erro que mais custa
+   poder estatístico.
+3. Escreva o parágrafo de métodos estatísticos do seu artigo agora, com base
+   nessa tabela. Escrever depois dos resultados é como a troca de teste acontece
+   sem que ninguém perceba.
+:::
+
 ## Recursos
 
 - [jamovi](https://www.jamovi.org/) — todos os testes deste capítulo estão nos

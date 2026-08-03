@@ -142,21 +142,6 @@ A segunda versão diz exatamente o que o estudo encontrou, informa a população
 qual se aplica, reconhece a imprecisão e não vende o que não foi comprado. É essa
 que passa na revisão.
 
-::: jamovi Mãos à obra
-1. **Baixe o checklist CONSORT** e responda item por item, anotando a página em
-   que cada um aparece no seu manuscrito. Muitas revistas exigem o checklist
-   preenchido no momento da submissão.
-2. **Confira cada número do texto contra a saída do programa.** O erro mais
-   comum de todos é uma tabela que não bate com o texto, geralmente porque o
-   texto ficou de uma versão anterior da análise. No jamovi, salve o arquivo
-   `.omv` com todas as análises finais, e gere as tabelas a partir dele.
-3. **Verifique os denominadores.** Todo percentual precisa dizer sobre quantos
-   casos foi calculado, e neste estudo os denominadores mudam conforme a
-   variável, por causa dos faltantes.
-4. **Leia o artigo do fim para o começo.** A conclusão do resumo é o que mais
-   gente vai ler, e é onde o exagero costuma se esconder.
-:::
-
 ::: revisor
 **"O checklist CONSORT não foi submetido."** Devolução administrativa antes
 mesmo da revisão científica.
@@ -257,6 +242,23 @@ redução de área em doze semanas, esta última com a ressalva do efeito teto. 
 ponto do exercício é a conferência: cada valor precisa bater exatamente com o
 capítulo de origem, e a maneira segura de garantir isso é gerar todos os números
 de um único script, como o `analises-do-livro.py` faz nesta obra.
+:::
+
+::: agora
+1. Baixe o checklist da recomendação correspondente ao seu delineamento e
+   responda item por item, anotando a página do seu manuscrito. Muitas revistas
+   exigem o checklist preenchido na submissão.
+2. Confira cada número do texto contra a saída do programa. O erro mais comum de
+   todos é uma tabela que não bate com o parágrafo, porque o parágrafo ficou de
+   uma versão anterior da análise.
+3. Releia a conclusão do seu resumo ao lado do intervalo de confiança do desfecho
+   primário. Se o verbo for mais forte que o intervalo permite, troque o verbo.
+4. Verifique os denominadores: todo percentual precisa dizer sobre quantos casos
+   foi calculado, e eles mudam de tabela para tabela quando há dados faltantes.
+5. Escreva três limitações verdadeiras. Se a lista tiver apenas limitações
+   decorativas, o revisor vai desconfiar do resto do artigo.
+6. Leia o artigo do fim para o começo. A conclusão do resumo é o que mais gente
+   vai ler, e é onde o exagero costuma se esconder.
 :::
 
 ## Recursos

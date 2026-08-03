@@ -295,6 +295,17 @@ confiança quantifica, e é também o argumento mais concreto a favor de calcula
 tamanho da amostra antes de começar, assunto do próximo capítulo.
 :::
 
+::: agora
+1. Escreva seus critérios de inclusão e exclusão em duas colunas e, ao lado de
+   cada exclusão, anote que parcela de pacientes reais você está deixando de
+   fora. Essa anotação é o rascunho das suas limitações.
+2. Descreva o recrutamento com local, período e técnica de amostragem, usando o
+   nome correto da técnica.
+3. Combine, desde já, o registro do número de pacientes **avaliados para
+   elegibilidade** e dos motivos de exclusão. Esse número não existe no banco e
+   se perde para sempre se ninguém anotar na hora.
+:::
+
 ## Recursos
 
 - [Simulador de amostragem](https://aldemararaujo.github.io/amostra/) — mostra,

@@ -324,6 +324,17 @@ importação, ou que a análise esteja incluindo os participantes com dado ausen
 de maneira diferente da usada aqui.
 :::
 
+::: agora
+1. Monte a Tabela 1 do seu estudo, mesmo que com os dados parciais que você já
+   tem. Ela revela cedo quais variáveis faltam na ficha de coleta.
+2. Para cada variável contínua, olhe o histograma e decida entre média e mediana.
+   Anote a decisão: o revisor vai perguntar, e "porque o Shapiro deu 0,03" não é
+   resposta.
+3. Se a sua Tabela 1 tem coluna de valor de p e o estudo é randomizado, apague a
+   coluna agora.
+4. Escreva, em cada tabela, o que está entre parênteses.
+:::
+
 ## Recursos
 
 - [CONSORT Statement](https://www.consort-statement.org/) — a recomendação para

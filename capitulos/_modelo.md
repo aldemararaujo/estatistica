@@ -52,13 +52,21 @@ padrão, e portanto não intimida quem não quer vê-la.
 :::
 
 ::: revisor
-BLOCO 4. Os erros mais comuns do tópico, na forma como o revisor de periódico
-os devolve. É a seção que nenhum manual traduzido tem.
+BLOCO 4. Os erros mais comuns do tópico, na forma como o parecerista de um
+periódico os devolve. É a seção que nenhum manual traduzido tem. O título padrão
+é "Aqui é onde o artigo é rejeitado"; use um título próprio quando o capítulo
+tratar de falhas anteriores à submissão, como no Capítulo 1.
+:::
+
+::: agora
+BLOCO 5. De duas a cinco ações concretas, em lista numerada, aplicadas ao projeto
+do **próprio leitor**, e não ao caso condutor. É o que transforma leitura em
+trabalho, e o único bloco do livro escrito em segunda pessoa.
 :::
 
 ## Exercícios
 
-BLOCO 5. De cinco a oito exercícios, todos com gabarito comentado, que fica
+BLOCO 6. De cinco a oito exercícios, todos com gabarito comentado, que fica
 colapsado até o leitor pedir.
 
 ::: exercicio 1
@@ -70,7 +78,7 @@ Resposta comentada. Explique por que a resposta é essa, não apenas qual é.
 
 ## Recursos
 
-BLOCO 6. Links verificados, com a data da verificação anotada em `recursos.md`.
+BLOCO 7. Links verificados, com a data da verificação anotada em `recursos.md`.
 
 - [Nome do recurso](https://exemplo.org) — o que o leitor encontra ali.
 

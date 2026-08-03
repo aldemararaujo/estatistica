@@ -135,24 +135,6 @@ Nesses casos a coorte é o melhor disponível, e o que se exige dela é honestid
 medir os confundidores conhecidos, ajustar como o Capítulo 12 ensina, discutir o
 confundimento residual e escrever "associação", não "causa".
 
-::: jamovi Mãos à obra
-Também aqui a tarefa não é estatística, e sim documental:
-
-1. **Escreva o delineamento em uma frase completa**, com todos os adjetivos que
-   ele merece: "ensaio clínico randomizado, paralelo, 1:1, multicêntrico, com
-   avaliador de desfecho cego". Cada adjetivo dessa frase é um item que o revisor
-   vai procurar.
-2. **Descreva a geração da sequência aleatória e o sigilo da alocação**
-   separadamente. São dois itens distintos do CONSORT e quase sempre aparecem
-   fundidos em uma frase vaga.
-3. **Liste quem foi cegado**, papel por papel, e diga o que se fez quando o
-   cegamento era impossível.
-4. **Baixe o checklist CONSORT** e responda a ele antes de coletar o primeiro
-   dado. Ele foi feito para relatar, e usá-lo como roteiro de planejamento é a
-   melhor maneira de não descobrir uma falha estrutural quando não houver mais
-   conserto.
-:::
-
 ::: revisor
 **"O delineamento não está declarado no título nem no resumo."** Uma palavra
 resolve: randomizado, coorte, transversal.
@@ -258,6 +240,23 @@ mesma unidade se parecem entre si, o que reduz a informação efetiva: a anális
 precisa levar em conta essa correlação intraconglomerado, e o cálculo do tamanho
 da amostra exige inflar o número de participantes pelo efeito de delineamento.
 Ignorar isso produz intervalos de confiança falsamente estreitos.
+:::
+
+::: agora
+1. Escreva o delineamento do seu estudo em uma frase, com todos os adjetivos que
+   ele merece. Essa frase vai para o título e para o resumo.
+2. Se o seu estudo for observacional e comparar tratamentos, liste por escrito
+   quem recebe cada um na prática e por quê. Essa lista é o seu confundimento por
+   indicação, e ela precisa aparecer nas limitações.
+3. Se for randomizado, descreva em parágrafos separados a geração da sequência e
+   o sigilo da alocação. São dois itens distintos e quase sempre aparecem
+   fundidos em uma frase vaga.
+4. Liste quem será cegado, papel por papel, e o que você fará onde o cegamento
+   for impossível.
+5. **Baixe o checklist da recomendação de relato do seu delineamento e responda a
+   ele antes de coletar o primeiro dado.** Ele foi feito para relatar, e usá-lo
+   como roteiro de planejamento é a melhor maneira de não descobrir uma falha
+   estrutural quando não houver mais conserto.
 :::
 
 ## Recursos
