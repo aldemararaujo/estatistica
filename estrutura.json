@@ -2,16 +2,17 @@
   "titulo": "A Estatística na Pesquisa Clínica",
   "subtitulo": "do problema clínico à decisão estatística",
   "autor": "Aldemar Araujo Castro",
-  "lattes": "http://lattes.cnpq.br/2259022333178681",
-  "google": "http://bit.ly/aldemarh",
+  "lattes": "https://lattes.cnpq.br/2259022333178681",
+  "google": "https://scholar.google.com/citations?user=7Yf0FbkAAAAJ",
   "orcid": "https://orcid.org/0000-0003-0212-5950",
   "contato": "aldemararaujocastro@gmail.com",
   "local": "Maceió, AL",
   "ano": "2026",
-  "versao": "1.2",
+  "versao": "1.3",
   "isbn": "em solicitação",
   "licenca": "CC BY-NC-SA 4.0",
   "licenca_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br",
+  "links_conferidos": "04/08/2026",
   "url": "https://aldemararaujo.github.io/estatistica/",
   "repositorio": "https://github.com/aldemararaujo/estatistica",
   "partes": [
@@ -19,50 +20,156 @@
       "titulo": "Parte I — A pergunta",
       "resumo": "Por que existe estatística na pesquisa com seres humanos.",
       "capitulos": [
-        {"n": 1, "arquivo": "01-por-que.md", "titulo": "A pergunta antes do número", "guia": "Por que utilizar a matemática aplicada em pesquisa?"},
-        {"n": 2, "arquivo": "02-pergunta.md", "titulo": "Da dúvida clínica à pergunta respondível", "guia": "O que exatamente eu quero saber?"},
-        {"n": 3, "arquivo": "03-delineamento.md", "titulo": "O delineamento decide tudo", "guia": "Que estudo responde à minha pergunta?"}
+        {
+          "n": 1,
+          "arquivo": "01-por-que.md",
+          "titulo": "A pergunta antes do número",
+          "guia": "Por que utilizar a matemática aplicada em pesquisa?"
+        },
+        {
+          "n": 2,
+          "arquivo": "02-pergunta.md",
+          "titulo": "Da dúvida clínica à pergunta respondível",
+          "guia": "O que exatamente eu quero saber?"
+        },
+        {
+          "n": 3,
+          "arquivo": "03-delineamento.md",
+          "titulo": "O delineamento decide tudo",
+          "guia": "Que estudo responde à minha pergunta?"
+        }
       ]
     },
     {
       "titulo": "Parte II — Antes de coletar",
       "resumo": "As decisões que se tomam enquanto ainda dá tempo de mudar.",
       "capitulos": [
-        {"n": 4, "arquivo": "04-variaveis.md", "titulo": "Variáveis e desfechos", "guia": "O que eu vou medir?"},
-        {"n": 5, "arquivo": "05-amostragem.md", "titulo": "Técnicas de amostragem", "guia": "Minha amostra representa quem?"},
-        {"n": 6, "arquivo": "06-tamanho-amostra.md", "titulo": "Cálculo do tamanho da amostra", "guia": "Quantos indivíduos vou precisar estudar?"},
-        {"n": 7, "arquivo": "07-coleta.md", "titulo": "Coleta, banco de dados e reprodutibilidade", "guia": "Como organizo meus dados?"}
+        {
+          "n": 4,
+          "arquivo": "04-variaveis.md",
+          "titulo": "Variáveis e desfechos",
+          "guia": "O que eu vou medir?"
+        },
+        {
+          "n": 5,
+          "arquivo": "05-amostragem.md",
+          "titulo": "Técnicas de amostragem",
+          "guia": "Minha amostra representa quem?"
+        },
+        {
+          "n": 6,
+          "arquivo": "06-tamanho-amostra.md",
+          "titulo": "Cálculo do tamanho da amostra",
+          "guia": "Quantos indivíduos vou precisar estudar?"
+        },
+        {
+          "n": 7,
+          "arquivo": "07-coleta.md",
+          "titulo": "Coleta, banco de dados e reprodutibilidade",
+          "guia": "Como organizo meus dados?"
+        }
       ]
     },
     {
       "titulo": "Parte III — Diante dos dados",
       "resumo": "A análise propriamente dita, do resumo à modelagem.",
       "capitulos": [
-        {"n": 8, "arquivo": "08-descritiva.md", "titulo": "Estatística descritiva", "guia": "Como resumo meus resultados?"},
-        {"n": 9, "arquivo": "09-intervalo-confianca.md", "titulo": "Estimativa e incerteza", "guia": "Qual o grau de certeza do meu resultado?"},
-        {"n": 10, "arquivo": "10-valor-p.md", "titulo": "Teste de hipótese e valor de p", "guia": "O acaso é o responsável pelos meus resultados?"},
-        {"n": 11, "arquivo": "11-escolha-do-teste.md", "titulo": "Escolhendo o teste", "guia": "Qual teste eu uso?"},
-        {"n": 12, "arquivo": "12-regressao.md", "titulo": "Além do bivariado: regressão e confundimento", "guia": "E as outras variáveis?"},
-        {"n": 13, "arquivo": "13-diagnostico.md", "titulo": "Testes diagnósticos", "guia": "Este exame serve?"},
-        {"n": 14, "arquivo": "14-sobrevida.md", "titulo": "Análise de sobrevida", "guia": "Quanto tempo até o desfecho?"}
+        {
+          "n": 8,
+          "arquivo": "08-descritiva.md",
+          "titulo": "Estatística descritiva",
+          "guia": "Como resumo meus resultados?"
+        },
+        {
+          "n": 9,
+          "arquivo": "09-intervalo-confianca.md",
+          "titulo": "Estimativa e incerteza",
+          "guia": "Qual o grau de certeza do meu resultado?"
+        },
+        {
+          "n": 10,
+          "arquivo": "10-valor-p.md",
+          "titulo": "Teste de hipótese e valor de p",
+          "guia": "O acaso é o responsável pelos meus resultados?"
+        },
+        {
+          "n": 11,
+          "arquivo": "11-escolha-do-teste.md",
+          "titulo": "Escolhendo o teste",
+          "guia": "Qual teste eu uso?"
+        },
+        {
+          "n": 12,
+          "arquivo": "12-regressao.md",
+          "titulo": "Além do bivariado: regressão e confundimento",
+          "guia": "E as outras variáveis?"
+        },
+        {
+          "n": 13,
+          "arquivo": "13-diagnostico.md",
+          "titulo": "Testes diagnósticos",
+          "guia": "Este exame serve?"
+        },
+        {
+          "n": 14,
+          "arquivo": "14-sobrevida.md",
+          "titulo": "Análise de sobrevida",
+          "guia": "Quanto tempo até o desfecho?"
+        }
       ]
     },
     {
       "titulo": "Parte IV — Depois da análise",
       "resumo": "Do resultado ao artigo publicado.",
       "capitulos": [
-        {"n": 15, "arquivo": "15-relatar.md", "titulo": "Relatar", "guia": "Como apresento isso sem levar rejeição?"},
-        {"n": 16, "arquivo": "16-consideracoes-finais.md", "titulo": "Considerações finais", "guia": "E agora?"}
+        {
+          "n": 15,
+          "arquivo": "15-relatar.md",
+          "titulo": "Relatar",
+          "guia": "Como apresento isso sem levar rejeição?"
+        },
+        {
+          "n": 16,
+          "arquivo": "16-consideracoes-finais.md",
+          "titulo": "Considerações finais",
+          "guia": "E agora?"
+        }
       ]
     },
     {
       "titulo": "Apêndices",
       "resumo": "O que se consulta, não o que se lê de ponta a ponta.",
       "capitulos": [
-        {"n": "A", "arquivo": "A-jamovi.md", "titulo": "Primeiros passos no jamovi", "guia": "Por onde começo no programa?"},
-        {"n": "B", "arquivo": "B-checklists.md", "titulo": "Fluxogramas e listas de verificação", "guia": "Esqueci alguma coisa?"},
-        {"n": "C", "arquivo": "C-glossario.md", "titulo": "Glossário", "guia": "O que quer dizer essa palavra?"},
-        {"n": "D", "arquivo": "D-banco.md", "titulo": "O banco do caso condutor", "guia": "Que dados são esses?"}
+        {
+          "n": "A",
+          "arquivo": "A-jamovi.md",
+          "titulo": "Primeiros passos no jamovi",
+          "guia": "Por onde começo no programa?"
+        },
+        {
+          "n": "B",
+          "arquivo": "B-checklists.md",
+          "titulo": "Fluxogramas e listas de verificação",
+          "guia": "Esqueci alguma coisa?"
+        },
+        {
+          "n": "C",
+          "arquivo": "C-glossario.md",
+          "titulo": "Glossário",
+          "guia": "O que quer dizer essa palavra?"
+        },
+        {
+          "n": "D",
+          "arquivo": "D-banco.md",
+          "titulo": "O banco do caso condutor",
+          "guia": "Que dados são esses?"
+        },
+        {
+          "n": "E",
+          "arquivo": "E-referencias.md",
+          "titulo": "Referências comentadas",
+          "guia": "O que ler depois deste livro?"
+        }
       ]
     }
   ]

@@ -690,6 +690,19 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   .cabecalho-cap h1 { font-size: 1.6rem; }
 }
 
+/* ------------------------------------------------- movimento reduzido */
+
+/* Quem pede menos movimento no sistema tem enxaqueca, labirintite ou
+   sensibilidade vestibular: a pagina para de animar, e nada mais muda. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ----------------------------------------------------------- impressao */
 
 @media print {

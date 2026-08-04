@@ -333,7 +333,8 @@ os dois coeficientes.
 
 - [jamovi](https://www.jamovi.org/) — todos os testes deste capítulo estão nos
   menus Frequencies, T-Tests, ANOVA e Regression.
-- [Guidelines for reporting statistics](https://journals.physiology.org/doi/full/10.1152/japplphysiol.00513.2004)
+- Curran-Everett D, Benos DJ. [*Guidelines for reporting statistics in journals
+  published by the American Physiological Society*](https://doi.org/10.1152/japplphysiol.00513.2004)
   — orientações sobre descrever a análise nos métodos.
 - [EQUATOR Network](https://www.equator-network.org/) — reúne as recomendações de
   relato para cada tipo de estudo, e cada uma delas tem um item sobre métodos

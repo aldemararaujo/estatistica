@@ -49,6 +49,24 @@ def para_html(texto):
     return md.convert(texto.strip())
 
 
+def expande_tokens(texto, livro):
+    """Troca {{repo}}, {{blob}} e {{raw}} pelos endereços do repositório.
+
+    Existe para que o Apendice D possa linkar os dados e os scripts sem repetir
+    o endereco do GitHub em cada linha: quem mudar de repositorio muda so o
+    estrutura.json.
+
+        {{repo}}  raiz do repositorio, para navegar
+        {{blob}}  arquivo exibido na tela do GitHub, para ler
+        {{raw}}   arquivo cru, para baixar e abrir no jamovi
+    """
+    repo = livro.get("repositorio", "").rstrip("/")
+    bruto = repo.replace("https://github.com/", "https://raw.githubusercontent.com/")
+    return (texto.replace("{{repo}}", repo)
+                 .replace("{{blob}}", f"{repo}/blob/main")
+                 .replace("{{raw}}", f"{bruto}/main"))
+
+
 def envolve_tabelas(bruto):
     """Toda tabela rola sozinha: a pagina nunca rola na horizontal."""
     return re.sub(r"(<table>.*?</table>)", r'<div class="rolagem">\1</div>', bruto, flags=re.S)
@@ -150,7 +168,7 @@ CALCULADORAS = {
     <label>Perdas previstas (%)
       <input type="number" data-campo="perdas" value="10" min="0" max="50" step="1"></label>
   </div>
-  <div class="calc-saida" data-saida></div>
+  <div class="calc-saida" role="status" aria-live="polite" data-saida></div>
 </div>""",
     "intervalo": """
 <div class="calc" data-calc="intervalo">
@@ -165,7 +183,7 @@ CALCULADORAS = {
     <label>Total no grupo controle
       <input type="number" data-campo="n2" value="92" min="1" step="1"></label>
   </div>
-  <div class="calc-saida" data-saida></div>
+  <div class="calc-saida" role="status" aria-live="polite" data-saida></div>
 </div>""",
     "fagan": """
 <div class="calc" data-calc="fagan">
@@ -178,7 +196,7 @@ CALCULADORAS = {
     <label>Especificidade (%)
       <input type="number" data-campo="esp" value="80" min="0.1" max="99.9" step="0.1"></label>
   </div>
-  <div class="calc-saida" data-saida></div>
+  <div class="calc-saida" role="status" aria-live="polite" data-saida></div>
 </div>""",
 }
 
@@ -301,7 +319,7 @@ def render_quiz(bloco, prefixo):
             f'<span class="quiz-resumo">{len(perguntas)} perguntas · '
             f'responda sem consultar o capítulo</span></summary>'
             f'<div class="quiz-corpo"><ol class="quiz-perguntas">{"".join(itens)}</ol>'
-            f'<div class="quiz-placar" hidden></div>'
+            f'<div class="quiz-placar" role="status" aria-live="polite" hidden></div>'
             f'<div class="quiz-acoes" hidden>'
             f'<button type="button" class="quiz-refazer">Refazer o quiz</button>'
             f'<button type="button" class="quiz-refazer-erros">Refazer só as que errei</button>'
@@ -363,7 +381,7 @@ def numero(n):
     return f"{n:,}".replace(",", ".")
 
 
-def painel_numeros(paineis, meta, glossario, palavras_total):
+def painel_numeros(paineis, meta, glossario, palavras_total, livro):
     """Monta o quadro 'O livro em números', na abertura.
 
     Tudo e contado a partir do conteudo ja renderizado, para que os numeros
@@ -412,7 +430,10 @@ def painel_numeros(paineis, meta, glossario, palavras_total):
         (numero(len(glossario)), "verbetes no glossário",
          "com definição ao passar o cursor sobre o termo"),
         (numero(len(set(re.findall(r'href="(https?://[^"]+)"', corpo)))), "links externos",
-         "verificados um a um, com data de conferência"),
+         ("conferidos um a um, e os DOIs contra a Crossref, em "
+          + html.escape(livro["links_conferidos"])
+          if livro.get("links_conferidos")
+          else "conferidos um a um, e os DOIs contra a Crossref")),
         (numero(participantes), "participantes simulados",
          f"em {bancos} bancos de dados abertos, somando {variaveis} variáveis"),
     ]
@@ -472,7 +493,7 @@ def construir():
             cid = f"cap-{cap['n']}"
             arquivo = CAPITULOS / cap["arquivo"]
             existe = arquivo.exists()
-            fonte = arquivo.read_text(encoding="utf-8") if existe else ""
+            fonte = expande_tokens(arquivo.read_text(encoding="utf-8"), livro) if existe else ""
             palavras = len(fonte.split())
 
             sumario.append(
@@ -529,7 +550,8 @@ def construir():
                 paineis[j] = painel[: -len("</article>")] + "".join(nav) + "</article>"
 
     apresentacao = CAPITULOS / "00-apresentacao.md"
-    texto_capa = render(apresentacao.read_text(encoding="utf-8"), "capa") if apresentacao.exists() else ""
+    texto_capa = render(expande_tokens(apresentacao.read_text(encoding="utf-8"), livro),
+                        "capa") if apresentacao.exists() else ""
     glossario = extrai_glossario(CAPITULOS / "C-glossario.md")
 
     capa = (
@@ -567,7 +589,52 @@ def construir():
     # e substitui o marcador deixado na capa.
     total_palavras = sum(p for _, _, p, existe in relatorio if existe)
     paineis[0] = paineis[0].replace(
-        "<!--NUMEROS-->", painel_numeros(paineis[1:], meta, glossario, total_palavras))
+        "<!--NUMEROS-->", painel_numeros(paineis[1:], meta, glossario, total_palavras, livro))
+
+    # ficha legivel por maquina: e o que permite que buscadores e agregadores
+    # academicos tratem a pagina como livro, e nao como uma pagina qualquer
+    ficha_schema = {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": livro["titulo"],
+        "alternateName": f'{livro["titulo"]}: {livro["subtitulo"]}',
+        "inLanguage": "pt-BR",
+        "bookFormat": "https://schema.org/EBook",
+        "numberOfPages": round(total_palavras / 450),
+        "datePublished": date.today().isoformat(),
+        "version": livro.get("versao", "1.0"),
+        "url": livro["url"],
+        "image": f'{livro["url"]}compartilhar.png',
+        "license": livro["licenca_url"],
+        "isAccessibleForFree": True,
+        "genre": "Bioestatística",
+        "author": {
+            "@type": "Person",
+            "name": livro["autor"],
+            "email": livro["contato"],
+            "identifier": livro["orcid"],
+            "sameAs": [livro["orcid"], livro["lattes"], livro["google"]],
+        },
+        "publisher": {"@type": "Person", "name": livro["autor"]},
+        "hasPart": [
+            {"@type": "Chapter", "name": c["titulo"], "position": i,
+             "url": f'{livro["url"]}#{c["id"]}'}
+            for i, c in enumerate(meta, 1)
+        ],
+    }
+    if not livro["isbn"].lower().startswith("em "):
+        ficha_schema["isbn"] = livro["isbn"]
+
+    # favicon embutido: um data URI mantem a promessa de arquivo unico, sem
+    # nenhuma requisicao a servidor
+    favicon = (
+        "data:image/svg+xml,"
+        "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
+        "%3Crect width='32' height='32' rx='6' fill='%230b5c73'/%3E"
+        "%3Crect x='7' y='17' width='4' height='9' fill='%23fff'/%3E"
+        "%3Crect x='14' y='12' width='4' height='14' fill='%23fff'/%3E"
+        "%3Crect x='21' y='6' width='4' height='20' fill='%23fff'/%3E"
+        "%3C/svg%3E")
 
     # o que aparece quando alguem manda o endereco do livro por mensagem
     descricao = (
@@ -586,6 +653,7 @@ def construir():
 <meta name="author" content="{html.escape(livro["autor"])}">
 <meta name="description" content="{html.escape(descricao)}">
 <link rel="canonical" href="{livro["url"]}">
+<link rel="icon" href="{favicon}">
 
 <meta property="og:type" content="book">
 <meta property="og:locale" content="pt_BR">
@@ -602,6 +670,10 @@ def construir():
 <meta name="twitter:title" content="{html.escape(livro["titulo"])}">
 <meta name="twitter:description" content="{html.escape(descricao)}">
 <meta name="twitter:image" content="{livro["url"]}compartilhar.png">
+
+<script type="application/ld+json">
+{json.dumps(ficha_schema, ensure_ascii=False, indent=1)}
+</script>
 <style>
 {css}
 </style>
@@ -629,7 +701,7 @@ def construir():
 
   <input id="busca" type="search" placeholder="Buscar no livro inteiro (tecla /)"
          aria-label="Buscar no livro inteiro" autocomplete="off">
-  <div id="resultados-busca" hidden></div>
+  <div id="resultados-busca" role="status" aria-live="polite" hidden></div>
 
   <div id="lista-capitulos">
   {"".join(sumario)}

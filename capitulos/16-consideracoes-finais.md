@@ -280,8 +280,8 @@ de p da Tabela 1 por uma coluna de diferença com intervalo de confiança.
 
 ## Recursos
 
-- [ASA Statement on p-Values](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108)
-  e [Moving to a World Beyond "p < 0.05"](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913).
+- [ASA Statement on p-Values](https://doi.org/10.1080/00031305.2016.1154108)
+  e [Moving to a World Beyond "p < 0.05"](https://doi.org/10.1080/00031305.2019.1583913).
 - [EQUATOR Network](https://www.equator-network.org/) — recomendações de relato.
 - [Cochrane Library](https://www.cochranelibrary.com/) — revisões sistemáticas e
   metanálises.

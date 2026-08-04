@@ -400,6 +400,7 @@ de maneira diferente da usada aqui.
   Tabela 1.
 - [jamovi](https://www.jamovi.org/) — o programa usado no livro, gratuito, para
   Windows, macOS e Linux.
-- [Guidelines for reporting statistics](https://journals.physiology.org/doi/full/10.1152/japplphysiol.00513.2004)
+- Curran-Everett D, Benos DJ. [*Guidelines for reporting statistics in journals
+  published by the American Physiological Society*](https://doi.org/10.1152/japplphysiol.00513.2004)
   — as diretrizes da American Physiological Society, ainda úteis, com uma seção
   específica sobre a confusão entre desvio padrão e erro padrão.

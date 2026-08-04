@@ -22,8 +22,9 @@ O estudo é fictício; as decisões que ele obriga a tomar não são. Um estudo 
 dessa natureza exigiria aprovação em Comitê de Ética em Pesquisa, registro prévio
 em plataforma pública de ensaios clínicos e consentimento livre e esclarecido de
 cada participante, temas tratados no Capítulo 2. O banco está disponível
-para quem quiser baixá-lo, e todos os números impressos aqui podem ser reproduzidos por quem
-quiser conferir.
+para quem quiser [baixá-lo]({{raw}}/dados/coorte-condutor.csv), e todos os
+números impressos aqui podem ser reproduzidos por quem quiser conferir, com os
+arquivos e os scripts reunidos no Apêndice D.
 
 Todas as análises são executadas no **jamovi**, que é gratuito, funciona por
 cliques e não exige programação. A escolha é deliberada: um livro que dependesse

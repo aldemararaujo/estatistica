@@ -349,6 +349,6 @@ saberia com mais precisão qual é o efeito.
   apresentar tamanho de efeito e precisão para cada desfecho.
 - [jamovi](https://www.jamovi.org/) — os intervalos de Wilson estão em
   Frequencies, e os de diferença de médias, em T-Tests.
-- [Statement on p-values, American Statistical Association](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108)
+- [Statement on p-values, American Statistical Association](https://doi.org/10.1080/00031305.2016.1154108)
   — a declaração de 2016, cujo princípio final recomenda relatar estimativa e
   incerteza no lugar de decisões dicotômicas.

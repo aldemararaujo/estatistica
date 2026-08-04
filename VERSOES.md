@@ -20,6 +20,53 @@ duas construções da mesma versão podem diferir em detalhes de data e de links
 
 ---
 
+## Versão 1.3 — 04/08/2026
+
+**Apêndice E, Referências comentadas**
+
+- Apêndice novo, com quarenta e seis obras comentadas em quatorze seções,
+  agrupadas pelo assunto do capítulo a que servem, e não por ordem alfabética.
+- Nove livros de cabeceira: Fletcher, Hulley, Greenhalgh, Altman (dois),
+  Pocock, Lwanga e Lemeshow, o manual da Cochrane e Rothman. Os três com edição
+  brasileira trazem o registro da Biblioteca Virtual em Saúde ao lado do
+  original.
+- Seções novas de leitura para os Capítulos 1, 4 e 7, que não tinham nenhuma.
+- Nota explicando que o *Cochrane Reviewers' Handbook* e o *Cochrane Handbook
+  for Systematic Reviews of Interventions* são a mesma obra, com o nome que
+  mudou na versão 4.2.4, de março de 2005, e a advertência de que a seção sobre
+  risco de viés foi reescrita depois disso.
+
+**Dados abertos**
+
+- Os bancos e os scripts passam a ter link. A promessa de reprodutibilidade
+  existia desde a versão 1.0, mas nenhuma página oferecia o arquivo: agora o
+  Apêndice D linka os dois CSV, o dicionário, os geradores, o script de análises
+  e o protocolo do estudo.
+- Correção: a coorte observacional tem 14 variáveis, e não 12, como dizia o
+  Apêndice D.
+
+**Endereços**
+
+- Dois encurtadores retirados da capa. O link do Google Acadêmico passava por
+  `bit.ly` e depois por `goo.gl`, ambos em desativação, para chegar a uma página
+  que nunca mudou de lugar. O Lattes passou de `http` para `https`.
+- Reverificação completa: 43 DOIs contra a Crossref e 52 endereços na rede,
+  nenhum quebrado e nenhum DOI inválido. A data da conferência passa a aparecer
+  no quadro "O livro em números", que antes prometia data e não mostrava
+  nenhuma.
+
+**Leitura e acesso**
+
+- Ficha `schema.org/Book` em JSON-LD, com autor, ORCID, licença, versão e os
+  capítulos, para que buscadores e agregadores acadêmicos tratem a página como
+  livro.
+- Placar do quiz, contador de exercícios, saída das calculadoras e resultados da
+  busca passam a ser anunciados por leitor de tela.
+- A página respeita quem pede menos movimento no sistema, e ganha ícone próprio
+  na aba do navegador, embutido e sem requisição externa.
+
+---
+
 ## Versão 1.2 — 03/08/2026
 
 **Figuras**

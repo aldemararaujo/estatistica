@@ -375,6 +375,8 @@
       var primeira = caixas[0];
       alvo = document.createElement("p");
       alvo.className = "contador-exercicios";
+      alvo.setAttribute("role", "status");
+      alvo.setAttribute("aria-live", "polite");
       primeira.parentNode.insertBefore(alvo, primeira);
     }
     alvo.textContent = feitos + " de " + caixas.length + " exercícios resolvidos neste capítulo";

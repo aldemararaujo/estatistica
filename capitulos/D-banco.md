@@ -4,6 +4,13 @@ descreve os dois, diz como obtê-los e explica como conferir qualquer resultado 
 obra.
 :::
 
+**Baixe agora:** [coorte-condutor.csv]({{raw}}/dados/coorte-condutor.csv) ·
+[coorte-observacional.csv]({{raw}}/dados/coorte-observacional.csv) ·
+[dicionário de variáveis]({{blob}}/dados/dicionario.md) ·
+[o repositório inteiro]({{repo}}).
+
+Os dois arquivos abrem direto no jamovi, no Excel ou em qualquer editor de texto.
+
 ## Uma advertência antes de tudo
 
 **Os dados são simulados.** Nenhum paciente real foi estudado, nenhum aspirado de
@@ -18,8 +25,8 @@ consentimento livre e esclarecido de cada participante.
 
 ## O ensaio randomizado
 
-**Arquivo:** `coorte-condutor.csv` · 200 linhas · 26 variáveis · UTF-8, separador
-vírgula, ponto decimal.
+**Arquivo:** [`coorte-condutor.csv`]({{raw}}/dados/coorte-condutor.csv) · 200
+linhas · 26 variáveis · UTF-8, separador vírgula, ponto decimal.
 
 Ensaio clínico randomizado, paralelo, 1:1, multicêntrico, com avaliador de
 desfecho cego, comparando aspirado de medula óssea autólogo associado à terapia
@@ -77,7 +84,8 @@ sempre. *Capítulo 14.*
 
 ## A coorte observacional
 
-**Arquivo:** `coorte-observacional.csv` · 300 linhas · 12 variáveis.
+**Arquivo:** [`coorte-observacional.csv`]({{raw}}/dados/coorte-observacional.csv)
+· 300 linhas · 14 variáveis.
 
 Mesma pergunta, mesmo tratamento, mesmo desfecho e **o mesmo efeito verdadeiro**
 do ensaio. A única diferença é que ninguém sorteou: o aspirado foi indicado a
@@ -105,12 +113,12 @@ Os arquivos e scripts da obra:
 
 | Arquivo | O que faz |
 |---|---|
-| `dados/gerar-banco.py` | gera o banco do ensaio randomizado, semente 2026 |
-| `dados/gerar-coorte-observacional.py` | gera a coorte observacional, semente 512 |
-| `dados/dicionario.md` | dicionário completo de variáveis |
-| `analises/analises-do-livro.py` | calcula **todos** os números impressos no livro |
-| `analises/resultados.md` | a saída do script acima |
-| `CASO-CONDUTOR.md` | o protocolo do estudo fictício |
+| [`dados/gerar-banco.py`]({{blob}}/dados/gerar-banco.py) | gera o banco do ensaio randomizado, semente 2026 |
+| [`dados/gerar-coorte-observacional.py`]({{blob}}/dados/gerar-coorte-observacional.py) | gera a coorte observacional, semente 512 |
+| [`dados/dicionario.md`]({{blob}}/dados/dicionario.md) | dicionário completo de variáveis |
+| [`analises/analises-do-livro.py`]({{blob}}/analises/analises-do-livro.py) | calcula **todos** os números impressos no livro |
+| [`analises/resultados.md`]({{blob}}/analises/resultados.md) | a saída do script acima |
+| [`CASO-CONDUTOR.md`]({{blob}}/CASO-CONDUTOR.md) | o protocolo do estudo fictício |
 
 Como as sementes são fixas, o mesmo comando produz sempre o mesmo banco. Qualquer
 número deste livro pode ser conferido rodando o script de análises e comparando

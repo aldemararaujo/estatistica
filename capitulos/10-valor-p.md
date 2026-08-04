@@ -330,9 +330,9 @@ existir.
 
 ## Recursos
 
-- [ASA Statement on p-Values and Statistical Significance](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108)
+- [ASA Statement on p-Values and Statistical Significance](https://doi.org/10.1080/00031305.2016.1154108)
   — os seis princípios, em quatro páginas.
-- [Moving to a World Beyond "p < 0.05"](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913)
+- [Moving to a World Beyond "p < 0.05"](https://doi.org/10.1080/00031305.2019.1583913)
   — a editorial de 2019 que abre a edição especial do *The American Statistician*.
 - [Scientists rise up against statistical significance](https://www.nature.com/articles/d41586-019-00857-9)
   — o manifesto na *Nature*, assinado por mais de oitocentos pesquisadores.
