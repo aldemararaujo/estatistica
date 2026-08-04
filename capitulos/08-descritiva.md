@@ -282,6 +282,118 @@ com duzentos participantes não precisam de decimal algum.
 - Excluir participantes diabéticos para restaurar o equilíbrio. | Excluir depois da alocação quebra a randomização e a análise por intenção de tratar.
 - Ignorar, porque a randomização garante comparabilidade. | Ela equilibra em média, ao longo de repetições, e não garante equilíbrio perfeito em um estudo particular.
 @ cap-8-a-tabela-1-do-estudo
+
+? [facil] Como se resume, na Tabela 1, uma variável nominal como diabetes?
++ Número absoluto e percentual: 17 (17,0). | Correto. Nominal e ordinal se resumem assim, com a diferença de que a ordinal segue a ordem natural das categorias. Média de variável nominal não existe, ainda que o programa a calcule quando a variável está codificada como 0 e 1.
+- Média e desvio padrão dos códigos 0 e 1. | O jamovi calcula, porque leu a coluna como numérica, e o resultado não descreve nada. É por isso que o capítulo manda conferir o tipo de cada variável no Setup antes de qualquer análise.
+- Mediana e quartis. | Mediana exige que os valores possam ser ordenados. Ter ou não ter diabetes não define uma ordem.
+- Apenas o percentual, que é mais fácil de ler. | O número absoluto precisa aparecer, porque 17% de 100 e 17% de 12 são informações muito diferentes.
+- Amplitude entre a menor e a maior categoria. | Amplitude é medida de dispersão de variável numérica, e não se aplica a categorias.
+@ cap-8-cada-tipo-de-variavel-pede-um-resumo
+
+? [facil] Para que serve a Tabela 1 de um artigo clínico?
++ Para mostrar com quem o estudo foi feito, de modo que o leitor julgue se aqueles resultados valem para os pacientes dele. | Correto. Ela descreve, e não compara. É a tabela que responde à pergunta "esses pacientes se parecem com os meus?", e é ela que decide se o artigo interessa a quem o lê.
+- Para demonstrar que a randomização funcionou. | A randomização funciona por construção, e sua propriedade é probabilística, não verificável em um único estudo. Desequilíbrios são esperados e não indicam falha.
+- Para comparar os grupos e mostrar que eles não diferem. | Comparar a linha de base de um ensaio randomizado é justamente o que o CONSORT desaconselha, e a coluna de valor de p não deve estar ali.
+- Para apresentar os desfechos primário e secundários. | Os desfechos vêm nas tabelas seguintes. A Tabela 1 fica na linha de base, antes de qualquer resultado.
+- Para justificar o tamanho da amostra escolhido. | O tamanho da amostra se justifica nos métodos, com a conta do Capítulo 6.
+@ cap-8-a-tabela-1-do-estudo
+
+? [facil] O tabagismo do estudo tem três categorias: nunca fumou, ex-fumante e fumante atual. Como resumi-lo?
++ Número absoluto e percentual de cada categoria, apresentadas na ordem natural. | Correto. É variável ordinal, e a ordem carrega informação: apresentar "ex-fumante" antes de "nunca fumou" desperdiça o que a escala tem de melhor.
+- Média e desvio padrão, tratando as categorias como 1, 2 e 3. | Atribuir números às categorias não as torna numéricas. A distância entre nunca fumar e ser ex-fumante não é comparável à distância entre ex-fumante e fumante atual.
+- Apenas a categoria mais frequente. | Informar só a moda descarta a distribuição inteira, e é justamente o tipo de omissão que o capítulo alerta a evitar.
+- Mediana e amplitude interquartil das três categorias. | Mediana de variável ordinal com poucas categorias existe, e não é o resumo usual da Tabela 1, que pede a distribuição completa.
+- Número absoluto e percentual, em ordem decrescente de frequência. | Reordenar por frequência destrói a ordem natural, que é o que distingue ordinal de nominal.
+@ cap-8-cada-tipo-de-variavel-pede-um-resumo
+
+? [facil] Um artigo informa "idade média de 62,34 anos" em um estudo com duzentos participantes. Qual o problema?
++ Precisão excessiva: as duas casas decimais sugerem uma exatidão que os dados não têm. | Correto. Uma casa basta para idade, peso e escores, e percentuais em estudo com duzentos participantes não precisam de decimal algum. É devolutiva frequente de revisor, e custa uma rodada de revisão.
+- A idade deveria ser resumida por mediana. | A idade deste estudo é aproximadamente simétrica, e média com desvio padrão é o resumo adequado. O problema é o número de casas.
+- Falta o intervalo de confiança da média. | A Tabela 1 descreve a amostra, e não estima parâmetros populacionais. Intervalo de confiança entra nos desfechos, no Capítulo 9.
+- Falta comparar a idade entre os grupos. | Comparar a linha de base de um ensaio randomizado é o que este capítulo desaconselha.
+- Nenhum: mais casas decimais significam mais rigor. | Mais casas significam mais dígitos, e não mais informação. Precisão inventada é uma forma discreta de imprecisão.
+@ cap-8-a-tabela-1-do-estudo
+
+? [media] A área da úlcera tem quartis de 4,7 e 12,7 cm². Por que a amplitude interquartil acompanha a mediana?
++ Porque as duas resumem o espalhamento sem sofrer com os valores extremos que a mediana já escolheu ignorar. | Correto. É a mesma coerência que faz o desvio padrão acompanhar a média. Misturar mediana com desvio padrão, ou média com quartis, entrega ao leitor um par que não conversa entre si.
+- Porque a amplitude interquartil é sempre menor que o desvio padrão. | Não há relação fixa entre as duas, e a comparação de tamanhos não é o motivo do pareamento.
+- Porque os quartis são exigidos pelo CONSORT em toda variável contínua. | O CONSORT pede que se descreva adequadamente, e não impõe um par específico para toda variável.
+- Porque a amplitude interquartil não pode ser calculada em distribuições simétricas. | Pode, e às vezes é informativa. O que decide o par é a coerência com a medida de centro escolhida.
+- Porque a mediana precisa de dois números para ser interpretada. | Uma mediana isolada já é interpretável. O que ela não traz sozinha é a dispersão, e é isso que os quartis acrescentam.
+@ cap-8-o-caso-da-area-da-ulcera
+
+? [media] A pressão transcutânea de oxigênio tem doze valores ausentes por falha do equipamento. O que a Tabela 1 precisa informar?
++ Que o resumo dessa linha se refere a 188 participantes, e não a 200. | Correto. Toda tabela precisa dizer sobre quantas pessoas cada número foi calculado, e nenhuma pode deixar o leitor supondo que foram todas. Neste estudo há ainda dezesseis perdas de seguimento, que afetam as tabelas de desfecho.
+- Que os doze ausentes foram substituídos pela média dos demais. | Substituir por média é uma imputação simples, que subestima a variabilidade e não deve ser feita sem declarar. Descrever com o n disponível é o correto aqui.
+- Que a variável foi excluída da análise por ter dados faltantes. | Doze ausentes em duzentos não justificam descartar a variável, e a falha do equipamento é o tipo de ausência que menos ameaça a validade, como o Capítulo 7 explica.
+- Nada: o leitor supõe que o n é o do cabeçalho da coluna. | É exatamente a suposição que a tabela não pode permitir, e é devolutiva frequente de revisor.
+- Que o equipamento falhou, sem necessidade de informar o n. | A causa é útil na seção de métodos. O que a tabela precisa trazer é o denominador de cada número.
+@ cap-8-a-tabela-1-do-estudo
+
+? [media] No grupo controle, o primeiro quartil da redução de área em quatro semanas é −1,8%. O que esse número revela?
++ Que um quarto daqueles participantes tinha, em quatro semanas, úlcera do mesmo tamanho ou maior do que no início. | Correto. É um fato clínico que a média de 30,6% nunca teria revelado, e é o argumento mais concreto deste capítulo a favor de descrever a distribuição em vez de um número só.
+- Que houve erro de medição, já que redução não pode ser negativa. | Redução negativa significa piora, e é perfeitamente possível em úlcera venosa. A escala foi construída para admitir esse valor.
+- Que a área foi medida em unidade errada nesses participantes. | Não há troca de unidade: o sinal negativo é informação clínica, e não artefato.
+- Que esses participantes abandonaram o seguimento. | Quem abandonou não tem medida de quatro semanas. Estes têm, e a medida mostra piora.
+- Que a mediana do grupo controle também é negativa. | A mediana do controle é 38,3%. O quartil inferior descreve a quarta parte pior, e não o centro.
+@ cap-8-quando-o-resumo-esconde-o-resultado
+
+? [media] A duração da úlcera no grupo controle tem média de 16,0 meses, desvio padrão de 11,8 e mediana de 12,5. Como decidir o resumo sem ver o histograma?
++ Pelos dois indícios: a média é bem maior que a mediana, e o desvio padrão é quase do tamanho da média, o que em variável positiva indica cauda longa à direita. | Correto. Um desvio padrão quase igual à média implicaria, em distribuição simétrica, uma proporção considerável de valores negativos, impossíveis para duração de doença. Mediana e quartis, portanto.
+- Pela regra de que duração de doença é sempre simétrica. | É quase sempre assimétrica à direita, junto com área de ferida, tempo de internação, custo e contagem de células.
+- Aplicando o teste de Shapiro-Wilk aos dados. | É o critério que este capítulo desaconselha: erra nas duas pontas e substitui o julgamento por um valor de p.
+- Não é possível decidir sem o histograma. | O histograma é o melhor caminho e não é o único. A relação entre média, mediana e desvio padrão já responde neste caso.
+- Comparando o desvio padrão com o do grupo tratado. | A comparação entre grupos não informa sobre a forma da distribuição de nenhum deles.
+@ cap-8-como-decidir-se-a-distribuicao-e-simetrica
+
+? [media] Um artigo descreve a amostra usando erro padrão em vez de desvio padrão. Qual a consequência?
++ A variabilidade entre os participantes parece muito menor do que é, e tanto mais quanto maior a amostra. | Correto. O erro padrão encolhe conforme a amostra cresce, e o desvio padrão não. É por isso que a troca costuma passar despercebida por quem a comete: o número fica menor, e parecer mais preciso soa como virtude.
+- Nenhuma, desde que a legenda informe qual foi usado. | Informar é indispensável e não conserta a escolha: descrever a amostra pede a medida que descreve os participantes, e não a que descreve a precisão da média.
+- O leitor conclui que a amostra é maior do que foi. | O tamanho da amostra vem informado à parte. O que se distorce é a percepção da variabilidade.
+- Os intervalos de confiança do artigo ficam inválidos. | O intervalo de confiança se constrói justamente a partir do erro padrão, e continua correto. O problema é usá-lo na descrição.
+- A média deixa de ser interpretável. | A média permanece a mesma. O que muda é o número entre parênteses ao lado dela.
+@ cap-8-cada-tipo-de-variavel-pede-um-resumo
+
+? [media] O capítulo afirma que apenas 67 das 200 úlceras têm área acima da média. Por que esse número vale mais que qualquer teste?
++ Porque mostra, sem intermediários, que o resumo descreve mal dois terços da amostra. | Correto. Um teste de normalidade devolveria um valor de p, que ainda precisaria ser interpretado; a contagem devolve o fato. Quando um resumo descreve mal dois terços da amostra, ele não serve, por mais correta que esteja a aritmética que o produziu.
+- Porque contagens são estatisticamente superiores a testes. | Não há hierarquia entre tipos de número. O que torna esta contagem convincente é responder diretamente à pergunta que interessa.
+- Porque prova que a distribuição não é normal. | Provar não normalidade não é o objetivo, e o capítulo argumenta que essa nem é a pergunta certa.
+- Porque 67 é menos de um terço, e um terço é o limite aceito de assimetria. | Não existe esse limite. O argumento é sobre o resumo ser representativo, e não sobre cruzar um patamar.
+- Porque permite calcular a assimetria exata da distribuição. | Coeficientes de assimetria existem e não são necessários aqui. A contagem já resolveu a decisão prática.
+@ cap-8-o-caso-da-area-da-ulcera
+
+? [dificil] Um autor defende manter a coluna de valor de p na Tabela 1 do ensaio, argumentando que p acima de 0,05 mostraria que os grupos são comparáveis. Onde está o erro?
++ Um p alto não autoriza concluir comparabilidade, e o que decide é o tamanho do desequilíbrio, e não sua significância. | Correto. O desequilíbrio de dez pontos percentuais no diabetes atrapalha a interpretação do resultado qualquer que seja o valor de p que produza. E, sendo a alocação sorteada, já se sabia de antemão que a diferença veio do acaso.
+- O erro é usar qui-quadrado onde caberia o teste exato de Fisher. | A escolha do teste não é a questão. Nenhum teste responde a uma pergunta cuja resposta já se conhece.
+- O erro é não corrigir os testes da Tabela 1 para multiplicidade. | Multiplicidade é problema adicional e real, e não o motivo central da recomendação do CONSORT.
+- O erro é comparar variáveis contínuas e categóricas na mesma tabela. | Tabelas de linha de base misturam os dois tipos rotineiramente, cada um com o resumo adequado.
+- Não há erro: é a prática mais comum na literatura clínica. | É de fato comum, e o CONSORT a desaconselha explicitamente. Frequência não é argumento.
+@ cap-8-por-que-nao-ha-valor-de-p-nesta-tabela
+
+? [dificil] Em um estudo observacional, a comparação das características basais entre os grupos faz sentido?
++ Faz, porque ali não houve sorteio: um desequilíbrio pode refletir diferença real entre as populações comparadas, e não o acaso. | Correto. É a diferença que o capítulo aponta e que o Capítulo 12 desenvolve: na coorte do livro, quem recebeu o aspirado tinha úlcera com o dobro da área, e isso não é acaso, é indicação clínica. Ainda assim, o que orienta o ajuste é o raciocínio causal, e não o valor de p da linha de base.
+- Não, pelas mesmas razões que valem no ensaio randomizado. | As razões não são as mesmas. No ensaio se sabe que a diferença veio do sorteio; no observacional, não se sabe.
+- Faz, e o valor de p da linha de base deve ser o critério para incluir a variável no modelo. | Selecionar covariáveis pelo p da comparação basal é prática difundida e frágil. A escolha se faz por conhecimento causal, como o Capítulo 12 detalha.
+- Não, porque estudos observacionais não permitem comparação entre grupos. | Permitem, e é para isso que existem. O que exigem é cautela com o confundimento.
+- Faz, mas apenas se o estudo for prospectivo. | A distinção entre prospectivo e retrospectivo não muda a lógica da comparação basal.
+@ cap-8-por-que-nao-ha-valor-de-p-nesta-tabela
+
+? [dificil] O efeito teto da redução de área em doze semanas foi contornado neste estudo. Como, e o que isso ensina?
++ Medindo também a área em quatro semanas, quando quase ninguém havia cicatrizado; a solução foi de planejamento, e não de análise. | Correto. Nenhum resumo e nenhum teste recuperam informação que a própria escala destruiu. Quem só percebe o teto na hora de analisar já perdeu o dado, e é por isso que este livro trata de desfecho no Capítulo 4, muito antes de chegar aqui.
+- Aplicando transformação logarítmica à variável saturada. | Transformar não devolve variação a uma escala que saturou: quem cicatrizou tem 100%, e continua tendo 100% em qualquer escala.
+- Trocando a mediana pela média, que não sofre efeito teto. | A média de fato difere entre os grupos, 88,2% contra 73,0%, e continua descrevendo uma variável que perdeu poder de discriminar na parte superior.
+- Excluindo da análise os participantes que cicatrizaram. | Excluir quem teve o melhor desfecho é o oposto do que se quer, e destruiria a comparação entre os grupos.
+- Aumentando o tamanho da amostra para recuperar a variação. | Mais participantes produzem mais valores de 100%. O teto não é problema de tamanho.
+@ cap-8-quando-o-resumo-esconde-o-resultado
+
+? [dificil] O capítulo abre dizendo que descrever é decidir o que omitir. Qual é a consequência prática dessa frase?
++ Que todo resumo perde informação de propósito, e cabe ao pesquisador escolher qual perda é aceitável, sob pena de o resumo mentir sem que ninguém perceba. | Correto. Os cinco mil e duzentos valores do banco viram algumas dezenas de números na Tabela 1, e a média da área da úlcera é o exemplo de escolha malfeita: aritmética correta, descrição falsa.
+- Que se deve apresentar o máximo de estatísticas possível, para não omitir nada. | Tabela poluída é tabela que ninguém confere, e acumular medidas transfere ao leitor a decisão que era do autor.
+- Que os dados brutos devem sempre substituir a descrição. | Os dados brutos precisam estar disponíveis, como este livro faz, e não substituem o resumo: ninguém lê cinco mil valores.
+- Que a escolha do resumo é convenção editorial, sem consequência sobre a leitura. | A escolha muda o que o leitor conclui. Média de 10,5 e mediana de 7,7 descrevem a mesma amostra e sugerem pacientes diferentes.
+- Que apenas variáveis com distribuição conhecida devem ser descritas. | Toda variável coletada precisa ser descrita, e a forma da distribuição é o que decide como, e não se.
+@ cap-8-descrever-e-decidir-o-que-omitir
 :::
 
 ## Exercícios

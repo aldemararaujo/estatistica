@@ -20,6 +20,39 @@ duas construções da mesma versão podem diferir em detalhes de data e de links
 
 ---
 
+## Versão 1.6 — 04/08/2026
+
+**A Parte III inteira com banco de 21**
+
+- Capítulos 8 e 12 passam de sete para vinte e uma perguntas, em seis fáceis,
+  nove intermediárias e seis difíceis. Com os Capítulos 9, 10 e 11, ampliados na
+  versão anterior, o núcleo analítico do livro fica completo: descrever,
+  estimar, testar, escolher o teste e ajustar, todos com três rodadas sem
+  repetição.
+- Capítulo 8: como se resume variável nominal e por que o programa calcula média
+  de diabetes quando lê o tipo errado; para que serve a Tabela 1; o tabagismo na
+  ordem natural das categorias; a idade média com duas casas decimais; a
+  amplitude interquartil que acompanha a mediana; os doze ausentes que obrigam a
+  tabela a informar n de 188; o primeiro quartil de −1,8% do grupo controle; a
+  decisão do resumo pelos indícios, sem histograma; a consequência de descrever
+  a amostra com erro padrão; as 67 úlceras acima da média; o valor de p da
+  linha de base que supostamente demonstraria comparabilidade; a comparação
+  basal em estudo observacional, que muda de estatuto; e o efeito teto
+  contornado no planejamento.
+- Capítulo 12: o que a regressão permite fazer; a razão de chances de 0,33 que
+  reduz a um terço e não cai 33%; a categoria de referência que inverte tudo; o
+  coeficiente linear na unidade do desfecho; a área em logaritmo; a crítica ao
+  *stepwise*; o R² de 0,115; a adesão com o maior efeito da tabela, sendo a
+  intervenção mais barata e a variável medida depois da alocação; o verbo
+  "demonstrar" numa coorte ajustada; confundidor contra modificador de efeito; o
+  confundimento residual, que não se dimensiona com os próprios dados; o
+  intervalo de 0,98 a 3,56 lido como ausência de efeito; e a triagem de
+  covariáveis por p abaixo de 0,20.
+- O livro passa de 154 para 182 perguntas de quiz. Onze capítulos seguem com
+  sete cada, e o sorteio funciona neles do mesmo jeito.
+
+---
+
 ## Versão 1.5 — 04/08/2026
 
 **Os três primeiros bancos de 21**

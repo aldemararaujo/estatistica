@@ -259,6 +259,118 @@ sobre o confundimento, e escondê-la impede o leitor de julgar.
 - Porque o ajustado só é válido se o bruto for significativo. | Não há tal dependência entre os dois.
 - Porque omitir o bruto impede calcular o intervalo de confiança. | Cada estimativa tem seu próprio intervalo, calculável independentemente.
 @ cap-12-a-regressao-como-ferramenta-de-ajuste
+
+? [facil] O que a regressão permite fazer que a comparação simples entre dois grupos não permite?
++ Estimar o efeito de uma variável mantendo as outras constantes. | Correto. É essa a operação que resgata o efeito na coorte do livro: comparar tratados e não tratados entre pacientes com a mesma área, a mesma duração e o mesmo estado glicêmico, em vez de comparar dois amontoados de gente diferente.
+- Provar que a exposição causa o desfecho. | Ajuste não é randomização. A regressão melhora a comparação e não converte associação em causa, e o próprio capítulo mostra por quê.
+- Eliminar os dados faltantes do banco. | Faltantes se tratam como o Capítulo 7 descreve. A regressão, ao contrário, costuma descartar quem tem qualquer covariável ausente.
+- Aumentar o poder estatístico do estudo. | Pode aumentar a precisão em algumas situações, e não é isso que a define. A função central é o ajuste.
+- Corrigir erros de aferição das variáveis. | Erro de medida é problema de coleta, e o modelo o carrega para dentro em vez de corrigi-lo.
+@ cap-12-a-regressao-como-ferramenta-de-ajuste
+
+? [facil] No modelo ajustado do ensaio, o diabetes aparece com razão de chances de 0,33. Como se lê essa linha?
++ Mantidas constantes as demais variáveis do modelo, ter diabetes reduz a chance de cicatrizar a um terço. | Correto. É um efeito grande e coerente com a clínica, e é justamente por isso que o desequilíbrio de dez pontos percentuais no diabetes, visto na Tabela 1 do Capítulo 8, merecia ajuste.
+- Que 33% dos diabéticos cicatrizaram. | A razão de chances não é proporção de pacientes. Ela compara chances entre quem tem e quem não tem a característica.
+- Que o diabetes explica 33% da variação da cicatrização. | Proporção de variação explicada é o R², e aparece na regressão linear deste capítulo, não na logística.
+- Que a chance de cicatrizar cai 33% entre os diabéticos. | Cair 33% seria razão de chances de 0,67. Uma razão de 0,33 reduz a chance a um terço, isto é, uma queda de dois terços.
+- Que o diabetes tem 33% de probabilidade de influenciar o desfecho. | Nenhum coeficiente exprime probabilidade de a variável importar. Essa leitura confunde estimativa com valor de p.
+@ cap-12-lendo-uma-regressao-logistica
+
+? [facil] Por que a categoria de referência precisa estar informada no artigo?
++ Porque sem ela nenhuma razão de chances pode ser interpretada: não se sabe em relação a quem a comparação foi feita. | Correto. Se a referência for "Sim" em vez de "Não", todas as razões aparecem invertidas, e um efeito protetor vira efeito de risco sem que nada no número denuncie a troca. É por isso que o capítulo manda conferir os Reference Levels no jamovi.
+- Porque o programa exige que ela seja declarada no texto. | O programa escolhe uma referência sozinho, e é exatamente esse automatismo que torna a conferência necessária.
+- Porque ela determina o tamanho da amostra do modelo. | O n do modelo depende de quem tem todas as variáveis observadas, e não da escolha de referência.
+- Porque sem ela o intervalo de confiança fica assimétrico. | O intervalo da razão de chances é assimétrico por ser construído em escala logarítmica, independentemente da referência.
+- Porque a referência precisa ser sempre a categoria mais frequente. | Não precisa. A escolha é do autor, e o que se exige é que ela seja informada.
+@ cap-12-lendo-uma-regressao-logistica
+
+? [facil] Na regressão linear deste capítulo, o coeficiente do tratamento é "+12,0 pontos percentuais". Qual a vantagem dessa apresentação sobre a razão de chances?
++ O coeficiente já vem na unidade do desfecho, e por isso é muito mais fácil de comunicar. | Correto. Doze pontos percentuais a mais de redução de área em quatro semanas é uma frase que o clínico entende de imediato, ao contrário de uma razão de chances, que exige tradução antes de virar decisão.
+- O coeficiente linear dispensa intervalo de confiança. | Não dispensa, e o deste modelo vai de −0,4 a 24,4, cruzando o zero. Toda estimativa precisa de sua medida de incerteza.
+- O coeficiente linear prova causalidade, e a razão de chances não. | A escala do coeficiente nada tem a ver com inferência causal, que depende do delineamento.
+- O coeficiente linear serve a desfechos binários e a razão de chances não. | É o inverso: a razão de chances é a medida da regressão logística, para desfecho binário; a linear se aplica a desfecho numérico.
+- O coeficiente linear não depende das demais variáveis do modelo. | Depende, e a leitura correta é sempre "mantidas constantes as demais", igual à da logística.
+@ cap-12-a-regressao-linear-quando-o-desfecho-e-numerico
+
+? [media] Por que a área inicial entrou no modelo em logaritmo, e não em centímetros quadrados?
++ Porque a variável é assimétrica e porque crescer de 2 para 4 cm² não tem o mesmo peso que crescer de 40 para 42. | Correto. Em escala logarítmica, o que conta é multiplicar a área, e não somar centímetros. O coeficiente de 0,49 lê-se assim: a chance de cicatrizar cai pela metade a cada vez que a área é multiplicada por 2,7.
+- Porque a regressão logística exige que todas as covariáveis sejam logaritmizadas. | Não exige nada disso. Idade, escores e índices entram em escala natural sem problema.
+- Porque o logaritmo elimina os valores extremos do banco. | Ele comprime a cauda e não remove observação alguma. A úlcera de 66,4 cm² continua no modelo.
+- Porque assim o coeficiente passa a ser interpretável como porcentagem. | O coeficiente continua sendo razão de chances. O que muda é a unidade da variável explicativa.
+- Porque o jamovi não aceita variáveis assimétricas como covariáveis. | Aceita qualquer variável numérica. A transformação é decisão do pesquisador, e se faz em Data, Compute.
+@ cap-12-lendo-uma-regressao-logistica
+
+? [media] Um autor selecionou as covariáveis do modelo por *stepwise*. Qual a crítica?
++ A seleção automática capitaliza o acaso, produz intervalos de confiança inválidos e não se reproduz em outra amostra. | Correto. As covariáveis se escolhem por raciocínio causal e conhecimento clínico, declarados antes de olhar os dados. O modelo deste capítulo inclui diabetes porque o diabetes atrasa cicatrização, e não porque um algoritmo o selecionou.
+- Nenhuma: é o método objetivo por excelência, já que não depende do pesquisador. | A aparência de objetividade é justamente o que a torna perigosa. A decisão continua sendo tomada, agora pelos dados, e sem quem responda por ela.
+- A crítica é o custo computacional em bancos grandes. | O custo é irrelevante em bancos desta ordem. O problema é estatístico e conceitual.
+- A crítica é que o stepwise só funciona em regressão linear. | Existe em ambas as regressões, e a objeção vale igualmente nas duas.
+- A crítica é que ele exige mais eventos por variável que a seleção manual. | A exigência de eventos por variável é a mesma. O que muda é a validade do que sai do procedimento.
+@ cap-12-a-regressao-como-ferramenta-de-ajuste
+
+? [media] O R² do modelo linear é 0,115. O que isso significa, e o que não significa?
++ Significa que as variáveis explicam cerca de 11% da variação da redução de área, e não invalida coeficiente algum do modelo. | Correto. São perguntas diferentes: o R² fala de previsão individual, e o coeficiente, de efeito médio. R² baixo é o normal em pesquisa clínica, onde a variabilidade entre pacientes é enorme.
+- Significa que o modelo está errado e precisa de mais variáveis. | Acrescentar variáveis aumenta o R² quase sempre, inclusive variáveis sem sentido clínico. Perseguir R² é a maneira mais rápida de sobreajustar.
+- Significa que apenas 11% dos participantes foram bem classificados. | R² não é taxa de acerto. Classificação correta é medida de outros modelos, e aparece no Capítulo 13.
+- Significa que há 11% de probabilidade de o modelo estar correto. | Nenhuma medida de ajuste exprime probabilidade de o modelo estar correto.
+- Significa que 11% dos dados foram usados no cálculo. | Todos os participantes com as variáveis observadas entram no modelo. O R² descreve variação explicada, e não fração de dados.
+@ cap-12-a-regressao-linear-quando-o-desfecho-e-numerico
+
+? [media] No modelo logístico do ensaio, a adesão adequada à compressão tem razão de chances de 2,90, o maior efeito da tabela. O que fazer com essa informação?
++ Registrá-la com honestidade, notando que a intervenção mais barata do estudo produziu o maior efeito estimado, e lembrando que a adesão foi medida depois da alocação. | Correto. É uma reflexão desconfortável para quem pesquisa terapias caras, e ao mesmo tempo a variável precisa ser lida com cautela: por ter sido medida ao longo do seguimento, ela pode ser mediadora do próprio tratamento.
+- Concluir que a compressão é mais eficaz que o aspirado. | Comparar coeficientes de um modelo observacional de covariáveis como se fossem efeitos de intervenções testadas é passo largo demais. Só o aspirado foi sorteado.
+- Remover a adesão do modelo, já que ela domina os demais coeficientes. | Remover uma variável porque seu efeito é grande inverte o critério: variáveis entram ou saem por raciocínio causal, e não por magnitude.
+- Concluir que o efeito do aspirado é espúrio. | O aspirado mantém razão de chances de 2,25, com intervalo que exclui o 1, no mesmo modelo em que a adesão aparece.
+- Transformar a adesão em desfecho primário de um novo estudo, com base neste p. | Achado de covariável em modelo de ajuste gera hipótese, e transformá-lo em desfecho exige o percurso inteiro do livro, começando pela pergunta.
+@ cap-12-lendo-uma-regressao-logistica
+
+? [media] Um artigo escreve, na discussão, que a coorte ajustada "demonstra que o aspirado melhora a cicatrização". Qual a correção?
++ Trocar por linguagem de associação, reconhecendo o confundimento residual: ajuste não é randomização. | Correto. É devolutiva frequente de revisor, e a coorte deste capítulo mostra por quê: mesmo depois de ajustada, a estimativa ficou abaixo do valor verdadeiro, com intervalo cruzando o 1.
+- Nenhuma: o ajuste por covariáveis autoriza conclusão causal. | Se autorizasse, a randomização seria desnecessária. O que o ajuste corrige é apenas o que foi medido.
+- Trocar apenas se o intervalo de confiança cruzar o valor nulo. | O problema é de delineamento, e não de significância. Um intervalo estreito e distante do nulo continuaria não autorizando o verbo "demonstrar".
+- Acrescentar mais covariáveis ao modelo até a conclusão causal se sustentar. | Nenhum número de covariáveis medidas fecha a porta do que não foi medido.
+- Trocar o modelo logístico por um linear, que permite conclusão causal. | A escala do desfecho não muda a natureza da inferência.
+@ cap-12-a-regressao-como-ferramenta-de-ajuste
+
+? [media] O coeficiente do tratamento na regressão linear deu 12,0 pontos percentuais com p de 0,059, enquanto a comparação bruta do Capítulo 9 deu 14,8 com p de 0,020. Como descrever isso no artigo?
++ Relatando as duas estimativas e reconhecendo que um resultado que atravessa a fronteira dos 0,05 conforme o modelo é, antes de tudo, frágil. | Correto. Não há contradição: são estimativas de coisas diferentes, uma ajustada e outra bruta, com incertezas diferentes. Escolher a que agrada seria a troca que o Capítulo 10 chama de p-hacking.
+- Relatando apenas a bruta, que alcançou significância. | Escolher pela significância depois de ver as duas é exatamente a prática que o registro prévio do protocolo existe para coibir.
+- Relatando apenas a ajustada, que é metodologicamente superior. | A ajustada não é automaticamente superior, e em ensaio randomizado a análise principal costuma ser a pré-especificada, com a outra como sensibilidade.
+- Concluindo que houve erro em uma das análises. | Ambas estão corretas. A diferença entre elas é informação, e não defeito.
+- Concluindo que o tratamento não tem efeito sobre esse desfecho. | O intervalo da estimativa ajustada vai de −0,4 a 24,4, e admite desde efeito nulo até benefício expressivo. Concluir ausência é o erro do Capítulo 10.
+@ cap-12-a-regressao-linear-quando-o-desfecho-e-numerico
+
+? [dificil] Qual a diferença entre um confundidor e um modificador de efeito?
++ O confundidor distorce a estimativa e deve ser ajustado; o modificador faz o efeito ser genuinamente diferente entre estratos, e deve ser relatado por estrato. | Correto. Ajustar por um modificador esconde a informação mais interessante do estudo, que é o efeito variar. A distinção se investiga por interação, e a análise precisa estar declarada antes, pelas razões do Capítulo 10.
+- São o mesmo fenômeno, com nomes distintos em escolas diferentes. | São fenômenos distintos: um é problema a corrigir, o outro é achado a descrever.
+- O modificador é sempre uma variável medida depois da intervenção. | Isso caracteriza o mediador. Modificadores costumam ser características basais, como idade ou gravidade.
+- O confundidor associa-se ao desfecho e o modificador não. | O modificador também se relaciona ao desfecho, e o que o define é alterar a magnitude do efeito do tratamento.
+- A diferença é apenas o valor de p da interação. | O valor de p ajuda a avaliar a evidência de interação e não define o conceito, que é causal.
+@ cap-12-o-que-e-um-confundidor
+
+? [dificil] Por que o confundimento residual não pode ser dimensionado com os próprios dados do estudo?
++ Porque ele vem justamente das variáveis que não foram medidas, e sobre elas o banco não guarda nenhuma informação. | Correto. Nesta coorte ficaram de fora o índice tornozelo-braquial, a pressão transcutânea de oxigênio, o estado nutricional e a técnica do cirurgião. Por isso a randomização não é uma técnica estatística: é a única maneira conhecida de equilibrar também aquilo que ninguém mediu.
+- Porque exigiria aumentar o tamanho da amostra. | Uma coorte dez vezes maior estimaria o efeito enviesado com mais precisão. Tamanho não corrige comparabilidade.
+- Porque os métodos para calculá-lo ainda não foram desenvolvidos. | Existem análises de sensibilidade que exploram cenários de confundimento não medido, e todas exigem suposições externas aos dados, que é precisamente o ponto.
+- Porque o intervalo de confiança já o incorpora. | O intervalo descreve a incerteza amostral, e supõe que o modelo esteja correto. Viés sistemático não entra nele.
+- Porque o valor de p do modelo ajustado o resume. | Nenhum valor de p informa sobre variáveis ausentes do banco.
+@ cap-12-a-regressao-como-ferramenta-de-ajuste
+
+? [dificil] Na coorte, a estimativa ajustada é 1,87 com intervalo de 0,98 a 3,56 e p de 0,058. Um autor conclui que "o aspirado não teve efeito". Onde está o erro?
++ O intervalo admite desde efeito praticamente nulo até efeito grande, e por isso o estudo é inconclusivo, e não negativo. | Correto. É o mesmo erro do Capítulo 10, agora dentro de um modelo: um intervalo largo que quase não exclui nada foi lido como demonstração de ausência. E sabemos, neste caso, que o efeito verdadeiro existe e é maior que 1,87.
+- Não há erro: com p acima de 0,05 conclui-se ausência de efeito. | Ausência de evidência não é evidência de ausência, e essa distinção depende do intervalo, não do limiar.
+- O erro é usar razão de chances em vez de risco relativo. | A escolha da medida não muda a leitura da incerteza. O intervalo continuaria largo em qualquer escala.
+- O erro é o modelo não incluir variáveis suficientes. | O modelo de fato sofre confundimento residual, o que empurra a estimativa para baixo. Ainda assim, o erro apontado na conclusão é de interpretação do intervalo.
+- O erro é comparar a coorte com o ensaio randomizado. | A comparação é didática e legítima, e é ela que revela o tamanho do problema.
+@ cap-12-a-regressao-como-ferramenta-de-ajuste
+
+? [dificil] Um pesquisador seleciona as covariáveis do modelo incluindo toda variável com p abaixo de 0,20 na análise univariada. Qual a objeção?
++ O critério é estatístico onde deveria ser causal: uma variável pode ser confundidora importante sem alcançar aquele limiar, e outra pode alcançá-lo sendo mediadora. | Correto. Confundimento se decide pelas três condições do capítulo, e não por um valor de p de triagem. A adesão à compressão deste estudo passaria com folga em qualquer triagem, e ainda assim não deveria entrar no modelo principal do ensaio.
+- Nenhuma: 0,20 é o limiar consagrado para triagem de covariáveis. | O limiar circula em manuais e continua sendo um automatismo, com os mesmos defeitos do stepwise, de que é primo próximo.
+- A objeção é que 0,20 é liberal demais, e o correto seria 0,05. | Apertar o limiar não conserta o critério. O problema não é onde se corta, é cortar por p.
+- A objeção é que a análise univariada não pode preceder a multivariada. | Descrever associações uma a uma é útil e legítimo. O que não se admite é que essa descrição decida sozinha o modelo.
+- A objeção é que o procedimento exige mais eventos por variável. | Ele tende a inflar o modelo, e a crítica central é de validade, e não de contagem.
+@ cap-12-o-que-e-um-confundidor
 :::
 
 ## Exercícios
