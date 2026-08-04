@@ -35,6 +35,15 @@ alternativas, duas fáceis, três intermediárias e duas difíceis. Cada alterna
 tem seu próprio comentário, e o erro leva ao endereço da seção que responde à
 questão. São 112 perguntas e 560 comentários no livro inteiro.
 
+O bloco `::: quiz` de cada capítulo é um **banco**, e não uma lista fixa: o
+navegador sorteia sete a cada tentativa, respeitando a proporção de níveis do
+banco e preferindo as que aquele leitor ainda não viu. As cinco alternativas
+também trocam de lugar a cada tentativa, de modo que refazer o quiz não premia
+quem decorou a letra. Com sete no banco, o leitor vê as mesmas sete em ordem
+sempre nova; ampliar o banco de um capítulo é acrescentar perguntas ao mesmo
+bloco, sem tocar em código. Um banco de 21, em 6 fáceis, 9 intermediárias e 6
+difíceis, entrega três rodadas inteiras sem repetir uma única pergunta.
+
 | Arquivo | Conteúdo |
 |---|---|
 | `index.html` | **o livro**, pronto para leitura |

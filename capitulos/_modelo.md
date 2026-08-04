@@ -80,7 +80,7 @@ trabalho, e o único bloco do livro escrito em segunda pessoa.
 :::
 
 ::: quiz
-? [facil] BLOCO 6. Sete perguntas por capítulo, sempre nesta ordem de dificuldade: duas fáceis, três intermediárias e duas difíceis.
+? [facil] BLOCO 6. O bloco é um banco, e o leitor recebe sete por tentativa, sorteadas na proporção de níveis do banco: com 2 fáceis, 3 médias e 2 difíceis, saem essas sete; com 6, 9 e 6, saem três rodadas sem repetir nada.
 + A alternativa correta é a que começa com o sinal de mais. | O texto após a barra vertical é o retorno mostrado ao leitor. Explique por que está certa, e não apenas que está.
 - As erradas começam com o sinal de menos. | Cada distrator deve ser um erro real, de preferência retirado do bloco "Aqui é onde o artigo é rejeitado". Nunca invente absurdos: eles se eliminam sozinhos.
 - Sempre cinco alternativas por pergunta. | Nunca use "todas as anteriores" nem "nenhuma das anteriores": são muletas de quem não conseguiu escrever o quinto distrator.
@@ -89,7 +89,7 @@ trabalho, e o único bloco do livro escrito em segunda pessoa.
 @ cap-modelo-secao-correspondente
 
 ? [media] Duas perguntas de cada quiz devem tratar do caso condutor, com os números do estudo.
-+ Aplicação distingue quem entendeu de quem memorizou. | O construtor distribui a posição da resposta correta por rodízio, então escreva sempre na ordem que preferir.
++ Aplicação distingue quem entendeu de quem memorizou. | Escreva as alternativas na ordem que preferir: o navegador embaralha as cinco a cada tentativa, e a posição da correta nunca se repete de propósito.
 - Teoria pura em todas as sete empobrece o quiz. | Mantenha ao menos duas ancoradas nos dados do estudo.
 - Perguntas sobre o programa estatístico não pertencem ao quiz. | O jamovi tem o bloco próprio e o Apêndice A.
 - Perguntas com pegadinha de redação não pertencem ao quiz. | O objetivo é diagnosticar compreensão, não confundir o leitor.

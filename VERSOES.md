@@ -20,6 +20,36 @@ duas construções da mesma versão podem diferir em detalhes de data e de links
 
 ---
 
+## Versão 1.4 — 04/08/2026
+
+**O quiz deixa de ser decorável**
+
+- O bloco de perguntas de cada capítulo passa a ser um **banco**, e não uma lista
+  fixa. O navegador sorteia sete a cada tentativa, respeitando a proporção de
+  níveis do banco e preferindo as perguntas que aquele leitor ainda não viu.
+- As cinco alternativas **trocam de lugar a cada tentativa**, e as letras são
+  escritas depois do sorteio. Antes, a posição da resposta certa era fixada na
+  construção, por rodízio: quem refazia o quiz decorava a letra antes de decorar
+  a resposta.
+- Com os sete atuais, o leitor recebe as mesmas sete em ordem sempre nova, com
+  as alternativas sempre em posições diferentes. Ampliar o banco de um capítulo
+  é acrescentar perguntas ao mesmo bloco, sem tocar em código: um banco de 21,
+  em 6 fáceis, 9 intermediárias e 6 difíceis, entrega três rodadas inteiras sem
+  repetir uma única pergunta.
+- O sorteio em curso fica guardado, e recarregar a página no meio do quiz não
+  troca as perguntas de quem está respondendo. Destacar um termo pela busca
+  também deixou de apagar as respostas já dadas.
+- "Refazer o quiz" passa a sortear rodada nova. "Refazer só as que errei"
+  mantém as mesmas perguntas de propósito, e apenas reembaralha as alternativas.
+- Zerar o progresso limpa também a memória do que já caiu. O arquivo de
+  progresso exportado passa à versão 2 e carrega essa memória, para que trocar
+  de computador não devolva as mesmas sete; arquivo da versão 1 continua sendo
+  aceito.
+- A identidade de cada pergunta vem do enunciado, e não da posição no bloco:
+  acrescentar ou reordenar perguntas não apaga a memória das outras.
+
+---
+
 ## Versão 1.3 — 04/08/2026
 
 **Apêndice E, Referências comentadas**

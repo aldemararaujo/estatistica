@@ -26,6 +26,8 @@
   var CHAVE_FONTE = "epc-fonte";
   var CHAVE_EXERCICIOS = "epc-exercicios";
   var CHAVE_QUIZ = "epc-quiz";
+  var CHAVE_VISTAS = "epc-quiz-vistas";
+  var CHAVE_SORTEIO = "epc-quiz-sorteio";
 
   /* ------------------------------------------------------- utilidades */
 
@@ -52,10 +54,14 @@
   var lidos = {};
   var resolvidos = {};
   var quizzes = {};
+  var vistas = {};    /* por quiz: quais perguntas do banco já caíram */
+  var sorteios = {};  /* por quiz: a rodada em curso, para sobreviver ao recarregar */
   (function carregaLidos() {
     try { lidos = JSON.parse(busca_guardado(CHAVE_LIDOS) || "{}") || {}; } catch (e) { lidos = {}; }
     try { resolvidos = JSON.parse(busca_guardado(CHAVE_EXERCICIOS) || "{}") || {}; } catch (e) { resolvidos = {}; }
     try { quizzes = JSON.parse(busca_guardado(CHAVE_QUIZ) || "{}") || {}; } catch (e) { quizzes = {}; }
+    try { vistas = JSON.parse(busca_guardado(CHAVE_VISTAS) || "{}") || {}; } catch (e) { vistas = {}; }
+    try { sorteios = JSON.parse(busca_guardado(CHAVE_SORTEIO) || "{}") || {}; } catch (e) { sorteios = {}; }
   })();
 
   var totalPalavras = LIVRO_CAPS.reduce(function (s, c) { return s + c.palavras; }, 0);
@@ -220,14 +226,122 @@
 
   /* -------------------------------------------------------------- quiz */
 
+  /* Embaralhamento de Fisher-Yates. Serve às alternativas e ao banco. */
+  function embaralha(lista) {
+    for (var i = lista.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = lista[i]; lista[i] = lista[j]; lista[j] = t;
+    }
+    return lista;
+  }
+
+  /* As alternativas trocam de lugar a cada tentativa, e as letras são escritas
+     depois do sorteio. Sem isto, quem refaz o quiz decora a letra da resposta
+     certa antes de decorar a resposta, que é o oposto do que o quiz quer. */
+  function embaralhaAlternativas(pergunta) {
+    var lista = pergunta.querySelector(".quiz-alternativas");
+    if (!lista) { return; }
+    embaralha(Array.prototype.slice.call(lista.children)).forEach(function (li, k) {
+      lista.appendChild(li);
+      var letra = li.querySelector(".letra");
+      if (letra) { letra.textContent = String.fromCharCode(65 + k); }
+    });
+  }
+
+  /* Sorteio da rodada: respeita a proporção de níveis do banco e prefere as que
+     o leitor ainda não viu. Um banco de 21 com 6 fáceis, 9 médias e 6 difíceis
+     devolve 2, 3 e 2, que é o desenho de sempre; e devolve três rodadas inteiras
+     sem repetir nada antes de precisar reaproveitar. */
+  function sorteiaRodada(banco, quantas, vistas) {
+    var porNivel = {};
+    banco.forEach(function (p) {
+      var n = p.dataset.nivel || "media";
+      (porNivel[n] = porNivel[n] || []).push(p);
+    });
+
+    var niveis = Object.keys(porNivel);
+    var cotas = {}, somadas = 0;
+    niveis.forEach(function (n) {
+      cotas[n] = Math.round(porNivel[n].length * quantas / banco.length);
+      somadas += cotas[n];
+    });
+    // O arredondamento raramente fecha em quantas: acerta-se no nível maior.
+    niveis.sort(function (a, b) { return porNivel[b].length - porNivel[a].length; });
+    for (var i = 0; somadas !== quantas && i < 200; i++) {
+      var n = niveis[i % niveis.length];
+      if (somadas < quantas && cotas[n] < porNivel[n].length) { cotas[n]++; somadas++; }
+      else if (somadas > quantas && cotas[n] > 0) { cotas[n]--; somadas--; }
+    }
+
+    var escolhidas = [];
+    niveis.forEach(function (n) {
+      var novas = embaralha(porNivel[n].filter(function (p) { return !vistas[p.dataset.id]; }));
+      var velhas = embaralha(porNivel[n].filter(function (p) { return vistas[p.dataset.id]; }));
+      escolhidas = escolhidas.concat(novas.concat(velhas).slice(0, cotas[n]));
+    });
+
+    // Sobrou vaga porque algum nível esvaziou: completa com o que houver.
+    if (escolhidas.length < quantas) {
+      var resto = embaralha(banco.filter(function (p) { return escolhidas.indexOf(p) === -1; }));
+      escolhidas = escolhidas.concat(resto.slice(0, quantas - escolhidas.length));
+    }
+    return embaralha(escolhidas);
+  }
+
   function ligaQuiz(escopo) {
     escopo.querySelectorAll(".quiz").forEach(function (quiz) {
       if (quiz.dataset.ligado === "1") { return; }
       quiz.dataset.ligado = "1";
 
-      var perguntas = Array.prototype.slice.call(quiz.querySelectorAll(".quiz-pergunta"));
+      var id = quiz.getAttribute("data-quiz");
+      var lista = quiz.querySelector(".quiz-perguntas");
+      var banco = Array.prototype.slice.call(quiz.querySelectorAll(".quiz-pergunta"));
+      var quantas = Math.min(parseInt(quiz.getAttribute("data-rodada"), 10) || banco.length,
+                             banco.length);
+      var perguntas = [];
       var placar = quiz.querySelector(".quiz-placar");
       var acoes = quiz.querySelector(".quiz-acoes");
+
+      /* Monta a rodada: esconde o banco, mostra as sorteadas na ordem sorteada e
+         embaralha as alternativas de cada uma. */
+      function montaRodada(escolhidas) {
+        banco.forEach(function (p) { p.hidden = true; limpa(p); });
+        perguntas = escolhidas;
+        perguntas.forEach(function (p) {
+          lista.appendChild(p);
+          p.hidden = false;
+          embaralhaAlternativas(p);
+        });
+        placar.hidden = true;
+        acoes.hidden = true;
+      }
+
+      /* O sorteio corrente fica guardado: recarregar a página no meio do quiz
+         não troca as perguntas debaixo de quem está respondendo. */
+      function novaRodada() {
+        var escolhidas = sorteiaRodada(banco, quantas, vistasQuiz(id));
+        guardaSorteio(id, escolhidas.map(function (p) { return p.dataset.id; }));
+        montaRodada(escolhidas);
+      }
+
+      function retomaRodada() {
+        var guardado = sorteios[id];
+        if (!guardado || !guardado.length) { return false; }
+        var porId = {};
+        banco.forEach(function (p) { porId[p.dataset.id] = p; });
+        var escolhidas = guardado.map(function (k) { return porId[k]; })
+                                 .filter(function (p) { return !!p; });
+        if (escolhidas.length !== quantas) { return false; }
+
+        /* A rodada pode já estar montada na página: é o que acontece quando a
+           busca reescreve o capítulo e religa tudo. Nesse caso só readotamos a
+           lista, porque remontar apagaria o que o leitor já respondeu. */
+        var montada = escolhidas.every(function (p) { return !p.hidden; });
+        if (montada) { perguntas = escolhidas; return true; }
+
+        montaRodada(escolhidas);
+        return true;
+      }
 
       function respondidas() {
         return perguntas.filter(function (p) { return p.dataset.respondida === "1"; });
@@ -254,25 +368,35 @@
           (n === 1 ? "acerto" : "acertos") + "<p>" + recado + "</p>";
         placar.hidden = false;
         acoes.hidden = false;
-        guardaQuiz(quiz.getAttribute("data-quiz"), n, total);
+        guardaQuiz(id, n, total);
+        guardaVistas(id, perguntas.map(function (p) { return p.dataset.id; }), banco.length);
         pintaProgresso();
       }
 
-      perguntas.forEach(function (pergunta) {
-        var certa = parseInt(pergunta.getAttribute("data-certa"), 10);
-        var botoes = Array.prototype.slice.call(pergunta.querySelectorAll(".quiz-alt"));
-
-        botoes.forEach(function (botao, i) {
+      /* Os ouvintes ficam no banco inteiro, e não na rodada: a rodada muda, os
+         elementos não. E a resposta certa é procurada no momento do clique,
+         porque a ordem das alternativas mudou desde a construção da página. */
+      banco.forEach(function (pergunta) {
+        pergunta.querySelectorAll(".quiz-alt").forEach(function (botao) {
           botao.addEventListener("click", function () {
             if (pergunta.dataset.respondida === "1") { return; }
             pergunta.dataset.respondida = "1";
-            var acertou = i === certa;
+
+            var itens = Array.prototype.slice.call(
+              pergunta.querySelectorAll(".quiz-alternativas > li"));
+            var certa = -1;
+            for (var k = 0; k < itens.length; k++) {
+              if (itens[k].dataset.certa === "1") { certa = k; break; }
+            }
+            var escolhida = itens.indexOf(botao.parentNode);
+            var acertou = escolhida === certa;
             pergunta.dataset.acertou = acertou ? "1" : "0";
 
-            botoes.forEach(function (b, k) {
+            itens.forEach(function (li, k) {
+              var b = li.querySelector(".quiz-alt");
               b.disabled = true;
               if (k === certa) { b.classList.add("certa"); }
-              else if (k === i) { b.classList.add("errada"); }
+              else if (k === escolhida) { b.classList.add("errada"); }
               else { b.classList.add("apagada"); }
             });
 
@@ -282,7 +406,7 @@
               retorno.classList.add(acertou ? "acerto" : "erro");
             }
             if (!acertou) {
-              var certaRetorno = botoes[certa].parentNode.querySelector(".quiz-retorno");
+              var certaRetorno = itens[certa].querySelector(".quiz-retorno");
               if (certaRetorno) { certaRetorno.hidden = false; certaRetorno.classList.add("acerto"); }
               var releia = pergunta.querySelector(".quiz-releia");
               if (releia) { releia.hidden = false; }
@@ -307,24 +431,29 @@
         if (releia) { releia.hidden = true; }
       }
 
+      /* Refazer o quiz é uma rodada nova: outro sorteio, outra ordem. */
       var refazer = quiz.querySelector(".quiz-refazer");
       if (refazer) {
         refazer.addEventListener("click", function () {
-          perguntas.forEach(limpa);
-          placar.hidden = true; acoes.hidden = true;
+          novaRodada();
           quiz.querySelector("summary").scrollIntoView({ block: "start" });
         });
       }
+      /* Refazer só as que errei repete as mesmas perguntas, de propósito: quem
+         errou precisa reencontrar aquela pergunta, e não outra. As alternativas
+         trocam de lugar para que a segunda tentativa não seja de memória visual. */
       var soErros = quiz.querySelector(".quiz-refazer-erros");
       if (soErros) {
         soErros.addEventListener("click", function () {
           var erradas = perguntas.filter(function (p) { return p.dataset.acertou === "0"; });
           if (!erradas.length) { return; }
-          erradas.forEach(limpa);
+          erradas.forEach(function (p) { limpa(p); embaralhaAlternativas(p); });
           placar.hidden = true; acoes.hidden = true;
           erradas[0].scrollIntoView({ block: "center" });
         });
       }
+
+      if (!retomaRodada()) { novaRodada(); }
     });
   }
 
@@ -332,6 +461,28 @@
     if (!id) { return; }
     quizzes[id] = { acertos: acertos, total: total };
     guarda(CHAVE_QUIZ, JSON.stringify(quizzes));
+  }
+
+  function vistasQuiz(id) {
+    return (id && vistas[id]) || {};
+  }
+
+  /* Marca as da rodada como vistas. Quando o banco se esgota, a memória zera e
+     o rodízio recomeça: melhor rever uma pergunta antiga do que nunca fechar
+     uma rodada. */
+  function guardaVistas(id, ids, tamanhoBanco) {
+    if (!id) { return; }
+    var v = vistas[id] || {};
+    ids.forEach(function (k) { v[k] = 1; });
+    if (Object.keys(v).length >= tamanhoBanco) { v = {}; }
+    vistas[id] = v;
+    guarda(CHAVE_VISTAS, JSON.stringify(vistas));
+  }
+
+  function guardaSorteio(id, ids) {
+    if (!id) { return; }
+    sorteios[id] = ids;
+    guarda(CHAVE_SORTEIO, JSON.stringify(sorteios));
   }
 
   /* ---------------------------------------------- exercícios resolvidos */
@@ -841,10 +992,14 @@
   if (zerar) {
     zerar.addEventListener("click", function () {
       if (!window.confirm("Apagar as marcas de leitura e os exercícios resolvidos?")) { return; }
-      lidos = {}; resolvidos = {}; quizzes = {};
+      lidos = {}; resolvidos = {}; quizzes = {}; vistas = {}; sorteios = {};
       guarda(CHAVE_LIDOS, "{}");
       guarda(CHAVE_EXERCICIOS, "{}");
       guarda(CHAVE_QUIZ, "{}");
+      /* Zerar o progresso zera também a memória do que já caiu no quiz: quem
+         recomeça o livro recomeça o sorteio. */
+      guarda(CHAVE_VISTAS, "{}");
+      guarda(CHAVE_SORTEIO, "{}");
       capitulos.forEach(function (c) {
         c.querySelectorAll(".exercicio[data-exercicio]").forEach(pintaExercicio);
         pintaContadorExercicios(c);
@@ -859,12 +1014,15 @@
     exporta.addEventListener("click", function () {
       var pacote = {
         formato: "epc-progresso",
-        versao: 1,
+        versao: 2,
         livro: LIVRO.titulo,
         data: new Date().toISOString(),
         lidos: lidos,
         exercicios: resolvidos,
-        quiz: quizzes
+        quiz: quizzes,
+        /* O sorteio em curso não viaja: é estado de uma sessão. O que já caiu,
+           sim, senão o leitor troca de máquina e reencontra as mesmas sete. */
+        quizVistas: vistas
       };
       var url = URL.createObjectURL(new Blob([JSON.stringify(pacote, null, 1)],
         { type: "application/json" }));
@@ -893,9 +1051,13 @@
           lidos = dados.lidos || {};
           resolvidos = dados.exercicios || {};
           quizzes = dados.quiz || {};
+          /* Arquivo da versão 1 não tem esta chave, e não deve ser recusado por
+             isso: entra sem memória de quiz, que é o que ele de fato guardava. */
+          vistas = dados.quizVistas || {};
           guarda(CHAVE_LIDOS, JSON.stringify(lidos));
           guarda(CHAVE_EXERCICIOS, JSON.stringify(resolvidos));
           guarda(CHAVE_QUIZ, JSON.stringify(quizzes));
+          guarda(CHAVE_VISTAS, JSON.stringify(vistas));
           capitulos.forEach(function (c) {
             c.querySelectorAll(".exercicio[data-exercicio]").forEach(pintaExercicio);
             pintaContadorExercicios(c);

@@ -15,6 +15,7 @@ endereco, sem exigir nada do leitor.
 Dependencia unica: markdown (pip install markdown)
 """
 
+import hashlib
 import html
 import json
 import re
@@ -244,6 +245,10 @@ def render_figura(bloco):
 
 NIVEIS = {"facil": "fácil", "media": "intermediária", "dificil": "difícil"}
 
+# Perguntas por rodada. O banco de cada capitulo pode ser maior: o que passar
+# disto vira sorteio, e o leitor recebe rodadas diferentes a cada tentativa.
+SORTEIO = 7
+
 
 def render_quiz(bloco, prefixo):
     """Converte o bloco ::: quiz em um questionario recolhido.
@@ -278,27 +283,27 @@ def render_quiz(bloco, prefixo):
     if not perguntas:
         return ""
 
-    # Deslocamento por capitulo, para que a posicao da resposta certa nao siga
-    # o mesmo desenho em todos os quizzes do livro.
-    desloca = sum(ord(c) for c in prefixo) % 5
-
+    # A pagina traz o banco inteiro; quem escolhe as da rodada e embaralha as
+    # alternativas e o navegador, a cada tentativa. Nada de posicao fixa aqui:
+    # posicao fixa e o que permite decorar a letra em vez da resposta.
     itens = []
-    for i, p in enumerate(perguntas, 1):
-        # A correta vai para uma posicao distribuida por rodizio, e nao sorteada:
-        # sorteio com poucas perguntas produz aglomerados, e foi o que aconteceu
-        # na primeira versao, com a resposta certa caindo em D ou E sete vezes.
-        outras = [a for a in p["alts"] if not a["certa"]]
-        certa_alt = next((a for a in p["alts"] if a["certa"]), None)
-        if certa_alt is None:
+    for p in perguntas:
+        if not any(a["certa"] for a in p["alts"]):
             continue
-        certa = (i - 1 + desloca) % len(p["alts"])
-        alts = outras[:certa] + [certa_alt] + outras[certa:]
+
+        # Identidade estavel da pergunta, para o livro lembrar quais ja caíram.
+        # Vem do enunciado, e nao da posicao: acrescentar ou reordenar perguntas
+        # no banco nao apaga a memoria das outras.
+        ident = hashlib.sha1(
+            re.sub(r"\s+", " ", p["texto"]).strip().lower().encode("utf-8")
+        ).hexdigest()[:10]
 
         linhas_alt = []
-        for k, a in enumerate(alts):
+        for a in p["alts"]:
+            marca = ' data-certa="1"' if a["certa"] else ""
             linhas_alt.append(
-                f'<li><button type="button" class="quiz-alt" data-i="{k}">'
-                f'<span class="letra">{chr(65 + k)}</span>'
+                f'<li{marca}><button type="button" class="quiz-alt">'
+                f'<span class="letra" aria-hidden="true"></span>'
                 f'<span class="texto">{para_html(a["texto"])[3:-4]}</span></button>'
                 f'<p class="quiz-retorno" hidden>{para_html(a["retorno"])[3:-4]}</p></li>')
 
@@ -307,17 +312,22 @@ def render_quiz(bloco, prefixo):
                   if p["ancora"] else "")
 
         itens.append(
-            f'<li class="quiz-pergunta" data-certa="{certa}">'
+            f'<li class="quiz-pergunta" data-nivel="{p["nivel"]}" data-id="{ident}" hidden>'
             f'<p class="quiz-enunciado">'
             f'<span class="nivel {p["nivel"]}">{NIVEIS.get(p["nivel"], p["nivel"])}</span>'
             f'{para_html(p["texto"])[3:-4]}</p>'
             f'<ul class="quiz-alternativas">{"".join(linhas_alt)}</ul>'
             f"{releia}</li>")
 
-    return (f'<details class="quiz" data-quiz="{prefixo}">'
+    banco = len(itens)
+    rodada = min(SORTEIO, banco)
+    resumo = (f"{rodada} perguntas sorteadas de {banco} · sorteio novo a cada tentativa"
+              if banco > rodada else
+              f"{rodada} perguntas · responda sem consultar o capítulo")
+
+    return (f'<details class="quiz" data-quiz="{prefixo}" data-rodada="{rodada}">'
             f'<summary><b>Teste o que você entendeu</b>'
-            f'<span class="quiz-resumo">{len(perguntas)} perguntas · '
-            f'responda sem consultar o capítulo</span></summary>'
+            f'<span class="quiz-resumo">{resumo}</span></summary>'
             f'<div class="quiz-corpo"><ol class="quiz-perguntas">{"".join(itens)}</ol>'
             f'<div class="quiz-placar" role="status" aria-live="polite" hidden></div>'
             f'<div class="quiz-acoes" hidden>'
@@ -416,7 +426,7 @@ def painel_numeros(paineis, meta, glossario, palavras_total, livro):
         (tempo, "de leitura",
          "a 200 palavras por minuto, do começo ao fim"),
         (numero(corpo.count('class="quiz-pergunta"')), "perguntas de quiz",
-         f"em {n_quizzes} questionários, com cinco alternativas cada"),
+         f"em {n_quizzes} bancos, com {SORTEIO} sorteadas a cada tentativa"),
         (numero(corpo.count('class="quiz-retorno"')), "comentários de resposta",
          "um para cada alternativa, certa ou errada"),
         (numero(corpo.count('class="exercicio"')), "exercícios",
