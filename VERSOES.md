@@ -20,6 +20,41 @@ duas construções da mesma versão podem diferir em detalhes de data e de links
 
 ---
 
+## Versão 1.5 — 04/08/2026
+
+**Os três primeiros bancos de 21**
+
+- Capítulos 9, 10 e 11 passam de sete para **vinte e uma perguntas cada**, em
+  seis fáceis, nove intermediárias e seis difíceis. É a distribuição que faz o
+  sorteio entregar três rodadas inteiras sem repetir nenhuma pergunta, cobrindo
+  o banco por completo antes de recomeçar.
+- São 42 perguntas novas e 210 comentários de alternativa, todos ancorados na
+  seção do capítulo que responde à questão.
+- Capítulo 9: estimativa pontual e o salto para o próximo paciente; a frase que
+  confunde intervalo com faixa de pacientes; barra de erro sem legenda; risco
+  relativo contra razão de chances em desfecho frequente; o intervalo do número
+  necessário para tratar quando ele passa pelo infinito; Wald produzindo limite
+  negativo; a assimetria do critério de sobreposição de intervalos; o valor nulo
+  que é 1 nas medidas de razão; e a conclusão negativa útil de um estudo cujo
+  intervalo estreito exclui a menor diferença relevante.
+- Capítulo 10: o que se supõe ao calcular um p; o "p = 0,000" que não existe; o
+  que o qui-quadrado de fato compara; a área da cauda que transforma 5,90 em
+  0,015; p de 0,049 contra p de 0,051; troca de desfecho; a probabilidade prévia
+  que faltaria para inverter a condicional; o poder observado idêntico em dois
+  estudos de tamanhos opostos; Bonferroni aplicada aos dezenove testes; e a caça
+  a subgrupos depois de ver os dados.
+- Capítulo 11: o que é pareamento; ANOVA no lugar de três testes t; Fisher
+  quando o esperado é 3; a seção de métodos que informa só o programa;
+  Shapiro-Wilk como critério de escolha; o custo em poder de ignorar o
+  pareamento; o descompasso entre o poder do teste de normalidade e a
+  necessidade dele; e a correlação de 0,94 apresentada como prova de
+  concordância entre dois métodos de medida.
+- O livro passa de 112 para 154 perguntas de quiz. Os treze capítulos restantes
+  seguem com sete cada, e o sorteio funciona igualmente neles: ampliar um banco
+  é acrescentar perguntas ao mesmo bloco, sem tocar em código.
+
+---
+
 ## Versão 1.4 — 04/08/2026
 
 **O quiz deixa de ser decorável**

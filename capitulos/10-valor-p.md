@@ -238,6 +238,118 @@ resto como exploratório.
 - Um valor de p pequeno é, por si só, boa medida da magnitude do efeito. | O quinto princípio nega isso: o p não mede tamanho de efeito nem importância de um resultado.
 - Relatar apenas os testes que resultaram significativos é aceitável se o método estiver descrito. | O quarto princípio exige transparência total sobre tudo o que foi testado; relatar seletivamente invalida a interpretação do p.
 @ cap-10-o-que-o-valor-de-p-nao-e
+
+? [facil] Ao calcular um valor de p, o que se supõe verdadeiro?
++ Que a hipótese nula é verdadeira, isto é, que o tratamento não tem efeito algum. | Correto. O p parte da hipótese nula, não a testa: ele mede a raridade do resultado observado dentro de um mundo em que o tratamento é inerte.
+- Que a hipótese alternativa é verdadeira. | É o oposto. Se o cálculo partisse da existência do efeito, ele não teria como medir a compatibilidade dos dados com a ausência de efeito.
+- Que os dois grupos são idênticos em todas as características basais. | O que se supõe é ausência de efeito do tratamento, e não igualdade perfeita dos grupos, que a randomização torna provável mas nunca garante.
+- Que a amostra é grande o bastante para o teste. | O tamanho influencia o resultado do cálculo, mas não é a suposição sobre a qual o p se define. Exigências de tamanho aparecem nas condições de validade do teste, não no significado do p.
+- Que não houve perdas de seguimento. | As perdas ameaçam a validade e se tratam por análise de sensibilidade. Não são a suposição sobre a qual o p é construído.
+@ cap-10-o-que-o-valor-de-p-e
+
+? [facil] Um manuscrito relata, na tabela de resultados, "p = 0,000". O que está errado?
++ Não existe valor de p igual a zero, e a notação correta é p < 0,001. | Correto. O p é uma área sob uma curva, e essa área pode ser pequeníssima, jamais nula: sempre resta alguma probabilidade de observar um resultado extremo sob a hipótese nula. O que apareceu na tela foi um arredondamento na terceira casa.
+- Nada está errado: o programa calculou e o autor transcreveu. | O programa arredondou para três casas. Transcrever o arredondamento como valor exato transforma uma limitação de exibição em afirmação matemática falsa.
+- Falta apenas acrescentar ao lado qual teste foi utilizado. | O teste de fato deve constar, e isso não conserta o "0,000", que continua sendo um valor impossível.
+- O erro é usar três casas decimais em vez de duas. | O número de casas é convenção editorial. O problema não é a precisão, é afirmar uma probabilidade nula.
+- O valor deveria estar em porcentagem, como 0,0%. | Trocar a escala não resolve nada: 0,0% seria igualmente impossível.
+@ cap-10-o-que-o-valor-de-p-e
+
+? [facil] O teste qui-quadrado aplicado ao desfecho primário deste estudo compara o quê, exatamente?
++ As cicatrizações observadas em cada grupo, 65 e 49, com as 57 que se esperariam em cada um se o grupo não tivesse relação com o desfecho. | Correto. A estatística soma, nas quatro casas da tabela, o quadrado da diferença entre observado e esperado, dividido pelo esperado. O esperado sai da proporção global de 62,0%, isto é, 114 em 184.
+- As proporções de 70,7% e 53,3% diretamente uma com a outra. | É o que a leitura clínica faz, e não é o que o teste faz. O qui-quadrado trabalha com contagens e com o que se esperaria sob independência, não com a subtração das duas proporções.
+- A média de cicatrização de um grupo com a do outro. | Cicatrização aqui é variável nominal, e não há média a calcular. Médias entram nos testes do Capítulo 11, para variáveis numéricas.
+- O intervalo de confiança de cada grupo, verificando se eles se sobrepõem. | Comparar sobreposição dos intervalos de cada grupo é atalho impreciso, e não é o que o teste faz. O intervalo que interessa é o da diferença, e está no Capítulo 9.
+- Os 92 participantes de um grupo com os 92 do outro, um a um. | Não há pareamento neste estudo: os grupos são independentes, formados por sorteio, e nenhum participante tem correspondente no outro grupo.
+@ cap-10-o-que-acontece-por-tras-do-teste
+
+? [facil] Um artigo apresenta, na tabela principal, apenas os valores de p de cada comparação. O que falta?
++ A estimativa do efeito e o intervalo de confiança, ao lado de cada p. | Correto. O p diz quão raro seria o resultado sob a hipótese nula, e não diz o tamanho do efeito nem a precisão da estimativa. Sem as duas, o leitor não julga nem magnitude nem incerteza.
+- O valor da estatística do teste, como o qui-quadrado de 5,90. | É informação secundária e legítima. O leitor precisa antes do efeito e do intervalo, que são o que sustenta uma decisão clínica.
+- O poder do estudo para cada comparação. | Poder é assunto de planejamento, e calculado depois não informa nada. O que falta na tabela é a estimativa com seu intervalo.
+- O teste de normalidade aplicado a cada variável. | Não é isso que falta, e nem sempre é necessário. A ausência crítica é a da estimativa e da precisão.
+- Nada falta: o valor de p resume a comparação. | É exatamente a crença que a declaração da American Statistical Association combate. Isoladamente, o p é uma medida pobre de evidência.
+@ cap-10-o-que-o-valor-de-p-nao-e
+
+? [media] O rodapé da tabela de contingência do jamovi informa o menor valor esperado. Para que serve essa informação?
++ Para decidir se o qui-quadrado é confiável: abaixo de 5, o teste exato de Fisher passa a ser obrigatório. | Correto. Neste estudo o menor esperado é 35, bem acima do limite, e por isso o qui-quadrado se sustenta. Em tabelas com casas pouco povoadas, a aproximação pela distribuição teórica falha.
+- Para verificar se a randomização equilibrou os grupos. | O equilíbrio basal se lê na Tabela 1. O menor esperado é uma quantidade calculada a partir das margens da tabela de contingência, e nada diz sobre randomização.
+- Para calcular o poder do estudo. | Poder se calcula no planejamento, com o efeito que se pretende detectar. O menor esperado não entra nessa conta.
+- Para escolher entre o qui-quadrado de Pearson e o com correção de continuidade. | A correção de continuidade responde a outro problema, o da natureza discreta da contagem. O limite de 5 decide entre a aproximação e o teste exato.
+- Para saber quantos participantes se perderam no seguimento. | As perdas se leem no total da tabela e no diagrama de fluxo. O valor esperado é um número teórico, e não uma contagem de gente.
+@ cap-10-o-que-acontece-por-tras-do-teste
+
+? [media] A estatística qui-quadrado deste estudo vale 5,90, com um grau de liberdade, e o p correspondente é 0,015. Como se passa de um número ao outro?
++ Sob a hipótese nula, a estatística segue uma distribuição teórica conhecida, e 0,015 é a área da cauda além de 5,90. | Correto. O valor de p é isso, e apenas isso: uma área sob uma curva teórica. Nada nesse cálculo consulta a clínica, o custo do tratamento ou a plausibilidade biológica.
+- Divide-se 5,90 pelo número de participantes e ajusta-se pelo grau de liberdade. | Não existe tal conta. A conversão é feita pela distribuição de referência, e não por aritmética sobre a estatística.
+- Compara-se 5,90 com o valor crítico de 3,84 e converte-se a diferença em probabilidade. | O valor crítico de 3,84 serve para decidir por limiar a 5%, e não para obter o p. A área da cauda é informação mais fina que a simples comparação com o crítico.
+- Aplica-se a correção de continuidade, que transforma a estatística em probabilidade. | A correção altera a própria estatística antes da conversão, e foi ela que produziu o p alternativo de 0,023 na tabela deste capítulo.
+- O 0,015 é obtido por simulação, reamostrando os dados milhares de vezes. | Reamostragem é caminho legítimo em outros contextos, e não é o que o qui-quadrado de Pearson faz: ele usa uma distribuição teórica fechada.
+@ cap-10-o-que-acontece-por-tras-do-teste
+
+? [media] Um ensaio com 12.000 participantes encontra diferença de 0,4 ponto percentual na cicatrização, com p de 0,003. Como se relata isso?
++ Como resultado estatisticamente significativo cujo efeito é clinicamente irrelevante, apresentando estimativa e intervalo sem comemorar. | Correto. É a casa superior direita do quadro deste capítulo: estudo grande demais para uma pergunta pequena. O p minúsculo veio do tamanho da amostra, e não da magnitude do benefício.
+- Como resultado positivo, já que o p ficou abaixo de 0,05. | Significância estatística e relevância clínica são perguntas diferentes. Quatro décimos de ponto percentual não mudam conduta, por menor que seja o p.
+- Como resultado negativo, já que o efeito é pequeno. | Também não. O efeito existe e foi estimado com muita precisão; o que não se sustenta é a conclusão de importância clínica.
+- Como inconclusivo, pedindo um estudo maior. | Um estudo maior estimaria o mesmo efeito com precisão ainda maior. O problema não é falta de tamanho, é a irrelevância da magnitude encontrada.
+- Como evidência de que o tratamento funciona em algum subgrupo. | Concluir sobre subgrupo exige análise declarada antes da coleta, e nada no enunciado autoriza essa migração.
+@ cap-10-significancia-estatistica-e-relevancia-clinica
+
+? [media] Dois ensaios terminam com p acima de 0,05. No primeiro, a diferença estimada é de 1 ponto percentual, com intervalo de menos 1 a mais 3. No segundo, é de 2 pontos, com intervalo de menos 20 a mais 25. O que se conclui?
++ O primeiro exclui efeitos clinicamente relevantes; o segundo não exclui nada e é apenas inconclusivo. | Correto. Os dois têm o mesmo veredito de significância e significados opostos. É por isso que "não houve diferença entre os grupos" só se sustenta acompanhada do intervalo.
+- Nos dois casos se conclui que o tratamento não funciona. | Só o primeiro autoriza afirmar ausência de efeito relevante. No segundo, o intervalo admite desde prejuízo grande até benefício grande.
+- O segundo é mais informativo, porque estimou efeito maior. | Estimar efeito maior com imprecisão enorme não é ser mais informativo. A largura do intervalo é a medida exata do que o estudo não conseguiu decidir.
+- Nenhum dos dois permite conclusão, porque ambos falharam no teste. | O primeiro permite uma conclusão útil, ainda que negativa: os dados são incompatíveis com efeitos grandes. Ficar acima do limiar não é o mesmo que nada saber.
+- Ambos precisam do poder observado calculado para serem interpretados. | O poder observado é redundante com o p. O que separa os dois casos é o intervalo, que já está no enunciado.
+@ cap-10-o-que-o-valor-de-p-nao-e
+
+? [media] Dois desfechos do mesmo estudo produzem p de 0,049 e p de 0,051. O que de fato distingue os dois resultados?
++ Praticamente nada, e tratá-los como opostos é o que a American Statistical Association desaconselha. | Correto. O limiar de 0,05 é convenção, e não fronteira da natureza. Dois resultados quase idênticos viram "positivo" e "negativo" apenas porque alguém escolheu um número redondo.
+- O primeiro comprova o efeito e o segundo o refuta. | É a leitura dicotômica que o terceiro princípio da declaração combate expressamente. Nenhum dos dois comprova nem refuta coisa alguma sozinho.
+- O primeiro corresponde a um efeito maior que o segundo. | O p não mede tamanho de efeito. Os dois efeitos podem ter qualquer magnitude, e é a estimativa que diz qual é maior.
+- O segundo exige correção para múltiplos testes e o primeiro não. | A correção, quando cabe, aplica-se ao conjunto dos testes, e não seletivamente ao que caiu do lado indesejado do limiar.
+- O primeiro é confiável e o segundo pede repetição do estudo. | A confiabilidade de cada um depende do delineamento, da precisão e do intervalo, e não de dois milésimos no valor de p.
+@ cap-10-o-que-o-valor-de-p-nao-e
+
+? [media] Suponha que o desfecho primário deste estudo tivesse dado p de 0,08 e que um dos quatro secundários tivesse dado 0,01, e que o artigo fosse escrito em torno do secundário. Como se chama isso?
++ Troca de desfecho, prática que o CONSORT nomeia e que o registro prévio do protocolo existe para expor. | Correto. O primário não significativo precisa ser relatado com estimativa e intervalo, e o secundário entra como achado exploratório, gerador de hipótese, jamais como conclusão do estudo.
+- Análise de sensibilidade, legítima quando o primário é inconclusivo. | Análise de sensibilidade é refazer a mesma pergunta sob outra suposição sobre os dados. Trocar a pergunta por outra que deu certo é coisa inteiramente diferente.
+- Correção para múltiplos testes, feita na direção correta. | Não há correção alguma aqui. Ao contrário: o problema é ignorar que cinco desfechos foram testados.
+- Achado secundário confirmatório, aceitável por ter p menor que o do primário. | Nenhum desfecho secundário é confirmatório, por menor que seja seu p. A hierarquia se declara antes da coleta, e não depois do resultado.
+- Análise interina, que autoriza concluir pelo desfecho que alcançou significância. | Análise interina é uma parada planejada durante a coleta, com regras escritas no protocolo, e nada tem a ver com escolher desfecho depois de ver os dados.
+@ cap-10-quando-se-testa-muita-coisa
+
+? [dificil] Para responder "qual a probabilidade de a hipótese nula ser verdadeira, dados estes resultados?", o valor de p não basta. O que mais seria necessário?
++ A probabilidade que se atribuía à hipótese antes de ver os dados. | Correto. Passar de "probabilidade dos dados supondo a hipótese" para "probabilidade da hipótese dados os dados" exige inverter uma condicional, e a inversão só se faz com a probabilidade prévia. É o mesmo raciocínio que o Capítulo 13 aplica à probabilidade pré-teste de um exame.
+- Um valor de p calculado com mais precisão. | Nenhuma precisão adicional converte uma condicional na outra. O problema é da estrutura do raciocínio, e não do número de casas decimais.
+- O tamanho da amostra e o poder do estudo. | Ambos influenciam o valor de p, e nenhum dos dois fornece a informação que falta, que é externa aos dados deste estudo.
+- O intervalo de confiança da diferença. | O intervalo informa precisão e magnitude, o que é muito, e ainda assim continua sendo afirmação sobre os dados, e não sobre a probabilidade da hipótese.
+- A correção de Bonferroni aplicada ao número de desfechos. | A correção ajusta a taxa de erro em múltiplos testes. Ela não altera a natureza do que o valor de p mede.
+@ cap-10-o-que-o-valor-de-p-nao-e
+
+? [dificil] Dois estudos, um com 30 e outro com 3.000 participantes, terminam com exatamente o mesmo valor de p, no mesmo tipo de teste. O que se pode dizer do poder observado de cada um?
++ Será o mesmo nos dois, porque o poder observado é uma transformação do próprio valor de p. | Correto. É essa dependência que o torna inútil: ele não acrescenta informação, apenas reexpressa o p em outra escala. Dois estudos com efeitos e tamanhos opostos, mas com o mesmo p, recebem o mesmo poder observado.
+- Será maior no estudo com 3.000 participantes, que tem mais poder. | O poder planejado seria maior, mas poder observado não é poder planejado: ele se calcula com o efeito encontrado, e por isso acompanha o p, e não o tamanho da amostra.
+- Será maior no estudo com 30, porque ali o efeito encontrado teve de ser maior. | O efeito de fato precisou ser bem maior para produzir aquele p com amostra pequena, e ainda assim o poder observado sai igual. É justamente o que revela o quanto ele é vazio.
+- Não é possível dizer sem conhecer a variabilidade dos dados. | A variabilidade já está incorporada ao valor de p. Fixado o p, o poder observado fica determinado.
+- Será igual apenas se os dois tiverem o mesmo tamanho de efeito. | Se tivessem o mesmo efeito e tamanhos tão diferentes, os valores de p não seriam iguais. O enunciado fixa o p justamente para expor a relação.
+@ cap-10-poder-e-por-que-nao-se-calcula-poder-depois
+
+? [dificil] Aplicada aos dezenove testes deste projeto, a correção de Bonferroni levaria o limiar de 5% para cerca de 0,0026, e o p de 0,015 do desfecho primário deixaria de ser significativo. O que isso significa?
++ Nada muda para o primário: ele é único, foi declarado antes da coleta e por isso não entra na correção. | Correto. A correção existe para conjuntos de testes tratados com igual peso. Declarar um desfecho primário é a alternativa disciplinar à correção, e é por isso que o livro insiste nisso desde o Capítulo 4.
+- O estudo perdeu seu resultado principal e a conclusão precisa ser revista. | Só se o protocolo tivesse tratado os dezenove desfechos como igualmente confirmatórios, o que não é o caso. Aplicar Bonferroni onde há hierarquia declarada penaliza justamente quem fez a coisa certa.
+- Bonferroni deve ser aplicada sempre que houver mais de um teste no artigo. | Se assim fosse, todo artigo com uma Tabela 1 e uma dúzia de variáveis basais precisaria corrigir seu desfecho primário, o que não tem sentido metodológico.
+- O correto seria aplicar a correção apenas aos quatro desfechos secundários. | Os secundários são exploratórios e não sustentam conclusão, com ou sem correção. Corrigi-los lhes daria aparência confirmatória que eles não têm.
+- A correção mostra que o estudo precisaria de amostra maior. | Bonferroni redistribui a taxa de erro tipo I entre testes. Não é cálculo de tamanho de amostra e nada diz sobre ele.
+@ cap-10-quando-se-testa-muita-coisa
+
+? [dificil] Terminada a análise principal, um coautor sugere verificar se o efeito é maior entre diabéticos, entre fumantes e entre os de úlcera maior. No subgrupo dos diabéticos aparece p de 0,04. Qual a leitura correta?
++ É achado exploratório: três comparações não declaradas foram feitas depois de ver os dados, e a taxa de falso positivo já não é a nominal. | Correto. O problema não está em olhar subgrupos, e sim em olhar depois e relatar só o que apareceu. O achado gera hipótese para outro estudo, e nada além disso.
+- É resultado válido, porque o p ficou abaixo de 0,05. | O limiar de 5% pressupõe uma comparação declarada antes. Depois de três buscas não planejadas, o 0,04 não tem o significado que aparenta.
+- É resultado válido desde que a interação entre grupo e diabetes também seja testada. | Testar a interação é a análise tecnicamente correta para subgrupos, e é mais exigente que comparar dentro de cada estrato. Feita depois e não declarada, ainda assim permanece exploratória.
+- Deve ser descartado e não mencionado no artigo. | Descartar em silêncio é o outro extremo, e alimenta o viés de publicação. O quarto princípio da American Statistical Association pede transparência sobre tudo o que foi testado.
+- Confirma o efeito principal e reforça a conclusão do estudo. | Um subgrupo não confirma o todo. Se o efeito principal já é significativo, o subgrupo apenas descreve onde ele pareceu maior nesta amostra, e isso oscila muito com o acaso.
+@ cap-10-quando-se-testa-muita-coisa
 :::
 
 ## Exercícios

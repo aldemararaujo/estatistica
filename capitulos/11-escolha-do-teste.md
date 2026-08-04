@@ -231,6 +231,118 @@ menor valor de p.
 - Perde-se a possibilidade de calcular o valor de p. | O valor de p é exatamente o que ele fornece.
 - Perde-se a capacidade de ajustar por covariáveis. | Ajuste exige modelo de regressão, o que também não é oferecido pelo teste paramétrico simples.
 @ cap-11-a-tabela-de-decisao
+
+? [facil] O que quer dizer, exatamente, que dois conjuntos de dados são pareados?
++ Que cada valor de um tem um correspondente no outro, tipicamente por serem a mesma pessoa medida duas vezes. | Correto. É a segunda das três perguntas que decidem o teste, e ela muda tudo: com pares, a análise trabalha com a diferença dentro de cada indivíduo, e não com dois amontoados de valores.
+- Que os dois grupos têm o mesmo número de participantes. | Grupos independentes podem ter tamanhos iguais por acaso ou por delineamento, e continuam independentes. O que define pareamento é a correspondência um a um.
+- Que os participantes foram sorteados aos pares para os dois grupos. | A randomização em blocos pode alocar em pares, e ainda assim cada participante entra em um grupo só, sem correspondente no outro.
+- Que as duas variáveis medem a mesma coisa. | Medir a mesma coisa é condição para a comparação fazer sentido, e não é o que constitui o par. O par se define pela unidade observada.
+- Que os dados foram coletados no mesmo dia. | A data da coleta não cria correspondência entre observações de pessoas diferentes.
+@ cap-11-as-tres-perguntas-que-decidem-tudo
+
+? [facil] A redução de área foi comparada entre os três centros do estudo. Qual o teste indicado?
++ ANOVA de uma via, com Kruskal-Wallis como alternativa por postos. | Correto. Desfecho numérico, três grupos independentes. Neste estudo a ANOVA deu F de 0,52 com p de 0,595, e o Kruskal-Wallis confirmou, o que é a verificação de rotina em estudo multicêntrico.
+- Três testes t, comparando os centros dois a dois. | Três comparações a 5% inflam a taxa de falso positivo, exatamente o problema do Capítulo 10. A ANOVA responde à pergunta com um teste só.
+- Qui-quadrado de r por c. | Serve a desfecho categórico em mais de dois grupos. Redução de área é numérica.
+- ANOVA de medidas repetidas. | Seria o teste se os três valores viessem da mesma pessoa em três momentos. Os centros são grupos independentes de pessoas diferentes.
+- Correlação de Spearman entre centro e redução. | Centro é variável nominal, sem ordem, e correlação exige variáveis que possam ser ordenadas.
+@ cap-11-a-tabela-de-decisao
+
+? [facil] Uma tabela de contingência dois por dois tem menor valor esperado igual a 3. Qual o teste correto?
++ O teste exato de Fisher. | Correto. Abaixo de 5, a aproximação do qui-quadrado pela distribuição teórica deixa de ser confiável. O jamovi informa o menor valor esperado no rodapé da tabela, e é ali que se confere.
+- Qui-quadrado de Pearson, como de hábito. | É justamente o que a devolutiva do revisor cobra: qui-quadrado com esperados pequenos não se sustenta.
+- Qui-quadrado com correção de continuidade, que resolve o problema. | A correção atenua a discrepância entre distribuição contínua e contagem discreta, e não substitui o teste exato quando as casas estão pouco povoadas.
+- McNemar, que funciona com casas pequenas. | McNemar é para proporções pareadas. O problema aqui é o tamanho do esperado, e não a natureza da comparação.
+- Teste t, que dispensa a suposição sobre esperados. | O desfecho é categórico, e o teste t compara médias de variáveis numéricas.
+@ cap-11-a-tabela-de-decisao
+
+? [facil] A seção de métodos de um artigo diz apenas: "os dados foram analisados no jamovi, adotando-se significância de 5%". O que falta?
++ Dizer, desfecho a desfecho, qual teste foi usado e por quê. | Correto. O programa e o limiar não são o método. Sem saber qual teste respondeu a cada pergunta, o leitor não consegue julgar se a escolha foi adequada nem reproduzir a análise.
+- Informar a versão exata do programa utilizado. | A versão é boa prática de reprodutibilidade e não é o que falta aqui. A ausência crítica é a do teste de cada desfecho.
+- Declarar que os dados eram normais. | Declarar normalidade seria repetir o mito que este capítulo desfaz. O que se descreve é a forma da distribuição e o tamanho da amostra.
+- Acrescentar o valor de p de cada comparação. | Os valores de p pertencem aos resultados, e não aos métodos. O que falta nos métodos é a escolha do teste.
+- Nada: a frase é o padrão aceito na literatura clínica. | É uma frase frequente e insuficiente, e está entre as devolutivas mais comuns de revisor neste capítulo.
+@ cap-11-as-tres-perguntas-que-decidem-tudo
+
+? [media] Um autor escreve que aplicou Shapiro-Wilk e, como o resultado foi significativo, optou pelo teste não paramétrico. Qual o problema?
++ A decisão deve vir da forma da distribuição e do tamanho da amostra, e não do resultado de um teste de normalidade. | Correto. Em amostra grande, o Shapiro-Wilk acusa desvios triviais e empurra para o teste por postos sem necessidade; em amostra pequena, não detecta nem desvios importantes. É justamente onde ele decidiria bem que ele não enxerga.
+- Nenhum: é o procedimento correto e recomendado. | É o procedimento mais ensinado e um dos mais criticados pela literatura metodológica, e aparece como devolutiva de revisor neste capítulo.
+- O erro foi usar Shapiro-Wilk em vez de Kolmogorov-Smirnov. | Trocar um teste de normalidade por outro não muda a natureza do problema, que é delegar a decisão a um teste.
+- O erro foi não corrigir o teste de normalidade para múltiplas comparações. | Multiplicidade é assunto do Capítulo 10 e não é o defeito aqui. O defeito é o critério de escolha do teste principal.
+- O erro foi aplicar o teste de normalidade aos dados brutos em vez dos resíduos. | Em modelos de regressão a distinção importa, e ainda assim a crítica central permanece: descreva a distribuição em vez de testá-la.
+@ cap-11-o-mito-da-normalidade
+
+? [media] Na redução de área em quatro semanas, o t de Welch devolveu p de 0,020 e o Mann-Whitney, 0,024. Como se lê essa proximidade?
++ Como o resultado esperado: quando a amostra é razoável, os dois caminhos concordam, e a escolha entre eles deixa de ser dramática. | Correto. É o normal, e não a exceção. Quando os dois discordam de maneira relevante, a causa quase sempre é um punhado de valores extremos, e o que se investiga é aquele punhado, não a escolha do teste.
+- Como sinal de que um dos dois foi calculado incorretamente. | Os dois testam hipóteses ligeiramente diferentes sobre os mesmos dados, e valores próximos, porém distintos, são exatamente o que se espera.
+- Como prova de que os dados são normais. | Nada aqui testa normalidade, e o capítulo argumenta que essa não é a pergunta certa a fazer.
+- Como indicação de que se deve relatar o menor dos dois. | Escolher o menor depois de ver os dois é a prática que o Capítulo 10 chama de p-hacking. O teste se declara antes, no protocolo.
+- Como evidência de que o teste por postos é desnecessário em qualquer estudo. | Ele continua indicado em amostras pequenas com assimetria forte, com valores extremos irremovíveis e com desfechos ordinais por natureza.
+@ cap-11-o-mito-da-normalidade
+
+? [media] A dor caiu de mediana 5 para 3, com p abaixo de 0,001 no teste pareado. O que esse resultado autoriza concluir?
++ Que a dor diminuiu ao longo do seguimento, sem dizer nada sobre a eficácia do aspirado. | Correto. Os dois grupos melhoraram, porque a úlcera cicatriza também sob compressão isolada. Comparar a queda **entre** os grupos é outra análise, e é ela que responde sobre eficácia.
+- Que o aspirado de medula óssea reduz a dor. | O teste comparou dois momentos, e não dois tratamentos. Atribuir a queda ao aspirado é concluir sobre uma comparação que não foi feita.
+- Que a dor caiu mais no grupo tratado. | Essa afirmação exige comparar as quedas entre os grupos, o que é uma terceira análise, distinta desta.
+- Que a compressão isolada não tem efeito sobre a dor. | O grupo controle também melhorou, o que aponta na direção contrária.
+- Que o desfecho de dor deveria ter sido o primário. | O desfecho primário se declara no protocolo, antes da coleta, e um p pequeno encontrado depois não promove desfecho algum.
+@ cap-11-os-testes-deste-estudo-um-a-um
+
+? [media] Em que situações o teste por postos é a escolha indicada?
++ Amostra pequena com assimetria visível, valores extremos que não se pode excluir nem justificar, e desfecho ordinal por natureza, como um escore de dor de 0 a 10. | Correto. São as três situações em que ele ganha do paramétrico. Fora delas, e sobretudo com amostras como a deste estudo, o ganho é pequeno e o custo é perder a estimativa na escala original.
+- Sempre que o teste de normalidade der resultado significativo. | É o critério que este capítulo desaconselha. A decisão vem da forma da distribuição e do tamanho da amostra.
+- Sempre que o desfecho for percentual. | Percentual é variável numérica contínua, e a redução de área deste estudo foi analisada por t de Welch sem problema.
+- Sempre que houver mais de dois grupos. | Com três ou mais grupos a escolha continua sendo entre ANOVA e Kruskal-Wallis, pelos mesmos critérios.
+- Sempre que houver dados faltantes no desfecho. | Faltantes reduzem o n disponível e se tratam como o Capítulo 7 descreve. Nada nisso favorece o teste por postos.
+@ cap-11-a-tabela-de-decisao
+
+? [media] A dor foi medida na inclusão, em quatro semanas e em doze semanas, nos mesmos participantes. Qual teste compara os três momentos?
++ ANOVA de medidas repetidas, com Friedman como alternativa por postos. | Correto. Três ou mais momentos na mesma pessoa mantêm o pareamento, agora com mais de dois níveis. Ignorar isso e usar ANOVA de uma via desperdiça a estrutura dos dados.
+- ANOVA de uma via, com Kruskal-Wallis. | Serve a três ou mais grupos independentes, de pessoas diferentes. Aqui é a mesma pessoa três vezes.
+- Três testes t pareados, comparando os momentos dois a dois. | Preserva o pareamento e cria três comparações, com a inflação de erro tipo I do Capítulo 10. A ANOVA de medidas repetidas responde com um teste só.
+- Teste de McNemar aplicado três vezes. | McNemar é para proporções pareadas, e a dor aqui é numérica.
+- Correlação de Pearson entre os três momentos. | Correlação mede associação entre variáveis, e não mudança ao longo do tempo.
+@ cap-11-a-tabela-de-decisao
+
+? [media] Um coautor propõe dicotomizar a área inicial em "grande" e "pequena" pelo corte que produzir o menor valor de p. Como responder?
++ Recusar: dicotomizar já joga informação fora, e escolher o corte pelo valor de p transforma perda em viés. | Correto. Dicotomizar reduz poder, e o corte escolhido nos próprios dados quase nunca se reproduz em outra amostra. Só se dicotomiza quando o ponto de corte tem significado clínico próprio, como o de 40% de redução em quatro semanas usado no Capítulo 13.
+- Aceitar, desde que o corte seja relatado com transparência. | Relatar não conserta. O corte otimizado nos dados continua sendo uma escolha feita depois de ver o resultado.
+- Aceitar, porque dicotomizar sempre facilita a interpretação clínica. | Facilita a leitura e custa poder estatístico. A facilidade não paga a informação perdida, salvo quando o corte já existe na clínica.
+- Recusar, porque variáveis contínuas nunca podem ser categorizadas. | Podem, e às vezes devem, quando o limiar tem significado próprio. O que não se admite é escolhê-lo pelo valor de p.
+- Aceitar, desde que se aplique correção de Bonferroni aos cortes testados. | Corrigir por um número de cortes testados que ninguém declarou antes é remendo sobre um procedimento que já nasceu torto.
+@ cap-11-os-testes-deste-estudo-um-a-um
+
+? [dificil] Por que aplicar um teste de amostras independentes a dados pareados custa tanto poder estatístico?
++ Porque o teste independente carrega a variabilidade entre pessoas no erro padrão, enquanto o pareado a elimina ao trabalhar com a diferença dentro de cada indivíduo. | Correto. A variabilidade entre pessoas costuma ser a maior fonte de ruído, e quem sente muita dor no início tende a sentir muita dor depois. Descartar essa informação pode transformar um efeito evidente em resultado não significativo.
+- Porque o teste independente exige o dobro de participantes para o mesmo cálculo. | O número de observações é o mesmo nos dois casos. O que muda é o que entra no denominador do teste.
+- Porque a suposição de normalidade é mais exigente no teste independente. | A suposição é da mesma natureza nos dois. A diferença está na estrutura de correlação dos dados, e não na forma da distribuição.
+- Porque o teste independente não admite grupos de tamanhos iguais. | Admite qualquer combinação de tamanhos. A questão é outra: os dados não formam dois grupos.
+- Porque o erro tipo I aumenta ao ignorar o pareamento. | O prejuízo típico é de poder, isto é, de erro tipo II. O teste fica conservador demais e deixa de detectar o que existe.
+@ cap-11-as-tres-perguntas-que-decidem-tudo
+
+? [dificil] Por que um teste de normalidade tende a decidir mal justamente quando sua decisão seria mais importante?
++ Porque em amostra grande ele acusa desvios irrelevantes, quando o teste t já é robusto, e em amostra pequena não detecta desvios importantes, quando a robustez não existe. | Correto. O poder do teste de normalidade cresce com o tamanho da amostra, e a necessidade de proteção contra a não normalidade diminui com ele. As duas curvas correm em direções opostas, e é isso que torna o critério inútil.
+- Porque ele confunde assimetria com presença de valores extremos. | Ele responde a ambos, e o defeito não é de sensibilidade a um ou outro, e sim de descompasso com o tamanho da amostra.
+- Porque só funciona corretamente em desfechos binários. | Testes de normalidade se aplicam a variáveis numéricas. Em desfecho binário a pergunta sequer se coloca.
+- Porque exige que as variâncias dos grupos sejam iguais. | Igualdade de variâncias é outra suposição, resolvida pelo uso do teste de Welch.
+- Porque não pode ser aplicado quando há dados faltantes. | Faltantes reduzem o n analisado e não são a origem do descompasso descrito.
+@ cap-11-o-mito-da-normalidade
+
+? [dificil] Um estudo compara a área da úlcera medida por planimetria digital e por régua, e relata correlação de Pearson de 0,94 como prova de que os métodos concordam. O argumento se sustenta?
++ Não: correlação mede se os valores caminham juntos, e dois métodos podem correlacionar quase perfeitamente enquanto um deles mede sistematicamente mais que o outro. | Correto. Concordância se avalia com a diferença entre os métodos, e não com a associação entre eles. O caminho é o gráfico de Bland e Altman, cuja referência está no Apêndice E, e essa distinção precisa ser resolvida antes da coleta.
+- Sustenta-se: correlação acima de 0,90 é o critério aceito de concordância. | Não existe tal critério, e a correlação alta é exatamente o que o argumento de Bland e Altman mostra ser insuficiente.
+- Não, porque a correlação de Pearson não se aplica a medidas de área. | Aplica-se a qualquer par de variáveis numéricas. O problema não é de aplicabilidade, e sim de pergunta.
+- Não, porque o correto seria usar Spearman com variáveis assimétricas. | Trocar Pearson por Spearman continuaria respondendo à pergunta errada, que é a da associação e não a da concordância.
+- Sustenta-se, desde que o valor de p da correlação também seja relatado. | O valor de p da correlação apenas indica que a associação não é nula, e associação não é concordância.
+@ cap-11-os-testes-deste-estudo-um-a-um
+
+? [dificil] Suponha que a ANOVA entre os três centros tivesse dado p de 0,01, em vez dos 0,595 observados. O que se poderia concluir?
++ Que pelo menos um centro difere de algum outro, sem saber qual, o que exigiria comparações posteriores com controle de multiplicidade. | Correto. A ANOVA responde a uma pergunta global, e não localiza a diferença. Sair comparando os pares sem controle reintroduz o problema de múltiplos testes do Capítulo 10.
+- Que os três centros diferem entre si. | O teste global não autoriza afirmar que todos diferem. É perfeitamente possível que dois sejam iguais e o terceiro destoe.
+- Que o centro com maior média é superior aos demais. | Ordenar as médias observadas e declarar vencedor é conclusão sobre comparações que não foram testadas.
+- Que o estudo multicêntrico deve ser descartado. | Heterogeneidade entre centros é achado a investigar e relatar, e não motivo para descartar o estudo.
+- Que o desfecho primário do estudo fica invalidado. | A comparação entre centros é verificação de rotina, e um resultado dela não anula a análise do desfecho primário, que compara grupos randomizados.
+@ cap-11-a-tabela-de-decisao
 :::
 
 ## Exercícios

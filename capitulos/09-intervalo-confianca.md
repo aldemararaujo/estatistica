@@ -241,6 +241,118 @@ representa.
 - O correto seria recalcular o d com a amostra completa. | O cálculo já usa os participantes com a medida disponível.
 - Deve-se apresentar apenas o valor de p, que foi significativo. | Trocar o tamanho de efeito pelo valor de p é retroceder ao problema que o Capítulo 10 descreve.
 @ cap-9-o-intervalo-do-que-interessa-a-diferenca
+
+? [facil] O estudo observou 70,7% de cicatrização no grupo do aspirado. O que esse número é?
++ Uma estimativa pontual: o melhor palpite sobre a proporção que o tratamento produziria na população de onde a amostra veio. | Correto. O estudo mediu o que aconteceu com 184 pessoas específicas, e o interesse nunca são elas: é o próximo paciente, que não participou de nada. Entre uma coisa e outra existe um salto, e o intervalo de confiança é a medida desse salto.
+- O valor verdadeiro da eficácia do tratamento. | Se fosse o valor verdadeiro, não haveria incerteza a relatar e o intervalo de confiança não existiria. Nenhum estudo mede o valor verdadeiro; todos estimam.
+- A probabilidade de o próximo paciente cicatrizar. | O próximo paciente pode diferir dos participantes em idade, gravidade da úlcera e adesão à compressão. A estimativa vale para a população de onde a amostra veio, e transportá-la exige julgamento clínico.
+- A proporção de pacientes que cicatrizariam sem tratamento algum. | Essa é a proporção do grupo controle, 53,3%. Os 70,7% descrevem quem recebeu o aspirado somado à terapia compressiva.
+- Um valor sem utilidade, por vir de amostra pequena. | A amostra é pequena para a precisão desejada, e isso se expressa na largura do intervalo, não na inutilidade da estimativa. Estimativa imprecisa continua sendo informação.
+@ cap-9-todo-resultado-e-uma-estimativa
+
+? [facil] Um artigo escreve: "95% dos pacientes cicatrizam entre 60,7% e 79,0%". Qual o problema?
++ A frase confunde incerteza sobre uma estimativa com variação entre pessoas, e assim não significa nada. | Correto. O intervalo de confiança descreve o quanto se sabe sobre uma proporção única, e não a faixa em que os pacientes se distribuem. A faixa entre pessoas se descreve com quartis, como no Capítulo 8.
+- Falta apenas dizer que o intervalo é de 95% de confiança. | Acrescentar a palavra confiança não conserta a frase, porque o erro está em atribuir ao paciente uma faixa que descreve a estimativa.
+- O intervalo deveria ser o da diferença entre os grupos. | O intervalo da diferença é de fato o que interessa para a conclusão do estudo, e ainda assim o erro desta frase persistiria em qualquer intervalo.
+- Os limites estão trocados, e o correto seria de 79,0% a 60,7%. | Os limites estão na ordem certa. O problema é conceitual, e não de ordenação.
+- Nenhum: é a leitura habitual do intervalo de confiança. | É uma leitura frequente e é errada. Cada paciente cicatriza ou não cicatriza; nenhum deles cicatriza "70,7%".
+@ cap-9-o-que-o-intervalo-de-confianca-diz
+
+? [facil] Uma figura traz barras de erro sobre as médias de cada grupo, sem dizer o que elas representam. Por que isso é um problema?
++ Porque barra de desvio padrão e barra de intervalo de confiança têm larguras muito diferentes e significados diferentes, e o leitor não tem como saber qual está vendo. | Correto. O desvio padrão descreve a dispersão entre pacientes; o intervalo descreve a incerteza sobre a média. A legenda precisa dizer qual dos dois foi desenhado, e é devolutiva frequente de revisor quando não diz.
+- Porque barras de erro não devem aparecer em artigos clínicos. | Elas devem aparecer, e são a maneira usual de mostrar incerteza em uma figura. O que não pode faltar é a legenda.
+- Porque a figura deveria mostrar cada paciente individualmente. | Mostrar os pontos individuais é uma boa prática em amostras pequenas, e não é o que resolve a ambiguidade da barra sem legenda.
+- Porque o desvio padrão nunca deve ser representado graficamente. | Pode ser, e às vezes é o mais informativo. O problema é apresentá-lo sem identificação.
+- Porque a barra de erro substitui o valor de p. | Uma coisa não substitui a outra, e o capítulo defende justamente apresentar estimativa e intervalo. A falha aqui é de legenda.
+@ cap-9-o-que-o-intervalo-de-confianca-diz
+
+? [facil] O número necessário para tratar deste estudo é 5,8. O que isso quer dizer para o clínico?
++ Que para cada seis pacientes tratados, um cicatriza que não teria cicatrizado. | Correto. O NNT é a diferença absoluta virada do avesso, e é a medida que fala em pacientes. Arredonda-se para cima, porque não se trata seis décimos de paciente.
+- Que 5,8% dos pacientes se beneficiam do tratamento. | O NNT não é porcentagem. A proporção que se beneficia é a própria diferença absoluta, de 17,4 pontos percentuais.
+- Que são necessárias 5,8 semanas para observar o efeito. | O NNT não tem unidade de tempo. O tempo de observação deste estudo é de doze semanas, definido no protocolo.
+- Que o tratamento é 5,8 vezes melhor que o controle. | Uma razão entre os grupos seria o risco relativo, de 1,33, ou a razão de chances, de 2,11. O NNT não é razão entre grupos.
+- Que a cada 5,8 pacientes um sofre evento adverso. | Esse seria o número necessário para causar dano, calculado sobre o desfecho de segurança, e não sobre a cicatrização.
+@ cap-9-ler-cada-medida-pelo-que-ela-diz
+
+? [media] O mesmo desfecho deste estudo produz risco relativo de 1,33 e razão de chances de 2,11. Por que os dois números são tão diferentes?
++ Porque a razão de chances se afasta do risco relativo quando o desfecho é frequente, e aqui mais da metade dos pacientes cicatrizou. | Correto. Com desfecho comum, a razão de chances exagera a impressão de efeito em relação ao risco relativo. Quando o desfecho é raro, as duas quase coincidem, e é daí que vem o hábito de tratá-las como intercambiáveis.
+- Porque um foi calculado com as perdas e o outro sem. | Ambas saem da mesma tabela de contingência, com os mesmos 184 participantes analisados.
+- Porque a razão de chances corrige para as variáveis basais. | Ajuste por variáveis basais é assunto da regressão, no Capítulo 12. A razão de chances bruta desta tabela não ajusta nada.
+- Porque a razão de chances é sempre o dobro do risco relativo. | Não há relação fixa entre as duas. A distância entre elas depende de quão frequente é o desfecho.
+- Porque uma usa o método de Wilson e a outra o de Wald. | O método do intervalo afeta os limites, e não a estimativa pontual de cada medida.
+@ cap-9-ler-cada-medida-pelo-que-ela-diz
+
+? [media] Por que a imprensa e a indústria costumam preferir o risco relativo à diferença absoluta?
++ Porque, quando o desfecho é raro, o risco relativo soa impressionante enquanto a diferença absoluta é minúscula. | Correto. Dobrar um risco de um em dez mil produz risco relativo de 2,00 e diferença absoluta de um em dez mil. As duas descrevem o mesmo dado e causam impressões opostas. Neste estudo o desfecho é frequente e as duas medidas contam a mesma história.
+- Porque o risco relativo é mais fácil de calcular. | Ambos saem da mesma tabela com uma conta de uma linha. A preferência é retórica, e não operacional.
+- Porque a diferença absoluta não pode ser calculada em ensaios clínicos. | Pode, e é a medida mais útil na clínica, por ser a única que fala em pacientes em vez de razões.
+- Porque o risco relativo tem intervalo de confiança mais estreito. | A largura de cada intervalo depende da escala em que a medida vive. Não há garantia de que o do risco relativo seja mais estreito, e não é isso que motiva a escolha.
+- Porque a diferença absoluta depende de o desfecho ser binário. | As duas medidas dependem de desfecho binário. Para variável contínua, usa-se diferença de médias, como na segunda tabela deste capítulo.
+@ cap-9-ler-cada-medida-pelo-que-ela-diz
+
+? [media] Em um estudo cuja diferença absoluta não é estatisticamente significativa, o que acontece com o intervalo do número necessário para tratar?
++ Ele passa pelo infinito, e deixa de fazer sentido apresentá-lo. | Correto. Se o intervalo da diferença cruza o zero, invertê-lo faz o NNT saltar para o infinito e reaparecer do outro lado, como número necessário para causar dano. Apresentá-lo nessa situação confunde mais do que informa.
+- Ele fica muito estreito, porque a diferença é pequena. | É o oposto: quanto mais próximo de zero o denominador, mais largo e instável fica o NNT.
+- Ele se torna negativo em toda a extensão. | Só a parte além do zero corresponde a dano. O intervalo não vira negativo por inteiro; ele se parte.
+- Ele permanece válido, bastando arredondar os extremos. | Arredondar não conserta uma descontinuidade. O problema é estrutural, e não de apresentação.
+- Nada muda, porque o NNT independe do intervalo da diferença. | O NNT é uma transformação direta da diferença absoluta, e seu intervalo sai da inversão dos extremos dela.
+@ cap-9-ler-cada-medida-pelo-que-ela-diz
+
+? [media] Cada intervalo de proporção deste estudo tem cerca de dezoito pontos percentuais de largura. O que essa largura representa?
++ A ignorância que restou depois de estudar noventa e dois pacientes por grupo. | Correto. A largura é a resposta honesta à pergunta "quanto eu sei?". Dezoito pontos é muito, e é o preço do tamanho escolhido no Capítulo 6.
+- A variação da cicatrização entre os pacientes do estudo. | Variação entre pacientes se descreve com desvio padrão e quartis. O intervalo descreve incerteza sobre a estimativa.
+- A margem de erro da aferição da área da úlcera. | Erro de aferição é outro assunto, tratado na concordância entre observadores. O intervalo aqui vem do tamanho da amostra, e não do instrumento.
+- A diferença entre os dois grupos do estudo. | A diferença entre os grupos é 17,4 pontos percentuais, e tem intervalo próprio, de 3,6 a 31,2.
+- A probabilidade de o estudo estar errado. | Nenhuma largura de intervalo mede probabilidade de erro do estudo. Vieses de seleção e de aferição não entram nessa conta.
+@ cap-9-a-largura-importa-mais-que-os-extremos
+
+? [media] Em um desfecho de segurança com 2 eventos em 100 participantes, o método de Wald produz limite inferior negativo. Por quê?
++ Porque Wald trata a proporção como simétrica em torno da estimativa, e perto de zero essa simetria leva a valores impossíveis. | Correto. É a falha do método justamente nas situações em que ele mais seria necessário: eventos raros e amostras pequenas. Wilson não ultrapassa os limites lógicos de zero e um, e é o que este livro usa.
+- Porque duas observações são poucas para calcular qualquer intervalo. | Há métodos que funcionam com contagens pequenas, e Wilson é um deles. O problema é do método de Wald, e não da existência de intervalo.
+- Porque o cálculo exige correção de continuidade. | A correção de continuidade atenua o problema em alguns casos e não é o que resolve a violação do limite lógico.
+- Porque o desfecho de segurança precisa de nível de confiança de 99%. | Ampliar o nível de confiança alarga o intervalo e agrava a ultrapassagem, em vez de corrigi-la.
+- Porque o denominador deveria ser o total dos dois grupos. | O intervalo é da proporção dentro de um grupo, e o denominador correto é o daquele grupo.
+@ cap-9-o-que-o-intervalo-de-confianca-diz
+
+? [media] O d de Cohen da redução de área em quatro semanas foi 0,34. O que exatamente esse número expressa?
++ Que a diferença entre as médias equivale a cerca de um terço de um desvio padrão daquela variável. | Correto. É uma diferença expressa em unidades de dispersão, e serve para comparar resultados de áreas diferentes. As convenções de 0,2, 0,5 e 0,8 são úteis para isso e péssimas para decidir conduta clínica, porque não sabem nada sobre a doença.
+- Que 34% dos pacientes tiveram redução maior no grupo tratado. | O d não é proporção de pacientes. A comparação de proporções seria outra análise, com outro desfecho.
+- Que a redução média foi 34% maior no grupo tratado. | A diferença observada foi de 14,8 pontos percentuais entre médias de 45,4% e 30,6%. O d é uma padronização dessa diferença, e não uma razão entre elas.
+- Que o efeito tem 34% de probabilidade de ser real. | Nenhuma medida de tamanho de efeito exprime probabilidade de o efeito existir. Essa pergunta é do Capítulo 10, e nem lá se responde assim.
+- Que a variável precisa de 0,34 de correção antes da análise. | Não existe tal correção. O d é resultado da análise, e não um ajuste aplicado aos dados.
+@ cap-9-o-tamanho-de-efeito-de-uma-variavel-continua
+
+? [dificil] Dois intervalos de confiança de 95% de grupos distintos **não** se sobrepõem. O que se pode concluir?
++ Que a diferença em regra é estatisticamente significativa, embora a conclusão correta continue vindo do intervalo da diferença. | Correto. A relação é assimétrica, e é isso que quase todo leitor erra: não se sobrepor implica, em geral, significância; sobrepor-se não implica coisa alguma. Como o critério da não sobreposição é conservador, o hábito certo é sempre olhar o intervalo da diferença.
+- Que a diferença certamente não é significativa. | É a inversão do raciocínio. A não sobreposição aponta para diferença, e não contra ela.
+- Nada, exatamente como no caso da sobreposição. | Aqui há assimetria: a sobreposição é que não permite concluir. A não sobreposição é informativa, ainda que grosseira.
+- Que os dois grupos têm variabilidades diferentes. | Sobreposição, ou sua ausência, não informa sobre variabilidade dentro dos grupos.
+- Que a amostra foi suficiente para o desfecho estudado. | Suficiência se julga pela largura do intervalo da diferença e pela relevância clínica do que ele exclui, e não pela posição relativa de dois intervalos.
+@ cap-9-o-intervalo-do-que-interessa-a-diferenca
+
+? [dificil] O intervalo do risco relativo deste estudo vai de 1,05 a 1,67. Por que a ausência do zero nesse intervalo não é o que importa?
++ Porque em medidas de razão o valor de nenhum efeito é 1, e não 0: é a exclusão do 1 que indica diferença entre os grupos. | Correto. Diferença absoluta e razão vivem em escalas distintas, e cada uma tem seu valor nulo. Para a diferença de 17,4 pontos, o nulo é o zero; para o risco relativo e a razão de chances, é o um.
+- Porque o zero é impossível em qualquer intervalo de confiança. | O zero é perfeitamente possível, e aparece sempre que uma diferença absoluta não é significativa.
+- Porque o risco relativo não admite interpretação por intervalo. | Admite, e é assim que ele deve ser apresentado. O que muda é o valor de referência.
+- Porque o intervalo do risco relativo é calculado em escala logarítmica. | Ele de fato é construído em escala logarítmica, o que explica a assimetria dos limites, e não é isso que define qual valor representa ausência de efeito.
+- Porque só a diferença absoluta pode sustentar conclusão clínica. | A diferença absoluta é a mais útil na clínica, e as medidas de razão sustentam conclusão igualmente, desde que lidas na escala correta.
+@ cap-9-o-intervalo-do-que-interessa-a-diferenca
+
+? [dificil] Um pesquisador quer reduzir a largura do intervalo do seu desfecho primário a um terço da atual. Quantas vezes maior precisa ser a amostra?
++ Cerca de nove vezes, porque a precisão melhora com a raiz quadrada do tamanho da amostra. | Correto. Para dividir a largura por três é preciso multiplicar o tamanho por três ao quadrado. É a mesma relação que faz quadruplicar o estudo reduzir a largura pela metade, e é a razão de estudos pequenos raramente resolverem alguma coisa.
+- Três vezes maior, na mesma proporção da redução desejada. | Seria assim se a precisão melhorasse linearmente com o tamanho, e ela não melhora. Triplicar a amostra reduz a largura a cerca de 58% da atual, e não a um terço.
+- Seis vezes maior, o dobro da redução desejada. | Não há fator dois envolvido. A relação é quadrática, e não proporcional nem duplicada.
+- Vinte e sete vezes maior, pelo cubo da redução. | O expoente é dois, e não três. A raiz que governa a precisão é a quadrada.
+- Não é possível saber sem conhecer a proporção observada. | A proporção afeta a largura absoluta do intervalo, e não a relação entre tamanho de amostra e ganho de precisão, que vale em geral.
+@ cap-9-a-largura-importa-mais-que-os-extremos
+
+? [dificil] Um ensaio termina com diferença absoluta de 2,0 pontos percentuais e intervalo de menos 1,5 a mais 5,5. A menor diferença clinicamente relevante havia sido fixada em 10 pontos no protocolo. O que se conclui?
++ Que o estudo, apesar de não significativo, excluiu com boa precisão o efeito que interessava: o limite superior fica bem abaixo dos 10 pontos. | Correto. É a conclusão negativa útil, e ela só é possível porque a menor diferença relevante foi declarada antes. Dizer apenas "não houve diferença" desperdiçaria a informação mais valiosa do estudo.
+- Que o estudo foi inconclusivo por falta de poder. | Inconclusivo seria um intervalo largo, admitindo desde prejuízo até benefício relevante. Aqui o intervalo é estreito e responde à pergunta.
+- Que o tratamento tem efeito, porque a estimativa é positiva. | A estimativa é positiva e o intervalo cruza o zero: os dados são compatíveis com pequeno prejuízo. O que se sustenta é a exclusão de efeito relevante, e não a afirmação de efeito.
+- Que a menor diferença relevante foi mal escolhida e deve ser revista. | Revisar o limiar depois de ver o resultado é justamente o que o registro prévio impede. Ele foi fixado antes exatamente para permitir esta leitura.
+- Que é preciso repetir o estudo com amostra maior. | Um estudo maior estreitaria ainda mais um intervalo que já respondeu à pergunta clínica formulada.
+@ cap-9-o-intervalo-do-que-interessa-a-diferenca
 :::
 
 ## Exercícios
